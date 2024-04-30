@@ -1,16 +1,15 @@
 ﻿using System;
-namespace SIMRS_API.Models
-{
-	public class Dokter : User
-	{
-		public string nip { get; set; }
-		public Poli poli { get; set; }
+namespace SIMRS_API;
 
-        public Dokter(string nip, string nama, Poli poli, string tglLahir, string noHp, EnumJenisKelamin jnsKelamin, string alamat) : base(nama, tglLahir, noHp, jnsKelamin, alamat)
-        {
-            this.nip = nip;
-            this.poli = poli;
-        }
+public class Dokter : User
+{
+	public string nip { get; set; }
+	public Poli poli { get; set; }
+
+    public Dokter(string nip, string nama, Poli poli, string tglLahir, string noHp, EnumJenisKelamin jnsKelamin, string alamat) : base(nama, tglLahir, noHp, jnsKelamin, alamat)
+    {
+        this.nip = nip;
+        this.poli = poli;
     }
 }
 
