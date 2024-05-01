@@ -7,6 +7,7 @@ using System.Data;
 
 namespace SIMRS_API;
 
+[ApiController]
 [Route("api/[controller]")]
 public class PoliController : Controller
 {
