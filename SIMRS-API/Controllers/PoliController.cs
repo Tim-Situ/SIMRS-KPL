@@ -4,25 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using ReadJsonLib;
 
 namespace SIMRS_API;
+
 
 [ApiController]
 [Route("api/[controller]")]
 public class PoliController : Controller
 {
-
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    private static List<Poli> dataPoli = new List<Poli>()
-    {
-        new Poli("Gigi", "KU1.03.01"),
-        new Poli("THT", "TULT0309"),
-    };
+    private static ReadJsonLib<List<Poli>> mhs = new ReadJsonLib<List<Poli>>();
+    private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataPoli.json");
+    private static List<Poli> dataPoli = mhs.ReadJsonFromFile(jsonFilePath);
 
 
     [HttpGet]
-    public ActionResult<ApiResponse<Object>> Get()
+    public ActionResult<ApiResponse<List<Poli>>> Get()
     {
         response.message = "Data poli berhasil ditampilkan";
         response.data = dataPoli;

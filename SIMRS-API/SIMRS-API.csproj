@@ -22,4 +22,9 @@
     <Folder Include="Models\" />
     <Folder Include="Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReadJsonLib\ReadJsonLib\ReadJsonLib.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

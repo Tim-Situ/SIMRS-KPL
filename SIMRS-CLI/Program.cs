@@ -10,6 +10,6 @@ internal class Program
         Poli poli = Poli.ParuParu;
         Console.WriteLine("Poli yang dipilih: " + poli);
         JenisObat jenisObat = JenisObat.Pil;
-        Console.WriteLine("Jenis obat: " +  jenisObat);
+        Console.WriteLine("Jenis obat: " + jenisObat);
     }
 }

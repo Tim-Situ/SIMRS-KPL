@@ -10,5 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\ReadJsonLib\ReadJsonLib\ReadJsonLib.csproj" />
+    <ProjectReference Include="..\SIMRS-API\SIMRS-API.csproj" />
   </ItemGroup>
 </Project>
