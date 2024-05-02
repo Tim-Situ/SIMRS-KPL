@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMRS-CLI", "SIMRS-CLI\SIMR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMRS-API", "SIMRS-API\SIMRS-API.csproj", "{37A4E9E9-4117-41A0-B799-3CA0FC1025CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadJsonLib", "ReadJsonLib\ReadJsonLib\ReadJsonLib.csproj", "{EFC75E61-5DAA-4888-9826-439D0B3CCD63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{37A4E9E9-4117-41A0-B799-3CA0FC1025CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37A4E9E9-4117-41A0-B799-3CA0FC1025CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37A4E9E9-4117-41A0-B799-3CA0FC1025CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC75E61-5DAA-4888-9826-439D0B3CCD63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC75E61-5DAA-4888-9826-439D0B3CCD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC75E61-5DAA-4888-9826-439D0B3CCD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC75E61-5DAA-4888-9826-439D0B3CCD63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

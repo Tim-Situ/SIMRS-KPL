@@ -1,14 +1,12 @@
-﻿{
-  "dataPoli": [
-    {
-      "namaPoli": "Penyakit Dalam",
-      "name": "Mengatasi denyakit dalam seperti jantung dan lain-lain"
-    },
-    {
-      "code": "THT",
-      "name": "Lorem"
-    }
-  ]
+﻿[
+  {
+    "namaPoli": "Penyakit Dalam",
+    "ruang": "KU3.01.02"
+  },
+  {
+    "namaPoli": "THT",
+    "ruang": "TULT0701"
+  }
+]
 
-}
 
