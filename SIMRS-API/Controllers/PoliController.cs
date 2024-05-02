@@ -15,9 +15,9 @@ public class PoliController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    private static ReadJsonLib<List<Poli>> mhs = new ReadJsonLib<List<Poli>>();
+    private static ReadJsonLib<List<Poli>> libReadJson = new ReadJsonLib<List<Poli>>();
     private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataPoli.json");
-    private static List<Poli> dataPoli = mhs.ReadJsonFromFile(jsonFilePath);
+    private static List<Poli> dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
 
 
     [HttpGet]
