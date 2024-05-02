@@ -17,12 +17,12 @@ public class PoliController : Controller
 
     private static ReadJsonLib<List<Poli>> libReadJson = new ReadJsonLib<List<Poli>>();
     private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataPoli.json");
-    private static List<Poli> dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
-
+    private static List<Poli> dataPoli;
 
     [HttpGet]
     public ActionResult<ApiResponse<List<Poli>>> Get()
     {
+        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
         response.message = "Data poli berhasil ditampilkan";
         response.data = dataPoli;
 
@@ -30,8 +30,10 @@ public class PoliController : Controller
     }
 
     [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Object>> Get(int id)
+    public ActionResult<ApiResponse<Poli>> Get(int id)
     {
+        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+
         if (id >= dataPoli.Count || id < 0)
         {
             response.success = false;
@@ -48,7 +50,7 @@ public class PoliController : Controller
     }
 
     [HttpPost]
-    public ActionResult<ApiResponse<Object>> Post([FromBody] Poli value)
+    public ActionResult<ApiResponse<Poli>> Post([FromBody] Poli value)
     {
         dataPoli.Add(value);
         response.message = "Data poli berhasil ditambahkan";
@@ -58,8 +60,10 @@ public class PoliController : Controller
     }
 
     [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Object>> Put(int id, [FromBody] Poli value)
+    public ActionResult<ApiResponse<Poli>> Put(int id, [FromBody] Poli value)
     {
+        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+
         if (id >= dataPoli.Count || id < 0)
         {
             response.success = false;
@@ -79,6 +83,8 @@ public class PoliController : Controller
     [HttpDelete("{id}")]
     public ActionResult<ApiResponse<Object>> Delete(int id)
     {
+        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+
         if (id >= dataPoli.Count || id < 0)
         {
             response.success = false;

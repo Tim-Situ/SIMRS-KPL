@@ -14,16 +14,17 @@ public class PemeriksaanController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    public static List<Obat> obatPasien = new List<Obat>()
-    {
-        ObatController.dataObat[1]
-    };
+    //public static List<Obat> obatPasien = new List<Obat>()
+    //{
+    //    ObatController.dataObat[1]
+    //};
 
-    private static List<Pemeriksaan> dataPemeriksaan = new List<Pemeriksaan>()
-    {
-        new Pemeriksaan("PRS01", PasienController.dataPasien[0], DokterController.dataDokter[0], "29-04-2024", 200, 60, 12, "Pusing", "Kebanyakan Tubes", obatPasien),
-        new Pemeriksaan("PRS02", PasienController.dataPasien[0], DokterController.dataDokter[0], "30-04-2024", 200, 60, 12, "Sakit Gigi", "Gigi Berlubang", obatPasien)
-    };
+    private static List<Pemeriksaan> dataPemeriksaan;
+    //    = new List<Pemeriksaan>()s
+    //{
+    //    new Pemeriksaan("PRS01", PasienController.dataPasien[0], DokterController.dataDokter[0], "29-04-2024", 200, 60, 12, "Pusing", "Kebanyakan Tubes", obatPasien),
+    //    new Pemeriksaan("PRS02", PasienController.dataPasien[0], DokterController.dataDokter[0], "30-04-2024", 200, 60, 12, "Sakit Gigi", "Gigi Berlubang", obatPasien)
+    //};
 
 
     [HttpGet]

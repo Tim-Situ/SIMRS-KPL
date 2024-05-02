@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ReadJsonLib;
 
 namespace SIMRS_API;
 
@@ -12,16 +13,15 @@ public class DokterController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    public static List<Dokter> dataDokter = new List<Dokter>()
-    {
-        new Dokter("12345", "Dr. Felix", new Poli("Gigi", "KU1.03.01"), "07-11-1876", "08964586868", SIMRS_API.User.EnumJenisKelamin.PRIA, "Bandung"),
-        new Dokter("54321", "Dr. Ayu", new Poli("THT", "TULT0309"), "01-08-1876", "08473758", SIMRS_API.User.EnumJenisKelamin.WANITA, "Jakarta")
-    };
+    private static ReadJsonLib<List<Dokter>> libReadJson = new ReadJsonLib<List<Dokter>>();
+    private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataDokter.json");
+    private static List<Dokter> dataDokter;
 
 
     [HttpGet]
-    public ActionResult<ApiResponse<Object>> Get()
+    public ActionResult<ApiResponse<List<Dokter>>> Get()
     {
+        dataDokter = libReadJson.ReadJsonFromFile(jsonFilePath);
         response.message = "Data dokter berhasil ditampilkan";
         response.data = dataDokter;
 
@@ -29,8 +29,9 @@ public class DokterController : Controller
     }
 
     [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Object>> Get(int id)
+    public ActionResult<ApiResponse<Dokter>> Get(int id)
     {
+        dataDokter = libReadJson.ReadJsonFromFile(jsonFilePath);
         if (id >= dataDokter.Count || id < 0)
         {
             response.success = false;
@@ -46,7 +47,7 @@ public class DokterController : Controller
     }
 
     [HttpPost]
-    public ActionResult<ApiResponse<Object>> Post([FromBody] Dokter value)
+    public ActionResult<ApiResponse<Dokter>> Post([FromBody] Dokter value)
     {
         dataDokter.Add(value);
         response.message = "Data dokter berhasil ditambahkan";
@@ -56,8 +57,9 @@ public class DokterController : Controller
     }
 
     [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Object>> Put(int id, [FromBody] Dokter value)
+    public ActionResult<ApiResponse<Dokter>> Put(int id, [FromBody] Dokter value)
     {
+        dataDokter = libReadJson.ReadJsonFromFile(jsonFilePath);
         if (id >= dataDokter.Count || id < 0)
         {
             response.success = false;
@@ -76,6 +78,7 @@ public class DokterController : Controller
     [HttpDelete("{id}")]
     public ActionResult<ApiResponse<Object>> Delete(int id)
     {
+        dataDokter = libReadJson.ReadJsonFromFile(jsonFilePath);
         if (id >= dataDokter.Count || id < 0)
         {
             response.success = false;
