@@ -2,8 +2,11 @@
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
+        // Tes implementasi API
+        await ApiClient.RunAsync();
+
         // Tes Implementasi Automata
         StatusPasien status_pasien = new StatusPasien();
         Console.WriteLine("Status Pasien : " + status_pasien.currentState);
