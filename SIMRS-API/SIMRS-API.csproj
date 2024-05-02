@@ -27,4 +27,8 @@
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Data\DataDokter.json" />
+    <Content Remove="Data\DataObat.json" />
+  </ItemGroup>
 </Project>
