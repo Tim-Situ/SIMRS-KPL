@@ -13,14 +13,21 @@ public static class JsonUtils<T>
         return data;
     }
 
-    public static void WriteJsonFile(T config, String filepath)
+    public static void WriteJsonFile(T data, String filepath)
     {
         // menggunakan serializer bawaan c#
         JsonSerializerOptions options = new JsonSerializerOptions()
         {
             WriteIndented = true,
         };
-        String jsonString = JsonSerializer.Serialize(config, options);
+        String jsonString = JsonSerializer.Serialize(data, options);
+        // serialize object menjadi file json
+        File.WriteAllText(filepath, jsonString);
+    }
+
+    public static void UpdateJsonFile(T data, String filepath)
+    {
+        String jsonString = JsonSerializer.Serialize(data);
         // serialize object menjadi file json
         File.WriteAllText(filepath, jsonString);
     }
@@ -30,5 +37,6 @@ public static class JsonUtils<T>
 EXAMPLE TO USE:
 
 1. JsonUtils<T>.ReadJsonFromFile(filepath);
-2. JsonUtils<T>.WriteJsonFile(config, filepath);
+2. JsonUtils<T>.WriteJsonFile(data, filepath);
+3. JsonUtils<T>.WriteJsonFile(data, filepath);
 */
