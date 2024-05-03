@@ -1,4 +1,7 @@
-﻿using SIMRS_CLI;
+﻿using System.Collections.Generic;
+using SIMRS_API;
+using SIMRS_CLI;
+using SIMRS_CLI.ClientSideApi;
 using SIMRS_CLI.Config;
 using SIMRS_CLI.Models;
 using SIMRS_LIB;
@@ -7,8 +10,8 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        // Tes implementasi API
-        //await ApiClient.RunAsync();
+        Menu menu = new Menu();
+        menu.MenuUtama();
 
         // Tes Implementasi Automata
         //StatusPasien status_pasien = new StatusPasien();
