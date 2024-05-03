@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using ReadJsonLib;
+using SIMRS_LIB;
 
 namespace SIMRS_API;
 
@@ -15,14 +15,15 @@ public class PoliController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    private static ReadJsonLib<List<Poli>> libReadJson = new ReadJsonLib<List<Poli>>();
+    //private static ReadJsonLib<List<Poli>> libReadJson = new ReadJsonLib<List<Poli>>();
     private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataPoli.json");
     private static List<Poli> dataPoli;
 
     [HttpGet]
     public ActionResult<ApiResponse<List<Poli>>> Get()
     {
-        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+        //dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data poli berhasil ditampilkan";
         response.data = dataPoli;
 
@@ -32,7 +33,7 @@ public class PoliController : Controller
     [HttpGet("{id}")]
     public ActionResult<ApiResponse<Poli>> Get(int id)
     {
-        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
         if (id >= dataPoli.Count || id < 0)
         {
@@ -45,7 +46,7 @@ public class PoliController : Controller
 
         response.message = "Data poli ditemukan";
         response.data = dataPoli[id];
-       
+
         return Ok(response);
     }
 
@@ -62,7 +63,7 @@ public class PoliController : Controller
     [HttpPut("{id}")]
     public ActionResult<ApiResponse<Poli>> Put(int id, [FromBody] Poli value)
     {
-        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
         if (id >= dataPoli.Count || id < 0)
         {
@@ -83,7 +84,7 @@ public class PoliController : Controller
     [HttpDelete("{id}")]
     public ActionResult<ApiResponse<Object>> Delete(int id)
     {
-        dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
         if (id >= dataPoli.Count || id < 0)
         {
@@ -97,7 +98,7 @@ public class PoliController : Controller
         dataPoli.RemoveAt(id);
         response.message = "Data poli berhasil dihapus";
 
-        return Ok(response);  
+        return Ok(response);
     }
 }
 

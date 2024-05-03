@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ReadJsonLib;
+using SIMRS_LIB;
 
 namespace SIMRS_API;
 
@@ -13,7 +13,7 @@ public class ObatController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    private static ReadJsonLib<List<Obat>> libReadJson = new ReadJsonLib<List<Obat>>();
+    //private static ReadJsonLib<List<Obat>> libReadJson = new ReadJsonLib<List<Obat>>();
     private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataObat.json");
     private static List<Obat> dataObat;
 
@@ -21,7 +21,8 @@ public class ObatController : Controller
     [HttpGet]
     public ActionResult<ApiResponse<List<Obat>>> Get()
     {
-        dataObat = libReadJson.ReadJsonFromFile(jsonFilePath);
+        //dataObat = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data obat berhasil ditampilkan";
         response.data = dataObat;
 
@@ -31,7 +32,7 @@ public class ObatController : Controller
     [HttpGet("{id}")]
     public ActionResult<ApiResponse<Obat>> Get(int id)
     {
-        dataObat = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataObat.Count || id < 0)
         {
             response.success = false;
@@ -59,7 +60,7 @@ public class ObatController : Controller
     [HttpPut("{id}")]
     public ActionResult<ApiResponse<Obat>> Put(int id, [FromBody] Obat value)
     {
-        dataObat = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataObat.Count || id < 0)
         {
             response.success = false;
@@ -78,7 +79,7 @@ public class ObatController : Controller
     [HttpDelete("{id}")]
     public ActionResult<ApiResponse<Object>> Delete(int id)
     {
-        dataObat = libReadJson.ReadJsonFromFile(jsonFilePath);
+        dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataObat.Count || id < 0)
         {
             response.success = false;

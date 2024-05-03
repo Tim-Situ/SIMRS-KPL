@@ -2,6 +2,9 @@
 using SIMRS_API;
 using SIMRS_CLI;
 using SIMRS_CLI.ClientSideApi;
+using SIMRS_CLI.Config;
+using SIMRS_CLI.Models;
+using SIMRS_LIB;
 
 internal class Program
 {
@@ -20,5 +23,12 @@ internal class Program
         //status_pasien.ActivateTrigger(Trigger.TRANSAKSI);
         //status_pasien.ActivateTrigger(Trigger.SELESAI_TRANSAKSI);
 
+        // tes implementasi runtime
+        ReadWriteUtils<BankTransferConfig> ReadWriteBankTransfer =
+            new ReadWriteUtils<BankTransferConfig>(
+                DefaultConfig.BankTransferDefault(),
+                "../../../Json/BankTransferConfig.json"
+                );
+        Console.WriteLine(ReadWriteBankTransfer.config.methods[3]);
     }
 }
