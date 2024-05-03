@@ -7,6 +7,7 @@ using Humanizer;
 using Microsoft.AspNetCore.Components.Forms;
 using SIMRS_API;
 using SIMRS_CLI.ClientSideApi;
+using SIMRS_LIB;
 
 namespace SIMRS_CLI
 {
@@ -21,23 +22,19 @@ namespace SIMRS_CLI
                 );
         }
 
-        public async Task callGetApi()
+        public async Task<List<Pasien>> callGetApi()
         {
-            List<Pasien> dataPasien = await ApiClient<List<Pasien>>.ClientGetData("Pasien");
-            foreach (var item in dataPasien)
-            {
-                await Console.Out.WriteLineAsync(item.nama);
-            }
+            return await ApiClient<List<Pasien>>.ClientGetData("Pasien");
         }
 
-        public async void MenuUtama()
+        public void MenuUtama()
         {
             int pilihan = -1;
             while (pilihan != 0)
             {
                 headerMenu();
 
-                await Console.Out.WriteLineAsync(
+                Console.WriteLine(
                     "========= Menu Aplikasi =========" +
                     "\n[1] Pemeriksaan" +
                     "\n[2] Pembayaran" +
@@ -84,19 +81,37 @@ namespace SIMRS_CLI
             }
         }
 
-        public async void MenuPasien()
+        public void MenuPasien()
         {
-           int pilihan = -1;
+            int pilihan = -1;
             while (pilihan != 0)
             {
                 headerMenu();
 
-                await Console.Out.WriteLineAsync(
-                    "======== Halaman Pasien =========" +
-                    "\n[1] Data Pasein" +
-                    "\n[2] Tambah Data Pasien" +
-                    "\n[3] Edit Data Pasien" +
-                    "\n[4] Hapus Data Pasien" +
+                Console.WriteLine("======== Halaman Pasien =========");
+
+                List<String> kolom = new List<string>
+                {
+                    "Nama",
+                    "Tanggal Lahir",
+                    "No Hp",
+                    "Jenis Kelamin",
+                    "Alamat"
+                };
+
+                TableUtils tblPasien = new TableUtils(kolom);
+                List<Pasien> dataPasien = callGetApi().Result;
+                foreach (Pasien pasien in dataPasien)
+                {
+                    tblPasien.addData(new List<string> { pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
+                }
+
+                tblPasien.showData();
+
+                Console.WriteLine(
+                    "[1] Tambah Data Pasien" +
+                    "\n[2] Edit Data Pasien" +
+                    "\n[3] Hapus Data Pasien" +
                     "\n[0] Kembali" +
                     "\n\nInputkan Pilihan Menu: "
                     );
@@ -107,8 +122,7 @@ namespace SIMRS_CLI
                 switch (pilihan)
                 {
                     case 1:
-                        var task = callGetApi();
-                        task.Wait();
+                        
                         break;
                     case 2:
                         Console.WriteLine("Tambah Data Pasien");
