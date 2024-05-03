@@ -6,7 +6,7 @@ namespace SIMRS_LIB
     {
         public T config;
 
-        public ReadWriteUtils(T defautConfig, string filepath)
+        public ReadWriteUtils(T defaultConfig, string filepath)
         {
             try
             {
@@ -14,8 +14,8 @@ namespace SIMRS_LIB
             }
             catch (Exception)
             {
-                config = defautConfig;
-                JsonUtils<T>.WriteJsonFile(defautConfig, filepath);
+                config = defaultConfig;
+                JsonUtils<T>.WriteJsonFile(defaultConfig, filepath);
             }
         }
     }
