@@ -13,7 +13,6 @@ public class DokterController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    //private static ReadJsonLib<List<Dokter>> libReadJson = new ReadJsonLib<List<Dokter>>();
     private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataDokter.json");
     private static List<Dokter> dataDokter;
 
@@ -51,7 +50,10 @@ public class DokterController : Controller
     [HttpPost]
     public ActionResult<ApiResponse<Dokter>> Post([FromBody] Dokter value)
     {
+        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
         dataDokter.Add(value);
+        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+
         response.message = "Data dokter berhasil ditambahkan";
         response.data = dataDokter.Last();
 
