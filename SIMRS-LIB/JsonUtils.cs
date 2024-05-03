@@ -25,7 +25,7 @@ public static class JsonUtils<T>
         File.WriteAllText(filepath, jsonString);
     }
 
-    public static void UpdateJsonFiles(T data, String filepath)
+    public static void UpdateJsonFile(T data, String filepath)
     {
         String jsonString = JsonSerializer.Serialize(data);
         // serialize object menjadi file json
