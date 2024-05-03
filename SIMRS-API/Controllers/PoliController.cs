@@ -45,7 +45,7 @@ public class PoliController : Controller
 
         response.message = "Data poli ditemukan";
         response.data = dataPoli[id];
-       
+
         return Ok(response);
     }
 
@@ -97,7 +97,7 @@ public class PoliController : Controller
         dataPoli.RemoveAt(id);
         response.message = "Data poli berhasil dihapus";
 
-        return Ok(response);  
+        return Ok(response);
     }
 }
 
