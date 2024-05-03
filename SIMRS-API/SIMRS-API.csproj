@@ -23,9 +23,6 @@
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReadJsonLib\ReadJsonLib\ReadJsonLib.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
     <ProjectReference Include="..\SIMRS-LIB\SIMRS-LIB.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

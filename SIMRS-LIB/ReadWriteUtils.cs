@@ -1,12 +1,12 @@
-﻿using System.Text.Json;
+﻿using SIMRS_LIB;
 
 namespace SIMRS_LIB
 {
-    public class ReadWriteConfig<T>
+    public class ReadWriteUtils<T>
     {
         public T config;
 
-        public ReadWriteConfig(T defautConfig, string filepath)
+        public ReadWriteUtils(T defautConfig, string filepath)
         {
             try
             {
@@ -21,3 +21,13 @@ namespace SIMRS_LIB
     }
 }
 
+/*
+EXAMPLE TO USE:
+
+ReadWriteUtils<T> ReadWrite =
+    new ReadWriteUtils<T>(
+        DdefautConfig,
+        filepath
+        );
+Console.WriteLine(ReadWrite.config.var1);
+*/

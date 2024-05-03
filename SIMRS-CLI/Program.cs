@@ -21,11 +21,11 @@ internal class Program
         //status_pasien.ActivateTrigger(Trigger.SELESAI_TRANSAKSI);
 
         // tes implementasi runtime
-        ReadWriteConfig<BankTransferConfig> ReadWriteBankTransfer =
-            new ReadWriteConfig<BankTransferConfig>(
+        ReadWriteUtils<BankTransferConfig> ReadWriteBankTransfer =
+            new ReadWriteUtils<BankTransferConfig>(
                 DefaultConfig.BankTransferDefault(),
                 "../../../Json/BankTransferConfig.json"
                 );
-        Console.WriteLine(ReadWriteBankTransfer.config.methods[1]);
+        Console.WriteLine(ReadWriteBankTransfer.config.methods[3]);
     }
 }

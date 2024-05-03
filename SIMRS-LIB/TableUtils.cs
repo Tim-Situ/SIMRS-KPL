@@ -1,14 +1,11 @@
-﻿using System;
-using System.Reflection;
+﻿namespace SIMRS_LIB;
 
-namespace ReadJsonLib;
-
-public class TableLib
+public class TableUtils
 {
     public List<string> kolom { get; set; }
     public List<List<string>> data = new List<List<string>>();
 
-    public TableLib(List<string> kolom)
+    public TableUtils(List<string> kolom)
     {
         this.kolom = kolom;
     }
@@ -41,10 +38,10 @@ public class TableLib
             }
         }
 
-        for(int i = 0; i < lebarMax.Count; i++)
+        for (int i = 0; i < lebarMax.Count; i++)
         {
             batas += "+";
-            for(int j = 0; j < lebarMax[i]+2; j++)
+            for (int j = 0; j < lebarMax[i] + 2; j++)
             {
                 batas += "-";
             }
@@ -55,7 +52,7 @@ public class TableLib
 
         for (int i = 0; i < lebarMax.Count; i++)
         {
-            Console.Write($"| {kolom[i].PadRight(lebarMax[i]+1)}");
+            Console.Write($"| {kolom[i].PadRight(lebarMax[i] + 1)}");
         }
         Console.WriteLine(" |");
         Console.WriteLine(batas);
@@ -64,7 +61,7 @@ public class TableLib
         {
             for (int i = 0; i < row.Count; i++)
             {
-                Console.Write($"| {row[i].PadRight(lebarMax[i]+1)}");
+                Console.Write($"| {row[i].PadRight(lebarMax[i] + 1)}");
             }
             Console.WriteLine(" |");
             Console.WriteLine(batas);
@@ -75,24 +72,26 @@ public class TableLib
 }
 
 
-// Cara Pakai =====
-//List<String> kolom = new List<string>
-//{
-//    "Nama",
-//    "Tanggal Lahir",
-//    "No Hp",
-//    "Jenis Kelamin",
-//    "Alamat",
-//    "NIP",
-//    "Poli"
-//};
+/* Cara Pakai
+ 
+List<String> kolom = new List<string>
+{
+    "Nama",
+    "Tanggal Lahir",
+    "No Hp",
+    "Jenis Kelamin",
+    "Alamat",
+    "NIP",
+    "Poli"
+};
 
-//TableLib tblDokter = new TableLib(kolom);
+TableUtils tblDokter = new TableUtils(kolom);
 
-//foreach(Dokter dokter in dataDokter)
-//{
-//    tblDokter.addData(new List<string> {dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat, dokter.nip, dokter.poli.namaPoli });
-//}
+foreach(Dokter dokter in dataDokter)
+{
+    tblDokter.addData(new List<string> {dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat, dokter.nip, dokter.poli.namaPoli });
+}
 
-//tblDokter.showData();
+tblDokter.showData();
 
+*/

@@ -16,3 +16,11 @@ namespace SIMRS_CLI.Config
     }
 }
 
+
+/*
+EXAMPLE TO USE:
+
+DefaultConfig.ValueDefault()
+
+You can use this variabel on ReadWriteUtils argument.
+*/

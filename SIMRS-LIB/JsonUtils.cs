@@ -29,6 +29,6 @@ public static class JsonUtils<T>
 /*
 EXAMPLE TO USE:
 
-1. JsonUtils.ReadJsonFromFile(filepath);
-2. JsonUtils.WriteJsonFile(config, filepath);
+1. JsonUtils<T>.ReadJsonFromFile(filepath);
+2. JsonUtils<T>.WriteJsonFile(config, filepath);
 */
