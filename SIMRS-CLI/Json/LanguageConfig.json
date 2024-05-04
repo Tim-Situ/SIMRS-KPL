@@ -1,0 +1,29 @@
+{
+  "lang": "id",
+  "appEn": {
+    "apptitle": "======= Application Menu =======",
+    "appmenu": [
+      "Medical Check",
+      "Payment",
+      "Patient",
+      "Doctor",
+      "Specialist",
+      "Drug"
+    ],
+    "appexit": "Exit",
+    "appselect": "Write option: "
+  },
+  "appId": {
+    "apptitle": "========= Menu Aplikasi =========",
+    "appmenu": [
+      "Pemeriksaan",
+      "Pembayaran",
+      "Pasien",
+      "Dokter",
+      "Spesialis",
+      "Obat"
+    ],
+    "appexit": "Keluar",
+    "appselect": "Ketik pilihan: "
+  }
+}

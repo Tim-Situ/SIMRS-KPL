@@ -7,6 +7,8 @@ using Humanizer;
 using Microsoft.AspNetCore.Components.Forms;
 using SIMRS_API;
 using SIMRS_CLI.ClientSideApi;
+using SIMRS_CLI.Config;
+using SIMRS_CLI.Models;
 using SIMRS_LIB;
 
 namespace SIMRS_CLI
@@ -29,25 +31,78 @@ namespace SIMRS_CLI
 
         public void MenuUtama()
         {
+            // MODUL BAHASA MUNGKIN NANTI KU PISAH BIAR GAK PANJANG
+            char langConfirm;
+            MenuLanguage getMenu;
+            Language defaultLang;
+
+            ReadWriteUtils<Language> ReadWriteLanguage =
+                new ReadWriteUtils<Language>(
+                    DefaultConfig.LanguageDefault(),
+                    "../../../Json/LanguageConfig.json"
+                    );
+
+            defaultLang = JsonUtils<Language>.ReadJsonFromFile("../../../Json/LanguageConfig.json");
+
+            if (defaultLang.lang == "id")
+            {
+                Console.WriteLine("Selamat datang, bahasa saat ini: Indonesia");
+                Console.Write("Ganti Bahasa? (y/n): ");
+            }
+            else
+            {
+                Console.WriteLine("Welcome, selected language: English");
+                Console.Write("Change Language? (y/n): ");
+            }
+            langConfirm = Convert.ToChar(Console.ReadLine());
+
+            if (langConfirm == 'y')
+            {
+                Console.WriteLine("yes ditakan: " + defaultLang.lang);
+                if (defaultLang.lang == "id")
+                {
+                    defaultLang.lang = "en";
+                    Console.WriteLine("id->en: " + defaultLang.lang);
+                }
+                else
+                {
+                    defaultLang.lang = "id";
+                    Console.WriteLine("en->id: " + defaultLang.lang);
+                }
+                JsonUtils<Language>.WriteJsonFile(defaultLang, "../../../Json/LanguageConfig.json");
+                defaultLang = JsonUtils<Language>.ReadJsonFromFile("../../../Json/LanguageConfig.json");
+            }
+
+            Console.WriteLine("bahasa sekarang" + defaultLang.lang);
+            if (defaultLang.lang == "id")
+            {
+                getMenu = defaultLang.appId;
+                Console.WriteLine(getMenu.apptitle);
+            }
+            else
+            {
+                getMenu = defaultLang.appEn;
+                Console.WriteLine(getMenu.apptitle);
+            }
+            // END MODUL BAHASA
+
             int pilihan = -1;
             while (pilihan != 0)
             {
                 headerMenu();
 
-                Console.WriteLine(
-                    "========= Menu Aplikasi =========" +
-                    "\n[1] Pemeriksaan" +
-                    "\n[2] Pembayaran" +
-                    "\n[3] Pasien" +
-                    "\n[4] Dokter" +
-                    "\n[5] Spesialis" +
-                    "\n[6] Obat" +
-                    "\n[0] Exit" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
+                // UJI COBA MULTI ABHASA
+                Console.WriteLine(getMenu.apptitle);
+                for (int i = 0; i < getMenu.appmenu.Count; i++)
+                {
+                    Console.WriteLine($"[{i + 1}] {getMenu.appmenu[i]}");
+                }
+                Console.WriteLine($"[0] {getMenu.appexit}");
+                Console.WriteLine($"\n\n{getMenu.appselect}");
 
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
+                // END UJI COBA
 
                 switch (pilihan)
                 {
@@ -122,7 +177,7 @@ namespace SIMRS_CLI
                 switch (pilihan)
                 {
                     case 1:
-                        
+
                         break;
                     case 2:
                         Console.WriteLine("Tambah Data Pasien");

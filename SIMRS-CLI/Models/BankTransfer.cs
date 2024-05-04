@@ -29,16 +29,16 @@ namespace SIMRS_CLI.Models
         }
     }
 
-    public class BankTransferConfig
+    public class BankTransfer
     {
         public string lang { get; set; }
         public Transfer transfer { get; set; }
         public List<string> methods { get; set; }
         public Confirmation confirmation { get; set; }
 
-        public BankTransferConfig() { }
+        public BankTransfer() { }
 
-        public BankTransferConfig(string lang, Transfer transfer, List<string> methods, Confirmation confirmation)
+        public BankTransfer(string lang, Transfer transfer, List<string> methods, Confirmation confirmation)
         {
             this.lang = lang;
             this.transfer = transfer;
