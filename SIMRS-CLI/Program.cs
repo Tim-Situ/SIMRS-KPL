@@ -24,11 +24,25 @@ internal class Program
         //status_pasien.ActivateTrigger(Trigger.SELESAI_TRANSAKSI);
 
         // tes implementasi runtime
-        ReadWriteUtils<BankTransferConfig> ReadWriteBankTransfer =
-            new ReadWriteUtils<BankTransferConfig>(
+        ReadWriteUtils<BankTransfer> ReadWriteBankTransfer =
+            new ReadWriteUtils<BankTransfer>(
                 DefaultConfig.BankTransferDefault(),
                 "../../../Json/BankTransferConfig.json"
                 );
-        Console.WriteLine(ReadWriteBankTransfer.config.methods[3]);
+        //Console.WriteLine(ReadWriteBankTransfer.config.methods[3]);
+
+        //BankTransfer data = DefaultConfig.BankTransferDefault();
+        //JsonUtils<BankTransfer>.WriteJsonFile(data, "../../../Json/tesperubahan.json");
+        //BankTransfer sebelum = JsonUtils<BankTransfer>.ReadJsonFromFile("../../../Json/tesperubahan.json");
+        //Console.WriteLine(sebelum.lang);
+        //data.lang = "id";
+        //JsonUtils<BankTransfer>.WriteJsonFile(data, "../../../Json/tesperubahan.json");
+        //BankTransfer sesudah = JsonUtils<BankTransfer>.ReadJsonFromFile("../../../Json/tesperubahan.json");
+        //Console.WriteLine(sesudah.lang);
+        //data.lang = "ar";
+        //JsonUtils<BankTransfer>.WriteJsonFile(data, "../../../Json/tesperubahan.json");
+        //BankTransfer akhir = JsonUtils<BankTransfer>.ReadJsonFromFile("../../../Json/tesperubahan.json");
+        //Console.WriteLine(akhir.lang);
+
     }
 }
