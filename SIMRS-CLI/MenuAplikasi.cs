@@ -8,13 +8,14 @@ namespace SIMRS_CLI
     internal class Menu
     {
         PasienService pasien = new();
+        PoliService poli = new();
 
         private async void headerMenu()
         {
             await Console.Out.WriteLineAsync(
-                //"=================================\n" +
-                //"=== Sistem Rekam Medis Pasien ===\n" +
-                //"================================="
+                "=================================\n" +
+                "=== Sistem Rekam Medis Pasien ===\n" +
+                "================================="
                 );
         }        
 
@@ -74,9 +75,47 @@ namespace SIMRS_CLI
             }
         }
 
+        public void MenuPoli()
+        {
+            int pilihan = -1;
+            while (pilihan != 0)
+            {
+                headerMenu();
+
+                Console.WriteLine("=========== Data Poli ===========");
+
+                pasien.ShowAll();
+
+                Console.WriteLine(
+                    "[1] Tambah Data Poli" +
+                    "\n[2] Edit Data Poli" +
+                    "\n[3] Hapus Data Poli" +
+                    "\n[0] Kembali" +
+                    "\n\nInputkan Pilihan Menu: "
+                    );
+
+                pilihan = Convert.ToInt32(Console.ReadLine());
+
+                switch (pilihan)
+                {
+                    case 1:
+                        Console.Clear();
+                        headerMenu();
+                        poli.Create();
+                        break;
+                    case 2:
+                        poli.Update();
+                        break;
+                    case 3:
+                        poli.Delete();
+                        break;
+                };
+                Console.Clear();
+            }
+        }
+
         public void MenuPasien()
         {
-
             int pilihan = -1;
             while (pilihan != 0)
             {
@@ -110,8 +149,6 @@ namespace SIMRS_CLI
                         pasien.Delete();
                         break;
                 };
-                Console.Clear();
-
             }
         }
     }
