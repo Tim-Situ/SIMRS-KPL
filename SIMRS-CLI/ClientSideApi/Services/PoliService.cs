@@ -37,7 +37,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             tblPoli.clearData();
         }
 
-        public override void Create()
+        public override string Create()
         {
             Console.WriteLine("======= Tambah Data Poli ========");
 
@@ -48,9 +48,10 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             Poli Poli= new Poli(kode, namaPoli, ruang, biaya);
             api.ClientPostData(Poli, "Poli").GetAwaiter().GetResult();
+            return "abc";
         }
 
-        public override void Update()
+        public override string Update()
         {
             int kodePoli;
             Console.WriteLine("Masukan kode spesialis yang ingin diedit!");
@@ -69,9 +70,11 @@ namespace SIMRS_CLI.ClientSideApi.Services
             poli.biaya = biaya != 0 ? biaya : poli.biaya;
 
             api.ClientPutData(poli, $"Poli/{kodePoli}").GetAwaiter().GetResult();
+            return "abc";
+
         }
 
-        public override void Delete()
+        public override string Delete()
         {
             int kodePoli;
             Console.WriteLine("Masukan kode spesialis yang ingin dihapus!");
@@ -81,8 +84,9 @@ namespace SIMRS_CLI.ClientSideApi.Services
             if (Confirmation($"Apakah anda yakin ingin menghapus spesialis dengan kode {poli.kode}"))
             {
                 var statusCode = api.ClientDeleteData($"Poli/{kodePoli}").GetAwaiter().GetResult();
-                Console.WriteLine($"Deleting... (HTTP Status = {(int)statusCode})");
             }
+            return "abc";
+
         }
     }
 }
