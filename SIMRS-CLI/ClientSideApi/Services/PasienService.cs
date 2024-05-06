@@ -42,7 +42,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public void Create()
         {
             Console.WriteLine("====== Tambah Data Pasien =======");
-            
+
             Console.Write("Kode: ");
             string kode = Console.ReadLine();
 
@@ -51,6 +51,11 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             Console.Write("Tanggal lahir: ");
             string tglLahir = Console.ReadLine();
+            while (!DefensiveUtils.InputDateValidation(tglLahir))
+            {
+                Console.Write("Tanggal lahir: ");
+                tglLahir = Console.ReadLine();
+            };
 
             Console.Write("No HP: ");
             string noHp = Console.ReadLine();
