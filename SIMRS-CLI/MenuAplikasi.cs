@@ -7,6 +7,7 @@ namespace SIMRS_CLI
 {
     internal class Menu
     {
+        static string pesan = "";
         PasienService pasien = new();
         PoliService poli = new();
 
@@ -54,12 +55,14 @@ namespace SIMRS_CLI
                         break;
                     case 3:
                         MenuPasien();
+                        Console.Clear();
                         break;
                     case 4:
                         Console.WriteLine("Dokter");
                         break;
                     case 5:
-                        Console.WriteLine("Spesialis");
+                        MenuPoli();
+                        Console.Clear();
                         break;
                     case 6:
                         Console.WriteLine("Obat");
@@ -84,9 +87,9 @@ namespace SIMRS_CLI
 
                 Console.WriteLine("=========== Data Poli ===========");
 
-                pasien.ShowAll();
+                poli.ShowAll();
 
-                Console.WriteLine(
+                Console.Write(
                     "[1] Tambah Data Poli" +
                     "\n[2] Edit Data Poli" +
                     "\n[3] Hapus Data Poli" +
@@ -122,10 +125,14 @@ namespace SIMRS_CLI
                 headerMenu();
 
                 Console.WriteLine("========== Data Pasien ==========");
-
+                if (pesan != "")
+                {
+                    Console.WriteLine("\n" + pesan);
+                    pesan = "";
+                }
                 pasien.ShowAll();
 
-                Console.WriteLine(
+                Console.Write(
                     "[1] Tambah Data Pasien" +
                     "\n[2] Edit Data Pasien" +
                     "\n[3] Hapus Data Pasien" +
@@ -140,13 +147,14 @@ namespace SIMRS_CLI
                     case 1:
                         Console.Clear();
                         headerMenu();
-                        pasien.Create();
+                        pesan = pasien.Create();
+                        Console.Clear();
                         break;
                     case 2:
-                        pasien.Update();
+                        pesan = pasien.Update();
                         break;
                     case 3:
-                        pasien.Delete();
+                        pesan = pasien.Delete();
                         break;
                 };
             }
