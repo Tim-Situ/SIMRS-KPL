@@ -12,9 +12,9 @@ public class Pemeriksaan
 	public float tekananDarah { get; set; }
 	public string keluhan { get; set; }
 	public string diagnosa { get; set; }
-	public List<Obat> obat { get; set; }
+	public Obat obat { get; set; }
 
-    public Pemeriksaan(string kode, Pasien pasien, Dokter dokter, string tanggal, float tinggiBadan, float beratBadan, float tekananDarah, string keluhan, string diagnosa, List<Obat> obat)
+    public Pemeriksaan(string kode, Pasien pasien, Dokter dokter, string tanggal, float tinggiBadan, float beratBadan, float tekananDarah, string keluhan, string diagnosa, Obat obat)
     {
         this.kode = kode;
         this.pasien = pasien;
