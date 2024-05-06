@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using Microsoft.AspNetCore.Mvc;
+using SIMRS_LIB;
 
 namespace SIMRS_API;
 
@@ -14,16 +9,13 @@ public class PasienController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    public static List<Pasien> dataPasien = new List<Pasien>()
-    {
-        new Pasien("PSN01", "Fauzein Mulya Warman", "02-12-2003", "086377392", SIMRS_API.User.EnumJenisKelamin.PRIA, "Padang"),
-        new Pasien("PSN02", "Muhammad Haulul Azkiyaa", "11-11-1111", "085785823", SIMRS_API.User.EnumJenisKelamin.PRIA, "Bandung"),
-    };
-
+    private static string jsonFilePath = "Data/DataPasien.json";
+    private static List<Pasien> dataPasien;
 
     [HttpGet]
-    public ActionResult<ApiResponse<Object>> Get()
+    public ActionResult<ApiResponse<List<Pasien>>> Get()
     {
+        dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data pasien berhasil ditampilkan";
         response.data = dataPasien;
 
@@ -31,8 +23,9 @@ public class PasienController : Controller
     }
 
     [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Object>> Get(int id)
+    public ActionResult<ApiResponse<List<Pasien>>> Get(int id)
     {
+        dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataPasien.Count || id < 0)
         {
             response.success = false;
@@ -48,9 +41,11 @@ public class PasienController : Controller
     }
 
     [HttpPost]
-    public ActionResult<ApiResponse<Object>> Post([FromBody] Pasien value)
+    public ActionResult<ApiResponse<List<Pasien>>> Post([FromBody] Pasien value)
     {
+        dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
         dataPasien.Add(value);
+        JsonUtils<List<Pasien>>.WriteJsonFile(dataPasien, jsonFilePath);
         response.message = "Data pasien berhasil ditambahkan";
         response.data = dataPasien.Last();
 
@@ -60,6 +55,7 @@ public class PasienController : Controller
     [HttpPut("{id}")]
     public ActionResult<ApiResponse<Object>> Put(int id, [FromBody] Pasien value)
     {
+        dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataPasien.Count || id < 0)
         {
             response.success = false;
@@ -69,6 +65,7 @@ public class PasienController : Controller
         }
 
         dataPasien[id] = value;
+        JsonUtils<List<Pasien>>.WriteJsonFile(dataPasien, jsonFilePath);
         response.message = "Data pasien berhasil diubah";
         response.data = dataPasien[id];
 
@@ -78,6 +75,8 @@ public class PasienController : Controller
     [HttpDelete("{id}")]
     public ActionResult<ApiResponse<Object>> Delete(int id)
     {
+        dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
+
         if (id >= dataPasien.Count || id < 0)
         {
             response.success = false;
@@ -87,6 +86,7 @@ public class PasienController : Controller
         }
 
         dataPasien.RemoveAt(id);
+        JsonUtils<List<Pasien>>.WriteJsonFile(dataPasien, jsonFilePath);
         response.message = "Data pasien berhasil dihapus";
 
         return Ok(response);

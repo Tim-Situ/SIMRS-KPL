@@ -1,0 +1,18 @@
+[
+  {
+    "kode": "PSN01",
+    "nama": "Fauzein Mulya Warman",
+    "tglLahir": "02-12-2003",
+    "noHp": "08964586868",
+    "jnsKelamin": 0,
+    "alamat": "Padang"
+  },
+  {
+    "kode": "PSN02",
+    "nama": "Muhammad Nur Shodiq",
+    "tglLahir": "11-11-1111",
+    "noHp": "089645111111",
+    "jnsKelamin": 0,
+    "alamat": "Jakarta"
+  }
+]

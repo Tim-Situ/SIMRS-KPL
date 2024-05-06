@@ -1,14 +1,14 @@
-﻿[
+[
   {
     "kode": "OBT01",
-    "nama": "Obat Sakit Gigi",
-    "harga": 10000,
-    "jenis": 0
+    "nama": "Obat Tidur Buat Programmer",
+    "harga": 100000,
+    "jenis": 1
   },
   {
     "kode": "OBT02",
     "nama": "Obat Batuk",
     "harga": 15000,
-    "jenis": 1
+    "jenis": 0
   }
 ]
