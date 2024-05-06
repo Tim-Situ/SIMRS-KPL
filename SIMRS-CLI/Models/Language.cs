@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 namespace SIMRS_CLI.Models
 {
     public class MenuLanguage

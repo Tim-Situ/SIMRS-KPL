@@ -2,22 +2,23 @@
 using SIMRS_CLI.Models;
 using SIMRS_LIB;
 
-namespace SIMRS_CLI.Scripts
+namespace SIMRS_CLI.Content
 {
-    public static class LanguageScript
+    public static class LanguageContent
     {
         public static Language defaultLang { get; set; }
         public static MenuLanguage getMenu { get; set; }
+        public const string filepath = @"../../../Json/LanguageConfig.json";
 
         public static void initLanguage()
         {
             ReadWriteUtils<Language> ReadWriteLanguage =
                 new ReadWriteUtils<Language>(
                     DefaultConfig.LanguageDefault(),
-                    "../../../Json/LanguageConfig.json"
+                    filepath
                     );
 
-            defaultLang = JsonUtils<Language>.ReadJsonFromFile("../../../Json/LanguageConfig.json");
+            defaultLang = ReadWriteLanguage.config;
             setMenuLanguage();
         }
 
@@ -64,8 +65,8 @@ namespace SIMRS_CLI.Scripts
                 defaultLang.lang = "id";
             }
 
-            JsonUtils<Language>.WriteJsonFile(defaultLang, "../../../Json/LanguageConfig.json");
-            defaultLang = JsonUtils<Language>.ReadJsonFromFile("../../../Json/LanguageConfig.json");
+            JsonUtils<Language>.WriteJsonFile(defaultLang, filepath);
+            defaultLang = JsonUtils<Language>.ReadJsonFromFile(filepath);
 
             setMenuLanguage();
         }

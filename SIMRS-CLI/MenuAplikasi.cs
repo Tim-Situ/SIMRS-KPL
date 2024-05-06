@@ -1,7 +1,7 @@
 ﻿using SIMRS_API;
 using SIMRS_CLI.ClientSideApi;
 using SIMRS_CLI.Models;
-using SIMRS_CLI.Scripts;
+using SIMRS_CLI.Content;
 using SIMRS_LIB;
 
 namespace SIMRS_CLI
@@ -11,9 +11,9 @@ namespace SIMRS_CLI
         private async void headerMenu()
         {
             await Console.Out.WriteLineAsync(
-                "=================================\n" +
-                "=== Sistem Rekam Medis Pasien ===\n" +
-                "================================="
+                //"=================================\n" +
+                //"=== Sistem Rekam Medis Pasien ===\n" +
+                //"================================="
                 );
         }
 
@@ -29,9 +29,9 @@ namespace SIMRS_CLI
             {
                 headerMenu();
 
-                LanguageScript.initLanguage();
+                LanguageContent.initLanguage();
 
-                MenuLanguage menu = LanguageScript.getMenu;
+                MenuLanguage menu = LanguageContent.getMenu;
 
                 // UJI COBA MULTI ABHASA
                 Console.WriteLine(menu.apptitle);
@@ -69,7 +69,7 @@ namespace SIMRS_CLI
                         break;
 
                     case 88:
-                        LanguageScript.ConfirmLanguage();
+                        LanguageContent.ConfirmLanguage();
                         break;
 
                     case 99:
