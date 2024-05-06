@@ -12,7 +12,7 @@ namespace SIMRS_CLI.ClientSideApi
             BaseAddress = new Uri("http://localhost:5117/api/")
         };
 
-        public async Task<List<T>> ClientGetData(string path)
+        public async Task<ApiResponse<List<T>>> ClientGetData(string path)
         {
             ApiResponse<List<T>> listData = null;
             HttpResponseMessage response = await client.GetAsync(path);
@@ -20,10 +20,14 @@ namespace SIMRS_CLI.ClientSideApi
             {
                 listData = await response.Content.ReadAsAsync<ApiResponse<List<T>>>();
             }
-            return listData.data;
+            else
+            {
+                
+            }
+            return listData;
         }
 
-        public async Task<T> ClientGetOneData(string path)
+        public async Task<ApiResponse<T>> ClientGetOneData(string path)
         {
             ApiResponse<T> listData = null;
             HttpResponseMessage response = await client.GetAsync(path);
@@ -31,7 +35,7 @@ namespace SIMRS_CLI.ClientSideApi
             {
                 listData = await response.Content.ReadAsAsync<ApiResponse<T>>();
             }
-            return listData.data;
+            return listData;
         }
 
         public async Task ClientPostData<U>(U data, string path)
