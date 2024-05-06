@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SIMRS_API;
+using SIMRS_LIB;
 
 namespace SIMRS_CLI.ClientSideApi.Services
 {
     internal abstract class BaseService
     {
-        protected string PromptUser(string message)
+        public string PromptUser(string message)
         {
-            Console.Write(message);
+            Console.Write("\n" + message);
             return Console.ReadLine();
         }
 
-        protected bool Confirmation(string message)
+        public bool Confirmation(string message)
         {
-            Console.WriteLine(message);
-            Console.Write("Ketik Y untuk konfirmasi, huruf lain untuk membatalkan: ");
+            Console.Write(message + " [y/n]: ");
             string confirmation = Console.ReadLine().ToLower();
             return confirmation == "y";
         }
 
         public abstract void ShowAll();
         public abstract void ShowOne(string id);
-        public abstract void Create();
-        public abstract void Update();
-        public abstract void Delete();
+        public abstract string Create();
+        public abstract string Update();
+        public abstract string Delete();
 
     }
 }
