@@ -1,11 +1,11 @@
-﻿[
+[
   {
     "nip": "12345",
-    "nama": "Dr. Felix",
     "poli": {
       "namaPoli": "Gigi",
       "ruang": "KU1.03.01"
     },
+    "nama": "Dr. Felix",
     "tglLahir": "07-11-1876",
     "noHp": "08964586868",
     "jnsKelamin": 0,
@@ -13,15 +13,26 @@
   },
   {
     "nip": "54321",
-    "nama": "Dr. AyuxV",
     "poli": {
       "namaPoli": "THT",
       "ruang": "TULT0309"
     },
+    "nama": "Dr. AyuxV",
     "tglLahir": "01-08-1876",
     "noHp": "08473758",
     "jnsKelamin": 1,
     "alamat": "Jakarta"
+  },
+  {
+    "nip": "453445",
+    "poli": {
+      "namaPoli": "Umum",
+      "ruang": "TULT1010"
+    },
+    "nama": "Dr. Alfian",
+    "tglLahir": "10-01-1876",
+    "noHp": "08476578767",
+    "jnsKelamin": 0,
+    "alamat": "Bandung"
   }
 ]
-
