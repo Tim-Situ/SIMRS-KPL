@@ -15,6 +15,11 @@ public class TableUtils
         this.data.Add(data);
     }
 
+    public void clearData()
+    {
+        this.data.Clear();
+    }
+
     public void showData()
     {
         string batas = "";

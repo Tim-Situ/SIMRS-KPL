@@ -2,8 +2,10 @@
 
 namespace SIMRS_LIB;
 
+// Library utuk membaca dan menulis Json
 public static class JsonUtils<T>
 {
+    // method untuk membaca json dari file
     public static T ReadJsonFromFile(string filepath)
     {
         // membaca file json
@@ -13,6 +15,7 @@ public static class JsonUtils<T>
         return data;
     }
 
+    // method untuk menulis json ke file
     public static void WriteJsonFile(T data, string filepath)
     {
         // menggunakan serializer bawaan c#

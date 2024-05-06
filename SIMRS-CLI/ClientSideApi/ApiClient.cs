@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 using SIMRS_API;
 
 namespace SIMRS_CLI.ClientSideApi
@@ -18,7 +12,18 @@ namespace SIMRS_CLI.ClientSideApi
             BaseAddress = new Uri("http://localhost:5117/api/")
         };
 
-        public static async Task<T> ClientGetData(string path)
+        public async Task<List<T>> ClientGetData(string path)
+        {
+            ApiResponse<List<T>> listData = null;
+            HttpResponseMessage response = await client.GetAsync(path);
+            if (response.IsSuccessStatusCode)
+            {
+                listData = await response.Content.ReadAsAsync<ApiResponse<List<T>>>();
+            }
+            return listData.data;
+        }
+
+        public async Task<T> ClientGetOneData(string path)
         {
             ApiResponse<T> listData = null;
             HttpResponseMessage response = await client.GetAsync(path);
@@ -29,19 +34,21 @@ namespace SIMRS_CLI.ClientSideApi
             return listData.data;
         }
 
-        public static async Task ClientPostData<U>(U data, string path)
+        public async Task ClientPostData<U>(U data, string path)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 path, data);
             response.EnsureSuccessStatusCode();
         }
 
-        public static async Task ClientPutData<V>(V data, string path)
+        public async Task ClientPutData<V>(V data, string path)
         {
-
+            HttpResponseMessage response = await client.PutAsJsonAsync(
+               path, data);
+            response.EnsureSuccessStatusCode();
         }
 
-        public static async Task<HttpStatusCode> ClientDeleteData(string path)
+        public async Task<HttpStatusCode> ClientDeleteData(string path)
         {
             HttpResponseMessage response = await client.DeleteAsync(
                 path);

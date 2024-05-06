@@ -3,6 +3,7 @@ using System.Security.Cryptography.Xml;
 
 namespace SIMRS_CLI.Models
 {
+    // Class Penampung Konfigurasi Bank Transfer
     public class Transfer
     {
         public int threshold { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
+using System.Linq;
 
 namespace SIMRS_API;
 
@@ -23,20 +24,22 @@ public class DokterController : Controller
         return Ok(response);
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Dokter>> Get(int id)
+    [HttpGet("{nip}")]
+    public ActionResult<ApiResponse<Dokter>> Get(string nip)
     {
         dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataDokter.Count || id < 0)
+        Dokter cariDokter = dataDokter.FirstOrDefault(item => item.nip == nip);
+
+        if (cariDokter == null)
         {
             response.success = false;
-            response.message = $"Data dokter dengan Index : {id} tidak ditemukan";
+            response.message = $"Data dokter dengan NIP : {nip} tidak ditemukan";
 
             return NotFound(response);
         }
 
         response.message = "Data dokter ditemukan";
-        response.data = dataDokter[id];
+        response.data = cariDokter;
 
         return Ok(response);
     }
