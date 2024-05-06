@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Humanizer;
-using Microsoft.AspNetCore.Components.Forms;
-using SIMRS_API;
+﻿using SIMRS_API;
 using SIMRS_CLI.ClientSideApi;
-using SIMRS_CLI.Config;
 using SIMRS_CLI.Models;
+using SIMRS_CLI.Scripts;
 using SIMRS_LIB;
 
 namespace SIMRS_CLI
@@ -31,74 +24,24 @@ namespace SIMRS_CLI
 
         public void MenuUtama()
         {
-            // MODUL BAHASA MUNGKIN NANTI KU PISAH BIAR GAK PANJANG
-            char langConfirm;
-            MenuLanguage getMenu;
-            Language defaultLang;
-
-            ReadWriteUtils<Language> ReadWriteLanguage =
-                new ReadWriteUtils<Language>(
-                    DefaultConfig.LanguageDefault(),
-                    "../../../Json/LanguageConfig.json"
-                    );
-
-            defaultLang = JsonUtils<Language>.ReadJsonFromFile("../../../Json/LanguageConfig.json");
-
-            if (defaultLang.lang == "id")
-            {
-                Console.WriteLine("Selamat datang, bahasa saat ini: Indonesia");
-                Console.Write("Ganti Bahasa? (y/n): ");
-            }
-            else
-            {
-                Console.WriteLine("Welcome, selected language: English");
-                Console.Write("Change Language? (y/n): ");
-            }
-            langConfirm = Convert.ToChar(Console.ReadLine());
-
-            if (langConfirm == 'y')
-            {
-                Console.WriteLine("yes ditakan: " + defaultLang.lang);
-                if (defaultLang.lang == "id")
-                {
-                    defaultLang.lang = "en";
-                    Console.WriteLine("id->en: " + defaultLang.lang);
-                }
-                else
-                {
-                    defaultLang.lang = "id";
-                    Console.WriteLine("en->id: " + defaultLang.lang);
-                }
-                JsonUtils<Language>.WriteJsonFile(defaultLang, "../../../Json/LanguageConfig.json");
-                defaultLang = JsonUtils<Language>.ReadJsonFromFile("../../../Json/LanguageConfig.json");
-            }
-
-            Console.WriteLine("bahasa sekarang" + defaultLang.lang);
-            if (defaultLang.lang == "id")
-            {
-                getMenu = defaultLang.appId;
-                Console.WriteLine(getMenu.apptitle);
-            }
-            else
-            {
-                getMenu = defaultLang.appEn;
-                Console.WriteLine(getMenu.apptitle);
-            }
-            // END MODUL BAHASA
-
             int pilihan = -1;
             while (pilihan != 0)
             {
                 headerMenu();
 
+                LanguageScript.initLanguage();
+
+                MenuLanguage menu = LanguageScript.getMenu;
+
                 // UJI COBA MULTI ABHASA
-                Console.WriteLine(getMenu.apptitle);
-                for (int i = 0; i < getMenu.appmenu.Count; i++)
+                Console.WriteLine(menu.apptitle);
+                for (int i = 0; i < menu.appmenu.Count; i++)
                 {
-                    Console.WriteLine($"[{i + 1}] {getMenu.appmenu[i]}");
+                    Console.WriteLine($"[{i + 1}] {menu.appmenu[i]}");
                 }
-                Console.WriteLine($"[0] {getMenu.appexit}");
-                Console.WriteLine($"\n\n{getMenu.appselect}");
+                Console.WriteLine($"[88] Ganti Bahasa");
+                Console.WriteLine($"[99] {menu.appexit}");
+                Console.WriteLine($"\n\n{menu.appselect}");
 
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
@@ -125,7 +68,11 @@ namespace SIMRS_CLI
                         Console.WriteLine("Obat");
                         break;
 
-                    case 0:
+                    case 88:
+                        LanguageScript.ConfirmLanguage();
+                        break;
+
+                    case 99:
                         Console.WriteLine("Anda akan keluar...");
                         if (Console.ReadLine() == "n")
                         {
