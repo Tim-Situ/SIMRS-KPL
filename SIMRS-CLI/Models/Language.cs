@@ -1,6 +1,6 @@
-﻿using System;
-namespace SIMRS_CLI.Models
+﻿namespace SIMRS_CLI.Models
 {
+    // Class Penampung Konfigurasi Menu
     public class MenuLanguage
     {
         public string apptitle { get; set; }
