@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
 namespace SIMRS_API;
@@ -27,20 +23,21 @@ public class ObatController : Controller
         return Ok(response);
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Obat>> Get(int id)
+    [HttpGet("{kode}")]
+    public ActionResult<ApiResponse<Obat>> Get(string kode)
     {
         dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataObat.Count || id < 0)
+        Obat cariObat = dataObat.FirstOrDefault(item => item.kode == kode);
+        if (cariObat == null)
         {
             response.success = false;
-            response.message = $"Data obat dengan Index : {id} tidak ditemukan";
+            response.message = $"Data obat dengan kode : {kode} tidak ditemukan";
 
             return NotFound(response);
         }
 
         response.message = "Data obat ditemukan";
-        response.data = dataObat[id];
+        response.data = cariObat;
 
         return Ok(response);
     }
@@ -57,40 +54,47 @@ public class ObatController : Controller
         return CreatedAtAction(nameof(Get), response);
     }
 
-    [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Obat>> Put(int id, [FromBody] Obat value)
+    [HttpPut("{kode}")]
+    public ActionResult<ApiResponse<Obat>> Put(string kode, [FromBody] Obat value)
     {
         dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataObat.Count || id < 0)
+        Obat cariObat = dataObat.FirstOrDefault(item => item.kode == kode);
+        if (cariObat == null)
         {
             response.success = false;
-            response.message = $"Data obat dengan Index : {id} tidak ditemukan";
+            response.message = $"Data obat dengan kode : {kode} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataObat[id] = value;
+        int idx = dataObat.FindIndex(item => item.kode == kode);
+
+        dataObat[idx] = value;
         JsonUtils<List<Obat>>.WriteJsonFile(dataObat, jsonFilePath);
 
         response.message = "Data obat berhasil diubah";
-        response.data = dataObat[id];
+        response.data = dataObat[idx];
 
         return Ok(response);
     }
 
-    [HttpDelete("{id}")]
-    public ActionResult<ApiResponse<Object>> Delete(int id)
+    [HttpDelete("{kode}")]
+    public ActionResult<ApiResponse<Object>> Delete(string kode)
     {
         dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataObat.Count || id < 0)
+        Obat cariObat = dataObat.FirstOrDefault(item => item.kode == kode);
+
+        if (cariObat == null)
         {
             response.success = false;
-            response.message = $"Data obat dengan Index : {id} tidak ditemukan";
+            response.message = $"Data obat dengan kode : {kode} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataObat.RemoveAt(id);
+        int idx = dataObat.FindIndex(item => item.kode == kode);
+
+        dataObat.RemoveAt(idx);
         JsonUtils<List<Obat>>.WriteJsonFile(dataObat, jsonFilePath);
         response.message = "Data obat berhasil dihapus";
 
