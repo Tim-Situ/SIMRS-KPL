@@ -1,10 +1,10 @@
-﻿using SIMRS_CLI.Config;
+﻿using SIMRS_CLI.Content;
 using SIMRS_CLI.Models;
 using SIMRS_LIB;
 
-namespace SIMRS_CLI.Content
+namespace SIMRS_CLI.Config
 {
-    public static class LanguageContent
+    public static class LanguageConfig
     {
         public static Language defaultLang { get; set; }
         public static MenuLanguage getMenu { get; set; }
@@ -16,7 +16,7 @@ namespace SIMRS_CLI.Content
             // Memanggil class konfigurasi untuk membaca dan menulis bahasa
             ReadWriteUtils<Language> ReadWriteLanguage =
                 new ReadWriteUtils<Language>(
-                    DefaultConfig.LanguageDefault(),
+                    DefaultContent.LanguageDefault(),
                     filepath
                     );
 

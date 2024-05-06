@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using SIMRS_API;
-using SIMRS_CLI;
-using SIMRS_CLI.ClientSideApi;
-using SIMRS_CLI.Config;
+﻿using SIMRS_CLI;
+using SIMRS_CLI.Content;
 using SIMRS_CLI.Models;
 using SIMRS_LIB;
 
@@ -26,7 +23,7 @@ internal class Program
         // tes implementasi runtime
         ReadWriteUtils<BankTransfer> ReadWriteBankTransfer =
             new ReadWriteUtils<BankTransfer>(
-                DefaultConfig.BankTransferDefault(),
+                DefaultContent.BankTransferDefault(),
                 "../../../Json/BankTransferConfig.json"
                 );
         //Console.WriteLine(ReadWriteBankTransfer.config.methods[3]);
