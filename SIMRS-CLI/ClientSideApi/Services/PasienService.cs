@@ -3,7 +3,7 @@ using SIMRS_LIB;
 
 namespace SIMRS_CLI.ClientSideApi.Services
 {
-    internal class PasienService
+    internal class PasienService : BaseService
     {
         ApiClient<Pasien> api = new();
 
@@ -17,10 +17,10 @@ namespace SIMRS_CLI.ClientSideApi.Services
                     "Alamat"
                 });
 
-        public void ShowAll()
+        public override void ShowAll()
         {
             int no = 1;
-            List<Pasien> dataPasien = api.ClientGetData("Pasien").GetAwaiter().GetResult();
+            List<Pasien> dataPasien = api.ClientGetData("Pasien").GetAwaiter().GetResult().data;
             foreach (Pasien pasien in dataPasien)
             {
                 tblPasien.addData(new List<string> { no.ToString(), pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
@@ -31,118 +31,74 @@ namespace SIMRS_CLI.ClientSideApi.Services
             tblPasien.clearData();
         }
 
-        public void ShowOne(string id)
+        public override void ShowOne(string id)
         {
-            Pasien pasien = api.ClientGetOneData($"Pasien/{id}").GetAwaiter().GetResult();
+            Pasien pasien = api.ClientGetOneData($"Pasien/{id}").GetAwaiter().GetResult().data;
             tblPasien.addData(new List<string> { "1", pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
             tblPasien.showData();
             tblPasien.clearData();
         }
 
-        public void Create()
+        public override void Create()
         {
             Console.WriteLine("====== Tambah Data Pasien =======");
             
-            Console.Write("Kode: ");
-            string kode = Console.ReadLine();
+            string NIK = PromptUser("NIK: ");
+            string nama = PromptUser("Nama Pasien: ");
+            string tglLahir = PromptUser("Tanggal Lahir: ");
+            string noHp = PromptUser("No HP: ");
+            string _jnsKelamin = PromptUser("Jenis Kelamin (pria/wanita): ").ToLower();
+            string alamat = PromptUser("Alamat: ");
+            User.EnumJenisKelamin jnsKelamin = Enum.Parse<User.EnumJenisKelamin>(_jnsKelamin);
 
-            Console.Write("Nama Pasien: ");
-            string nama = Console.ReadLine();
-
-            Console.Write("Tanggal lahir: ");
-            string tglLahir = Console.ReadLine();
-
-            Console.Write("No HP: ");
-            string noHp = Console.ReadLine();
-
-            Console.Write("Jenis Kelamin (pria/wanita): ");
-            string _jnsKelamin = Console.ReadLine();
-
-            Console.Write("Alamat: ");
-            string alamat = Console.ReadLine();
-
-            User.EnumJenisKelamin jnsKelamin = User.EnumJenisKelamin.PRIA;
-            if (_jnsKelamin.Equals("pria"))
-            {
-                jnsKelamin = User.EnumJenisKelamin.PRIA;
-            }
-            else if (_jnsKelamin.Equals("wanita"))
-            {
-                jnsKelamin = User.EnumJenisKelamin.WANITA;
-            }
-
-            Pasien pasien = new Pasien(kode, nama, tglLahir, noHp, jnsKelamin, alamat);
+            Pasien pasien = new Pasien(NIK, nama, tglLahir, noHp, jnsKelamin, alamat);
             api.ClientPostData(pasien, "Pasien").GetAwaiter().GetResult();
         }
 
-        public void Update()
+        public override void Update()
         {
-            int idxPasien;
-            Console.WriteLine("Pasien nomor berapa yang ingin diedit?");
-            idxPasien = Convert.ToInt32(Console.ReadLine()) - 1;
-            Pasien pasien = api.ClientGetOneData($"Pasien/{idxPasien}").GetAwaiter().GetResult();
+            int NIK;
+            Console.WriteLine("Masukan NIK pasien yang ingin diedit!");
+            NIK = Convert.ToInt32(Console.ReadLine());
+            Pasien pasien = api.ClientGetOneData($"Pasien/{NIK}").GetAwaiter().GetResult().data;
             Console.Clear();
-            ShowOne(idxPasien.ToString());
+            ShowOne(NIK.ToString());
 
             Console.WriteLine("Masukan data baru");
-            Console.Write("Nama Pasien: ");
-            string nama = Console.ReadLine();
+            string nama = PromptUser("Nama Pasien: ");
+            string tglLahir = PromptUser("Tanggal Lahir: ");
+            string noHp = PromptUser("No HP: ");
+            string _jnsKelamin = PromptUser("Jenis Kelamin (pria/wanita): ").ToLower();
+            string alamat = PromptUser("Alamat: ");
+            User.EnumJenisKelamin jnsKelamin = Enum.Parse<User.EnumJenisKelamin>(_jnsKelamin);
 
-            Console.Write("Tanggal lahir: ");
-            string tglLahir = Console.ReadLine();
+            pasien.nama = nama ?? pasien.nama;
+            pasien.tglLahir = tglLahir ?? pasien.tglLahir;
+            pasien.noHp = noHp ?? pasien.noHp;
 
-            Console.Write("No HP: ");
-            string noHp = Console.ReadLine();
-
-            Console.Write("Jenis Kelamin (pria/wanita): ");
-            string jnsKelamin = Console.ReadLine();
-
-            Console.Write("Alamat: ");
-            string alamat = Console.ReadLine();
-
-            if (!nama.Equals(pasien.nama) && nama != "")
+            if (_jnsKelamin != "")
             {
-                pasien.nama = nama;
-            }
-            if (!tglLahir.Equals(pasien.tglLahir) && tglLahir != "")
-            {
-                pasien.tglLahir = tglLahir;
-            }
-            if (!noHp.Equals(pasien.noHp) && noHp != "")
-            {
-                pasien.noHp = noHp;
+                pasien.jnsKelamin = Enum.Parse<User.EnumJenisKelamin>(_jnsKelamin);
             }
 
-            if (jnsKelamin != "")
-            {
-                if (jnsKelamin.Equals("pria"))
-                {
-                    pasien.jnsKelamin = User.EnumJenisKelamin.PRIA;
-                }
-                else if (jnsKelamin.Equals("wanita"))
-                {
-                    pasien.jnsKelamin = User.EnumJenisKelamin.WANITA;
-                }
-            }
+            pasien.alamat = alamat ?? pasien.alamat;
 
-            if (!alamat.Equals(pasien.alamat) && alamat != "")
-            {
-                pasien.alamat = alamat;
-            }
-
-            api.ClientPutData(pasien, $"Pasien/{idxPasien}").GetAwaiter().GetResult();
+            Console.Clear();
+            api.ClientPutData(pasien, $"Pasien/{NIK}").GetAwaiter().GetResult();
         }
 
-        public void Delete()
+        public override void Delete()
         {
-            int idxPasien;
-            Console.WriteLine("Pasien nomor berapa yang ingin dihapus?");
-            idxPasien = Convert.ToInt32(Console.ReadLine()) - 1;
-            var statusCode = api.ClientDeleteData($"Pasien/{idxPasien}").GetAwaiter().GetResult();
-            Console.WriteLine($"Deleted (HTTP Status = {(int)statusCode})");
+            int NIK;
+            Console.WriteLine("Masukan kode spesialis yang ingin dihapus!");
+            NIK = Convert.ToInt32(Console.ReadLine()) - 1;
+            Pasien pasien = api.ClientGetOneData($"Pasien/ {NIK}").GetAwaiter().GetResult().data;
+
+            if (Confirmation($"Apakah anda yakin ingin menghapus spesialis dengan NIK {pasien.NIK}"))
+            {
+                var statusCode = api.ClientDeleteData($"Pasien/{NIK}").GetAwaiter().GetResult();
+                Console.WriteLine($"Deleting... (HTTP Status = {(int)statusCode})");
+            }
         }
-
-
-
     }
 }
