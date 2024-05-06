@@ -12,8 +12,10 @@
     "dokter": {
       "nip": "453445",
       "poli": {
+        "kode": "PLI03",
         "namaPoli": "Umum",
-        "ruang": "TULT1010"
+        "ruang": "TULT1010",
+        "biaya": 20000
       },
       "nama": "Dr. Alfian",
       "tglLahir": "10-01-1876",

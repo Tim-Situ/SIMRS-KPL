@@ -55,27 +55,27 @@ public class PemeriksaanController : Controller
         return CreatedAtAction(nameof(Get), response);
     }
 
-    [HttpPut("{kode}")]
-    public ActionResult<ApiResponse<Pemeriksaan>> Put(string kode, [FromBody] Pemeriksaan value)
-    {
-        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
+    //[HttpPut("{kode}")]
+    //public ActionResult<ApiResponse<Pemeriksaan>> Put(string kode, [FromBody] Pemeriksaan value)
+    //{
+    //    dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
 
-        if (!dataPemeriksaan.Any(item => item.kode == kode))
-        {
-            response.success = false;
-            response.message = $"Data pemeriksaan dengan kode : {kode} tidak ditemukan";
+    //    if (!dataPemeriksaan.Any(item => item.kode == kode))
+    //    {
+    //        response.success = false;
+    //        response.message = $"Data pemeriksaan dengan kode : {kode} tidak ditemukan";
 
-            return NotFound(response);
-        }
+    //        return NotFound(response);
+    //    }
 
-        int idx = dataPemeriksaan.FindIndex(item => item.kode == kode);
-        dataPemeriksaan[idx] = value;
-        JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
-        response.message = "Data pemeriksaan berhasil diubah";
-        response.data = dataPemeriksaan[idx];
+    //    int idx = dataPemeriksaan.FindIndex(item => item.kode == kode);
+    //    dataPemeriksaan[idx] = value;
+    //    JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
+    //    response.message = "Data pemeriksaan berhasil diubah";
+    //    response.data = dataPemeriksaan[idx];
 
-        return Ok(response);
-    }
+    //    return Ok(response);
+    //}
 
     [HttpDelete("{kode}")]
     public ActionResult<ApiResponse<Object>> Delete(string kode)

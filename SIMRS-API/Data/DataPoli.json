@@ -1,16 +1,20 @@
-﻿[
+[
   {
+    "kode": "PLI01",
     "namaPoli": "Penyakit Dalam",
-    "ruang": "KU3.01.02"
+    "ruang": "KU3.01.02",
+    "biaya": 80000
   },
   {
+    "kode": "PLI02",
     "namaPoli": "THT",
-    "ruang": "TULT0701"
+    "ruang": "TULT0701",
+    "biaya": 50000
   },
   {
+    "kode": "PLI03",
     "namaPoli": "Umum",
-    "ruang": "TULT1010"
+    "ruang": "TULT1010",
+    "biaya": 20000
   }
 ]
-
-

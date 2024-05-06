@@ -60,39 +60,41 @@ public class PoliController : Controller
     {
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
-        if (id >= dataPoli.Count || id < 0)
+        if (!dataPoli.Any(item => item.kode == kode))
         {
             response.success = false;
-            response.message = $"Data poli dengan Index : {id} tidak ditemukan";
+            response.message = $"Data poli dengan kode : {kode} tidak ditemukan";
             response.data = null;
 
             return NotFound(response);
         }
 
-        dataPoli[id] = value;
+        int idx = dataPoli.FindIndex(item => item.kode == kode);
+        dataPoli[idx] = value;
         JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
 
         response.message = "Data poli berhasil diubah";
-        response.data = dataPoli[id];
+        response.data = dataPoli[idx];
 
         return Ok(response);
     }
 
-    [HttpDelete("{id}")]
-    public ActionResult<ApiResponse<Object>> Delete(int id)
+    [HttpDelete("{kode}")]
+    public ActionResult<ApiResponse<Object>> Delete(string kode)
     {
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
-        if (id >= dataPoli.Count || id < 0)
+        if (!dataPoli.Any(item => item.kode == kode))
         {
             response.success = false;
-            response.message = $"Data poli dengan Index : {id} tidak ditemukan";
+            response.message = $"Data poli dengan kode : {kode} tidak ditemukan";
             response.data = null;
 
             return NotFound(response);
         }
 
-        dataPoli.RemoveAt(id);
+        int idx = dataPoli.FindIndex(item => item.kode == kode);
+        dataPoli.RemoveAt(idx);
         JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
         response.message = "Data poli berhasil dihapus";
 
