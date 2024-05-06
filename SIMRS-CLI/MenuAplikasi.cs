@@ -16,7 +16,7 @@ namespace SIMRS_CLI
                 //"=== Sistem Rekam Medis Pasien ===\n" +
                 //"================================="
                 );
-        }        
+        }
 
         public void MenuUtama()
         {
@@ -35,11 +35,15 @@ namespace SIMRS_CLI
                 {
                     Console.WriteLine($"[{i + 1}] {menu.appmenu[i]}");
                 }
-                Console.WriteLine($"[88] Ganti Bahasa");
+                Console.WriteLine($"[99] Ganti Bahasa");
                 Console.WriteLine($"[0] {menu.appexit}");
                 Console.WriteLine($"\n\n{menu.appselect}");
-
                 pilihan = Convert.ToInt32(Console.ReadLine());
+                while (!DefensiveUtils.SelectMenuOptionValidation(menu.appmenu.Count, pilihan))
+                {
+                    Console.WriteLine("tidak valid");
+                    pilihan = Convert.ToInt32(Console.ReadLine());
+                }
                 Console.Clear();
                 // END UJI COBA
 
