@@ -22,20 +22,22 @@ public class PasienController : Controller
         return Ok(response);
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<ApiResponse<List<Pasien>>> Get(int id)
+    [HttpGet("{nik}")]
+    public ActionResult<ApiResponse<List<Pasien>>> Get(string nik)
     {
         dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataPasien.Count || id < 0)
+        Pasien cariPasien = dataPasien.FirstOrDefault(item => item.nik == nik);
+
+        if (cariPasien == null)
         {
             response.success = false;
-            response.message = $"Data pasien dengan Index : {id} tidak ditemukan";
+            response.message = $"Data pasien dengan NIK : {nik} tidak ditemukan";
 
             return NotFound(response);
         }
 
         response.message = "Data pasien ditemukan";
-        response.data = dataPasien[id];
+        response.data = cariPasien;
 
         return Ok(response);
     }
@@ -52,40 +54,45 @@ public class PasienController : Controller
         return CreatedAtAction(nameof(Get), response);
     }
 
-    [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Object>> Put(int id, [FromBody] Pasien value)
+    [HttpPut("{nik}")]
+    public ActionResult<ApiResponse<Object>> Put(string nik, [FromBody] Pasien value)
     {
         dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataPasien.Count || id < 0)
+        Pasien cariPasien = dataPasien.FirstOrDefault(item => item.nik == nik);
+
+        if (cariPasien == null)
         {
             response.success = false;
-            response.message = $"Data pasien dengan Index : {id} tidak ditemukan";
+            response.message = $"Data pasien dengan NIK : {nik} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataPasien[id] = value;
+        int idx = dataPasien.FindIndex(item => item.nik == nik);
+        dataPasien[idx] = value;
         JsonUtils<List<Pasien>>.WriteJsonFile(dataPasien, jsonFilePath);
         response.message = "Data pasien berhasil diubah";
-        response.data = dataPasien[id];
+        response.data = dataPasien[idx];
 
         return Ok(response);
     }
 
-    [HttpDelete("{id}")]
-    public ActionResult<ApiResponse<Object>> Delete(int id)
+    [HttpDelete("{nik}")]
+    public ActionResult<ApiResponse<Object>> Delete(string nik)
     {
         dataPasien = JsonUtils<List<Pasien>>.ReadJsonFromFile(jsonFilePath);
+        Pasien cariPasien = dataPasien.FirstOrDefault(item => item.nik == nik);
 
-        if (id >= dataPasien.Count || id < 0)
+        if (cariPasien == null)
         {
             response.success = false;
-            response.message = $"Data pasien dengan Index : {id} tidak ditemukan";
+            response.message = $"Data pasien dengan NIK : {nik} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataPasien.RemoveAt(id);
+        int idx = dataPasien.FindIndex(item => item.nik == nik);
+        dataPasien.RemoveAt(idx);
         JsonUtils<List<Pasien>>.WriteJsonFile(dataPasien, jsonFilePath);
         response.message = "Data pasien berhasil dihapus";
 
