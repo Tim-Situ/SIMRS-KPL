@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
 namespace SIMRS_API;
@@ -15,14 +10,12 @@ public class PoliController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    //private static ReadJsonLib<List<Poli>> libReadJson = new ReadJsonLib<List<Poli>>();
-    private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataPoli.json");
+    private static string jsonFilePath = "Data/DataPoli.json";
     private static List<Poli> dataPoli;
 
     [HttpGet]
     public ActionResult<ApiResponse<List<Poli>>> Get()
     {
-        //dataPoli = libReadJson.ReadJsonFromFile(jsonFilePath);
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data poli berhasil ditampilkan";
         response.data = dataPoli;
@@ -53,7 +46,9 @@ public class PoliController : Controller
     [HttpPost]
     public ActionResult<ApiResponse<Poli>> Post([FromBody] Poli value)
     {
+        dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
         dataPoli.Add(value);
+        JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
         response.message = "Data poli berhasil ditambahkan";
         response.data = dataPoli.Last();
 
@@ -75,6 +70,8 @@ public class PoliController : Controller
         }
 
         dataPoli[id] = value;
+        JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
+
         response.message = "Data poli berhasil diubah";
         response.data = dataPoli[id];
 
@@ -96,6 +93,7 @@ public class PoliController : Controller
         }
 
         dataPoli.RemoveAt(id);
+        JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
         response.message = "Data poli berhasil dihapus";
 
         return Ok(response);

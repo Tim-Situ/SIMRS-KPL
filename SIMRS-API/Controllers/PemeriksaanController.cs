@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using Microsoft.AspNetCore.Mvc;
+using SIMRS_LIB;
 
 namespace SIMRS_API;
 
@@ -14,22 +9,14 @@ public class PemeriksaanController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    //public static List<Obat> obatPasien = new List<Obat>()
-    //{
-    //    ObatController.dataObat[1]
-    //};
-
+    private static string jsonFilePath = "Data/DataPemeriksaan.json";
     private static List<Pemeriksaan> dataPemeriksaan;
-    //    = new List<Pemeriksaan>()s
-    //{
-    //    new Pemeriksaan("PRS01", PasienController.dataPasien[0], DokterController.dataDokter[0], "29-04-2024", 200, 60, 12, "Pusing", "Kebanyakan Tubes", obatPasien),
-    //    new Pemeriksaan("PRS02", PasienController.dataPasien[0], DokterController.dataDokter[0], "30-04-2024", 200, 60, 12, "Sakit Gigi", "Gigi Berlubang", obatPasien)
-    //};
 
 
     [HttpGet]
-    public ActionResult<ApiResponse<Object>> Get()
+    public ActionResult<ApiResponse<List<Pemeriksaan>>> Get()
     {
+        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data pemeriksaan berhasil ditampilkan";
         response.data = dataPemeriksaan;
 
@@ -37,7 +24,7 @@ public class PemeriksaanController : Controller
     }
 
     [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Object>> Get(int id)
+    public ActionResult<ApiResponse<Pemeriksaan>> Get(int id)
     {
         if (id >= dataPemeriksaan.Count || id < 0)
         {
@@ -54,9 +41,11 @@ public class PemeriksaanController : Controller
     }
 
     [HttpPost]
-    public ActionResult<ApiResponse<Object>> Post([FromBody] Pemeriksaan value)
+    public ActionResult<ApiResponse<Pemeriksaan>> Post([FromBody] Pemeriksaan value)
     {
+        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
         dataPemeriksaan.Add(value);
+        JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
         response.message = "Data pemeriksaan berhasil ditambahkan";
         response.data = dataPemeriksaan.Last();
 
@@ -64,8 +53,9 @@ public class PemeriksaanController : Controller
     }
 
     [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Object>> Put(int id, [FromBody] Pemeriksaan value)
+    public ActionResult<ApiResponse<Pemeriksaan>> Put(int id, [FromBody] Pemeriksaan value)
     {
+        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataPemeriksaan.Count || id < 0)
         {
             response.success = false;
@@ -75,6 +65,7 @@ public class PemeriksaanController : Controller
         }
 
         dataPemeriksaan[id] = value;
+        JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
         response.message = "Data pemeriksaan berhasil diubah";
         response.data = dataPemeriksaan[id];
 
@@ -84,6 +75,8 @@ public class PemeriksaanController : Controller
     [HttpDelete("{id}")]
     public ActionResult<ApiResponse<Object>> Delete(int id)
     {
+        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
+
         if (id >= dataPemeriksaan.Count || id < 0)
         {
             response.success = false;
@@ -93,6 +86,7 @@ public class PemeriksaanController : Controller
         }
 
         dataPemeriksaan.RemoveAt(id);
+        JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
         response.message = "Data pemeriksaan berhasil dihapus";
 
         return Ok(response);

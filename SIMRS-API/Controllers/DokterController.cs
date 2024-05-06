@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
 namespace SIMRS_API;
@@ -13,15 +9,13 @@ public class DokterController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    //private static ReadJsonLib<List<Dokter>> libReadJson = new ReadJsonLib<List<Dokter>>();
-    private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataDokter.json");
+    private static string jsonFilePath = "Data/DataDokter.json";
     private static List<Dokter> dataDokter;
 
 
     [HttpGet]
     public ActionResult<ApiResponse<List<Dokter>>> Get()
     {
-        //dataDokter = libReadJson.ReadJsonFromFile(jsonFilePath);
         dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data dokter berhasil ditampilkan";
         response.data = dataDokter;
@@ -32,7 +26,6 @@ public class DokterController : Controller
     [HttpGet("{id}")]
     public ActionResult<ApiResponse<Dokter>> Get(int id)
     {
-        //dataDokter = libReadJson.ReadJsonFromFile(jsonFilePath);
         dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
         if (id >= dataDokter.Count || id < 0)
         {
@@ -51,7 +44,10 @@ public class DokterController : Controller
     [HttpPost]
     public ActionResult<ApiResponse<Dokter>> Post([FromBody] Dokter value)
     {
+        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
         dataDokter.Add(value);
+        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+
         response.message = "Data dokter berhasil ditambahkan";
         response.data = dataDokter.Last();
 
@@ -71,6 +67,8 @@ public class DokterController : Controller
         }
 
         dataDokter[id] = value;
+        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+
         response.message = "Data dokter berhasil diubah";
         response.data = dataDokter[id];
 
@@ -90,6 +88,8 @@ public class DokterController : Controller
         }
 
         dataDokter.RemoveAt(id);
+        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+
         response.message = "Data dokter berhasil dihapus";
 
         return Ok(response);

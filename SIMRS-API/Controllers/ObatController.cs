@@ -13,15 +13,13 @@ public class ObatController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
-    //private static ReadJsonLib<List<Obat>> libReadJson = new ReadJsonLib<List<Obat>>();
-    private static string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/DataObat.json");
+    private static string jsonFilePath = "Data/DataObat.json";
     private static List<Obat> dataObat;
 
 
     [HttpGet]
     public ActionResult<ApiResponse<List<Obat>>> Get()
     {
-        //dataObat = libReadJson.ReadJsonFromFile(jsonFilePath);
         dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
         response.message = "Data obat berhasil ditampilkan";
         response.data = dataObat;
@@ -50,9 +48,11 @@ public class ObatController : Controller
     [HttpPost]
     public ActionResult<ApiResponse<Obat>> Post([FromBody] Obat value)
     {
+        dataObat = JsonUtils<List<Obat>>.ReadJsonFromFile(jsonFilePath);
         dataObat.Add(value);
+        JsonUtils<List<Obat>>.WriteJsonFile(dataObat, jsonFilePath);
         response.message = "Data obat berhasil ditambahkan";
-        response.data = dataObat.Last();
+        response.data = value;
 
         return CreatedAtAction(nameof(Get), response);
     }
@@ -70,6 +70,8 @@ public class ObatController : Controller
         }
 
         dataObat[id] = value;
+        JsonUtils<List<Obat>>.WriteJsonFile(dataObat, jsonFilePath);
+
         response.message = "Data obat berhasil diubah";
         response.data = dataObat[id];
 
@@ -89,6 +91,7 @@ public class ObatController : Controller
         }
 
         dataObat.RemoveAt(id);
+        JsonUtils<List<Obat>>.WriteJsonFile(dataObat, jsonFilePath);
         response.message = "Data obat berhasil dihapus";
 
         return Ok(response);
