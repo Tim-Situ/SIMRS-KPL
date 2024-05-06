@@ -2,9 +2,9 @@
 using System.Security.Cryptography.Xml;
 using SIMRS_CLI.Models;
 
-namespace SIMRS_CLI.Config
+namespace SIMRS_CLI.Content
 {
-    public static class DefaultConfig
+    public static class DefaultContent
     {
         public static BankTransfer BankTransferDefault()
         {
@@ -48,7 +48,7 @@ namespace SIMRS_CLI.Config
 /*
 EXAMPLE TO USE:
 
-DefaultConfig.ValueDefault()
+DefaultContent.BankTransferDefault()
 
 You can use this variabel on ReadWriteUtils argument.
 */

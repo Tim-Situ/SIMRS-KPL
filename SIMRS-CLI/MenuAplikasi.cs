@@ -1,6 +1,6 @@
 using SIMRS_CLI.ClientSideApi.Services;
 using SIMRS_CLI.Models;
-using SIMRS_CLI.Content;
+using SIMRS_CLI.Config;
 using SIMRS_LIB;
 
 namespace SIMRS_CLI
@@ -25,9 +25,9 @@ namespace SIMRS_CLI
             {
                 headerMenu();
 
-                LanguageContent.initLanguage();
+                LanguageConfig.initLanguage();
 
-                MenuLanguage menu = LanguageContent.getMenu;
+                MenuLanguage menu = LanguageConfig.getMenu;
 
                 // UJI COBA MULTI ABHASA
                 Console.WriteLine(menu.apptitle);
@@ -50,26 +50,26 @@ namespace SIMRS_CLI
                 switch (pilihan)
                 {
                     case 1:
-                        Console.WriteLine("Pemeriksaan");
+                        Console.WriteLine(menu.appmenu[0]);
                         break;
                     case 2:
-                        Console.WriteLine("Pembayaran");
+                        Console.WriteLine(menu.appmenu[1]);
                         break;
                     case 3:
                         MenuPasien();
                         break;
                     case 4:
-                        Console.WriteLine("Dokter");
+                        Console.WriteLine(menu.appmenu[2]);
                         break;
                     case 5:
-                        Console.WriteLine("Spesialis");
+                        Console.WriteLine(menu.appmenu[3]);
                         break;
                     case 6:
-                        Console.WriteLine("Obat");
+                        Console.WriteLine(menu.appmenu[4]);
                         break;
 
-                    case 88:
-                        LanguageContent.ConfirmLanguage();
+                    case 99:
+                        LanguageConfig.ConfirmLanguage();
                         break;
 
                     case 0:
