@@ -23,19 +23,22 @@ public class PemeriksaanController : Controller
         return Ok(response);
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Pemeriksaan>> Get(int id)
+    [HttpGet("{kode}")]
+    public ActionResult<ApiResponse<Pemeriksaan>> Get(string kode)
     {
-        if (id >= dataPemeriksaan.Count || id < 0)
+        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
+        Pemeriksaan cariPemeriksaan = dataPemeriksaan.FirstOrDefault(item => item.kode == kode);
+
+        if (dataPemeriksaan.Any(item => item.kode == kode))
         {
             response.success = false;
-            response.message = $"Data pemeriksaan dengan Index : {id} tidak ditemukan";
+            response.message = $"Data pemeriksaan dengan kode : {kode} tidak ditemukan";
 
             return NotFound(response);
         }
 
         response.message = "Data pemeriksaan ditemukan";
-        response.data = dataPemeriksaan[id];
+        response.data = dataPemeriksaan.FirstOrDefault(item => item.kode == kode);
 
         return Ok(response);
     }
@@ -52,40 +55,43 @@ public class PemeriksaanController : Controller
         return CreatedAtAction(nameof(Get), response);
     }
 
-    [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Pemeriksaan>> Put(int id, [FromBody] Pemeriksaan value)
+    [HttpPut("{kode}")]
+    public ActionResult<ApiResponse<Pemeriksaan>> Put(string kode, [FromBody] Pemeriksaan value)
     {
         dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataPemeriksaan.Count || id < 0)
+
+        if (!dataPemeriksaan.Any(item => item.kode == kode))
         {
             response.success = false;
-            response.message = $"Data pemeriksaan dengan Index : {id} tidak ditemukan";
+            response.message = $"Data pemeriksaan dengan kode : {kode} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataPemeriksaan[id] = value;
+        int idx = dataPemeriksaan.FindIndex(item => item.kode == kode);
+        dataPemeriksaan[idx] = value;
         JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
         response.message = "Data pemeriksaan berhasil diubah";
-        response.data = dataPemeriksaan[id];
+        response.data = dataPemeriksaan[idx];
 
         return Ok(response);
     }
 
-    [HttpDelete("{id}")]
-    public ActionResult<ApiResponse<Object>> Delete(int id)
+    [HttpDelete("{kode}")]
+    public ActionResult<ApiResponse<Object>> Delete(string kode)
     {
-        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
+        dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath); 
 
-        if (id >= dataPemeriksaan.Count || id < 0)
+        if (!dataPemeriksaan.Any(item => item.kode == kode))
         {
             response.success = false;
-            response.message = $"Data pemeriksaan dengan Index : {id} tidak ditemukan";
+            response.message = $"Data pemeriksaan dengan kode : {kode} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataPemeriksaan.RemoveAt(id);
+        int idx = dataPemeriksaan.FindIndex(item => item.kode == kode);
+        dataPemeriksaan.RemoveAt(idx);
         JsonUtils<List<Pemeriksaan>>.WriteJsonFile(dataPemeriksaan, jsonFilePath);
         response.message = "Data pemeriksaan berhasil dihapus";
 

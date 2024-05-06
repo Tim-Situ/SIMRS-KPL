@@ -23,22 +23,22 @@ public class PoliController : Controller
         return Ok(response);
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<ApiResponse<Poli>> Get(int id)
+    [HttpGet("{kode}")]
+    public ActionResult<ApiResponse<Poli>> Get(string kode)
     {
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
-        if (id >= dataPoli.Count || id < 0)
+        if (!dataPoli.Any(item => item.kode == kode))
         {
             response.success = false;
-            response.message = $"Data poli dengan Index : {id} tidak ditemukan";
+            response.message = $"Data poli dengan kode : {kode} tidak ditemukan";
             response.data = null;
 
             return NotFound(response);
         }
 
         response.message = "Data poli ditemukan";
-        response.data = dataPoli[id];
+        response.data = dataPoli.FirstOrDefault(item => item.kode == kode);
 
         return Ok(response);
     }
@@ -55,8 +55,8 @@ public class PoliController : Controller
         return CreatedAtAction(nameof(Get), response);
     }
 
-    [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Poli>> Put(int id, [FromBody] Poli value)
+    [HttpPut("{kode}")]
+    public ActionResult<ApiResponse<Poli>> Put(string kode, [FromBody] Poli value)
     {
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 

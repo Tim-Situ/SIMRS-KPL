@@ -57,40 +57,46 @@ public class DokterController : Controller
         return CreatedAtAction(nameof(Get), response);
     }
 
-    [HttpPut("{id}")]
-    public ActionResult<ApiResponse<Dokter>> Put(int id, [FromBody] Dokter value)
+    [HttpPut("{nip}")]
+    public ActionResult<ApiResponse<Dokter>> Put(string nip, [FromBody] Dokter value)
     {
         dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataDokter.Count || id < 0)
+        Dokter cariDokter = dataDokter.FirstOrDefault(item => item.nip == nip);
+
+        if (cariDokter == null)
         {
             response.success = false;
-            response.message = $"Data dokter dengan Index : {id} tidak ditemukan";
+            response.message = $"Data dokter dengan NIP : {nip} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataDokter[id] = value;
+        int index = dataDokter.FindIndex(item => item.nip == nip);
+        dataDokter[index] = value;
         JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
 
         response.message = "Data dokter berhasil diubah";
-        response.data = dataDokter[id];
+        response.data = dataDokter[index];
 
         return Ok(response);
     }
 
-    [HttpDelete("{id}")]
-    public ActionResult<ApiResponse<Object>> Delete(int id)
+    [HttpDelete("{nip}")]
+    public ActionResult<ApiResponse<Object>> Delete(string nip)
     {
         dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        if (id >= dataDokter.Count || id < 0)
+        Dokter cariDokter = dataDokter.FirstOrDefault(item => item.nip == nip);
+
+        if (cariDokter == null)
         {
             response.success = false;
-            response.message = $"Data dokter dengan Index : {id} tidak ditemukan";
+            response.message = $"Data dokter dengan NIP : {nip} tidak ditemukan";
 
             return NotFound(response);
         }
 
-        dataDokter.RemoveAt(id);
+        int index = dataDokter.FindIndex(item => item.nip == nip);
+        dataDokter.RemoveAt(index);
         JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
 
         response.message = "Data dokter berhasil dihapus";

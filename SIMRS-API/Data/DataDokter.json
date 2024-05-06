@@ -2,8 +2,10 @@
   {
     "nip": "12345",
     "poli": {
+      "kode": null,
       "namaPoli": "Gigi",
-      "ruang": "KU1.03.01"
+      "ruang": "KU1.03.01",
+      "biaya": 0
     },
     "nama": "Dr. Felix",
     "tglLahir": "07-11-1876",
@@ -14,8 +16,10 @@
   {
     "nip": "54321",
     "poli": {
+      "kode": null,
       "namaPoli": "THT",
-      "ruang": "TULT0309"
+      "ruang": "TULT0309",
+      "biaya": 0
     },
     "nama": "Dr. AyuxV",
     "tglLahir": "01-08-1876",
@@ -26,8 +30,10 @@
   {
     "nip": "453445",
     "poli": {
+      "kode": null,
       "namaPoli": "Umum",
-      "ruang": "TULT1010"
+      "ruang": "TULT1010",
+      "biaya": 0
     },
     "nama": "Dr. Alfian",
     "tglLahir": "10-01-1876",
