@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using Microsoft.DotNet.MSIdentity.Shared;
+using Newtonsoft.Json;
 using SIMRS_API;
 
 namespace SIMRS_CLI.ClientSideApi
@@ -16,14 +18,7 @@ namespace SIMRS_CLI.ClientSideApi
         {
             ApiResponse<List<T>> listData = null;
             HttpResponseMessage response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
-            {
-                listData = await response.Content.ReadAsAsync<ApiResponse<List<T>>>();
-            }
-            else
-            {
-                
-            }
+            listData = await response.Content.ReadAsAsync<ApiResponse<List<T>>>();
             return listData;
         }
 
@@ -31,32 +26,34 @@ namespace SIMRS_CLI.ClientSideApi
         {
             ApiResponse<T> listData = null;
             HttpResponseMessage response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
-            {
-                listData = await response.Content.ReadAsAsync<ApiResponse<T>>();
-            }
+            listData = await response.Content.ReadAsAsync<ApiResponse<T>>();
             return listData;
         }
 
-        public async Task ClientPostData<U>(U data, string path)
+        public async Task<string> ClientPostData<T>(T data, string path)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 path, data);
             response.EnsureSuccessStatusCode();
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<ApiResponse<T>>(jsonResponse).message;
         }
 
-        public async Task ClientPutData<V>(V data, string path)
+        public async Task<string> ClientPutData<T>(T data, string path)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
                path, data);
             response.EnsureSuccessStatusCode();
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<ApiResponse<T>>(jsonResponse).message;
         }
 
-        public async Task<HttpStatusCode> ClientDeleteData(string path)
+        public async Task<string> ClientDeleteData(string path)
         {
             HttpResponseMessage response = await client.DeleteAsync(
                 path);
-            return response.StatusCode;
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<ApiResponse<T>>(jsonResponse).message;
         }
     }
 }
