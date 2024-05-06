@@ -152,9 +152,11 @@ namespace SIMRS_CLI
                         break;
                     case 2:
                         pesan = pasien.Update();
+                        Console.Clear();
                         break;
                     case 3:
                         pesan = pasien.Delete();
+                        Console.Clear();
                         break;
                 };
             }
