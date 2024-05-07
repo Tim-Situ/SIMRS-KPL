@@ -12,6 +12,7 @@ namespace SIMRS_CLI.Views
     {
         public static void MenuUtama()
         {
+            StatusUser userStatus = new StatusUser();
             int pilihan = -1;
             while (pilihan != 0)
             {
@@ -20,14 +21,7 @@ namespace SIMRS_CLI.Views
                 MenuLanguage menu = LanguageConfig.getMenu;
 
                 // UJI COBA MULTI ABHASA
-                Console.WriteLine(menu.title);
-                for (int i = 0; i < menu.main_menu.Count; i++)
-                {
-                    Console.WriteLine($"[{i + 1}] {menu.main_menu[i]}");
-                }
-                Console.WriteLine($"[99] Ganti Bahasa");
-                Console.WriteLine($"[0] {menu.exit}");
-                Console.Write($"\n\n{menu.select}");
+                userStatus.ShowAvailableMenu();
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.main_menu.Count, pilihan))
                 {

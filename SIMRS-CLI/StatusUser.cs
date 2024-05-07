@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SIMRS_CLI.Config;
 using SIMRS_CLI.Content;
+using SIMRS_CLI.Models;
 
 public enum Status
 {
@@ -121,6 +123,7 @@ public class StatusUser
 
     public void ShowAvailableMenu()
     {
+        MenuLanguage menu = LanguageConfig.getMenu;
 
         if (currentStatus == Status.MENU_PEMERIKSAAN)
         {
@@ -130,7 +133,8 @@ public class StatusUser
                     "\n[0] Kembali" +
                     "\n\nInputkan Pilihan Menu: "
                     );
-        } else if (currentStatus == Status.MENU_PEMBAYARAN)
+        } 
+        else if (currentStatus == Status.MENU_PEMBAYARAN)
         {
             Console.WriteLine(
                     "[1] Tambah Data Pembayaran" +
@@ -138,16 +142,18 @@ public class StatusUser
                     "\n[0] Kembali" +
                     "\n\nInputkan Pilihan Menu: "
                     );
-        } else if (currentStatus == Status.MENU_PASIEN)
+        } 
+        else if (currentStatus == Status.MENU_PASIEN)
         {
-            Console.WriteLine(
-                    "[1] Tambah Data Pasien" +
-                    "\n[2] Edit Data Pasien" +
-                    "\n[3] Hapus Data Pasien" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
-        } else if (currentStatus == Status.MENU_DOKTER)
+            Console.WriteLine(menu.title);
+            for (int i = 0; i < menu.patient_menu.Count; i++)
+            {
+                Console.WriteLine($"[{i + 1}] {menu.patient_menu[i]}");
+            }
+            Console.WriteLine($"[0] {menu.exit}");
+            Console.WriteLine($"\n\n{menu.select}");
+        } 
+        else if (currentStatus == Status.MENU_DOKTER)
         {
             Console.WriteLine(
                     "[1] Tambah Data Dokter" +
@@ -156,7 +162,8 @@ public class StatusUser
                     "\n[0] Kembali" +
                     "\n\nInputkan Pilihan Menu: "
                     );
-        } else if (currentStatus == Status.MENU_OBAT)
+        } 
+        else if (currentStatus == Status.MENU_OBAT)
         {
             Console.WriteLine(
                     "[1] Tambah Data Obat" +
@@ -165,7 +172,8 @@ public class StatusUser
                     "\n[0] Kembali" +
                     "\n\nInputkan Pilihan Menu: "
                     );
-        } else if (currentStatus == Status.MENU_SPESIALIS)
+        } 
+        else if (currentStatus == Status.MENU_SPESIALIS)
         {
             Console.WriteLine(
                     "[1] Tambah Data Spesialis" +
@@ -174,10 +182,19 @@ public class StatusUser
                     "\n[0] Kembali" +
                     "\n\nInputkan Pilihan Menu: "
            );
-        } else if (currentStatus == Status.HOME)
+        } 
+        else if (currentStatus == Status.HOME)
         {
-
-        } else if (currentStatus == Status.LOG_OUT)
+            Console.WriteLine(menu.title);
+            for (int i = 0; i < menu.main_menu.Count; i++)
+            {
+                Console.WriteLine($"[{i + 1}] {menu.main_menu[i]}");
+            }
+            Console.WriteLine($"[99] Ganti Bahasa");
+            Console.WriteLine($"[0] {menu.exit}");
+            Console.WriteLine($"\n\n{menu.select}");
+        } 
+        else if (currentStatus == Status.LOG_OUT)
         {
             Console.WriteLine("Anda Telah Keluar Dari SIMRS");
         }
