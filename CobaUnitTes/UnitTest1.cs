@@ -1,4 +1,6 @@
 ﻿using SIMRS_API;
+using SIMRS_LIB;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CobaUnitTes;
 

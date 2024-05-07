@@ -21,16 +21,11 @@ namespace SIMRS_CLI.Views.Pasien
 
                 Console.WriteLine("========== Data Pasien ==========");
 
-                pasien.ShowAll();
+                //pasien.ShowAll();
 
-                // UJI COBA MULTI ABHASA
-                Console.WriteLine(menu.title);
-                for (int i = 0; i < menu.patient_menu.Count; i++)
-                {
-                    Console.WriteLine($"[{i + 1}] {menu.patient_menu[i]}");
-                }
-                Console.WriteLine($"[0] {menu.exit}");
-                Console.Write($"\n\n{menu.select}");
+                StatusUser userStatus = new StatusUser();
+                userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
+                userStatus.ShowAvailableMenu();
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.patient_menu.Count, pilihan))
                 {
