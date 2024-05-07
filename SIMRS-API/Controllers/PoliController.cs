@@ -14,9 +14,27 @@ public class PoliController : Controller
     private static List<Poli> dataPoli;
 
     [HttpGet]
-    public ActionResult<ApiResponse<List<Poli>>> Get()
+    public ActionResult<ApiResponse<List<Poli>>> GetAll([FromQuery] string search = null)
     {
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
+
+        if (search != null)
+        {
+            dataPoli = new List<Poli>
+            {
+                dataPoli.FirstOrDefault(item => item.namaPoli.ToLower() == search.ToLower())
+            };
+
+            if (dataPoli[0] == null)
+            {
+                response.success = false;
+                response.message = "Data poli tidak ditemukan";
+                response.data = dataPoli;
+
+                return NotFound(response);
+            }
+        }
+
         response.message = "Data poli berhasil ditampilkan";
         response.data = dataPoli;
 
@@ -52,7 +70,7 @@ public class PoliController : Controller
         response.message = "Data poli berhasil ditambahkan";
         response.data = dataPoli.Last();
 
-        return CreatedAtAction(nameof(Get), response);
+        return CreatedAtAction(nameof(GetAll), response);
     }
 
     [HttpPut("{kode}")]
