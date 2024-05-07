@@ -21,7 +21,7 @@ namespace SIMRS_CLI.Views.Poli
 
                 poli.ShowAll();
 
-                Console.WriteLine(
+                Console.Write(
                     "[1] Tambah Data Poli" +
                     "\n[2] Edit Data Poli" +
                     "\n[3] Hapus Data Poli" +
