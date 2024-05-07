@@ -1,5 +1,5 @@
 {
-  "lang": "en",
+  "lang": "id",
   "appEn": {
     "title": "======= Application Menu =======",
     "main_menu": [
@@ -15,19 +15,12 @@
       "Edit Patient Data",
       "Delete Patient Data"
     ],
-    "patien_add": [
-      "Patient NIK",
-      "Patient Name",
-      "Birth Date",
-      "Phone Number",
-      "Sex",
-      "Address"
-    ],
+    "patient_add": null,
     "exit": "Exit",
     "select": "Write option: "
   },
   "appId": {
-    "titile": "========= Menu Aplikasi =========",
+    "title": null,
     "main_menu": [
       "Pemeriksaan",
       "Pembayaran",
@@ -41,14 +34,7 @@
       "Edit Data Pasien",
       "Hapus Data Patient"
     ],
-    "patien_add": [
-      "NIK Pasien",
-      "Nama Pasien",
-      "Tanggal Lahir",
-      "Nomor HP",
-      "Jenis Kelamin",
-      "Alamat"
-    ],
+    "patient_add": null,
     "exit": "Keluar",
     "select": "Ketik pilihan: "
   }

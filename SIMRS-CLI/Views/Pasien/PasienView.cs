@@ -21,7 +21,7 @@ namespace SIMRS_CLI.Views.Pasien
 
                 Console.WriteLine("========== Data Pasien ==========");
 
-                //pasien.ShowAll();
+                pasien.ShowAll();
 
                 StatusUser userStatus = new StatusUser();
                 userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
