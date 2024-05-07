@@ -27,8 +27,6 @@ namespace SIMRS_CLI
             {
                 headerMenu();
 
-                LanguageConfig.initLanguage();
-
                 MenuLanguage menu = LanguageConfig.getMenu;
 
                 // UJI COBA MULTI ABHASA
