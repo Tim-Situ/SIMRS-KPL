@@ -1,14 +1,10 @@
-﻿using System.Net;
-using Microsoft.DotNet.MSIdentity.Shared;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SIMRS_API;
 
 namespace SIMRS_CLI.ClientSideApi
 {
     public class ApiClient<T>
     {
-        // TO DO: Menambah try catch
-
         protected static HttpClient client = new HttpClient()
         {
             BaseAddress = new Uri("http://localhost:5117/api/")

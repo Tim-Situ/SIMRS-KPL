@@ -23,7 +23,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Poli> dataPoli = api.ClientGetData("Poli").GetAwaiter().GetResult().data;
             foreach (Poli Poli in dataPoli)
             {
-                tblPoli.addData(new List<string> { no.ToString(), Poli.namaPoli, Poli.ruang, Poli.biaya.ToString() });
+                tblPoli.addData(new List<string> { no.ToString(), Poli.kode, Poli.namaPoli, Poli.ruang, Poli.biaya.ToString() });
                 no++;
             }
 
@@ -34,7 +34,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public override void ShowOne(string id)
         {
             Poli Poli = api.ClientGetOneData($"Poli/{id}").GetAwaiter().GetResult().data;
-            tblPoli.addData(new List<string> { "1", Poli.namaPoli, Poli.ruang, Poli.biaya.ToString() });
+            tblPoli.addData(new List<string> { "1", Poli.kode, Poli.namaPoli, Poli.ruang, Poli.biaya.ToString() });
             tblPoli.showData();
             tblPoli.clearData();
         }

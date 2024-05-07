@@ -3,9 +3,9 @@ namespace SIMRS_CLI.Views
 {
     public class HeaderView
     {
-        public static async void headerMenu()
+        public static void headerMenu()
         {
-            await Console.Out.WriteLineAsync(
+            Console.WriteLine(
                 "=================================\n" +
                 "=== Sistem Rekam Medis Pasien ===\n" +
                 "================================="
