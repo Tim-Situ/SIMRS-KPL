@@ -1,29 +1,20 @@
+﻿using System;
 using SIMRS_CLI.ClientSideApi.Services;
-using SIMRS_CLI.Models;
 using SIMRS_CLI.Config;
+using SIMRS_CLI.Models;
+using SIMRS_CLI.Views.Pasien;
 using SIMRS_LIB;
 
-namespace SIMRS_CLI
+namespace SIMRS_CLI.Views
 {
-    internal class Menu
+    public class MainView
     {
-        PasienService pasien = new();
-
-        private async void headerMenu()
-        {
-            await Console.Out.WriteLineAsync(
-                //"=================================\n" +
-                //"=== Sistem Rekam Medis Pasien ===\n" +
-                //"================================="
-                );
-        }
-
-        public void MenuUtama()
+        public static void MenuUtama()
         {
             int pilihan = -1;
             while (pilihan != 0)
             {
-                headerMenu();
+                HeaderView.headerMenu();
 
                 MenuLanguage menu = LanguageConfig.getMenu;
 
@@ -54,7 +45,7 @@ namespace SIMRS_CLI
                         Console.WriteLine(menu.appmenu[1]);
                         break;
                     case 3:
-                        MenuPasien();
+                        PasienView.PasienMenu();
                         break;
                     case 4:
                         Console.WriteLine(menu.appmenu[2]);
@@ -75,46 +66,6 @@ namespace SIMRS_CLI
                 };
             }
         }
-
-        public void MenuPasien()
-        {
-
-            int pilihan = -1;
-            while (pilihan != 0)
-            {
-                headerMenu();
-
-                Console.WriteLine("========== Data Pasien ==========");
-
-                pasien.ShowAll();
-
-                Console.WriteLine(
-                    "[1] Tambah Data Pasien" +
-                    "\n[2] Edit Data Pasien" +
-                    "\n[3] Hapus Data Pasien" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
-
-                pilihan = Convert.ToInt32(Console.ReadLine());
-
-                switch (pilihan)
-                {
-                    case 1:
-                        Console.Clear();
-                        headerMenu();
-                        pasien.Create();
-                        break;
-                    case 2:
-                        pasien.Update();
-                        break;
-                    case 3:
-                        pasien.Delete();
-                        break;
-                };
-                Console.Clear();
-
-            }
-        }
     }
 }
+
