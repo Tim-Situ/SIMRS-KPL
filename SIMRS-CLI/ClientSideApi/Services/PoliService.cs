@@ -29,6 +29,8 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             tblPoli.showData();
             tblPoli.clearData();
+
+            Console.Write((dataPoli.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
 
         public override void ShowOne(string id)
@@ -72,11 +74,11 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Console.WriteLine("Masukan data baru");
             string namaPoli = PromptUser("Nama Poli: ");
             string ruang = PromptUser("Ruang: ");
-            int biaya = Convert.ToInt32(PromptUser("Biaya: "));
+            string _biaya = PromptUser("Biaya: ");
 
             poli.namaPoli = (namaPoli == "") ? poli.namaPoli : namaPoli;
             poli.ruang = (ruang == "") ? poli.ruang : ruang;
-            poli.biaya = (biaya == 0) ? poli.biaya : biaya;
+            poli.biaya = (_biaya == "") ? poli.biaya : Convert.ToInt32(_biaya);
 
             pesan = "Data poli gagal diubah";
             if (Confirmation("Edit Data?"))

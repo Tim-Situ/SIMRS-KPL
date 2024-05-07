@@ -31,6 +31,8 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             tblPasien.showData();
             tblPasien.clearData();
+
+            Console.Write((dataPasien.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
 
         public override void ShowOne(string id)

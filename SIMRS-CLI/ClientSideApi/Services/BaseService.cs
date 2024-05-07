@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SIMRS_API;
-using SIMRS_LIB;
-
-namespace SIMRS_CLI.ClientSideApi.Services
+﻿namespace SIMRS_CLI.ClientSideApi.Services
 {
     internal abstract class BaseService
     {

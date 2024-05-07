@@ -45,7 +45,7 @@ namespace SIMRS_CLI.Views.Poli
                         poli.Delete();
                         break;
                 };
-                Console.Clear();
+                //Console.Clear();
 
             }
         }
