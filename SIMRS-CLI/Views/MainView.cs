@@ -19,16 +19,16 @@ namespace SIMRS_CLI.Views
                 MenuLanguage menu = LanguageConfig.getMenu;
 
                 // UJI COBA MULTI ABHASA
-                Console.WriteLine(menu.apptitle);
-                for (int i = 0; i < menu.appmenu.Count; i++)
+                Console.WriteLine(menu.title);
+                for (int i = 0; i < menu.main_menu.Count; i++)
                 {
-                    Console.WriteLine($"[{i + 1}] {menu.appmenu[i]}");
+                    Console.WriteLine($"[{i + 1}] {menu.main_menu[i]}");
                 }
                 Console.WriteLine($"[99] Ganti Bahasa");
-                Console.WriteLine($"[0] {menu.appexit}");
-                Console.WriteLine($"\n\n{menu.appselect}");
+                Console.WriteLine($"[0] {menu.exit}");
+                Console.WriteLine($"\n\n{menu.select}");
                 pilihan = Convert.ToInt32(Console.ReadLine());
-                while (!DefensiveUtils.SelectMenuOptionValidation(menu.appmenu.Count, pilihan))
+                while (!DefensiveUtils.SelectMenuOptionValidation(menu.main_menu.Count, pilihan))
                 {
                     Console.WriteLine("tidak valid");
                     pilihan = Convert.ToInt32(Console.ReadLine());
@@ -39,22 +39,22 @@ namespace SIMRS_CLI.Views
                 switch (pilihan)
                 {
                     case 1:
-                        Console.WriteLine(menu.appmenu[0]);
+                        Console.WriteLine(menu.main_menu[0]);
                         break;
                     case 2:
-                        Console.WriteLine(menu.appmenu[1]);
+                        Console.WriteLine(menu.main_menu[1]);
                         break;
                     case 3:
                         PasienView.PasienMenu();
                         break;
                     case 4:
-                        Console.WriteLine(menu.appmenu[2]);
+                        Console.WriteLine(menu.main_menu[2]);
                         break;
                     case 5:
-                        Console.WriteLine(menu.appmenu[3]);
+                        Console.WriteLine(menu.main_menu[3]);
                         break;
                     case 6:
-                        Console.WriteLine(menu.appmenu[4]);
+                        Console.WriteLine(menu.main_menu[4]);
                         break;
 
                     case 99:

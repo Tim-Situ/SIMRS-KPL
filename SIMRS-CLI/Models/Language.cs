@@ -3,17 +3,21 @@
     // Class Penampung Konfigurasi Menu
     public class MenuLanguage
     {
-        public string apptitle { get; set; }
-        public List<string> appmenu { get; set; }
-        public string appexit { get; set; }
-        public string appselect { get; set; }
+        public string title { get; set; }
+        public List<string> main_menu { get; set; }
+        public List<string> patient_menu { get; set; }
+        public List<string> patient_add { get; set; }
+        public string exit { get; set; }
+        public string select { get; set; }
 
-        public MenuLanguage(string apptitle, List<string> appmenu, string appexit, string appselect)
+        public MenuLanguage(string title, List<string> main_menu, List<string> patient_menu, List<string> patient_add, string exit, string select)
         {
-            this.apptitle = apptitle;
-            this.appmenu = appmenu;
-            this.appexit = appexit;
-            this.appselect = appselect;
+            this.title = title;
+            this.main_menu = main_menu;
+            this.patient_menu = patient_menu;
+            this.patient_add = patient_add;
+            this.exit = exit;
+            this.select = select;
         }
     }
 

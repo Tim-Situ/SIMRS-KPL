@@ -16,6 +16,19 @@ namespace SIMRS_CLI.Content
                   "Spesialis",
                   "Obat"
                 },
+                new List<string>{
+                  "Tambah Data Pasien",
+                  "Edit Data Pasien",
+                  "Hapus Data Patient"
+                },
+                new List<string>{
+                  "NIK Pasien",
+                  "Nama Pasien",
+                  "Tanggal Lahir",
+                  "Nomor HP",
+                  "Jenis Kelamin",
+                  "Alamat"
+                },
                 "Keluar",
                 "Ketik pilihan: ");
             MenuLanguage appEn =
@@ -27,6 +40,19 @@ namespace SIMRS_CLI.Content
                   "Doctor",
                   "Specialist",
                   "Drug"
+                },
+                new List<string>{
+                  "Add Patient Data",
+                  "Edit Patient Data",
+                  "Delete Patient Data"
+                },
+                new List<string>{
+                  "Patient NIK",
+                  "Patient Name",
+                  "Birth Date",
+                  "Phone Number",
+                  "Sex",
+                  "Address"
                 },
                 "Exit",
                 "Write option: ");

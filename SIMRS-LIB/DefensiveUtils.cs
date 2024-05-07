@@ -54,10 +54,10 @@ namespace SIMRS_LIB
             // validasi input opsi
             // PREKONDISI:
             // 1. Memastikan angka input tidak lebih dari jumlah menu (kecuali 99 untuk ganti bahasa, 0 untuk exit)
-            Debug.Assert((input > 1 && input <= countMenu) || input == 99 || input == 0, $"KESALAHAN INPUT: Pilihan menu tersedia hanya 1-{countMenu}, 99 untuk ganti bahasa, dan 0 untuk keluar.");
+            Debug.Assert((input >= 1 && input <= countMenu) || input == 99 || input == 0, $"KESALAHAN INPUT: Pilihan menu tersedia hanya 1-{countMenu}, 99 untuk ganti bahasa, dan 0 untuk keluar.");
 
             // EXCEPTION: 
-            bool result = (input > 1 && input <= countMenu) || input == 99 || input == 0;
+            bool result = (input >= 1 && input <= countMenu) || input == 99 || input == 0;
 
             // POST CONDITION:
             return result;

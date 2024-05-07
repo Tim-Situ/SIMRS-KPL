@@ -10,7 +10,6 @@ internal class Program
     private static async Task Main(string[] args)
     {
         LanguageConfig.initLanguage();
-        Menu menu = new Menu();
         //menu.MenuUtama();.
         MainView.MenuUtama();
 

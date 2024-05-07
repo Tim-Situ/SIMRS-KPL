@@ -1,8 +1,8 @@
 {
   "lang": "id",
   "appEn": {
-    "apptitle": "======= Application Menu =======",
-    "appmenu": [
+    "title": "======= Application Menu =======",
+    "main_menu": [
       "Medical Check",
       "Payment",
       "Patient",
@@ -10,12 +10,25 @@
       "Specialist",
       "Drug"
     ],
-    "appexit": "Exit",
-    "appselect": "Write option: "
+    "patient_menu": [
+      "Add Patient Data",
+      "Edit Patient Data",
+      "Delete Patient Data"
+    ],
+    "patien_add": [
+      "Patient NIK",
+      "Patient Name",
+      "Birth Date",
+      "Phone Number",
+      "Sex",
+      "Address"
+    ],
+    "exit": "Exit",
+    "select": "Write option: "
   },
   "appId": {
-    "apptitle": "========= Menu Aplikasi =========",
-    "appmenu": [
+    "titile": "========= Menu Aplikasi =========",
+    "main_menu": [
       "Pemeriksaan",
       "Pembayaran",
       "Pasien",
@@ -23,7 +36,20 @@
       "Spesialis",
       "Obat"
     ],
-    "appexit": "Keluar",
-    "appselect": "Ketik pilihan: "
+    "patient_menu": [
+      "Tambah Data Pasien",
+      "Edit Data Pasien",
+      "Hapus Data Patient"
+    ],
+    "patien_add": [
+      "NIK Pasien",
+      "Nama Pasien",
+      "Tanggal Lahir",
+      "Nomor HP",
+      "Jenis Kelamin",
+      "Alamat"
+    ],
+    "exit": "Keluar",
+    "select": "Ketik pilihan: "
   }
 }
