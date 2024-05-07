@@ -35,8 +35,8 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
         public override void ShowOne(string id)
         {
-            Poli Poli = api.ClientGetOneData($"Poli/{id}").GetAwaiter().GetResult().data;
-            tblPoli.addData(new List<string> { "1", Poli.kode, Poli.namaPoli, Poli.ruang, Poli.biaya.ToString() });
+            Poli poli = api.ClientGetOneData($"Poli/{id}").GetAwaiter().GetResult().data;
+            tblPoli.addData(new List<string> { "1", poli.kode, poli.namaPoli, poli.ruang, poli.biaya.ToString() });
             tblPoli.showData();
             tblPoli.clearData();
         }
