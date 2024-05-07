@@ -32,7 +32,7 @@ public enum Status
     TAMBAH_DATA_OBAT,
     EDIT_DATA_OBAT,
     HAPUS_DATA_OBAT,
-    GANTI_BAHASA,
+    MENU_GANTI_BAHASA,
     LOG_OUT
 };
 
@@ -48,6 +48,8 @@ public enum Trigger
     AKSES_MENU_DOKTER,
     AKSES_MENU_SPESIALIS,
     AKSES_MENU_OBAT,
+    AKSES_MENU_GANTI_BAHASA,
+    GANTI_BAHASA,
     KELUAR
 };
 
@@ -75,6 +77,8 @@ public class StatusUser
         new Transition(Status.HOME, Status.MENU_DOKTER, Trigger.AKSES_MENU_DOKTER),
         new Transition(Status.HOME , Status.MENU_OBAT , Trigger.AKSES_MENU_OBAT),
         new Transition(Status.HOME , Status.LOG_OUT, Trigger.KELUAR),
+        new Transition(Status.HOME, Status.MENU_GANTI_BAHASA, Trigger.AKSES_MENU_GANTI_BAHASA),
+        new Transition(Status.MENU_GANTI_BAHASA, Status.HOME, Trigger.GANTI_BAHASA),
         new Transition(Status.MENU_DOKTER , Status.HOME ,Trigger.KEMBALI),
         new Transition(Status.MENU_OBAT , Status.HOME ,Trigger.KEMBALI),
         new Transition(Status.MENU_PASIEN , Status.HOME ,Trigger.KEMBALI),
@@ -200,5 +204,8 @@ public class StatusUser
         }
     }
 
-
+    public void PrintCurrentState()
+    {
+        Console.WriteLine("Current Status : " + currentStatus);
+    }
 }

@@ -56,6 +56,7 @@ namespace SIMRS_CLI.Config
             {
                 ChangeLanguage();
             }
+            Views.ViewSetup.userStatus.ActivateTrigger(Trigger.GANTI_BAHASA);
         }
 
         // method untuk mengganti bahasa

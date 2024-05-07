@@ -10,9 +10,6 @@ namespace SIMRS_CLI.Views.Pasien
     {
         public static void PasienMenu()
         {
-            int pilihan = -1;
-            while (pilihan != 0)
-            {
                 PasienService pasien = new();
 
                 MenuLanguage menu = LanguageConfig.getMenu;
@@ -21,12 +18,10 @@ namespace SIMRS_CLI.Views.Pasien
 
                 Console.WriteLine("========== Data Pasien ==========");
 
-                //pasien.ShowAll();
-
-                StatusUser userStatus = new StatusUser();
-                userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
-                userStatus.ShowAvailableMenu();
-                pilihan = Convert.ToInt32(Console.ReadLine());
+                pasien.ShowAll();
+                ViewSetup.userStatus.PrintCurrentState();
+                ViewSetup.userStatus.ShowAvailableMenu();
+                int pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.patient_menu.Count, pilihan))
                 {
                     Console.WriteLine("tidak valid");
@@ -57,10 +52,11 @@ namespace SIMRS_CLI.Views.Pasien
                     case 3:
                         pasien.Delete();
                         break;
+                    case 0:
+                        ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);
+                        break;
                 };
                 Console.Clear();
-
-            }
         }
     }
 }
