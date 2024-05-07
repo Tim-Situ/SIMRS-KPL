@@ -9,13 +9,13 @@ namespace SIMRS_CLI.ClientSideApi.Services
         string pesan = "";
 
         TableUtils tblPoli = new(new List<string>
-                {
-                    "No",
-                    "Kode Poli",
-                    "Nama Poli",
-                    "Ruang",
-                    "Biaya"
-                });
+        {
+            "No",
+            "Kode Poli",
+            "Nama Poli",
+            "Ruang",
+            "Biaya"
+        });
 
         public override void ShowAll()
         {
@@ -59,7 +59,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
         public override string Update()
         {
-            string kodePoli = PromptUser("Masukan kode spesialis yang ingin diedit!");
+            string kodePoli = PromptUser("Masukan kode spesialis: ");
             ApiResponse<Poli> respon = api.ClientGetOneData($"Poli/{kodePoli}").GetAwaiter().GetResult();
             if (!respon.success)
             {
@@ -74,9 +74,9 @@ namespace SIMRS_CLI.ClientSideApi.Services
             string ruang = PromptUser("Ruang: ");
             int biaya = Convert.ToInt32(PromptUser("Biaya: "));
 
-            poli.namaPoli = namaPoli ?? poli.namaPoli;
-            poli.ruang = ruang ?? poli.ruang;
-            poli.biaya = biaya != 0 ? biaya : poli.biaya;
+            poli.namaPoli = (namaPoli == "") ? poli.namaPoli : namaPoli;
+            poli.ruang = (ruang == "") ? poli.ruang : ruang;
+            poli.biaya = (biaya == 0) ? poli.biaya : biaya;
 
             pesan = "Data poli gagal diubah";
             if (Confirmation("Edit Data?"))
