@@ -30,7 +30,7 @@ namespace SIMRS_CLI.Views.Pasien
                     Console.WriteLine($"[{i + 1}] {menu.patient_menu[i]}");
                 }
                 Console.WriteLine($"[0] {menu.exit}");
-                Console.WriteLine($"\n\n{menu.select}");
+                Console.Write($"\n\n{menu.select}");
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.patient_menu.Count, pilihan))
                 {
