@@ -6,10 +6,12 @@ namespace SIMRS_CLI.ClientSideApi.Services
     internal class PoliService : BaseService
     {
         ApiClient<Poli> api = new();
+        string pesan = "";
 
         TableUtils tblPoli = new(new List<string>
                 {
                     "No",
+                    "Kode Poli",
                     "Nama Poli",
                     "Ruang",
                     "Biaya"
@@ -21,7 +23,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Poli> dataPoli = api.ClientGetData("Poli").GetAwaiter().GetResult().data;
             foreach (Poli Poli in dataPoli)
             {
-                tblPoli.addData(new List<string> { no.ToString(), Poli.namaPoli, Poli.ruang, Poli.biaya.ToString()});
+                tblPoli.addData(new List<string> { no.ToString(), Poli.namaPoli, Poli.ruang, Poli.biaya.ToString() });
                 no++;
             }
 
@@ -46,19 +48,26 @@ namespace SIMRS_CLI.ClientSideApi.Services
             string ruang = PromptUser("Ruang: ");
             int biaya = Convert.ToInt32(PromptUser("Biaya: "));
 
-            Poli Poli= new Poli(kode, namaPoli, ruang, biaya);
-            api.ClientPostData(Poli, "Poli").GetAwaiter().GetResult();
-            return "abc";
+            pesan = "Data spesialis gagal ditambahkan";
+            if (Confirmation("Simpan Data?"))
+            {
+                Poli Poli = new Poli(kode, namaPoli, ruang, biaya);
+                pesan = api.ClientPostData(Poli, "Poli").GetAwaiter().GetResult();
+            }
+            return pesan;
         }
 
         public override string Update()
         {
-            int kodePoli;
-            Console.WriteLine("Masukan kode spesialis yang ingin diedit!");
-            kodePoli = Convert.ToInt32(Console.ReadLine());
-            Poli poli= api.ClientGetOneData($"Poli/{kodePoli}").GetAwaiter().GetResult().data;
+            string kodePoli = PromptUser("Masukan kode spesialis yang ingin diedit!");
+            ApiResponse<Poli> respon = api.ClientGetOneData($"Poli/{kodePoli}").GetAwaiter().GetResult();
+            if (!respon.success)
+            {
+                return respon.message;
+            }
+            Poli poli = respon.data;
             Console.Clear();
-            ShowOne(kodePoli.ToString());
+            ShowOne(kodePoli);
 
             Console.WriteLine("Masukan data baru");
             string namaPoli = PromptUser("Nama Poli: ");
@@ -69,24 +78,24 @@ namespace SIMRS_CLI.ClientSideApi.Services
             poli.ruang = ruang ?? poli.ruang;
             poli.biaya = biaya != 0 ? biaya : poli.biaya;
 
-            api.ClientPutData(poli, $"Poli/{kodePoli}").GetAwaiter().GetResult();
-            return "abc";
+            pesan = "Data poli gagal diubah";
+            if (Confirmation("Edit Data?"))
+            {
+                pesan = api.ClientPutData(poli, $"Poli/{kodePoli}").GetAwaiter().GetResult();
+            }
+            return pesan;
 
         }
 
         public override string Delete()
         {
-            int kodePoli;
-            Console.WriteLine("Masukan kode spesialis yang ingin dihapus!");
-            kodePoli = Convert.ToInt32(Console.ReadLine());
-            Poli poli = api.ClientGetOneData($"Poli/{kodePoli}").GetAwaiter().GetResult().data;
-
-            if (Confirmation($"Apakah anda yakin ingin menghapus spesialis dengan kode {poli.kode}"))
+            string kodePoli = PromptUser("Masukan kode spesialis: ");
+            pesan = "Data poli gagal dihapus";
+            if (Confirmation("Hapus Data?"))
             {
-                var statusCode = api.ClientDeleteData($"Poli/{kodePoli}").GetAwaiter().GetResult();
+                pesan = api.ClientDeleteData($"Poli/{kodePoli}").GetAwaiter().GetResult();
             }
-            return "abc";
-
+            return pesan;
         }
     }
 }
