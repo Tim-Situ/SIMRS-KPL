@@ -26,6 +26,8 @@ namespace SIMRS_CLI.Views.Pasien
                 StatusUser userStatus = new StatusUser();
                 userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
                 userStatus.ShowAvailableMenu();
+                MainView.userStatus.PrintCurrentState();
+                MainView.userStatus.ShowAvailableMenu();
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.patient_menu.Count, pilihan))
                 {
