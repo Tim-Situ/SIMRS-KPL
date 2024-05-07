@@ -6,17 +6,18 @@ namespace SIMRS_CLI.ClientSideApi.Services
     internal class PasienService : BaseService
     {
         ApiClient<Pasien> api = new();
+        string pesan = "";
 
         TableUtils tblPasien = new(new List<string>
-                {
-                    "No",
-                    "NIK",
-                    "Nama",
-                    "Tanggal Lahir",
-                    "No Hp",
-                    "Jenis Kelamin",
-                    "Alamat"
-                });
+        {
+            "No",
+            "NIK",
+            "Nama",
+            "Tanggal Lahir",
+            "No Hp",
+            "Jenis Kelamin",
+            "Alamat"
+        });
 
         public override void ShowAll()
         {
@@ -58,7 +59,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             string alamat = PromptUser("Alamat: ");
             User.EnumJenisKelamin jnsKelamin = Enum.Parse<User.EnumJenisKelamin>(_jnsKelamin);
 
-            string pesan = "Data pasien gagal ditambahkan";
+            pesan = "Data pasien gagal ditambahkan";
             if (Confirmation("Simpan Data?"))
             {
                 Pasien pasien = new Pasien(NIK, nama, tglLahir, noHp, jnsKelamin, alamat);
@@ -69,7 +70,6 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
         public override string Update()
         {
-
             string nik = PromptUser("\nMasukan NIK Pasien: ");
             ApiResponse<Pasien> respon = api.ClientGetOneData($"Pasien/{nik}").GetAwaiter().GetResult();
             if (!respon.success)
@@ -81,6 +81,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             ShowOne(nik);
 
             Console.WriteLine("Masukan data baru");
+            Console.WriteLine("(Langsung enter jika tidak ingin merubah data)");
             string nama = PromptUser("Nama Pasien: ");
             string tglLahir = PromptUser("Tanggal Lahir: ");
             string noHp = PromptUser("No HP: ");
@@ -96,7 +97,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             }
             pasien.alamat = (alamat == "") ? pasien.alamat : alamat;
 
-            string pesan = "Data pasien gagal diubah";
+            pesan = "Data pasien gagal diubah";
             if (Confirmation("Edit Data?"))
             {
                 pesan = api.ClientPutData(pasien, $"Pasien/{nik}").GetAwaiter().GetResult();
@@ -107,7 +108,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public override string Delete()
         {
             string nik = PromptUser("\nMasukan NIK Pasien: ");
-            string pesan = "Data pasien gagal dihapus";
+            pesan = "Data pasien gagal dihapus";
             if (Confirmation("Hapus Data?"))
             {
                 pesan = api.ClientDeleteData($"Pasien/{nik}").GetAwaiter().GetResult();
