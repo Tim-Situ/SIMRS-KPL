@@ -15,7 +15,7 @@ namespace SIMRS_LIB
             // 1. Memastikan tanggal valid
             Debug.Assert(int.TryParse(dateSplitted[0], out _), "KESALAHAN FORMAT INPUT: Gagal mengambil tanggal.");
             // 2. memastikan bulan valid
-            Debug.Assert(int.TryParse(dateSplitted[1], out _), "KESALAHAN FORMAT INPUT: Gagal mengambil bulang.");
+            Debug.Assert(int.TryParse(dateSplitted[1], out _), "KESALAHAN FORMAT INPUT: Gagal mengambil bulan.");
             // 3. memastikan tahun valid
             Debug.Assert(int.TryParse(dateSplitted[2], out _), "KESALAHAN FORMAT INPUT: Gagal mengambil tahun.");
 
@@ -35,15 +35,15 @@ namespace SIMRS_LIB
 
             // PREKONDISI:
             // validasi tanggal
-            // 4. Memastikan tanggal valid
-            Debug.Assert(dd < 1 || dd > daysInMonth[mm - 1], "KESALAHAN INPUT: Tanggal tidak valid.");
-            // 5. memastikan bulan valid
-            Debug.Assert(mm < 1 || mm > 12, "KESALAHAN INPUT: Bulan tidak valid.");
-            // 6. memastikan tahun valid
-            Debug.Assert(!IsValidYear, "KESALAHAN INPUT: Tahun tidak valid.");
+            // 4. memastikan tahun valid
+            Debug.Assert(IsValidYear, "KESALAHAN INPUT: Tahun tidak valid.");
+            // 6. memastikan bulan valid
+            Debug.Assert(mm >= 1 && mm <= 12, "KESALAHAN INPUT: Bulan tidak valid.");
+            // 7. Memastikan tanggal valid
+            Debug.Assert(dd >= 1 && dd <= daysInMonth[mm - 1], "KESALAHAN INPUT: Tanggal tidak valid.");
 
             // EXCEPTION: 
-            bool result = (mm < 1 || mm > 12 || !IsValidYear) && (dd < 1 || dd > daysInMonth[mm - 1]);
+            bool result = (mm >= 1 && mm <= 12 && IsValidYear) && (dd >= 1 || dd <= daysInMonth[mm - 1]);
 
             // POST CONDITION:
             return result;

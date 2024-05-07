@@ -1,14 +1,18 @@
 ﻿using SIMRS_CLI;
+using SIMRS_CLI.Config;
 using SIMRS_CLI.Content;
 using SIMRS_CLI.Models;
+using SIMRS_CLI.Views;
 using SIMRS_LIB;
 
 internal class Program
 {
     private static async Task Main(string[] args)
     {
+        LanguageConfig.initLanguage();
         Menu menu = new Menu();
-        menu.MenuUtama();
+        //menu.MenuUtama();.
+        MainView.MenuUtama();
 
         // Tes Implementasi Automata
         //StatusPasien status_pasien = new StatusPasien();
@@ -20,12 +24,6 @@ internal class Program
         //status_pasien.ActivateTrigger(Trigger.TRANSAKSI);
         //status_pasien.ActivateTrigger(Trigger.SELESAI_TRANSAKSI);
 
-        // tes implementasi runtime
-        ReadWriteUtils<BankTransfer> ReadWriteBankTransfer =
-            new ReadWriteUtils<BankTransfer>(
-                DefaultContent.BankTransferDefault(),
-                "../../../Json/BankTransferConfig.json"
-                );
         //Console.WriteLine(ReadWriteBankTransfer.config.methods[3]);
 
         //BankTransfer data = DefaultConfig.BankTransferDefault();

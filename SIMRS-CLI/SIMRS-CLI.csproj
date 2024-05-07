@@ -23,6 +23,7 @@
     <None Remove="Json\" />
     <None Remove="Views\" />
     <None Remove="Content\" />
+    <None Remove="Views\Pasien\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
@@ -30,5 +31,6 @@
     <Folder Include="Json\" />
     <Folder Include="Views\" />
     <Folder Include="Content\" />
+    <Folder Include="Views\Pasien\" />
   </ItemGroup>
 </Project>

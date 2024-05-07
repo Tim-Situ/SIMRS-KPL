@@ -16,7 +16,7 @@ namespace SIMRS_CLI.Config
             // Memanggil class konfigurasi untuk membaca dan menulis bahasa
             ReadWriteUtils<Language> ReadWriteLanguage =
                 new ReadWriteUtils<Language>(
-                    DefaultContent.LanguageDefault(),
+                    LanguageContent.LanguageDefault(),
                     filepath
                     );
 
