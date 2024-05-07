@@ -10,9 +10,6 @@ namespace SIMRS_CLI.Views.Poli
     {
         public static void PoliMenu()
         {
-            int pilihan = -1;
-            while (pilihan != 0)
-            {
                 PoliService poli = new();
 
                 HeaderView.headerMenu();
@@ -21,15 +18,9 @@ namespace SIMRS_CLI.Views.Poli
 
                 poli.ShowAll();
 
-                Console.Write(
-                    "[1] Tambah Data Poli" +
-                    "\n[2] Edit Data Poli" +
-                    "\n[3] Hapus Data Poli" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
+                ViewSetup.userStatus.ShowAvailableMenu();
 
-                pilihan = Convert.ToInt32(Console.ReadLine());
+                int pilihan = Convert.ToInt32(Console.ReadLine());
 
                 switch (pilihan)
                 {
@@ -44,10 +35,11 @@ namespace SIMRS_CLI.Views.Poli
                     case 3:
                         poli.Delete();
                         break;
+                    case 0:
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);
+                        break;
                 };
-                //Console.Clear();
-
-            }
+                Console.Clear();
         }
     }
 }

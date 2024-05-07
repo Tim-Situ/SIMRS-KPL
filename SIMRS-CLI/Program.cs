@@ -11,7 +11,7 @@ internal class Program
     {
         LanguageConfig.initLanguage();
         //menu.MenuUtama();.
-        MainView.MenuUtama();
+        ViewSetup.ViewController();
 
         // Tes Implementasi Automata
         //StatusPasien status_pasien = new StatusPasien();

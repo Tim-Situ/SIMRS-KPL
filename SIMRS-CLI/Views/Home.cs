@@ -8,21 +8,17 @@ using SIMRS_LIB;
 
 namespace SIMRS_CLI.Views
 {
-    public class MainView
+    public class Home
     {
-        public static StatusUser userStatus = new StatusUser();
         public static void MenuUtama()
         {
-            int pilihan = -1;
-            while (pilihan != 0)
-            {
                 HeaderView.headerMenu();
 
                 MenuLanguage menu = LanguageConfig.getMenu;
 
                 // UJI COBA MULTI ABHASA
-                userStatus.ShowAvailableMenu();
-                pilihan = Convert.ToInt32(Console.ReadLine());
+                ViewSetup.userStatus.ShowAvailableMenu();
+                int pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.main_menu.Count, pilihan))
                 {
                     Console.WriteLine("tidak valid");
@@ -34,39 +30,33 @@ namespace SIMRS_CLI.Views
                 switch (pilihan)
                 {
                     case 1:
-                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PEMERIKSAAN);
-                        Console.WriteLine(menu.main_menu[0]);
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_PEMERIKSAAN);
                         break;
                     case 2:
-                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PEMBAYARAN);
-                        Console.WriteLine(menu.main_menu[1]);
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_PEMBAYARAN);
                         break;
                     case 3:
-                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
-                        PasienView.PasienMenu();
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
                         break;
                     case 4:
-                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_DOKTER);
-                        Console.WriteLine(menu.main_menu[3]);
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_DOKTER);
                         break;
                     case 5:
-                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_SPESIALIS);
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_SPESIALIS);
                         PoliView.PoliMenu();
                         break;
                     case 6:
-                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_OBAT);
-                        Console.WriteLine(menu.main_menu[5]);
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_OBAT);
                         break;
 
                     case 99:
-                        LanguageConfig.ConfirmLanguage();
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_GANTI_BAHASA);
                         break;
 
                     case 0:
-                        userStatus.ActivateTrigger(Trigger.KELUAR);
+                    ViewSetup.userStatus.ActivateTrigger(Trigger.KELUAR);
                         break;
                 };
-            }
         }
     }
 }

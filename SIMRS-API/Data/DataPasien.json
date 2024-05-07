@@ -38,5 +38,13 @@
     "noHp": "3423423342",
     "jnsKelamin": 1,
     "alamat": "Update"
+  },
+  {
+    "nik": "1234567890",
+    "nama": "Dinar",
+    "tglLahir": "20-10-2000",
+    "noHp": "081234567890",
+    "jnsKelamin": 0,
+    "alamat": "Ciganitri"
   }
 ]
