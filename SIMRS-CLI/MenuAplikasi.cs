@@ -7,14 +7,16 @@ namespace SIMRS_CLI
 {
     internal class Menu
     {
+        static string pesan = "";
         PasienService pasien = new();
+        PoliService poli = new();
 
         private async void headerMenu()
         {
             await Console.Out.WriteLineAsync(
-                //"=================================\n" +
-                //"=== Sistem Rekam Medis Pasien ===\n" +
-                //"================================="
+                "=================================\n" +
+                "=== Sistem Rekam Medis Pasien ===\n" +
+                "================================="
                 );
         }
 
@@ -57,12 +59,15 @@ namespace SIMRS_CLI
                         break;
                     case 3:
                         MenuPasien();
+                        Console.Clear();
                         break;
                     case 4:
                         Console.WriteLine(menu.appmenu[2]);
                         break;
                     case 5:
                         Console.WriteLine(menu.appmenu[3]);
+                        MenuPoli();
+                        Console.Clear();
                         break;
                     case 6:
                         Console.WriteLine(menu.appmenu[4]);
@@ -78,19 +83,61 @@ namespace SIMRS_CLI
             }
         }
 
+        public void MenuPoli()
+        {
+            int pilihan = -1;
+            while (pilihan != 0)
+            {
+                headerMenu();
+
+                Console.WriteLine("=========== Data Poli ===========");
+
+                poli.ShowAll();
+
+                Console.Write(
+                    "[1] Tambah Data Poli" +
+                    "\n[2] Edit Data Poli" +
+                    "\n[3] Hapus Data Poli" +
+                    "\n[0] Kembali" +
+                    "\n\nInputkan Pilihan Menu: "
+                    );
+
+                pilihan = Convert.ToInt32(Console.ReadLine());
+
+                switch (pilihan)
+                {
+                    case 1:
+                        Console.Clear();
+                        headerMenu();
+                        poli.Create();
+                        break;
+                    case 2:
+                        poli.Update();
+                        break;
+                    case 3:
+                        poli.Delete();
+                        break;
+                };
+                Console.Clear();
+            }
+        }
+
         public void MenuPasien()
         {
-
             int pilihan = -1;
             while (pilihan != 0)
             {
                 headerMenu();
 
                 Console.WriteLine("========== Data Pasien ==========");
-
+                if (pesan != "")
+                {
+                    Console.WriteLine("\n" + pesan);
+                    pesan = "";
+                }
                 pasien.ShowAll();
 
-                Console.WriteLine(
+                Console.Write(
                     "[1] Tambah Data Pasien" +
                     "\n[2] Edit Data Pasien" +
                     "\n[3] Hapus Data Pasien" +
@@ -105,17 +152,18 @@ namespace SIMRS_CLI
                     case 1:
                         Console.Clear();
                         headerMenu();
-                        pasien.Create();
+                        pesan = pasien.Create();
+                        Console.Clear();
                         break;
                     case 2:
-                        pasien.Update();
+                        pesan = pasien.Update();
+                        Console.Clear();
                         break;
                     case 3:
-                        pasien.Delete();
+                        pesan = pasien.Delete();
+                        Console.Clear();
                         break;
                 };
-                Console.Clear();
-
             }
         }
     }
