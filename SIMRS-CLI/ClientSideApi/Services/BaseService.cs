@@ -12,7 +12,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
     {
         public string PromptUser(string message)
         {
-            Console.Write("\n" + message);
+            Console.Write(message);
             return Console.ReadLine();
         }
 

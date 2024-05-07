@@ -43,45 +43,23 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public override string Create()
         {
             Console.WriteLine("====== Tambah Data Pasien =======");
-<<<<<<< HEAD
-
-            Console.Write("Kode: ");
-            string kode = Console.ReadLine();
-=======
->>>>>>> 7a2ae5dfa56683dba383c464d269fb0b51176f36
 
             string NIK = PromptUser("NIK: ");
             string nama = PromptUser("Nama Pasien: ");
             string tglLahir = PromptUser("Tanggal Lahir: ");
+
+            while (!DefensiveUtils.InputDateValidation(tglLahir))
+            {
+                tglLahir = PromptUser("Tanggal Lahir: ");
+            };
+
             string noHp = PromptUser("No HP: ");
             string _jnsKelamin = PromptUser("Jenis Kelamin (pria/wanita): ").ToUpper();
             string alamat = PromptUser("Alamat: ");
             User.EnumJenisKelamin jnsKelamin = Enum.Parse<User.EnumJenisKelamin>(_jnsKelamin);
 
-<<<<<<< HEAD
-            Console.Write("Tanggal lahir: ");
-            string tglLahir = Console.ReadLine();
-            while (!DefensiveUtils.InputDateValidation(tglLahir))
-            {
-                Console.Write("Tanggal lahir: ");
-                tglLahir = Console.ReadLine();
-            };
-
-            Console.Write("No HP: ");
-            string noHp = Console.ReadLine();
-
-            Console.Write("Jenis Kelamin (pria/wanita): ");
-            string _jnsKelamin = Console.ReadLine();
-
-            Console.Write("Alamat: ");
-            string alamat = Console.ReadLine();
-
-            User.EnumJenisKelamin jnsKelamin = User.EnumJenisKelamin.PRIA;
-            if (_jnsKelamin.Equals("pria"))
-=======
             string pesan = "Data pasien gagal ditambahkan";
             if (Confirmation("Simpan Data?"))
->>>>>>> 7a2ae5dfa56683dba383c464d269fb0b51176f36
             {
                 Pasien pasien = new Pasien(NIK, nama, tglLahir, noHp, jnsKelamin, alamat);
                 pesan = api.ClientPostData(pasien, "Pasien").GetAwaiter().GetResult();
