@@ -9,15 +9,15 @@ namespace SIMRS_CLI.ClientSideApi.Services
         string pesan = "";
 
         TableUtils tblPasien = new(new List<string>
-                {
-                    "No",
-                    "NIK",
-                    "Nama",
-                    "Tanggal Lahir",
-                    "No Hp",
-                    "Jenis Kelamin",
-                    "Alamat"
-                });
+        {
+            "No",
+            "NIK",
+            "Nama",
+            "Tanggal Lahir",
+            "No Hp",
+            "Jenis Kelamin",
+            "Alamat"
+        });
 
         public override void ShowAll()
         {
