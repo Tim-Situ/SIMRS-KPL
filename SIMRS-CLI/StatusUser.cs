@@ -200,5 +200,8 @@ public class StatusUser
         }
     }
 
-
+    public void PrintCurrentState()
+    {
+        Console.WriteLine("Current Status : " + currentStatus);
+    }
 }

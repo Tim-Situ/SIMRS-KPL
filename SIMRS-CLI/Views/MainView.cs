@@ -10,9 +10,9 @@ namespace SIMRS_CLI.Views
 {
     public class MainView
     {
+        public static StatusUser userStatus = new StatusUser();
         public static void MenuUtama()
         {
-            StatusUser userStatus = new StatusUser();
             int pilihan = -1;
             while (pilihan != 0)
             {
@@ -34,21 +34,27 @@ namespace SIMRS_CLI.Views
                 switch (pilihan)
                 {
                     case 1:
+                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PEMERIKSAAN);
                         Console.WriteLine(menu.main_menu[0]);
                         break;
                     case 2:
+                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PEMBAYARAN);
                         Console.WriteLine(menu.main_menu[1]);
                         break;
                     case 3:
+                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
                         PasienView.PasienMenu();
                         break;
                     case 4:
+                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_DOKTER);
                         Console.WriteLine(menu.main_menu[3]);
                         break;
                     case 5:
+                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_SPESIALIS);
                         PoliView.PoliMenu();
                         break;
                     case 6:
+                        userStatus.ActivateTrigger(Trigger.AKSES_MENU_OBAT);
                         Console.WriteLine(menu.main_menu[5]);
                         break;
 
@@ -57,6 +63,7 @@ namespace SIMRS_CLI.Views
                         break;
 
                     case 0:
+                        userStatus.ActivateTrigger(Trigger.KELUAR);
                         break;
                 };
             }
