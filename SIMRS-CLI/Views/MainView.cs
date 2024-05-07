@@ -27,7 +27,7 @@ namespace SIMRS_CLI.Views
                 }
                 Console.WriteLine($"[99] Ganti Bahasa");
                 Console.WriteLine($"[0] {menu.exit}");
-                Console.WriteLine($"\n\n{menu.select}");
+                Console.Write($"\n\n{menu.select}");
                 pilihan = Convert.ToInt32(Console.ReadLine());
                 while (!DefensiveUtils.SelectMenuOptionValidation(menu.main_menu.Count, pilihan))
                 {
