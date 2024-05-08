@@ -1,4 +1,5 @@
-﻿using SIMRS_API;
+﻿using System.Diagnostics;
+using SIMRS_API;
 using SIMRS_LIB;
 
 namespace SIMRS_CLI.ClientSideApi.Services
@@ -44,6 +45,11 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Pembayaran pembayaran = new Pembayaran(kode, pemeriksaan);
             Console.WriteLine("Total Biaya: " + pembayaran.getTotalBiaya());
             int uangBayar = Convert.ToInt32(PromptUser("Uang Bayar: "));
+            while (uangBayar < 0) {
+                Console.WriteLine("Nominal harus lebih dari 0");
+                uangBayar = Convert.ToInt32(PromptUser("Uang Bayar: "));
+            }
+            Debug.Assert(uangBayar > 0, "Nominal yang diinputkan tidak valid!");
             Console.WriteLine("Kembalian: " + pembayaran.getUangKembalian(uangBayar));
             pembayaran.uangBayar = uangBayar;
 
