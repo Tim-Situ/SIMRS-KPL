@@ -109,5 +109,42 @@
       "harga": 15000,
       "jenis": 0
     }
+  },
+  {
+    "kode": "PMRK01",
+    "pasien": {
+      "nik": "1234",
+      "nama": "Tes Update",
+      "tglLahir": "01-01-2001",
+      "noHp": "3423423342",
+      "jnsKelamin": 1,
+      "alamat": "Update"
+    },
+    "dokter": {
+      "nip": "54321",
+      "poli": {
+        "kode": "PLI02",
+        "namaPoli": "THT",
+        "ruang": "TULT0701",
+        "biaya": 50000
+      },
+      "nama": "Dr. AyuxV",
+      "tglLahir": "01-08-1876",
+      "noHp": "08473758",
+      "jnsKelamin": 1,
+      "alamat": "Jakarta"
+    },
+    "tanggal": "11-09-2003",
+    "tinggiBadan": 1,
+    "beratBadan": 1,
+    "tekananDarah": "80",
+    "keluhan": "Sakit rambut",
+    "diagnosa": "Kutu",
+    "obat": {
+      "kode": "OBT01",
+      "nama": "Obat Tidur Buat Programmer",
+      "harga": 100000,
+      "jenis": 1
+    }
   }
 ]
