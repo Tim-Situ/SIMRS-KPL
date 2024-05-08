@@ -6,7 +6,7 @@
     "biaya": 80000
   },
   {
-    "kode": "string",
+    "kode": "PLI02",
     "namaPoli": "string",
     "ruang": "string",
     "biaya": 0
