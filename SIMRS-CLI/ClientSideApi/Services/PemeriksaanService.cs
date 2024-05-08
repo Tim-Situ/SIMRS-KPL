@@ -1,5 +1,6 @@
 ﻿using SIMRS_API;
 using SIMRS_LIB;
+using System.Diagnostics;
 
 namespace SIMRS_CLI.ClientSideApi.Services
 {
@@ -62,7 +63,19 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Dokter dokter = ValidasiInputKode<Dokter>(apiDokter, "NIP dokter: ");
             string tanggal = PromptUser("Tanggal: ");
             double tinggiBadan = Convert.ToDouble(PromptUser("Tinggi Badan: "));
+            while (tinggiBadan < 0)
+            {
+                Console.WriteLine("Tinggi badan harus positif");
+                tinggiBadan = Convert.ToDouble(PromptUser("Tinggi Badan: "));
+            }
+            Debug.Assert (tinggiBadan > 0, "Tinggi badan tidak valid");
             double beratBadan = Convert.ToDouble(PromptUser("Berat Badan: "));
+            while (beratBadan < 0)
+            {
+                Console.WriteLine("Berat badan harus positif");
+                beratBadan = Convert.ToDouble(PromptUser("Berat Badan: "));
+            }
+            Debug.Assert(beratBadan > 0, "Berat badan tidak valid");
             string tekananDarah = PromptUser("Tekanan Darah: ");
             string keluhan = PromptUser("Keluhan: ");
             string diagnosa = PromptUser("Diagnosa: ");
