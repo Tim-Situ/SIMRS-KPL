@@ -1,6 +1,7 @@
 ﻿using SIMRS_API;
 using SIMRS_CLI.ClientSideApi;
 using SIMRS_CLI.Config;
+using SIMRS_CLI.ClientSideApi.Services;
 
 namespace CobaUnitTes;
 
@@ -71,5 +72,12 @@ public class UnitTest1
 
         // Assert
         Assert.IsTrue(response.success);
+    }
+
+    [TestMethod]
+    public void TesAngkaPositif()
+    {
+        bool result = BaseService.AngkaPositif(10);
+        Assert.IsTrue(result);
     }
 }

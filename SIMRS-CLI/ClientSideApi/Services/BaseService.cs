@@ -2,7 +2,7 @@
 
 namespace SIMRS_CLI.ClientSideApi.Services
 {
-    internal abstract class BaseService
+    public abstract class BaseService
     {
         public string PromptUser(string message)
         {
@@ -31,6 +31,11 @@ namespace SIMRS_CLI.ClientSideApi.Services
                 }
             } while (!respon.success);
             return respon.data;
+        }
+
+        public static bool AngkaPositif(double angka)
+        {
+            return angka > 0;
         }
 
         public abstract void ShowAll();
