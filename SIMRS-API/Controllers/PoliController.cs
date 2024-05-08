@@ -17,29 +17,47 @@ public class PoliController : Controller
     [HttpGet]
     public ActionResult<ApiResponse<List<Poli>>> GetAll([FromQuery] string search = null)
     {
+        // Load data dari json
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
-        if (search != null)
+        try
         {
-            dataPoli = new List<Poli>
+            // Precondition : parameter search tidak null
+            if (search != null)
+            {
+                // mencari data poli
+                dataPoli = new List<Poli>
             {
                 dataPoli.FirstOrDefault(item => item.namaPoli.ToLower() == search.ToLower())
             };
 
-            if (dataPoli[0] == null)
-            {
-                response.success = false;
-                response.message = "Data poli tidak ditemukan";
-                response.data = dataPoli;
+                // Postcondition: Pastikan setidaknya satu data poli ditemukan
+                if (dataPoli[0] == null)
+                {
+                    response.success = false;
+                    response.message = "Data poli tidak ditemukan";
+                    response.data = dataPoli;
 
-                return NotFound(response);
+                    return NotFound(response);
+                }
             }
+
+            // Response: Tampilkan data poli yang berhasil ditemukan
+            response.message = "Data poli berhasil ditampilkan";
+            response.data = dataPoli;
+
+            return Ok(response);
+
         }
+        catch (Exception ex)
+        {
+            // Exception Handling
+            response.success = false;
+            response.message = "Terjadi kesalahan saat memproses permintaan";
+            response.data = null; // Optionally, you can provide more specific error data.
 
-        response.message = "Data poli berhasil ditampilkan";
-        response.data = dataPoli;
-
-        return Ok(response);
+            return StatusCode(500, response);
+        }
     }
 
     [HttpGet("{kode}")]
