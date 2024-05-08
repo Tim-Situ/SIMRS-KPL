@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SIMRS_CLI.ClientSideApi.Services;
 
 namespace SIMRS_CLI.Views.Pemeriksaan
 {
@@ -10,13 +6,13 @@ namespace SIMRS_CLI.Views.Pemeriksaan
     {
         public static void PemeriksaanMenu()
         {
-            //PemeriksaanService pemeriksaan = new();
+            PemeriksaanService pemeriksaan = new();
 
             HeaderView.headerMenu();
 
             Console.WriteLine("=========== Data Pemeriksaan ===========");
 
-            //pemeriksaan.ShowAll();
+            pemeriksaan.ShowAll();
 
             ViewSetup.userStatus.ShowAvailableMenu();
 
@@ -27,13 +23,10 @@ namespace SIMRS_CLI.Views.Pemeriksaan
                 case 1:
                     Console.Clear();
                     HeaderView.headerMenu();
-                    //pemeriksaan.Create();
+                    pemeriksaan.Create();
                     break;
                 case 2:
-                    //pemeriksaan.Update();
-                    break;
-                case 3:
-                    //pemeriksaan.Delete();
+                    pemeriksaan.Delete();
                     break;
                 case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);

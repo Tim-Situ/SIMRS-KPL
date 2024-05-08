@@ -8,7 +8,7 @@ namespace SIMRS_CLI.Config
     {
         public static Language defaultLang { get; set; }
         public static MenuLanguage getMenu { get; set; }
-        public const string filepath = @"../../../Json/LanguageConfig.json";
+        public const string filepath = @"../../../../SIMRS-CLI/Json/LanguageConfig.json";
 
         // method iniasiasi runtime configuration bahasa
         public static void initLanguage()

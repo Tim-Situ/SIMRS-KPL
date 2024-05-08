@@ -35,7 +35,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Console.Write((dataPasien.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
 
-        public override void ShowOne(string id)
+        public void ShowOne(string id)
         {
             Pasien pasien = api.ClientGetOneData($"Pasien/{id}").GetAwaiter().GetResult().data;
             tblPasien.addData(new List<string> { "1", pasien.nik, pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
@@ -51,7 +51,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             string nama = PromptUser("Nama Pasien: ");
             string tglLahir = PromptUser("Tanggal Lahir: ");
 
-            while (!DefensiveUtils.InputDateValidation(tglLahir))
+            while (!Defensive.InputDateValidation(tglLahir))
             {
                 tglLahir = PromptUser("Tanggal Lahir: ");
             };
@@ -70,7 +70,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             return pesan;
         }
 
-        public override string Update()
+        public string Update()
         {
             string nik = PromptUser("\nMasukan NIK Pasien: ");
             ApiResponse<Pasien> respon = api.ClientGetOneData($"Pasien/{nik}").GetAwaiter().GetResult();

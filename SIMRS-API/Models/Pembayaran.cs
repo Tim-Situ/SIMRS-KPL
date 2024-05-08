@@ -5,12 +5,13 @@ public class Pembayaran
 {
 	public string kode { get; set; }
 	public Pemeriksaan pemeriksaan { get; set; }
-    public int uangBayar = 0;
+    public int uangBayar { get; set; }
 
     public Pembayaran(string kode, Pemeriksaan pemeriksaan)
     {
         this.kode = kode;
         this.pemeriksaan = pemeriksaan;
+        this.uangBayar = 0;
     }
 
     public int getTotalBiaya()

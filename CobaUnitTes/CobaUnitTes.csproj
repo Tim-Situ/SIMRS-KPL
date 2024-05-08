@@ -18,5 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SIMRS-API\SIMRS-API.csproj" />
+    <ProjectReference Include="..\SIMRS-CLI\SIMRS-CLI.csproj" />
+    <ProjectReference Include="..\SIMRS-LIB\SIMRS-LIB.csproj" />
   </ItemGroup>
 </Project>

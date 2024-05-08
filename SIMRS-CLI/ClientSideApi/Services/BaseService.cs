@@ -1,4 +1,6 @@
-﻿namespace SIMRS_CLI.ClientSideApi.Services
+﻿using SIMRS_API;
+
+namespace SIMRS_CLI.ClientSideApi.Services
 {
     internal abstract class BaseService
     {
@@ -15,10 +17,24 @@
             return confirmation == "y";
         }
 
+        public T ValidasiInputKode<T>(ApiClient<T> api, string message)
+        {
+            ApiResponse<T> respon;
+
+            do
+            {
+                string kode = PromptUser(message);
+                respon = api.ClientGetOneData(typeof(T).Name + "/" + kode).GetAwaiter().GetResult();
+                if (!respon.success)
+                {
+                    Console.WriteLine($"Nama {typeof(T).Name} tidak ditemukan");
+                }
+            } while (!respon.success);
+            return respon.data;
+        }
+
         public abstract void ShowAll();
-        public abstract void ShowOne(string id);
         public abstract string Create();
-        public abstract string Update();
         public abstract string Delete();
 
     }

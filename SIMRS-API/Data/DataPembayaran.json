@@ -1,10 +1,10 @@
-﻿[
+[
   {
     "kode": "BYR01",
     "pemeriksaan": {
       "kode": "PRS01",
       "pasien": {
-        "kode": "PSN01",
+        "nik": "1234000012340000",
         "nama": "Fauzein Mulya Warman",
         "tglLahir": "02-12-2003",
         "noHp": "08964586868",
@@ -28,19 +28,57 @@
       "tanggal": "06-05-2024",
       "tinggiBadan": 165.3,
       "beratBadan": 60.1,
-      "tekananDarah": 100,
+      "tekananDarah": "100",
       "keluhan": "Kurang tidur",
       "diagnosa": "Kebanyakan ngoding",
-      "obat": [
-        {
-          "kode": "OBT01",
-          "nama": "Obat Tidur Buat Programmer",
-          "harga": 100000,
-          "jenis": 1
-        }
-      ]
+      "obat": {
+        "kode": "OBT01",
+        "nama": "Obat Tidur Buat Programmer",
+        "harga": 100000,
+        "jenis": 1
+      }
     },
     "uangBayar": 150000
+  },
+  {
+    "kode": "BYR02",
+    "pemeriksaan": {
+      "kode": "PMR001",
+      "pasien": {
+        "nik": "1234000012340000",
+        "nama": "Fauzein Mulya Warman",
+        "tglLahir": "02-12-2003",
+        "noHp": "08964586868",
+        "jnsKelamin": 0,
+        "alamat": "Padang"
+      },
+      "dokter": {
+        "nip": "54321",
+        "poli": {
+          "kode": "PLI02",
+          "namaPoli": "THT",
+          "ruang": "TULT0701",
+          "biaya": 50000
+        },
+        "nama": "Dr. AyuxV",
+        "tglLahir": "01-08-1876",
+        "noHp": "08473758",
+        "jnsKelamin": 1,
+        "alamat": "Jakarta"
+      },
+      "tanggal": "18-09-2004",
+      "tinggiBadan": 170.5,
+      "beratBadan": 80.6,
+      "tekananDarah": "100/80",
+      "keluhan": "Sakit perut",
+      "diagnosa": "Belum makan",
+      "obat": {
+        "kode": "OBT02",
+        "nama": "Obat Batuk",
+        "harga": 15000,
+        "jenis": 0
+      }
+    },
+    "uangBayar": 100000
   }
 ]
-

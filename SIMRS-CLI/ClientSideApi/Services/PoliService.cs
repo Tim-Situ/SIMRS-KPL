@@ -33,7 +33,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Console.Write((dataPoli.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
 
-        public override void ShowOne(string id)
+        public void ShowOne(string id)
         {
             Poli poli = api.ClientGetOneData($"Poli/{id}").GetAwaiter().GetResult().data;
             tblPoli.addData(new List<string> { "1", poli.kode, poli.namaPoli, poli.ruang, poli.biaya.ToString() });
@@ -59,7 +59,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             return pesan;
         }
 
-        public override string Update()
+        public string Update()
         {
             string kodePoli = PromptUser("Masukan kode spesialis: ");
             ApiResponse<Poli> respon = api.ClientGetOneData($"Poli/{kodePoli}").GetAwaiter().GetResult();

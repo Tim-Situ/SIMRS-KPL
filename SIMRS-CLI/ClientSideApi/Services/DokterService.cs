@@ -2,6 +2,7 @@
 using SIMRS_LIB;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
     internal class DokterService : BaseService
     {
         ApiClient<Dokter> api = new();
+        ApiClient<Poli> apiPoli = new();
         string pesan = "";
 
         TableUtils tblDokter = new(new List<string>
@@ -39,7 +41,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             Console.Write((dataDokter.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
-        public override void ShowOne(string id)
+        public void ShowOne(string id)
         {
             Dokter dokter = api.ClientGetOneData($"Dokter/{id}").GetAwaiter().GetResult().data;
             tblDokter.addData(new List<string> { "1", dokter.nip, dokter.poli.namaPoli, dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat });
@@ -50,13 +52,29 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public override string Create()
         {
             Console.WriteLine("====== Tambah Data Dokter =======");
+            ApiResponse<List<Poli>> poliRespon;
 
             string NIP = PromptUser("NIP: ");
-            string poli = PromptUser("Poli: ");
+
+            do
+            {
+                string namaPoli = PromptUser("Poli: ");
+                poliRespon = apiPoli.ClientGetData($"Poli?search={namaPoli}").GetAwaiter().GetResult();
+                if (!poliRespon.success)
+                {
+                    Console.WriteLine("Nama poli tidak ditemukan");
+                }
+            } while (!poliRespon.success);
+
+            //string namaPoli = PromptUser("Poli: ");
+            //poliRespon = apiPoli.ClientGetData($"Poli?search={namaPoli}").GetAwaiter().GetResult();
+            Debug.Assert(poliRespon.success, "Pesan: Data poli berdasarkan namanya tidak ditemukan");
+            Poli poli = poliRespon.data[0];
+
             string nama = PromptUser("Nama Dokter: ");
             string tglLahir = PromptUser("Tanggal Lahir: ");
 
-            while (!DefensiveUtils.InputDateValidation(tglLahir))
+            while (!Defensive.InputDateValidation(tglLahir))
             {
                 tglLahir = PromptUser("Tanggal Lahir: ");
             };
@@ -69,14 +87,16 @@ namespace SIMRS_CLI.ClientSideApi.Services
             pesan = "Data dokter gagal ditambahkan";
             if (Confirmation("Simpan Data?"))
             {
-                Dokter dokter = new Dokter(NIP, poli, nama, tglLahir, noHp, jnsKelamin, alamat);
+                Dokter dokter = new Dokter(NIP, nama, poli, tglLahir, noHp, jnsKelamin, alamat);
                 pesan = api.ClientPostData(dokter, "Dokter").GetAwaiter().GetResult();
             }
             return pesan;
         }
-        public override string Update()
+        public string Update()
         {
-            string nip  = PromptUser("\nMasukan NIP Dokter: ");
+            ApiResponse<List<Poli>> poliRespon;
+
+            string nip = PromptUser("\nMasukan NIP Dokter: ");
             ApiResponse<Dokter> respon = api.ClientGetOneData($"Dokter/{nip}").GetAwaiter().GetResult();
             if (!respon.success)
             {
@@ -88,14 +108,26 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             Console.WriteLine("Masukan data baru");
             Console.WriteLine("(Langsung enter jika tidak ingin merubah data)");
-            string poli = PromptUser("Poli Dokter: ");
+            string namaPoli = PromptUser("Poli Dokter: ");
+            if (namaPoli != "")
+            {
+                do
+                {
+                    poliRespon = apiPoli.ClientGetData($"Poli?search={namaPoli}").GetAwaiter().GetResult();
+                    if (!poliRespon.success)
+                    {
+                        Console.WriteLine("Nama poli tidak ditemukan");
+                        namaPoli = PromptUser("Poli: ");
+                    }
+                } while (!poliRespon.success);
+                dokter.poli = poliRespon.data[0];
+            }
             string nama = PromptUser("Nama Dokter: ");
             string tglLahir = PromptUser("Tanggal Lahir: ");
             string noHp = PromptUser("No HP: ");
             string _jnsKelamin = PromptUser("Jenis Kelamin (pria/wanita): ").ToUpper();
             string alamat = PromptUser("Alamat: ");
 
-            dokter.poli = (poli == "") ? dokter.poli : poli;
             dokter.nama = (nama == "") ? dokter.nama : nama;
             dokter.tglLahir = (tglLahir == "") ? dokter.tglLahir : tglLahir;
             dokter.noHp = (noHp == "") ? dokter.noHp : noHp;
@@ -122,6 +154,5 @@ namespace SIMRS_CLI.ClientSideApi.Services
             }
             return pesan;
         }
-
     }
 }
