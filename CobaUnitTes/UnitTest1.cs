@@ -72,4 +72,19 @@ public class UnitTest1
         // Assert
         Assert.IsTrue(response.success);
     }
+
+    [TestMethod]
+    public void TesGetMenubyState()
+    {
+        //Arrange
+        StatusUser userStatus = new StatusUser();
+
+        //Act
+        userStatus.ActivateTrigger(Trigger.AKSES_MENU_PASIEN);
+
+        Status expectedStatus = Status.MENU_PASIEN;
+
+        //Assert
+        Assert.AreEqual(expectedStatus, userStatus.currentStatus);
+    }
 }
