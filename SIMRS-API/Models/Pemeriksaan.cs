@@ -7,14 +7,14 @@ public class Pemeriksaan
 	public Pasien pasien { get; set; }
 	public Dokter dokter { get; set; }
 	public string tanggal { get; set; }
-	public float tinggiBadan { get; set; }
-	public float beratBadan { get; set; }
-	public float tekananDarah { get; set; }
+	public double tinggiBadan { get; set; }
+	public double beratBadan { get; set; }
+	public string tekananDarah { get; set; }
 	public string keluhan { get; set; }
 	public string diagnosa { get; set; }
 	public Obat obat { get; set; }
 
-    public Pemeriksaan(string kode, Pasien pasien, Dokter dokter, string tanggal, float tinggiBadan, float beratBadan, float tekananDarah, string keluhan, string diagnosa, Obat obat)
+    public Pemeriksaan(string kode, Pasien pasien, Dokter dokter, string tanggal, double tinggiBadan, double beratBadan, string tekananDarah, string keluhan, string diagnosa, Obat obat)
     {
         this.kode = kode;
         this.pasien = pasien;

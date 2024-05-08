@@ -31,7 +31,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
             Console.Write((dataObat.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
-        public override void ShowOne(string id)
+        public void ShowOne(string id)
         {
             Obat obat = api.ClientGetOneData($"Obat/{id}").GetAwaiter().GetResult().data;
             tblObat.addData(new List<string> { "1", obat.kode, obat.nama, obat.harga.ToString(), obat.jenis.ToString() });
@@ -56,7 +56,7 @@ namespace SIMRS_CLI.ClientSideApi.Services
             }
             return pesan;
         }
-        public override string Update()
+        public string Update()
         {
             string kodeObat = PromptUser("Masukan kode obat: ");
             ApiResponse<Obat> respon = api.ClientGetOneData($"Obat/{kodeObat}").GetAwaiter().GetResult();

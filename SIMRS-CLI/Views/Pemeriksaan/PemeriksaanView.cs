@@ -26,9 +26,6 @@ namespace SIMRS_CLI.Views.Pemeriksaan
                     pemeriksaan.Create();
                     break;
                 case 2:
-                    pemeriksaan.Update();
-                    break;
-                case 3:
                     pemeriksaan.Delete();
                     break;
                 case 0:

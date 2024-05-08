@@ -19,25 +19,22 @@ namespace SIMRS_CLI.ClientSideApi.Services
 
         public T ValidasiInputKode<T>(ApiClient<T> api, string message)
         {
-            ApiResponse<List<T>> respon;
-            T data = default;
+            ApiResponse<T> respon;
 
             do
             {
                 string kode = PromptUser(message);
-                respon = api.ClientGetData(data.GetType().Name + "/" + kode).GetAwaiter().GetResult();
+                respon = api.ClientGetOneData(typeof(T).Name + "/" + kode).GetAwaiter().GetResult();
                 if (!respon.success)
                 {
-                    Console.WriteLine($"Nama {data.GetType().Name} tidak ditemukan");
+                    Console.WriteLine($"Nama {typeof(T).Name} tidak ditemukan");
                 }
             } while (!respon.success);
-            return respon.data[0];
+            return respon.data;
         }
 
         public abstract void ShowAll();
-        public abstract void ShowOne(string id);
         public abstract string Create();
-        public abstract string Update();
         public abstract string Delete();
 
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SIMRS_CLI.ClientSideApi.Services;
 
 namespace SIMRS_CLI.Views.Pembayaran
 {
@@ -10,13 +6,13 @@ namespace SIMRS_CLI.Views.Pembayaran
     {
         public static void PembayaranMenu()
         {
-            //PembayaranService pembayaran = new();
+            PembayaranService pembayaran = new();
 
             HeaderView.headerMenu();
 
             Console.WriteLine("=========== Data Pembayaran ===========");
 
-            //pembayaran.ShowAll();
+            pembayaran.ShowAll();
 
             ViewSetup.userStatus.ShowAvailableMenu();
 
@@ -27,13 +23,10 @@ namespace SIMRS_CLI.Views.Pembayaran
                 case 1:
                     Console.Clear();
                     HeaderView.headerMenu();
-                    //pembayaran.Create();
+                    pembayaran.Create();
                     break;
                 case 2:
-                    //pembayaran.Update();
-                    break;
-                case 3:
-                    //pembayaran.Delete();
+                    pembayaran.Delete();
                     break;
                 case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);
