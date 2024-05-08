@@ -19,7 +19,7 @@ namespace SIMRS_CLI.Views.Pasien
             Console.WriteLine("========== Data Pasien ==========");
 
             pasien.ShowAll();
-            ViewSetup.userStatus.PrintCurrentState();
+            //ViewSetup.userStatus.PrintCurrentState();
             ViewSetup.userStatus.ShowAvailableMenu();
             int pilihan = Convert.ToInt32(Console.ReadLine());
             while (!Defensive.SelectMenuOptionValidation(menu.patient_menu.Count, pilihan))
