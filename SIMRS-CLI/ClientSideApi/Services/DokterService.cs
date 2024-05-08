@@ -2,6 +2,7 @@
 using SIMRS_LIB;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,10 @@ namespace SIMRS_CLI.ClientSideApi.Services
                     Console.WriteLine("Nama poli tidak ditemukan");
                 }
             } while (!poliRespon.success);
+
+            //string namaPoli = PromptUser("Poli: ");
+            //poliRespon = apiPoli.ClientGetData($"Poli?search={namaPoli}").GetAwaiter().GetResult();
+            Debug.Assert(poliRespon.success, "Pesan: Data poli berdasarkan namanya tidak ditemukan");
             Poli poli = poliRespon.data[0];
 
             string nama = PromptUser("Nama Dokter: ");
