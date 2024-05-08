@@ -10,13 +10,13 @@ namespace SIMRS_CLI.Views.Poli
     {
         public static void PoliMenu()
         {
-            //PoliService poli = new();
+            PoliService poli = new();
 
             HeaderView.headerMenu();
 
             Console.WriteLine("=========== Data Poli ===========");
 
-            //poli.ShowAll();
+            poli.ShowAll();
 
             ViewSetup.userStatus.ShowAvailableMenu();
 
@@ -27,13 +27,13 @@ namespace SIMRS_CLI.Views.Poli
                 case 1:
                     Console.Clear();
                     HeaderView.headerMenu();
-                    //poli.Create();
+                    poli.Create();
                     break;
                 case 2:
-                    //poli.Update();
+                    poli.Update();
                     break;
                 case 3:
-                    //poli.Delete();
+                    poli.Delete();
                     break;
                 case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);

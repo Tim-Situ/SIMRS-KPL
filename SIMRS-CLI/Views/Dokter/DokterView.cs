@@ -11,13 +11,13 @@ namespace SIMRS_CLI.Views.Dokter
     {
         public static void DokterMenu()
         {
-            //DokterService dokter = new();
+            DokterService dokter = new();
 
             HeaderView.headerMenu();
 
             Console.WriteLine("=========== Data Dokter ===========");
 
-            //dokter.ShowAll();
+            dokter.ShowAll();
 
             ViewSetup.userStatus.ShowAvailableMenu();
 
@@ -28,13 +28,13 @@ namespace SIMRS_CLI.Views.Dokter
                 case 1:
                     Console.Clear();
                     HeaderView.headerMenu();
-                    //dokter.Create();
+                    dokter.Create();
                     break;
                 case 2:
-                    //dokter.Update();
+                    dokter.Update();
                     break;
                 case 3:
-                    //dokter.Delete();
+                    dokter.Delete();
                     break;
                 case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);
