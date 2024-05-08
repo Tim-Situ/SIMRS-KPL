@@ -11,13 +11,13 @@ namespace SIMRS_CLI.Views.Obat
     {
         public static void ObatMenu()
         {
-            //ObatService obat = new();
+            ObatService obat = new();
 
             HeaderView.headerMenu();
 
             Console.WriteLine("=========== Data Obat ===========");
 
-            //obat.ShowAll();
+            obat.ShowAll();
 
             ViewSetup.userStatus.ShowAvailableMenu();
 
@@ -28,13 +28,13 @@ namespace SIMRS_CLI.Views.Obat
                 case 1:
                     Console.Clear();
                     HeaderView.headerMenu();
-                    //obat.Create();
+                    obat.Create();
                     break;
                 case 2:
-                    //obat.Update();
+                    obat.Update();
                     break;
                 case 3:
-                    //obat.Delete();
+                    obat.Delete();
                     break;
                 case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);

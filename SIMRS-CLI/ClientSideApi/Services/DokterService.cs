@@ -59,7 +59,6 @@ namespace SIMRS_CLI.ClientSideApi.Services
             {
                 string namaPoli = PromptUser("Poli: ");
                 poliRespon = apiPoli.ClientGetData($"Poli?search={namaPoli}").GetAwaiter().GetResult();
-                Console.WriteLine(poliRespon.success);
                 if (!poliRespon.success)
                 {
                     Console.WriteLine("Nama poli tidak ditemukan");
