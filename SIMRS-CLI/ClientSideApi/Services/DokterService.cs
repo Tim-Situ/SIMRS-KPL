@@ -56,7 +56,7 @@
 //            string nama = PromptUser("Nama Dokter: ");
 //            string tglLahir = PromptUser("Tanggal Lahir: ");
 
-//            while (!DefensiveUtils.InputDateValidation(tglLahir))
+//            while (!Defensive.InputDateValidation(tglLahir))
 //            {
 //                tglLahir = PromptUser("Tanggal Lahir: ");
 //            };

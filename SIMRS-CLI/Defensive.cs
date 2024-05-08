@@ -2,7 +2,7 @@
 
 namespace SIMRS_LIB
 {
-    public class DefensiveUtils
+    public class Defensive
     {
         public static bool InputDateValidation(string date)
         {

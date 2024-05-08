@@ -46,5 +46,13 @@
     "noHp": "081234567890",
     "jnsKelamin": 0,
     "alamat": "Ciganitri"
+  },
+  {
+    "nik": "1",
+    "nama": "1",
+    "tglLahir": "1-1-2001",
+    "noHp": "1",
+    "jnsKelamin": 0,
+    "alamat": "1"
   }
 ]

@@ -1,6 +1,5 @@
 ﻿using SIMRS_API;
-using SIMRS_LIB;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SIMRS_CLI.Config;
 
 namespace CobaUnitTes;
 
@@ -42,5 +41,21 @@ public class UnitTest1
         int hasilUangKembalian = pembayaran.getUangKembalian(pembayaran.uangBayar);
 
         Assert.AreEqual(expectUangKembalian, hasilUangKembalian);
+    }
+
+    [TestMethod]
+    public void TesGantiBahasa()
+    {
+        LanguageConfig.initLanguage();
+
+        // Arrange
+        string lang = LanguageConfig.defaultLang.lang;
+        string expected = "en";
+
+        // Act
+        LanguageConfig.ChangeLanguage();
+
+        // Assert
+        Assert.AreEqual(LanguageConfig.defaultLang.lang, expected);
     }
 }
