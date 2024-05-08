@@ -4,7 +4,7 @@
     "pemeriksaan": {
       "kode": "PRS01",
       "pasien": {
-        "kode": "PSN01",
+        "nik": "1234000012340000",
         "nama": "Fauzein Mulya Warman",
         "tglLahir": "02-12-2003",
         "noHp": "08964586868",
@@ -31,14 +31,12 @@
       "tekananDarah": 100,
       "keluhan": "Kurang tidur",
       "diagnosa": "Kebanyakan ngoding",
-      "obat": [
-        {
-          "kode": "OBT01",
-          "nama": "Obat Tidur Buat Programmer",
-          "harga": 100000,
-          "jenis": 1
-        }
-      ]
+      "obat": {
+        "kode": "OBT01",
+        "nama": "Obat Tidur Buat Programmer",
+        "harga": 100000,
+        "jenis": 1
+      }
     },
     "uangBayar": 150000
   }
