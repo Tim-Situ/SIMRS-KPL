@@ -27,9 +27,8 @@ public class PemeriksaanController : Controller
     public ActionResult<ApiResponse<Pemeriksaan>> Get(string kode)
     {
         dataPemeriksaan = JsonUtils<List<Pemeriksaan>>.ReadJsonFromFile(jsonFilePath);
-        Pemeriksaan cariPemeriksaan = dataPemeriksaan.FirstOrDefault(item => item.kode == kode);
 
-        if (dataPemeriksaan.Any(item => item.kode == kode))
+        if (!dataPemeriksaan.Any(item => item.kode == kode))
         {
             response.success = false;
             response.message = $"Data pemeriksaan dengan kode : {kode} tidak ditemukan";
