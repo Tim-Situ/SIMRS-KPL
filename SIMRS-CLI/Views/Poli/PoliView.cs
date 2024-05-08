@@ -10,36 +10,36 @@ namespace SIMRS_CLI.Views.Poli
     {
         public static void PoliMenu()
         {
-                PoliService poli = new();
+            //PoliService poli = new();
 
-                HeaderView.headerMenu();
+            HeaderView.headerMenu();
 
-                Console.WriteLine("=========== Data Poli ===========");
+            Console.WriteLine("=========== Data Poli ===========");
 
-                poli.ShowAll();
+            //poli.ShowAll();
 
-                ViewSetup.userStatus.ShowAvailableMenu();
+            ViewSetup.userStatus.ShowAvailableMenu();
 
-                int pilihan = Convert.ToInt32(Console.ReadLine());
+            int pilihan = Convert.ToInt32(Console.ReadLine());
 
-                switch (pilihan)
-                {
-                    case 1:
-                        Console.Clear();
-                        HeaderView.headerMenu();
-                        poli.Create();
-                        break;
-                    case 2:
-                        poli.Update();
-                        break;
-                    case 3:
-                        poli.Delete();
-                        break;
-                    case 0:
+            switch (pilihan)
+            {
+                case 1:
+                    Console.Clear();
+                    HeaderView.headerMenu();
+                    //poli.Create();
+                    break;
+                case 2:
+                    //poli.Update();
+                    break;
+                case 3:
+                    //poli.Delete();
+                    break;
+                case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KEMBALI);
-                        break;
-                };
-                Console.Clear();
+                    break;
+            };
+            Console.Clear();
         }
     }
 }
