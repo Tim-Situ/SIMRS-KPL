@@ -45,6 +45,8 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Console.WriteLine("Total Biaya: " + pembayaran.getTotalBiaya());
             int uangBayar = Convert.ToInt32(PromptUser("Uang Bayar: "));
             Console.WriteLine("Kembalian: " + pembayaran.getUangKembalian(uangBayar));
+            pembayaran.uangBayar = uangBayar;
+
 
             pesan = "Data pembayaran gagal ditambahkan";
             if (Confirmation("Simpan Data?"))
