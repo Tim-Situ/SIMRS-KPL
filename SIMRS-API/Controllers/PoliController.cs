@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
 namespace SIMRS_API;
@@ -76,6 +77,9 @@ public class PoliController : Controller
     [HttpPut("{kode}")]
     public ActionResult<ApiResponse<Poli>> Put(string kode, [FromBody] Poli value)
     {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+
         dataPoli = JsonUtils<List<Poli>>.ReadJsonFromFile(jsonFilePath);
 
         if (!dataPoli.Any(item => item.kode == kode))
@@ -84,12 +88,18 @@ public class PoliController : Controller
             response.message = $"Data poli dengan kode : {kode} tidak ditemukan";
             response.data = null;
 
+            stopwatch.Stop();
+            Console.WriteLine($"Waktu eksekusi: {stopwatch.ElapsedMilliseconds} ms");
+
             return NotFound(response);
         }
 
         int idx = dataPoli.FindIndex(item => item.kode == kode);
         dataPoli[idx] = value;
         JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
+
+        stopwatch.Stop();
+        Console.WriteLine($"Waktu eksekusi: {stopwatch.ElapsedMilliseconds} ms");
 
         response.message = "Data poli berhasil diubah";
         response.data = dataPoli[idx];

@@ -6,9 +6,9 @@
     "biaya": 80000
   },
   {
-    "kode": "PLI02",
-    "namaPoli": "",
-    "ruang": "",
-    "biaya": 2345
+    "kode": "string",
+    "namaPoli": "string",
+    "ruang": "string",
+    "biaya": 0
   }
 ]
