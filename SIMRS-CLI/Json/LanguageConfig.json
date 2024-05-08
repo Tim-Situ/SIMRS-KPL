@@ -15,12 +15,19 @@
       "Edit Patient Data",
       "Delete Patient Data"
     ],
-    "patient_add": null,
+    "patient_add": [
+      "Patient NIK",
+      "Patient Name",
+      "Birth Date",
+      "Phone Number",
+      "Sex",
+      "Address"
+    ],
     "exit": "Exit",
     "select": "Write option: "
   },
   "appId": {
-    "title": null,
+    "title": "========= Menu Aplikasi =========",
     "main_menu": [
       "Pemeriksaan",
       "Pembayaran",
@@ -34,7 +41,14 @@
       "Edit Data Pasien",
       "Hapus Data Patient"
     ],
-    "patient_add": null,
+    "patient_add": [
+      "NIK Pasien",
+      "Nama Pasien",
+      "Tanggal Lahir",
+      "Nomor HP",
+      "Jenis Kelamin",
+      "Alamat"
+    ],
     "exit": "Keluar",
     "select": "Ketik pilihan: "
   }
