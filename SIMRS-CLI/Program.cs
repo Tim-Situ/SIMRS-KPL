@@ -9,9 +9,9 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        LanguageConfig.initLanguage();
-        ViewSetup.ViewController();
+        //LanguageConfig.initLanguage();
+        //ViewSetup.ViewController();
         //Debugging.DebugMenu();
-        //Performance.PerformanceTest();
+        Performance.PerformanceTest();
     }
 }
