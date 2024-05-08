@@ -36,7 +36,7 @@ public class UnitTest1
         pembayaran.uangBayar = 150000;
 
         //Contoh Expect salah
-        int expectUangKembalian = 2000; // uang (150000) - total biaya (130000)
+        int expectUangKembalian = 20000; // uang (150000) - total biaya (130000)
 
         int hasilUangKembalian = pembayaran.getUangKembalian(pembayaran.uangBayar);
 

@@ -11,6 +11,7 @@ internal class Program
     {
         LanguageConfig.initLanguage();
         ViewSetup.ViewController();
-        Debugging.DebugMenu();
+        //Debugging.DebugMenu();
+        //Performance.PerformanceTest();
     }
 }
