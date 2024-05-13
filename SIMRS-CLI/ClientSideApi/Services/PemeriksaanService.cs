@@ -32,9 +32,9 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Pemeriksaan> dataPemeriksaan = api.ClientGetData("Pemeriksaan").GetAwaiter().GetResult().data;
             foreach (Pemeriksaan pemeriksaan in dataPemeriksaan)
             {
-                tblPemeriksaan.addData(new List<string> { 
-                    no.ToString(), pemeriksaan.kode, pemeriksaan.pasien.nama, pemeriksaan.dokter.nama, 
-                    pemeriksaan.tanggal, pemeriksaan.tinggiBadan.ToString(), pemeriksaan.beratBadan.ToString(), 
+                tblPemeriksaan.addData(new List<string> {
+                    no.ToString(), pemeriksaan.kode, pemeriksaan.pasien.nama, pemeriksaan.dokter.nama,
+                    pemeriksaan.tanggal, pemeriksaan.tinggiBadan.ToString(), pemeriksaan.beratBadan.ToString(),
                     pemeriksaan.tekananDarah.ToString(), pemeriksaan.keluhan, pemeriksaan.diagnosa, pemeriksaan.obat.nama });
                 no++;
             }
@@ -47,9 +47,9 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public void ShowOne(string id)
         {
             Pemeriksaan pemeriksaan = api.ClientGetOneData($"Pemeriksaan/{id}").GetAwaiter().GetResult().data;
-            tblPemeriksaan.addData(new List<string> { 
-                "1", pemeriksaan.kode, pemeriksaan.pasien.nama, pemeriksaan.dokter.nama, 
-                pemeriksaan.tanggal, pemeriksaan.tinggiBadan.ToString(), pemeriksaan.beratBadan.ToString(), 
+            tblPemeriksaan.addData(new List<string> {
+                "1", pemeriksaan.kode, pemeriksaan.pasien.nama, pemeriksaan.dokter.nama,
+                pemeriksaan.tanggal, pemeriksaan.tinggiBadan.ToString(), pemeriksaan.beratBadan.ToString(),
                 pemeriksaan.tekananDarah.ToString(), pemeriksaan.keluhan, pemeriksaan.diagnosa, pemeriksaan.obat.nama });
             tblPemeriksaan.showData();
             tblPemeriksaan.clearData();
@@ -63,14 +63,14 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Dokter dokter = ValidasiInputKode<Dokter>(apiDokter, "NIP dokter: ");
             string tanggal = PromptUser("Tanggal: ");
             double tinggiBadan = Convert.ToDouble(PromptUser("Tinggi Badan: "));
-            while (tinggiBadan < 0)
+            while (AngkaPositif(tinggiBadan))
             {
                 Console.WriteLine("Tinggi badan harus positif");
                 tinggiBadan = Convert.ToDouble(PromptUser("Tinggi Badan: "));
             }
-            Debug.Assert (tinggiBadan > 0, "Tinggi badan tidak valid");
+            Debug.Assert(tinggiBadan > 0, "Tinggi badan tidak valid");
             double beratBadan = Convert.ToDouble(PromptUser("Berat Badan: "));
-            while (beratBadan < 0)
+            while (AngkaPositif(beratBadan))
             {
                 Console.WriteLine("Berat badan harus positif");
                 beratBadan = Convert.ToDouble(PromptUser("Berat Badan: "));
@@ -89,8 +89,8 @@ namespace SIMRS_CLI.ClientSideApi.Services
             }
             return pesan;
         }
-        
-    public override string Delete()
+
+        public override string Delete()
         {
             string kodePemeriksaan = PromptUser("Masukan kode pemeriksaan: ");
             pesan = "Data pemeriksaan gagal dihapus";
