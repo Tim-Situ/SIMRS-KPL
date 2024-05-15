@@ -1,0 +1,58 @@
+[
+  {
+    "nip": "12345",
+    "poli": {
+      "kode": "PLI01",
+      "namaPoli": "Penyakit Dalam",
+      "ruang": "KU3.01.02",
+      "biaya": 80000
+    },
+    "nama": "Dr. Felix",
+    "tglLahir": "07-11-1876",
+    "noHp": "08964586868",
+    "jnsKelamin": 0,
+    "alamat": "Bandung"
+  },
+  {
+    "nip": "54321",
+    "poli": {
+      "kode": "PLI02",
+      "namaPoli": "THT",
+      "ruang": "TULT0701",
+      "biaya": 50000
+    },
+    "nama": "Dr. AyuxV",
+    "tglLahir": "01-08-1876",
+    "noHp": "08473758",
+    "jnsKelamin": 1,
+    "alamat": "Jakarta"
+  },
+  {
+    "nip": "453445",
+    "poli": {
+      "kode": "PLI03",
+      "namaPoli": "Umum",
+      "ruang": "TULT1010",
+      "biaya": 20000
+    },
+    "nama": "Dr. Alfian",
+    "tglLahir": "10-01-1876",
+    "noHp": "08476578767",
+    "jnsKelamin": 0,
+    "alamat": "Bandung"
+  },
+  {
+    "nip": "999",
+    "poli": {
+      "kode": "PLI003",
+      "namaPoli": "Gigi",
+      "ruang": "0719",
+      "biaya": 8000
+    },
+    "nama": "Mail",
+    "tglLahir": "11-11-2003",
+    "noHp": "0812000000",
+    "jnsKelamin": 0,
+    "alamat": "Durian Runtuh"
+  }
+]

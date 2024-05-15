@@ -1,0 +1,58 @@
+[
+  {
+    "nik": "1234000012340000",
+    "nama": "Fauzein Mulya Warman",
+    "tglLahir": "02-12-2003",
+    "noHp": "08964586868",
+    "jnsKelamin": 0,
+    "alamat": "Padang"
+  },
+  {
+    "nik": "9876000098760000",
+    "nama": "Muhammad Nur Shodiq",
+    "tglLahir": "11-11-1111",
+    "noHp": "089645111111",
+    "jnsKelamin": 0,
+    "alamat": "Jakarta"
+  },
+  {
+    "nik": "1111000011110000",
+    "nama": "Nasi",
+    "tglLahir": "12-12-2021",
+    "noHp": "0812",
+    "jnsKelamin": 0,
+    "alamat": "Bandung"
+  },
+  {
+    "nik": "1302223142",
+    "nama": "fauzein m w",
+    "tglLahir": "11-09-2004",
+    "noHp": "08224688193",
+    "jnsKelamin": 0,
+    "alamat": "j. raya bandfungh"
+  },
+  {
+    "nik": "1234",
+    "nama": "Tes Update",
+    "tglLahir": "01-01-2001",
+    "noHp": "3423423342",
+    "jnsKelamin": 1,
+    "alamat": "Update"
+  },
+  {
+    "nik": "1234567890",
+    "nama": "Dinar",
+    "tglLahir": "20-10-2000",
+    "noHp": "081234567890",
+    "jnsKelamin": 0,
+    "alamat": "Ciganitri"
+  },
+  {
+    "nik": "1",
+    "nama": "1",
+    "tglLahir": "1-1-2001",
+    "noHp": "1",
+    "jnsKelamin": 0,
+    "alamat": "1"
+  }
+]

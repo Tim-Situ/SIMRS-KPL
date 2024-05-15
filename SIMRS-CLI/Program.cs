@@ -1,7 +1,17 @@
-﻿internal class Program
+﻿using SIMRS_CLI;
+using SIMRS_CLI.Config;
+using SIMRS_CLI.Content;
+using SIMRS_CLI.Models;
+using SIMRS_CLI.Views;
+using SIMRS_LIB;
+
+internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        LanguageConfig.initLanguage();
+        ViewSetup.ViewController();
+        //Debugging.DebugMenu();
+        //Performance.PerformanceTest();
     }
 }

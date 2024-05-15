@@ -1,0 +1,150 @@
+[
+  {
+    "kode": "PRS01",
+    "pasien": {
+      "nik": "1234000012340000",
+      "nama": "Fauzein Mulya Warman",
+      "tglLahir": "02-12-2003",
+      "noHp": "08964586868",
+      "jnsKelamin": 0,
+      "alamat": "Padang"
+    },
+    "dokter": {
+      "nip": "453445",
+      "poli": {
+        "kode": "PLI03",
+        "namaPoli": "Umum",
+        "ruang": "TULT1010",
+        "biaya": 20000
+      },
+      "nama": "Dr. Alfian",
+      "tglLahir": "10-01-1876",
+      "noHp": "08476578767",
+      "jnsKelamin": 0,
+      "alamat": "Bandung"
+    },
+    "tanggal": "06-05-2024",
+    "tinggiBadan": 165.3,
+    "beratBadan": 60.1,
+    "tekananDarah": "100",
+    "keluhan": "Kurang tidur",
+    "diagnosa": "Kebanyakan ngoding",
+    "obat": {
+      "kode": "OBT01",
+      "nama": "Obat Tidur Buat Programmer",
+      "harga": 100000,
+      "jenis": 1
+    }
+  },
+  {
+    "kode": "PRS11",
+    "pasien": {
+      "nik": "1234",
+      "nama": "Tes Update",
+      "tglLahir": "01-01-2001",
+      "noHp": "3423423342",
+      "jnsKelamin": 1,
+      "alamat": "Update"
+    },
+    "dokter": {
+      "nip": "999",
+      "poli": {
+        "kode": "PLI003",
+        "namaPoli": "Gigi",
+        "ruang": "0719",
+        "biaya": 8000
+      },
+      "nama": "Mail",
+      "tglLahir": "11-11-2003",
+      "noHp": "0812000000",
+      "jnsKelamin": 0,
+      "alamat": "Durian Runtuh"
+    },
+    "tanggal": "99-99-99",
+    "tinggiBadan": 180,
+    "beratBadan": 60,
+    "tekananDarah": "120",
+    "keluhan": "Pusing",
+    "diagnosa": "Stres",
+    "obat": {
+      "kode": "OBT01",
+      "nama": "Obat Tidur Buat Programmer",
+      "harga": 100000,
+      "jenis": 1
+    }
+  },
+  {
+    "kode": "PMR001",
+    "pasien": {
+      "nik": "1234000012340000",
+      "nama": "Fauzein Mulya Warman",
+      "tglLahir": "02-12-2003",
+      "noHp": "08964586868",
+      "jnsKelamin": 0,
+      "alamat": "Padang"
+    },
+    "dokter": {
+      "nip": "54321",
+      "poli": {
+        "kode": "PLI02",
+        "namaPoli": "THT",
+        "ruang": "TULT0701",
+        "biaya": 50000
+      },
+      "nama": "Dr. AyuxV",
+      "tglLahir": "01-08-1876",
+      "noHp": "08473758",
+      "jnsKelamin": 1,
+      "alamat": "Jakarta"
+    },
+    "tanggal": "18-09-2004",
+    "tinggiBadan": 170.5,
+    "beratBadan": 80.6,
+    "tekananDarah": "100/80",
+    "keluhan": "Sakit perut",
+    "diagnosa": "Belum makan",
+    "obat": {
+      "kode": "OBT02",
+      "nama": "Obat Batuk",
+      "harga": 15000,
+      "jenis": 0
+    }
+  },
+  {
+    "kode": "PMRK01",
+    "pasien": {
+      "nik": "1234",
+      "nama": "Tes Update",
+      "tglLahir": "01-01-2001",
+      "noHp": "3423423342",
+      "jnsKelamin": 1,
+      "alamat": "Update"
+    },
+    "dokter": {
+      "nip": "54321",
+      "poli": {
+        "kode": "PLI02",
+        "namaPoli": "THT",
+        "ruang": "TULT0701",
+        "biaya": 50000
+      },
+      "nama": "Dr. AyuxV",
+      "tglLahir": "01-08-1876",
+      "noHp": "08473758",
+      "jnsKelamin": 1,
+      "alamat": "Jakarta"
+    },
+    "tanggal": "11-09-2003",
+    "tinggiBadan": 1,
+    "beratBadan": 1,
+    "tekananDarah": "80",
+    "keluhan": "Sakit rambut",
+    "diagnosa": "Kutu",
+    "obat": {
+      "kode": "OBT01",
+      "nama": "Obat Tidur Buat Programmer",
+      "harga": 100000,
+      "jenis": 1
+    }
+  }
+]
