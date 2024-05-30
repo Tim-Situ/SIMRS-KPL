@@ -12,7 +12,7 @@ namespace SIMRS_CLI.Views.Poli
         {
             PoliService poli = new();
 
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             Console.WriteLine("=========== Data Poli ===========");
 
@@ -26,7 +26,7 @@ namespace SIMRS_CLI.Views.Poli
             {
                 case 1:
                     Console.Clear();
-                    HeaderView.headerMenu();
+                    HeaderView.HeaderMenu();
                     poli.Create();
                     break;
                 case 2:

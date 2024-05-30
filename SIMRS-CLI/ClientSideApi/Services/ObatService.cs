@@ -22,21 +22,21 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Obat> dataObat = api.ClientGetData("Obat").GetAwaiter().GetResult().data;
             foreach (Obat obat in dataObat)
             {
-                tblObat.addData(new List<string> { no.ToString(), obat.kode, obat.nama, obat.harga.ToString(), obat.jenis.ToString() });
+                tblObat.AddData(new List<string> { no.ToString(), obat.kode, obat.nama, obat.harga.ToString(), obat.jenis.ToString() });
                 no++;
             }
 
-            tblObat.showData();
-            tblObat.clearData();
+            tblObat.ShowData();
+            tblObat.ClearData();
 
             Console.Write((dataObat.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
         public void ShowOne(string id)
         {
             Obat obat = api.ClientGetOneData($"Obat/{id}").GetAwaiter().GetResult().data;
-            tblObat.addData(new List<string> { "1", obat.kode, obat.nama, obat.harga.ToString(), obat.jenis.ToString() });
-            tblObat.showData();
-            tblObat.clearData();
+            tblObat.AddData(new List<string> { "1", obat.kode, obat.nama, obat.harga.ToString(), obat.jenis.ToString() });
+            tblObat.ShowData();
+            tblObat.ClearData();
         }
         public override string Create()
         {

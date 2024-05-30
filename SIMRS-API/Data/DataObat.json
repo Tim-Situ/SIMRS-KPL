@@ -10,5 +10,17 @@
     "nama": "Obat Batuk",
     "harga": 15000,
     "jenis": 0
+  },
+  {
+    "kode": "OBT03",
+    "nama": "Paracetamol",
+    "harga": 1000,
+    "jenis": 0
+  },
+  {
+    "kode": "OBT05",
+    "nama": "ABC",
+    "harga": 10000,
+    "jenis": 0
   }
 ]

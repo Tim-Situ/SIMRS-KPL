@@ -8,18 +8,18 @@ namespace SIMRS_API;
 [Route("api/[controller]")]
 public class DokterController : Controller
 {
-    ApiResponse<Object> response = new ApiResponse<object>();
-
-    private static string jsonFilePath = "Data/DataDokter.json";
-    private static List<Dokter> dataDokter;
+    private static string _jsonFilePath = "Data/DataDokter.json";
+    private static List<Dokter> _dataDokter;
 
 
     [HttpGet]
     public ActionResult<ApiResponse<List<Dokter>>> Get()
     {
-        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
+        ApiResponse<Object> response = new ApiResponse<object>();
+
+        _dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(_jsonFilePath);
         response.message = "Data dokter berhasil ditampilkan";
-        response.data = dataDokter;
+        response.data = _dataDokter;
 
         return Ok(response);
     }
@@ -27,8 +27,10 @@ public class DokterController : Controller
     [HttpGet("{nip}")]
     public ActionResult<ApiResponse<Dokter>> Get(string nip)
     {
-        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        Dokter cariDokter = dataDokter.FirstOrDefault(item => item.nip == nip);
+        ApiResponse<Object> response = new ApiResponse<object>();
+
+        _dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(_jsonFilePath);
+        Dokter cariDokter = _dataDokter.FirstOrDefault(item => item.nip == nip);
 
         if (cariDokter == null)
         {
@@ -47,12 +49,14 @@ public class DokterController : Controller
     [HttpPost]
     public ActionResult<ApiResponse<Dokter>> Post([FromBody] Dokter value)
     {
-        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        dataDokter.Add(value);
-        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+        ApiResponse<Object> response = new ApiResponse<object>();
+
+        _dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(_jsonFilePath);
+        _dataDokter.Add(value);
+        JsonUtils<List<Dokter>>.WriteJsonFile(_dataDokter, _jsonFilePath);
 
         response.message = "Data dokter berhasil ditambahkan";
-        response.data = dataDokter.Last();
+        response.data = _dataDokter.Last();
 
         return CreatedAtAction(nameof(Get), response);
     }
@@ -60,8 +64,10 @@ public class DokterController : Controller
     [HttpPut("{nip}")]
     public ActionResult<ApiResponse<Dokter>> Put(string nip, [FromBody] Dokter value)
     {
-        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        Dokter cariDokter = dataDokter.FirstOrDefault(item => item.nip == nip);
+        ApiResponse<Object> response = new ApiResponse<object>();
+
+        _dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(_jsonFilePath);
+        Dokter cariDokter = _dataDokter.FirstOrDefault(item => item.nip == nip);
 
         if (cariDokter == null)
         {
@@ -71,12 +77,12 @@ public class DokterController : Controller
             return NotFound(response);
         }
 
-        int index = dataDokter.FindIndex(item => item.nip == nip);
-        dataDokter[index] = value;
-        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+        int index = _dataDokter.FindIndex(item => item.nip == nip);
+        _dataDokter[index] = value;
+        JsonUtils<List<Dokter>>.WriteJsonFile(_dataDokter, _jsonFilePath);
 
         response.message = "Data dokter berhasil diubah";
-        response.data = dataDokter[index];
+        response.data = _dataDokter[index];
 
         return Ok(response);
     }
@@ -84,8 +90,10 @@ public class DokterController : Controller
     [HttpDelete("{nip}")]
     public ActionResult<ApiResponse<Object>> Delete(string nip)
     {
-        dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePath);
-        Dokter cariDokter = dataDokter.FirstOrDefault(item => item.nip == nip);
+        ApiResponse<Object> response = new ApiResponse<object>();
+
+        _dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(_jsonFilePath);
+        Dokter cariDokter = _dataDokter.FirstOrDefault(item => item.nip == nip);
 
         if (cariDokter == null)
         {
@@ -95,9 +103,9 @@ public class DokterController : Controller
             return NotFound(response);
         }
 
-        int index = dataDokter.FindIndex(item => item.nip == nip);
-        dataDokter.RemoveAt(index);
-        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePath);
+        int index = _dataDokter.FindIndex(item => item.nip == nip);
+        _dataDokter.RemoveAt(index);
+        JsonUtils<List<Dokter>>.WriteJsonFile(_dataDokter, _jsonFilePath);
 
         response.message = "Data dokter berhasil dihapus";
 

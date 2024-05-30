@@ -25,13 +25,13 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Pembayaran> dataPembayaran = api.ClientGetData("Pembayaran").GetAwaiter().GetResult().data;
             foreach (Pembayaran pembayaran in dataPembayaran)
             {
-                tblPembayaran.addData(new List<string> {
+                tblPembayaran.AddData(new List<string> {
                     no.ToString(), pembayaran.kode, pembayaran.pemeriksaan.kode, pembayaran.getTotalBiaya().ToString(), pembayaran.uangBayar.ToString() });
                 no++;
             }
 
-            tblPembayaran.showData();
-            tblPembayaran.clearData();
+            tblPembayaran.ShowData();
+            tblPembayaran.ClearData();
 
             Console.Write((dataPembayaran.Count == 0) ? "Data masih kosong!\n\n" : "");
         }

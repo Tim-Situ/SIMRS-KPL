@@ -32,21 +32,21 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Dokter> dataDokter = api.ClientGetData("Dokter").GetAwaiter().GetResult().data;
             foreach (Dokter dokter in dataDokter)
             {
-                tblDokter.addData(new List<string> { no.ToString(), dokter.nip, dokter.poli.namaPoli, dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat });
+                tblDokter.AddData(new List<string> { no.ToString(), dokter.nip, dokter.poli.namaPoli, dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat });
                 no++;
             }
 
-            tblDokter.showData();
-            tblDokter.clearData();
+            tblDokter.ShowData();
+            tblDokter.ClearData();
 
             Console.Write((dataDokter.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
         public void ShowOne(string id)
         {
             Dokter dokter = api.ClientGetOneData($"Dokter/{id}").GetAwaiter().GetResult().data;
-            tblDokter.addData(new List<string> { "1", dokter.nip, dokter.poli.namaPoli, dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat });
-            tblDokter.showData();
-            tblDokter.clearData();
+            tblDokter.AddData(new List<string> { "1", dokter.nip, dokter.poli.namaPoli, dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat });
+            tblDokter.ShowData();
+            tblDokter.ClearData();
         }
 
         public override string Create()

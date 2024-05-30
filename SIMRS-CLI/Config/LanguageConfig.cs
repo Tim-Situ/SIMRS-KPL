@@ -8,24 +8,24 @@ namespace SIMRS_CLI.Config
     {
         public static Language defaultLang { get; set; }
         public static MenuLanguage getMenu { get; set; }
-        public const string filepath = @"../../../../SIMRS-CLI/Json/LanguageConfig.json";
+        public const string Filepath = @"../../../../SIMRS-CLI/Json/LanguageConfig.json";
 
         // method iniasiasi runtime configuration bahasa
-        public static void initLanguage()
+        public static void InitLanguage()
         {
             // Memanggil class konfigurasi untuk membaca dan menulis bahasa
             ReadWriteUtils<Language> ReadWriteLanguage =
                 new ReadWriteUtils<Language>(
                     LanguageContent.LanguageDefault(),
-                    filepath
+                    Filepath
                     );
 
             defaultLang = ReadWriteLanguage.config;
-            setMenuLanguage();
+            SetMenuLanguage();
         }
 
         // method untuk mengeset bahasa
-        public static void setMenuLanguage()
+        public static void SetMenuLanguage()
         {
             if (defaultLang.lang == "id")
             {
@@ -71,10 +71,10 @@ namespace SIMRS_CLI.Config
                 defaultLang.lang = "id";
             }
 
-            JsonUtils<Language>.WriteJsonFile(defaultLang, filepath);
-            defaultLang = JsonUtils<Language>.ReadJsonFromFile(filepath);
+            JsonUtils<Language>.WriteJsonFile(defaultLang, Filepath);
+            defaultLang = JsonUtils<Language>.ReadJsonFromFile(Filepath);
 
-            setMenuLanguage();
+            SetMenuLanguage();
         }
     }
 }

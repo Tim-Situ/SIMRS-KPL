@@ -12,7 +12,7 @@ namespace SIMRS_CLI.Views
     {
         public static void MenuUtama()
         {
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             MenuLanguage menu = LanguageConfig.getMenu;
 

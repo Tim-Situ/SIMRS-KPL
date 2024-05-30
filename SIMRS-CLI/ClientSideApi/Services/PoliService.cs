@@ -23,12 +23,12 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Poli> dataPoli = api.ClientGetData("Poli").GetAwaiter().GetResult().data;
             foreach (Poli poli in dataPoli)
             {
-                tblPoli.addData(new List<string> { no.ToString(), poli.kode, poli.namaPoli, poli.ruang, poli.biaya.ToString() });
+                tblPoli.AddData(new List<string> { no.ToString(), poli.kode, poli.namaPoli, poli.ruang, poli.biaya.ToString() });
                 no++;
             }
 
-            tblPoli.showData();
-            tblPoli.clearData();
+            tblPoli.ShowData();
+            tblPoli.ClearData();
 
             Console.Write((dataPoli.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
@@ -36,9 +36,9 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public void ShowOne(string id)
         {
             Poli poli = api.ClientGetOneData($"Poli/{id}").GetAwaiter().GetResult().data;
-            tblPoli.addData(new List<string> { "1", poli.kode, poli.namaPoli, poli.ruang, poli.biaya.ToString() });
-            tblPoli.showData();
-            tblPoli.clearData();
+            tblPoli.AddData(new List<string> { "1", poli.kode, poli.namaPoli, poli.ruang, poli.biaya.ToString() });
+            tblPoli.ShowData();
+            tblPoli.ClearData();
         }
 
         public override string Create()
