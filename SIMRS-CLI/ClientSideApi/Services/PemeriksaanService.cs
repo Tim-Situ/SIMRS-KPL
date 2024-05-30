@@ -63,14 +63,14 @@ namespace SIMRS_CLI.ClientSideApi.Services
             Dokter dokter = ValidasiInputKode<Dokter>(apiDokter, "NIP dokter: ");
             string tanggal = PromptUser("Tanggal: ");
             double tinggiBadan = Convert.ToDouble(PromptUser("Tinggi Badan: "));
-            while (AngkaPositif(tinggiBadan))
+            while (!AngkaPositif(tinggiBadan))
             {
                 Console.WriteLine("Tinggi badan harus positif");
                 tinggiBadan = Convert.ToDouble(PromptUser("Tinggi Badan: "));
             }
             Debug.Assert(tinggiBadan > 0, "Tinggi badan tidak valid");
             double beratBadan = Convert.ToDouble(PromptUser("Berat Badan: "));
-            while (AngkaPositif(beratBadan))
+            while (!AngkaPositif(beratBadan))
             {
                 Console.WriteLine("Berat badan harus positif");
                 beratBadan = Convert.ToDouble(PromptUser("Berat Badan: "));
