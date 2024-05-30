@@ -146,5 +146,116 @@
       "harga": 100000,
       "jenis": 1
     }
+  },
+  {
+    "kode": "PMRKS008",
+    "pasien": {
+      "nik": "1234567890",
+      "nama": "Dinar",
+      "tglLahir": "20-10-2000",
+      "noHp": "081234567890",
+      "jnsKelamin": 0,
+      "alamat": "Ciganitri"
+    },
+    "dokter": {
+      "nip": "54321",
+      "poli": {
+        "kode": "PLI02",
+        "namaPoli": "THT",
+        "ruang": "TULT0701",
+        "biaya": 50000
+      },
+      "nama": "Dr. AyuxV",
+      "tglLahir": "01-08-1876",
+      "noHp": "08473758",
+      "jnsKelamin": 1,
+      "alamat": "Jakarta"
+    },
+    "tanggal": "11-09-2003",
+    "tinggiBadan": 160,
+    "beratBadan": 70,
+    "tekananDarah": "180Hg",
+    "keluhan": "Sakit leher",
+    "diagnosa": "Pegal linu",
+    "obat": {
+      "kode": "OBT01",
+      "nama": "Obat Tidur Buat Programmer",
+      "harga": 100000,
+      "jenis": 1
+    }
+  },
+  {
+    "kode": "PMRKS09",
+    "pasien": {
+      "nik": "1234567890",
+      "nama": "Dinar",
+      "tglLahir": "20-10-2000",
+      "noHp": "081234567890",
+      "jnsKelamin": 0,
+      "alamat": "Ciganitri"
+    },
+    "dokter": {
+      "nip": "54321",
+      "poli": {
+        "kode": "PLI02",
+        "namaPoli": "THT",
+        "ruang": "TULT0701",
+        "biaya": 50000
+      },
+      "nama": "Dr. AyuxV",
+      "tglLahir": "01-08-1876",
+      "noHp": "08473758",
+      "jnsKelamin": 1,
+      "alamat": "Jakarta"
+    },
+    "tanggal": "11-09-2004",
+    "tinggiBadan": 160,
+    "beratBadan": 70,
+    "tekananDarah": "180Hg",
+    "keluhan": "Sakit sakit",
+    "diagnosa": "Jangn sakit",
+    "obat": {
+      "kode": "OBT02",
+      "nama": "Obat Batuk",
+      "harga": 15000,
+      "jenis": 0
+    }
+  },
+  {
+    "kode": "PMRKS010",
+    "pasien": {
+      "nik": "1234567890",
+      "nama": "Dinar",
+      "tglLahir": "20-10-2000",
+      "noHp": "081234567890",
+      "jnsKelamin": 0,
+      "alamat": "Ciganitri"
+    },
+    "dokter": {
+      "nip": "54321",
+      "poli": {
+        "kode": "PLI02",
+        "namaPoli": "THT",
+        "ruang": "TULT0701",
+        "biaya": 50000
+      },
+      "nama": "Dr. AyuxV",
+      "tglLahir": "01-08-1876",
+      "noHp": "08473758",
+      "jnsKelamin": 1,
+      "alamat": "Jakarta"
+    },
+    "tanggal": "11-09-1991",
+    "tinggiBadan": 180,
+    "beratBadan": 80,
+    "tekananDarah": "180Hg",
+    "keluhan": "Sakit",
+    "diagnosa": "Tak tahu",
+    "obat": {
+      "kode": "OBT01",
+      "nama": "Obat Tidur Buat Programmer",
+      "harga": 100000,
+      "jenis": 1
+    }
   }
 ]

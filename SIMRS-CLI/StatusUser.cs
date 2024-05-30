@@ -134,20 +134,20 @@ public class StatusUser
         if (currentStatus == Status.MENU_PEMERIKSAAN)
         {
             Console.WriteLine(
-                    "[1] Tambah Data Pemeriksaan" +
-                    "\n[2] Hapus Data Pemeriksaan" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
+                "[1] Tambah Data Pemeriksaan" +
+                "\n[2] Hapus Data Pemeriksaan" +
+                "\n[0] Kembali" +
+                "\n\nInputkan Pilihan Menu: "
+            );
         } 
         else if (currentStatus == Status.MENU_PEMBAYARAN)
         {
             Console.WriteLine(
-                    "[1] Tambah Data Pembayaran" +
-                    "\n[2] Hapus Data Pembayaran" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
+                "[1] Tambah Data Pembayaran" +
+                "\n[2] Hapus Data Pembayaran" +
+                "\n[0] Kembali" +
+                "\n\nInputkan Pilihan Menu: "
+            );
         } 
         else if (currentStatus == Status.MENU_PASIEN)
         {
@@ -162,31 +162,31 @@ public class StatusUser
         else if (currentStatus == Status.MENU_DOKTER)
         {
             Console.WriteLine(
-                    "[1] Tambah Data Dokter" +
-                    "\n[2] Edit Data Dokter" +
-                    "\n[3] Hapus Data Dokter" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
+                "[1] Tambah Data Dokter" +
+                "\n[2] Edit Data Dokter" +
+                "\n[3] Hapus Data Dokter" +
+                "\n[0] Kembali" +
+                "\n\nInputkan Pilihan Menu: "
+            );
         } 
         else if (currentStatus == Status.MENU_OBAT)
         {
             Console.WriteLine(
-                    "[1] Tambah Data Obat" +
-                    "\n[2] Edit Data Obat" +
-                    "\n[3] Hapus Data Obat" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
-                    );
+                "[1] Tambah Data Obat" +
+                "\n[2] Edit Data Obat" +
+                "\n[3] Hapus Data Obat" +
+                "\n[0] Kembali" +
+                "\n\nInputkan Pilihan Menu: "
+            );
         } 
         else if (currentStatus == Status.MENU_SPESIALIS)
         {
             Console.WriteLine(
-                    "[1] Tambah Data Spesialis" +
-                    "\n[2] Edit Data Spesialis" +
-                    "\n[3] Hapus Data Spesialis" +
-                    "\n[0] Kembali" +
-                    "\n\nInputkan Pilihan Menu: "
+                "[1] Tambah Data Spesialis" +
+                "\n[2] Edit Data Spesialis" +
+                "\n[3] Hapus Data Spesialis" +
+                "\n[0] Kembali" +
+                "\n\nInputkan Pilihan Menu: "
            );
         } 
         else if (currentStatus == Status.HOME)
