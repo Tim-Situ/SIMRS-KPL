@@ -43,16 +43,13 @@ namespace SIMRS_CLI.Views
                     break;
                 case 5:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_SPESIALIS);
-                    PoliView.PoliMenu();
                     break;
                 case 6:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_OBAT);
                     break;
-
                 case 99:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.AKSES_MENU_GANTI_BAHASA);
                     break;
-
                 case 0:
                     ViewSetup.userStatus.ActivateTrigger(Trigger.KELUAR);
                     break;
