@@ -2,6 +2,7 @@ namespace SIMRS_GUI
 {
     public partial class MainDisplay : Form
     {
+        DashboardDisplay dashboard;
         public MainDisplay()
         {
             InitializeComponent();
@@ -12,9 +13,23 @@ namespace SIMRS_GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonDashboard_Click(object sender, EventArgs e)
         {
-
+            if (dashboard == null)
+            {
+                dashboard = new DashboardDisplay();
+                dashboard.FormClosed += DashboardDisplay_FormClosed;
+                dashboard.MdiParent = this;
+                dashboard.Show();
+            }
+            else
+            {
+                dashboard.Activate();
+            }
+        }
+        private void DashboardDisplay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dashboard = null;
         }
 
         private void nightControlBox1_Click(object sender, EventArgs e)
@@ -37,6 +52,13 @@ namespace SIMRS_GUI
                 {
                     sidebarExpand = false;
                     sidebarTransition.Stop();
+
+                    /*buttonDashboard.Width = sidebar.Width;
+                    buttonPasien.Width = sidebar.Width;
+                    buttonDokter.Width = sidebar.Width;
+                    buttonObat.Width = sidebar.Width;
+                    buttonPemeriksaan.Width = sidebar.Width;
+                    buttonPembayaran.Width = sidebar.Width;*/
                 }
             }
             else
@@ -46,6 +68,13 @@ namespace SIMRS_GUI
                 {
                     sidebarExpand = true;
                     sidebarTransition.Stop();
+
+                    buttonDashboard.Width = sidebar.Width;
+                    buttonPasien.Width = sidebar.Width;
+                    buttonDokter.Width = sidebar.Width;
+                    buttonObat.Width = sidebar.Width;
+                    buttonPemeriksaan.Width = sidebar.Width;
+                    buttonPembayaran.Width = sidebar.Width;
                 }
             }
         }
@@ -53,6 +82,13 @@ namespace SIMRS_GUI
         private void hamburgerMenu_Click(object sender, EventArgs e)
         {
             sidebarTransition.Start();
+        }
+
+
+
+        private void sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

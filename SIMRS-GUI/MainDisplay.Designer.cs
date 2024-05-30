@@ -36,26 +36,26 @@
             panelDashboard = new Panel();
             buttonDashboard = new Button();
             sidebar = new FlowLayoutPanel();
-            panelPembayaran = new Panel();
-            buttonPembayaran = new Button();
-            panelPemeriksaan = new Panel();
-            buttonPemeriksaan = new Button();
-            panelObat = new Panel();
-            buttonObat = new Button();
-            panelDokter = new Panel();
-            buttonDokter = new Button();
             panelPasien = new Panel();
             buttonPasien = new Button();
+            panelDokter = new Panel();
+            buttonDokter = new Button();
+            panelObat = new Panel();
+            buttonObat = new Button();
+            panelPemeriksaan = new Panel();
+            buttonPemeriksaan = new Button();
+            panelPembayaran = new Panel();
+            buttonPembayaran = new Button();
             sidebarTransition = new System.Windows.Forms.Timer(components);
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).BeginInit();
             panelDashboard.SuspendLayout();
             sidebar.SuspendLayout();
-            panelPembayaran.SuspendLayout();
-            panelPemeriksaan.SuspendLayout();
-            panelObat.SuspendLayout();
-            panelDokter.SuspendLayout();
             panelPasien.SuspendLayout();
+            panelDokter.SuspendLayout();
+            panelObat.SuspendLayout();
+            panelPemeriksaan.SuspendLayout();
+            panelPembayaran.SuspendLayout();
             SuspendLayout();
             // 
             // panelTop
@@ -123,15 +123,15 @@
             buttonDashboard.ForeColor = Color.White;
             buttonDashboard.Image = (Image)resources.GetObject("buttonDashboard.Image");
             buttonDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDashboard.Location = new Point(-24, -48);
+            buttonDashboard.Location = new Point(0, 0);
             buttonDashboard.Name = "buttonDashboard";
             buttonDashboard.Padding = new Padding(25, 0, 0, 0);
-            buttonDashboard.Size = new Size(237, 144);
+            buttonDashboard.Size = new Size(197, 50);
             buttonDashboard.TabIndex = 3;
             buttonDashboard.Text = "       Dashboard";
             buttonDashboard.TextAlign = ContentAlignment.MiddleLeft;
             buttonDashboard.UseVisualStyleBackColor = false;
-            buttonDashboard.Click += button1_Click;
+            buttonDashboard.Click += buttonDashboard_Click;
             // 
             // sidebar
             // 
@@ -149,118 +149,7 @@
             sidebar.Padding = new Padding(5, 25, 0, 0);
             sidebar.Size = new Size(222, 513);
             sidebar.TabIndex = 4;
-            // 
-            // panelPembayaran
-            // 
-            panelPembayaran.Controls.Add(buttonPembayaran);
-            panelPembayaran.ImeMode = ImeMode.NoControl;
-            panelPembayaran.Location = new Point(8, 308);
-            panelPembayaran.Name = "panelPembayaran";
-            panelPembayaran.Size = new Size(197, 50);
-            panelPembayaran.TabIndex = 2;
-            // 
-            // buttonPembayaran
-            // 
-            buttonPembayaran.BackColor = Color.FromArgb(0, 141, 218);
-            buttonPembayaran.FlatAppearance.BorderSize = 0;
-            buttonPembayaran.FlatStyle = FlatStyle.Flat;
-            buttonPembayaran.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonPembayaran.ForeColor = Color.White;
-            buttonPembayaran.Image = (Image)resources.GetObject("buttonPembayaran.Image");
-            buttonPembayaran.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonPembayaran.Location = new Point(-24, -48);
-            buttonPembayaran.Name = "buttonPembayaran";
-            buttonPembayaran.Padding = new Padding(25, 0, 0, 0);
-            buttonPembayaran.Size = new Size(237, 144);
-            buttonPembayaran.TabIndex = 3;
-            buttonPembayaran.Text = "       Pembayaran";
-            buttonPembayaran.TextAlign = ContentAlignment.MiddleLeft;
-            buttonPembayaran.UseVisualStyleBackColor = false;
-            buttonPembayaran.Click += button1_Click;
-            // 
-            // panelPemeriksaan
-            // 
-            panelPemeriksaan.Controls.Add(buttonPemeriksaan);
-            panelPemeriksaan.ImeMode = ImeMode.NoControl;
-            panelPemeriksaan.Location = new Point(8, 252);
-            panelPemeriksaan.Name = "panelPemeriksaan";
-            panelPemeriksaan.Size = new Size(197, 50);
-            panelPemeriksaan.TabIndex = 2;
-            // 
-            // buttonPemeriksaan
-            // 
-            buttonPemeriksaan.BackColor = Color.FromArgb(0, 141, 218);
-            buttonPemeriksaan.FlatAppearance.BorderSize = 0;
-            buttonPemeriksaan.FlatStyle = FlatStyle.Flat;
-            buttonPemeriksaan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonPemeriksaan.ForeColor = Color.White;
-            buttonPemeriksaan.Image = (Image)resources.GetObject("buttonPemeriksaan.Image");
-            buttonPemeriksaan.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonPemeriksaan.Location = new Point(-24, -48);
-            buttonPemeriksaan.Name = "buttonPemeriksaan";
-            buttonPemeriksaan.Padding = new Padding(25, 0, 0, 0);
-            buttonPemeriksaan.Size = new Size(237, 144);
-            buttonPemeriksaan.TabIndex = 3;
-            buttonPemeriksaan.Text = "       Pemeriksaan";
-            buttonPemeriksaan.TextAlign = ContentAlignment.MiddleLeft;
-            buttonPemeriksaan.UseVisualStyleBackColor = false;
-            buttonPemeriksaan.Click += button1_Click;
-            // 
-            // panelObat
-            // 
-            panelObat.Controls.Add(buttonObat);
-            panelObat.ImeMode = ImeMode.NoControl;
-            panelObat.Location = new Point(8, 196);
-            panelObat.Name = "panelObat";
-            panelObat.Size = new Size(197, 50);
-            panelObat.TabIndex = 2;
-            // 
-            // buttonObat
-            // 
-            buttonObat.BackColor = Color.FromArgb(0, 141, 218);
-            buttonObat.FlatAppearance.BorderSize = 0;
-            buttonObat.FlatStyle = FlatStyle.Flat;
-            buttonObat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonObat.ForeColor = Color.White;
-            buttonObat.Image = (Image)resources.GetObject("buttonObat.Image");
-            buttonObat.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonObat.Location = new Point(-24, -48);
-            buttonObat.Name = "buttonObat";
-            buttonObat.Padding = new Padding(25, 0, 0, 0);
-            buttonObat.Size = new Size(237, 144);
-            buttonObat.TabIndex = 3;
-            buttonObat.Text = "       Obat";
-            buttonObat.TextAlign = ContentAlignment.MiddleLeft;
-            buttonObat.UseVisualStyleBackColor = false;
-            buttonObat.Click += button1_Click;
-            // 
-            // panelDokter
-            // 
-            panelDokter.Controls.Add(buttonDokter);
-            panelDokter.ImeMode = ImeMode.NoControl;
-            panelDokter.Location = new Point(8, 140);
-            panelDokter.Name = "panelDokter";
-            panelDokter.Size = new Size(197, 50);
-            panelDokter.TabIndex = 2;
-            // 
-            // buttonDokter
-            // 
-            buttonDokter.BackColor = Color.FromArgb(0, 141, 218);
-            buttonDokter.FlatAppearance.BorderSize = 0;
-            buttonDokter.FlatStyle = FlatStyle.Flat;
-            buttonDokter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonDokter.ForeColor = Color.White;
-            buttonDokter.Image = (Image)resources.GetObject("buttonDokter.Image");
-            buttonDokter.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDokter.Location = new Point(-24, -48);
-            buttonDokter.Name = "buttonDokter";
-            buttonDokter.Padding = new Padding(25, 0, 0, 0);
-            buttonDokter.Size = new Size(237, 144);
-            buttonDokter.TabIndex = 3;
-            buttonDokter.Text = "       Dokter";
-            buttonDokter.TextAlign = ContentAlignment.MiddleLeft;
-            buttonDokter.UseVisualStyleBackColor = false;
-            buttonDokter.Click += button1_Click;
+            sidebar.Paint += sidebar_Paint;
             // 
             // panelPasien
             // 
@@ -280,15 +169,122 @@
             buttonPasien.ForeColor = Color.White;
             buttonPasien.Image = (Image)resources.GetObject("buttonPasien.Image");
             buttonPasien.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonPasien.Location = new Point(-24, -48);
+            buttonPasien.Location = new Point(0, 0);
             buttonPasien.Name = "buttonPasien";
             buttonPasien.Padding = new Padding(25, 0, 0, 0);
-            buttonPasien.Size = new Size(237, 144);
+            buttonPasien.Size = new Size(197, 50);
             buttonPasien.TabIndex = 3;
             buttonPasien.Text = "       Pasien";
             buttonPasien.TextAlign = ContentAlignment.MiddleLeft;
             buttonPasien.UseVisualStyleBackColor = false;
-            buttonPasien.Click += button1_Click;
+            // 
+            // panelDokter
+            // 
+            panelDokter.Controls.Add(buttonDokter);
+            panelDokter.ImeMode = ImeMode.NoControl;
+            panelDokter.Location = new Point(8, 140);
+            panelDokter.Name = "panelDokter";
+            panelDokter.Size = new Size(197, 50);
+            panelDokter.TabIndex = 2;
+            // 
+            // buttonDokter
+            // 
+            buttonDokter.BackColor = Color.FromArgb(0, 141, 218);
+            buttonDokter.FlatAppearance.BorderSize = 0;
+            buttonDokter.FlatStyle = FlatStyle.Flat;
+            buttonDokter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDokter.ForeColor = Color.White;
+            buttonDokter.Image = (Image)resources.GetObject("buttonDokter.Image");
+            buttonDokter.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonDokter.Location = new Point(0, 0);
+            buttonDokter.Name = "buttonDokter";
+            buttonDokter.Padding = new Padding(25, 0, 0, 0);
+            buttonDokter.Size = new Size(197, 50);
+            buttonDokter.TabIndex = 3;
+            buttonDokter.Text = "       Dokter";
+            buttonDokter.TextAlign = ContentAlignment.MiddleLeft;
+            buttonDokter.UseVisualStyleBackColor = false;
+            // 
+            // panelObat
+            // 
+            panelObat.Controls.Add(buttonObat);
+            panelObat.ImeMode = ImeMode.NoControl;
+            panelObat.Location = new Point(8, 196);
+            panelObat.Name = "panelObat";
+            panelObat.Size = new Size(197, 50);
+            panelObat.TabIndex = 2;
+            // 
+            // buttonObat
+            // 
+            buttonObat.BackColor = Color.FromArgb(0, 141, 218);
+            buttonObat.FlatAppearance.BorderSize = 0;
+            buttonObat.FlatStyle = FlatStyle.Flat;
+            buttonObat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonObat.ForeColor = Color.White;
+            buttonObat.Image = (Image)resources.GetObject("buttonObat.Image");
+            buttonObat.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonObat.Location = new Point(0, 0);
+            buttonObat.Name = "buttonObat";
+            buttonObat.Padding = new Padding(25, 0, 0, 0);
+            buttonObat.Size = new Size(197, 50);
+            buttonObat.TabIndex = 3;
+            buttonObat.Text = "       Obat";
+            buttonObat.TextAlign = ContentAlignment.MiddleLeft;
+            buttonObat.UseVisualStyleBackColor = false;
+            // 
+            // panelPemeriksaan
+            // 
+            panelPemeriksaan.Controls.Add(buttonPemeriksaan);
+            panelPemeriksaan.ImeMode = ImeMode.NoControl;
+            panelPemeriksaan.Location = new Point(8, 252);
+            panelPemeriksaan.Name = "panelPemeriksaan";
+            panelPemeriksaan.Size = new Size(197, 50);
+            panelPemeriksaan.TabIndex = 2;
+            // 
+            // buttonPemeriksaan
+            // 
+            buttonPemeriksaan.BackColor = Color.FromArgb(0, 141, 218);
+            buttonPemeriksaan.FlatAppearance.BorderSize = 0;
+            buttonPemeriksaan.FlatStyle = FlatStyle.Flat;
+            buttonPemeriksaan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonPemeriksaan.ForeColor = Color.White;
+            buttonPemeriksaan.Image = (Image)resources.GetObject("buttonPemeriksaan.Image");
+            buttonPemeriksaan.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonPemeriksaan.Location = new Point(0, 0);
+            buttonPemeriksaan.Name = "buttonPemeriksaan";
+            buttonPemeriksaan.Padding = new Padding(25, 0, 0, 0);
+            buttonPemeriksaan.Size = new Size(197, 50);
+            buttonPemeriksaan.TabIndex = 3;
+            buttonPemeriksaan.Text = "       Pemeriksaan";
+            buttonPemeriksaan.TextAlign = ContentAlignment.MiddleLeft;
+            buttonPemeriksaan.UseVisualStyleBackColor = false;
+            // 
+            // panelPembayaran
+            // 
+            panelPembayaran.Controls.Add(buttonPembayaran);
+            panelPembayaran.ImeMode = ImeMode.NoControl;
+            panelPembayaran.Location = new Point(8, 308);
+            panelPembayaran.Name = "panelPembayaran";
+            panelPembayaran.Size = new Size(197, 50);
+            panelPembayaran.TabIndex = 2;
+            // 
+            // buttonPembayaran
+            // 
+            buttonPembayaran.BackColor = Color.FromArgb(0, 141, 218);
+            buttonPembayaran.FlatAppearance.BorderSize = 0;
+            buttonPembayaran.FlatStyle = FlatStyle.Flat;
+            buttonPembayaran.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonPembayaran.ForeColor = Color.White;
+            buttonPembayaran.Image = (Image)resources.GetObject("buttonPembayaran.Image");
+            buttonPembayaran.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonPembayaran.Location = new Point(0, 0);
+            buttonPembayaran.Name = "buttonPembayaran";
+            buttonPembayaran.Padding = new Padding(25, 0, 0, 0);
+            buttonPembayaran.Size = new Size(197, 50);
+            buttonPembayaran.TabIndex = 3;
+            buttonPembayaran.Text = "       Pembayaran";
+            buttonPembayaran.TextAlign = ContentAlignment.MiddleLeft;
+            buttonPembayaran.UseVisualStyleBackColor = false;
             // 
             // sidebarTransition
             // 
@@ -302,6 +298,7 @@
             Controls.Add(sidebar);
             Controls.Add(panelTop);
             FormBorderStyle = FormBorderStyle.None;
+            IsMdiContainer = true;
             Name = "MainDisplay";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainDisplay";
@@ -310,11 +307,11 @@
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).EndInit();
             panelDashboard.ResumeLayout(false);
             sidebar.ResumeLayout(false);
-            panelPembayaran.ResumeLayout(false);
-            panelPemeriksaan.ResumeLayout(false);
-            panelObat.ResumeLayout(false);
-            panelDokter.ResumeLayout(false);
             panelPasien.ResumeLayout(false);
+            panelDokter.ResumeLayout(false);
+            panelObat.ResumeLayout(false);
+            panelPemeriksaan.ResumeLayout(false);
+            panelPembayaran.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -334,8 +331,8 @@
         private Button buttonObat;
         private Panel panelPemeriksaan;
         private Button buttonPemeriksaan;
+        private System.Windows.Forms.Timer sidebarTransition;
         private Panel panelPembayaran;
         private Button buttonPembayaran;
-        private System.Windows.Forms.Timer sidebarTransition;
     }
 }
