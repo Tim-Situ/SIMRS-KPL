@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 using System.Linq;
 
@@ -6,6 +7,7 @@ namespace SIMRS_API;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class DokterController : Controller
 {
     private static string _jsonFilePath = "Data/DataDokter.json";

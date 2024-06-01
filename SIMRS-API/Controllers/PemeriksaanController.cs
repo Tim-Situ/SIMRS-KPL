@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
 namespace SIMRS_API;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class PemeriksaanController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();

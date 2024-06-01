@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
@@ -7,6 +8,7 @@ namespace SIMRS_API;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class PoliController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
