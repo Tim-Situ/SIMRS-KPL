@@ -1,15 +1,20 @@
 ﻿using Newtonsoft.Json;
 using SIMRS_API;
+using SIMRS_GUI.Auth;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace SIMRS_GUI
 {
     public class ApiClient<T>
     {
-        private static readonly HttpClient s_client = new HttpClient()
+        string token = SessionManager.getToken();
+        private static HttpClient s_client = new HttpClient();
+        public ApiClient()
         {
-            BaseAddress = new Uri("http://localhost:5117/api/")
-        };
+            s_client.BaseAddress = new Uri("http://localhost:5117/api/");
+            s_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
 
         private async Task<ApiResponse<T>> SendRequestAsync<T>(HttpMethod method, string path, T data = default)
         {
@@ -31,11 +36,10 @@ namespace SIMRS_GUI
         public Task<ApiResponse<T>> GetOne(string path)
             => SendRequestAsync<T>(HttpMethod.Get, path);
 
-        public Task<ApiResponse<T>> Post(T data, string path)
+        public Task<ApiResponse<T>> Post(string path, T data)
             => SendRequestAsync(HttpMethod.Post, path, data);
 
-
-        public Task<ApiResponse<T>> Put(T data, string path)
+        public Task<ApiResponse<T>> Put(string path, T data)
             => SendRequestAsync(HttpMethod.Put, path, data);
 
         public Task<ApiResponse<T>> Delete(string path)
