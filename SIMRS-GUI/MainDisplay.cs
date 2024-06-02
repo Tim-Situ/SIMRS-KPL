@@ -3,6 +3,7 @@ namespace SIMRS_GUI
     public partial class MainDisplay : Form
     {
         DashboardDisplay dashboard;
+        PasienDisplay pasien;
         public MainDisplay()
         {
             InitializeComponent();
@@ -32,6 +33,20 @@ namespace SIMRS_GUI
             dashboard = null;
         }
 
+        private void buttonPasien_Click(object sender, EventArgs e)
+        {
+            if (pasien == null)
+            {
+                pasien = new PasienDisplay();
+                pasien.FormClosed += PasienDisplay_FormClosed;
+                pasien.MdiParent = this;
+            }
+        }
+
+        private void PasienDisplay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pasien = null;
+        }
         private void nightControlBox1_Click(object sender, EventArgs e)
         {
 

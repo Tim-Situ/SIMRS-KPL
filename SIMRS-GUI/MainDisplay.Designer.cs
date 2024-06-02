@@ -177,6 +177,7 @@
             buttonPasien.Text = "       Pasien";
             buttonPasien.TextAlign = ContentAlignment.MiddleLeft;
             buttonPasien.UseVisualStyleBackColor = false;
+            buttonPasien.Click += buttonPasien_Click;
             // 
             // panelDokter
             // 
