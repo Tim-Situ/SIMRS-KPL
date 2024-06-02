@@ -54,7 +54,7 @@ namespace SIMRS_API.Controllers
             var token = JwtTokenHelper.GenerateToken(value.username);
 
             response.message = "Login Berhasil...";
-            response.data = new { token = token };
+            response.data = token;
 
             return Ok(response);
         }
