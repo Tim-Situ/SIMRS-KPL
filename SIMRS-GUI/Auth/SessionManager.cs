@@ -11,7 +11,7 @@ namespace SIMRS_GUI.Auth
         {
             ApiClient<Object> api = new();
             Admin admin = new Admin { username = username, password = password };
-            ApiResponse<Object> response = await api.Post(admin, "Auth/login");
+            ApiResponse<Object> response = await api.Post("Auth/login", admin);
 
             s_currentUser = username;
             s_token = response.data.ToString();

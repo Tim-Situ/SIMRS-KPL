@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginUser));
             panel1 = new Panel();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            button1 = new Button();
-            pictureBox1 = new PictureBox();
+            TextBoxPassword = new TextBox();
+            TextBoxUsername = new TextBox();
+            LabelUsername = new Label();
+            LabelPassword = new Label();
+            TombolLogin = new Button();
+            Logo = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -65,7 +65,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(657, 8);
+            nightControlBox1.Location = new Point(661, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -74,83 +74,83 @@
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 1;
             // 
-            // textBox1
+            // TextBoxPassword
             // 
-            textBox1.Location = new Point(282, 296);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(241, 27);
-            textBox1.TabIndex = 2;
+            TextBoxPassword.Location = new Point(282, 296);
+            TextBoxPassword.Name = "TextBoxPassword";
+            TextBoxPassword.Size = new Size(241, 27);
+            TextBoxPassword.TabIndex = 2;
             // 
-            // textBox2
+            // TextBoxUsername
             // 
-            textBox2.Location = new Point(282, 245);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(241, 27);
-            textBox2.TabIndex = 2;
+            TextBoxUsername.Location = new Point(282, 245);
+            TextBoxUsername.Name = "TextBoxUsername";
+            TextBoxUsername.Size = new Size(241, 27);
+            TextBoxUsername.TabIndex = 2;
             // 
-            // label2
+            // LabelUsername
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(166, 243);
-            label2.Name = "label2";
-            label2.Size = new Size(113, 28);
-            label2.TabIndex = 1;
-            label2.Text = "Username : ";
-            label2.Click += label2_Click;
+            LabelUsername.AutoSize = true;
+            LabelUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelUsername.Location = new Point(166, 243);
+            LabelUsername.Name = "LabelUsername";
+            LabelUsername.Size = new Size(113, 28);
+            LabelUsername.TabIndex = 1;
+            LabelUsername.Text = "Username : ";
             // 
-            // label3
+            // LabelPassword
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(172, 293);
-            label3.Name = "label3";
-            label3.Size = new Size(107, 28);
-            label3.TabIndex = 1;
-            label3.Text = "Password : ";
-            label3.Click += label2_Click;
+            LabelPassword.AutoSize = true;
+            LabelPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelPassword.Location = new Point(172, 293);
+            LabelPassword.Name = "LabelPassword";
+            LabelPassword.Size = new Size(107, 28);
+            LabelPassword.TabIndex = 1;
+            LabelPassword.Text = "Password : ";
             // 
-            // button1
+            // TombolLogin
             // 
-            button1.BackColor = Color.Transparent;
-            button1.FlatAppearance.BorderColor = SystemColors.Highlight;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.Highlight;
-            button1.Location = new Point(282, 363);
-            button1.Name = "button1";
-            button1.Size = new Size(241, 44);
-            button1.TabIndex = 3;
-            button1.Text = "Submit";
-            button1.UseVisualStyleBackColor = false;
+            TombolLogin.BackColor = SystemColors.Highlight;
+            TombolLogin.FlatAppearance.BorderColor = SystemColors.Highlight;
+            TombolLogin.FlatStyle = FlatStyle.Flat;
+            TombolLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            TombolLogin.ForeColor = SystemColors.ButtonHighlight;
+            TombolLogin.Location = new Point(282, 363);
+            TombolLogin.Name = "TombolLogin";
+            TombolLogin.Size = new Size(241, 44);
+            TombolLogin.TabIndex = 3;
+            TombolLogin.Text = "Login";
+            TombolLogin.UseVisualStyleBackColor = false;
+            TombolLogin.Click += TombolLogin_Click;
             // 
-            // pictureBox1
+            // Logo
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(255, 67);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(287, 130);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            Logo.BackColor = Color.Transparent;
+            Logo.Image = (Image)resources.GetObject("Logo.Image");
+            Logo.Location = new Point(255, 76);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(287, 130);
+            Logo.SizeMode = PictureBoxSizeMode.StretchImage;
+            Logo.TabIndex = 4;
+            Logo.TabStop = false;
             // 
             // LoginUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(Logo);
+            Controls.Add(TombolLogin);
+            Controls.Add(TextBoxUsername);
+            Controls.Add(TextBoxPassword);
+            Controls.Add(LabelPassword);
+            Controls.Add(LabelUsername);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginUser";
             Text = "LoginUser";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,11 +159,11 @@
 
         private Panel panel1;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label2;
-        private Label label3;
-        private Button button1;
-        private PictureBox pictureBox1;
+        private TextBox TextBoxPassword;
+        private TextBox TextBoxUsername;
+        private Label LabelUsername;
+        private Label LabelPassword;
+        private Button TombolLogin;
+        private PictureBox Logo;
     }
 }

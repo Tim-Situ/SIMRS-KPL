@@ -42,6 +42,10 @@ namespace SIMRS_GUI
                 pasien.MdiParent = this;
                 pasien.Show();
             }
+            else
+            {
+                pasien.Activate();
+            }
         }
 
         private void PasienDisplay_FormClosed(object sender, FormClosedEventArgs e)

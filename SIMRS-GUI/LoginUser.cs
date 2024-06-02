@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SIMRS_GUI.Auth;
 
 namespace SIMRS_GUI
 {
@@ -17,9 +18,16 @@ namespace SIMRS_GUI
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private async void TombolLogin_Click(object sender, EventArgs e)
         {
-
+            string username = TextBoxUsername.Text;
+            string password = TextBoxPassword.Text;
+            await SessionManager.Login(username, password);
+            TextBoxUsername.ClearUndo();
+            TextBoxPassword.ClearUndo();
+            Hide();
+            MainDisplay ms = new MainDisplay();
+            ms.Show();
         }
     }
 }
