@@ -40,6 +40,7 @@ namespace SIMRS_GUI
                 pasien = new PasienDisplay();
                 pasien.FormClosed += PasienDisplay_FormClosed;
                 pasien.MdiParent = this;
+                pasien.Show();
             }
         }
 

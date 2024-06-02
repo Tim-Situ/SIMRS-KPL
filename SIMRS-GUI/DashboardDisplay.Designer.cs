@@ -41,14 +41,14 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(915, 428);
+            dataGridView1.Size = new Size(897, 399);
             dataGridView1.TabIndex = 0;
             // 
             // DashboardDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(939, 513);
+            ClientSize = new Size(921, 484);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardDisplay";

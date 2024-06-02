@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             TabelPasien = new DataGridView();
-            buttonHapusPasien = new Button();
-            buttonEditPasien = new Button();
-            buttonTambahPasien = new Button();
             NoPasien = new DataGridViewTextBoxColumn();
             NIKPasien = new DataGridViewTextBoxColumn();
             NamaPasien = new DataGridViewTextBoxColumn();
@@ -39,6 +36,9 @@
             NoHpPasien = new DataGridViewTextBoxColumn();
             JenisKelaminPasien = new DataGridViewTextBoxColumn();
             AlamatPasien = new DataGridViewTextBoxColumn();
+            buttonHapusPasien = new Button();
+            buttonEditPasien = new Button();
+            buttonTambahPasien = new Button();
             ((System.ComponentModel.ISupportInitialize)TabelPasien).BeginInit();
             SuspendLayout();
             // 
@@ -50,35 +50,8 @@
             TabelPasien.Name = "TabelPasien";
             TabelPasien.RowHeadersWidth = 51;
             TabelPasien.RowTemplate.Height = 29;
-            TabelPasien.Size = new Size(918, 418);
+            TabelPasien.Size = new Size(897, 389);
             TabelPasien.TabIndex = 0;
-            // 
-            // buttonHapusPasien
-            // 
-            buttonHapusPasien.Location = new Point(636, 21);
-            buttonHapusPasien.Name = "buttonHapusPasien";
-            buttonHapusPasien.Size = new Size(94, 29);
-            buttonHapusPasien.TabIndex = 1;
-            buttonHapusPasien.Text = "Hapus";
-            buttonHapusPasien.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditPasien
-            // 
-            buttonEditPasien.Location = new Point(736, 21);
-            buttonEditPasien.Name = "buttonEditPasien";
-            buttonEditPasien.Size = new Size(94, 29);
-            buttonEditPasien.TabIndex = 1;
-            buttonEditPasien.Text = "Edit";
-            buttonEditPasien.UseVisualStyleBackColor = true;
-            // 
-            // buttonTambahPasien
-            // 
-            buttonTambahPasien.Location = new Point(836, 21);
-            buttonTambahPasien.Name = "buttonTambahPasien";
-            buttonTambahPasien.Size = new Size(94, 29);
-            buttonTambahPasien.TabIndex = 1;
-            buttonTambahPasien.Text = "Tambah";
-            buttonTambahPasien.UseVisualStyleBackColor = true;
             // 
             // NoPasien
             // 
@@ -129,11 +102,38 @@
             AlamatPasien.Name = "AlamatPasien";
             AlamatPasien.Width = 125;
             // 
+            // buttonHapusPasien
+            // 
+            buttonHapusPasien.Location = new Point(615, 31);
+            buttonHapusPasien.Name = "buttonHapusPasien";
+            buttonHapusPasien.Size = new Size(94, 29);
+            buttonHapusPasien.TabIndex = 1;
+            buttonHapusPasien.Text = "Hapus";
+            buttonHapusPasien.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditPasien
+            // 
+            buttonEditPasien.Location = new Point(715, 31);
+            buttonEditPasien.Name = "buttonEditPasien";
+            buttonEditPasien.Size = new Size(94, 29);
+            buttonEditPasien.TabIndex = 1;
+            buttonEditPasien.Text = "Edit";
+            buttonEditPasien.UseVisualStyleBackColor = true;
+            // 
+            // buttonTambahPasien
+            // 
+            buttonTambahPasien.Location = new Point(815, 31);
+            buttonTambahPasien.Name = "buttonTambahPasien";
+            buttonTambahPasien.Size = new Size(94, 29);
+            buttonTambahPasien.TabIndex = 1;
+            buttonTambahPasien.Text = "Tambah";
+            buttonTambahPasien.UseVisualStyleBackColor = true;
+            // 
             // PasienDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(939, 513);
+            ClientSize = new Size(921, 484);
             Controls.Add(buttonTambahPasien);
             Controls.Add(buttonEditPasien);
             Controls.Add(buttonHapusPasien);
