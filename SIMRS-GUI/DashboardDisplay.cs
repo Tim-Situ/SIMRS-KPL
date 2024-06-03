@@ -8,6 +8,7 @@ namespace SIMRS_GUI
         public DashboardDisplay()
         {
             InitializeComponent();
+            TopLevel = false;
         }
 
         

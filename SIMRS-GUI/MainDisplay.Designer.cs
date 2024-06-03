@@ -47,6 +47,7 @@
             panelPembayaran = new Panel();
             buttonPembayaran = new Button();
             sidebarTransition = new System.Windows.Forms.Timer(components);
+            BodyPanel = new Panel();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).BeginInit();
             panelDashboard.SuspendLayout();
@@ -68,7 +69,6 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(1161, 49);
             panelTop.TabIndex = 0;
-            panelTop.Paint += PanelTop_Paint;
             // 
             // nightControlBox1
             // 
@@ -92,7 +92,6 @@
             nightControlBox1.Name = "nightControlBox1";
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 1;
-            nightControlBox1.Click += nightControlBox1_Click;
             // 
             // hamburgerMenu
             // 
@@ -292,10 +291,19 @@
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
+            // BodyPanel
+            // 
+            BodyPanel.Dock = DockStyle.Fill;
+            BodyPanel.Location = new Point(222, 49);
+            BodyPanel.Name = "BodyPanel";
+            BodyPanel.Size = new Size(939, 513);
+            BodyPanel.TabIndex = 6;
+            // 
             // MainDisplay
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1161, 562);
+            Controls.Add(BodyPanel);
             Controls.Add(sidebar);
             Controls.Add(panelTop);
             FormBorderStyle = FormBorderStyle.None;
@@ -335,5 +343,6 @@
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panelPembayaran;
         private Button buttonPembayaran;
+        private Panel BodyPanel;
     }
 }

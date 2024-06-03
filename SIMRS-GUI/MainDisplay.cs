@@ -16,50 +16,27 @@ namespace SIMRS_GUI
 
         private void buttonDashboard_Click(object sender, EventArgs e)
         {
-            if (dashboard == null)
+            if (BodyPanel.Controls.Count == 1)
             {
-                dashboard = new DashboardDisplay();
-                dashboard.FormClosed += DashboardDisplay_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Show();
+                BodyPanel.Controls[0].Dispose();
             }
-            else
-            {
-                dashboard.Activate();
-            }
-        }
-        private void DashboardDisplay_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            dashboard = null;
+            dashboard = new DashboardDisplay();
+            dashboard.Dock = DockStyle.Fill;
+            BodyPanel.Controls.Add(dashboard);
+            dashboard.Show();
         }
 
         private void buttonPasien_Click(object sender, EventArgs e)
         {
-            if (pasien == null)
+            if (BodyPanel.Controls.Count == 1)
             {
-                pasien = new PasienDisplay();
-                pasien.FormClosed += PasienDisplay_FormClosed;
-                pasien.MdiParent = this;
-                pasien.Show();
+                BodyPanel.Controls[0].Dispose();
             }
-            else
-            {
-                pasien.Activate();
-            }
-        }
 
-        private void PasienDisplay_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pasien = null;
-        }
-        private void nightControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PanelTop_Paint(object sender, PaintEventArgs e)
-        {
-
+            pasien = new PasienDisplay();
+            pasien.Dock = DockStyle.Fill;
+            BodyPanel.Controls.Add(pasien);
+            pasien.Show();
         }
 
         bool sidebarExpand = true;

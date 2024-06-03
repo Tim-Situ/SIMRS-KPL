@@ -29,116 +29,83 @@
         private void InitializeComponent()
         {
             TabelPasien = new DataGridView();
-            NoPasien = new DataGridViewTextBoxColumn();
-            NIKPasien = new DataGridViewTextBoxColumn();
-            NamaPasien = new DataGridViewTextBoxColumn();
-            TanggalLahirPasien = new DataGridViewTextBoxColumn();
-            NoHpPasien = new DataGridViewTextBoxColumn();
-            JenisKelaminPasien = new DataGridViewTextBoxColumn();
-            AlamatPasien = new DataGridViewTextBoxColumn();
             buttonHapusPasien = new Button();
             buttonEditPasien = new Button();
             buttonTambahPasien = new Button();
+            ButtonRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)TabelPasien).BeginInit();
             SuspendLayout();
             // 
             // TabelPasien
             // 
+            TabelPasien.AllowUserToAddRows = false;
+            TabelPasien.AllowUserToDeleteRows = false;
+            TabelPasien.AllowUserToResizeColumns = false;
+            TabelPasien.AllowUserToResizeRows = false;
+            TabelPasien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TabelPasien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelPasien.Columns.AddRange(new DataGridViewColumn[] { NoPasien, NIKPasien, NamaPasien, TanggalLahirPasien, NoHpPasien, JenisKelaminPasien, AlamatPasien });
-            TabelPasien.Location = new Point(12, 83);
+            TabelPasien.EditMode = DataGridViewEditMode.EditProgrammatically;
+            TabelPasien.Location = new Point(10, 62);
+            TabelPasien.Margin = new Padding(3, 2, 3, 2);
             TabelPasien.Name = "TabelPasien";
             TabelPasien.RowHeadersWidth = 51;
             TabelPasien.RowTemplate.Height = 29;
-            TabelPasien.Size = new Size(897, 389);
+            TabelPasien.Size = new Size(785, 292);
             TabelPasien.TabIndex = 0;
-            // 
-            // NoPasien
-            // 
-            NoPasien.HeaderText = "No";
-            NoPasien.MinimumWidth = 6;
-            NoPasien.Name = "NoPasien";
-            NoPasien.Width = 125;
-            // 
-            // NIKPasien
-            // 
-            NIKPasien.HeaderText = "NIK";
-            NIKPasien.MinimumWidth = 6;
-            NIKPasien.Name = "NIKPasien";
-            NIKPasien.Width = 125;
-            // 
-            // NamaPasien
-            // 
-            NamaPasien.HeaderText = "Nama";
-            NamaPasien.MinimumWidth = 6;
-            NamaPasien.Name = "NamaPasien";
-            NamaPasien.Width = 125;
-            // 
-            // TanggalLahirPasien
-            // 
-            TanggalLahirPasien.HeaderText = "Tanggal Lahir";
-            TanggalLahirPasien.MinimumWidth = 6;
-            TanggalLahirPasien.Name = "TanggalLahirPasien";
-            TanggalLahirPasien.Width = 125;
-            // 
-            // NoHpPasien
-            // 
-            NoHpPasien.HeaderText = "No Hp";
-            NoHpPasien.MinimumWidth = 6;
-            NoHpPasien.Name = "NoHpPasien";
-            NoHpPasien.Width = 125;
-            // 
-            // JenisKelaminPasien
-            // 
-            JenisKelaminPasien.HeaderText = "Jenis Kelamin";
-            JenisKelaminPasien.MinimumWidth = 6;
-            JenisKelaminPasien.Name = "JenisKelaminPasien";
-            JenisKelaminPasien.Width = 125;
-            // 
-            // AlamatPasien
-            // 
-            AlamatPasien.HeaderText = "Alamat";
-            AlamatPasien.MinimumWidth = 6;
-            AlamatPasien.Name = "AlamatPasien";
-            AlamatPasien.Width = 125;
             // 
             // buttonHapusPasien
             // 
-            buttonHapusPasien.Location = new Point(615, 31);
+            buttonHapusPasien.Location = new Point(538, 23);
+            buttonHapusPasien.Margin = new Padding(3, 2, 3, 2);
             buttonHapusPasien.Name = "buttonHapusPasien";
-            buttonHapusPasien.Size = new Size(94, 29);
+            buttonHapusPasien.Size = new Size(82, 22);
             buttonHapusPasien.TabIndex = 1;
             buttonHapusPasien.Text = "Hapus";
             buttonHapusPasien.UseVisualStyleBackColor = true;
             // 
             // buttonEditPasien
             // 
-            buttonEditPasien.Location = new Point(715, 31);
+            buttonEditPasien.Location = new Point(626, 23);
+            buttonEditPasien.Margin = new Padding(3, 2, 3, 2);
             buttonEditPasien.Name = "buttonEditPasien";
-            buttonEditPasien.Size = new Size(94, 29);
+            buttonEditPasien.Size = new Size(82, 22);
             buttonEditPasien.TabIndex = 1;
             buttonEditPasien.Text = "Edit";
             buttonEditPasien.UseVisualStyleBackColor = true;
             // 
             // buttonTambahPasien
             // 
-            buttonTambahPasien.Location = new Point(815, 31);
+            buttonTambahPasien.Location = new Point(713, 23);
+            buttonTambahPasien.Margin = new Padding(3, 2, 3, 2);
             buttonTambahPasien.Name = "buttonTambahPasien";
-            buttonTambahPasien.Size = new Size(94, 29);
+            buttonTambahPasien.Size = new Size(82, 22);
             buttonTambahPasien.TabIndex = 1;
             buttonTambahPasien.Text = "Tambah";
             buttonTambahPasien.UseVisualStyleBackColor = true;
             // 
+            // ButtonRefresh
+            // 
+            ButtonRefresh.Location = new Point(450, 23);
+            ButtonRefresh.Margin = new Padding(3, 2, 3, 2);
+            ButtonRefresh.Name = "ButtonRefresh";
+            ButtonRefresh.Size = new Size(82, 22);
+            ButtonRefresh.TabIndex = 2;
+            ButtonRefresh.Text = "Refresh";
+            ButtonRefresh.UseVisualStyleBackColor = true;
+            ButtonRefresh.Click += ButtonRefresh_Click;
+            // 
             // PasienDisplay
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(921, 484);
+            ClientSize = new Size(806, 363);
+            Controls.Add(ButtonRefresh);
             Controls.Add(buttonTambahPasien);
             Controls.Add(buttonEditPasien);
             Controls.Add(buttonHapusPasien);
             Controls.Add(TabelPasien);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PasienDisplay";
             Text = "PasienDisplay";
             ((System.ComponentModel.ISupportInitialize)TabelPasien).EndInit();
@@ -151,12 +118,6 @@
         private Button buttonHapusPasien;
         private Button buttonEditPasien;
         private Button buttonTambahPasien;
-        private DataGridViewTextBoxColumn NoPasien;
-        private DataGridViewTextBoxColumn NIKPasien;
-        private DataGridViewTextBoxColumn NamaPasien;
-        private DataGridViewTextBoxColumn TanggalLahirPasien;
-        private DataGridViewTextBoxColumn NoHpPasien;
-        private DataGridViewTextBoxColumn JenisKelaminPasien;
-        private DataGridViewTextBoxColumn AlamatPasien;
+        private Button ButtonRefresh;
     }
 }

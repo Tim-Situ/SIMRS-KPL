@@ -14,20 +14,22 @@ namespace SIMRS_GUI
 {
     public partial class PasienDisplay : Form
     {
-        PasienService controller = new();
-        public List<Pasien> listPasien { get; set; }
+        private PasienService controller = new();
+        private List<Pasien> listPasien { get; set; }
         public PasienDisplay()
         {
             InitializeComponent();
             LoadDataAsync();
+            TopLevel = false;
         }
 
         private async Task LoadDataAsync()
         {
             try
             {
-                var response = await controller.GetPasien();
+                ApiResponse<List<Pasien>> response = await controller.GetPasien();
                 listPasien = response.data;
+
 
                 if (TabelPasien.InvokeRequired)
                 {
@@ -42,6 +44,11 @@ namespace SIMRS_GUI
             {
                 MessageBox.Show("Error ambil data: " + ex.Message);
             }
+        }
+
+        private void ButtonRefresh_Click(object sender, EventArgs e)
+        {
+            LoadDataAsync();
         }
     }
 }
