@@ -9,7 +9,7 @@ namespace SIMRS_GUI.Auth
 
         public async static Task Login(string username, string password)
         {
-            ApiClient<Object> api = new();
+            ApiClient<Object> api = ApiClient<Object>.GetInstance();
             Admin admin = new Admin { username = username, password = password };
             ApiResponse<Object> response = await api.Post("Auth/login", admin);
 

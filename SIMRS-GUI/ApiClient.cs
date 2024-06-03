@@ -8,13 +8,33 @@ namespace SIMRS_GUI
 {
     public class ApiClient<T>
     {
-        string token = SessionManager.getToken();
-        private static HttpClient s_client = new HttpClient();
-        public ApiClient()
+        private static string token;
+        private static HttpClient s_client;
+
+        // Menerapkan singleton
+        private ApiClient() { }
+        private static ApiClient<T> _instance;
+        private static readonly object _lock = new object();
+
+        public static ApiClient<T> GetInstance()
         {
-            s_client.BaseAddress = new Uri("http://localhost:5117/api/");
-            s_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            if (_instance == null)
+            {
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new ApiClient<T>();
+                        token = SessionManager.getToken();
+                        s_client = new HttpClient();
+                        s_client.BaseAddress = new Uri("http://localhost:5117/api/");
+                        s_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    }
+                }
+            }
+            return _instance;
         }
+        // Selesai persiapan singleton
 
         private async Task<ApiResponse<T>> SendRequestAsync<T>(HttpMethod method, string path, T data = default)
         {
