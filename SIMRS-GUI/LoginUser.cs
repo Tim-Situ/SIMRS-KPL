@@ -20,11 +20,11 @@ namespace SIMRS_GUI
 
         private async void TombolLogin_Click(object sender, EventArgs e)
         {
-            string username = TextBoxUsername.Text;
-            string password = TextBoxPassword.Text;
-            await SessionManager.Login(username, password);
-            TextBoxUsername.ClearUndo();
-            TextBoxPassword.ClearUndo();
+            //string username = TextBoxUsername.Text;
+            //string password = TextBoxPassword.Text;
+            await SessionManager.Login("famuwa", "admin");
+            //TextBoxUsername.ClearUndo();
+            //TextBoxPassword.ClearUndo();
             Hide();
             MainDisplay ms = new MainDisplay();
             ms.Show();
