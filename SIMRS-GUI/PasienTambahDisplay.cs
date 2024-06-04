@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SIMRS_API;
 
 namespace SIMRS_GUI
 {
@@ -20,7 +12,16 @@ namespace SIMRS_GUI
 
         private void PasienTambahDisplay_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            string NIK = InputNIK.Text;
+            string nama = InputNama.Text;
+            string tanggalLahir = InputTanggal.Text;
+            string jenisKelamin = (rbLakiLaki.Checked) ? "PRIA" : "WANITA";
+            string alamat = InputAlamat.Text;
         }
     }
 }

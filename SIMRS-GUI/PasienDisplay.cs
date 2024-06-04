@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using SIMRS_API;
+﻿using SIMRS_API;
 using SIMRS_GUI.Services;
 
 namespace SIMRS_GUI
@@ -20,10 +11,9 @@ namespace SIMRS_GUI
         public PasienDisplay(MainDisplay mainDisplay)
         {
             InitializeComponent();
-            LoadDataAsync();
             TopLevel = false;
+            LoadDataAsync();
             _mainDisplay = mainDisplay;
-            //TabelPasien.Column
         }
 
         private async Task LoadDataAsync()
@@ -54,14 +44,22 @@ namespace SIMRS_GUI
             LoadDataAsync();
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
+        private void ButtonTambah_Click(object sender, EventArgs e)
         {
-
+            _mainDisplay.ShowDisplay(new PasienTambahDisplay());
         }
 
-        private void buttonTambah_Click(object sender, EventArgs e)
+        private void TabelPasien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //_mainDisplay.ButtonTambahPasien();
+            switch (TabelPasien.Columns[e.ColumnIndex].Name)
+            {
+                case "HapusPasien":
+                    MessageBox.Show("Hapus " + listPasien[e.RowIndex].nik);
+                    break;
+                case "EditPasien":
+                    _mainDisplay.ShowDisplay(new PasienEditDisplay(listPasien[e.RowIndex]));
+                    break;
+            }
         }
     }
 }

@@ -64,7 +64,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click_1;
             // 
             // panel1
             // 
@@ -242,7 +241,6 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 1;
             pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox2_Click_1;
             // 
             // DashboardDisplay
             // 

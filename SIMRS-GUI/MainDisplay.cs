@@ -2,45 +2,34 @@ namespace SIMRS_GUI
 {
     public partial class MainDisplay : Form
     {
-        DashboardDisplay dashboard;
-        PasienDisplay pasien;
         public MainDisplay()
         {
             InitializeComponent();
         }
 
-        private void MainDisplayDraft_Load(object sender, EventArgs e)
+        public void ShowDisplay(Form display)
         {
-
+            if (BodyPanel.Controls.Count == 1)
+            {
+                BodyPanel.Controls[0].Dispose();
+            }
+            display.Dock = DockStyle.Fill;
+            BodyPanel.Controls.Add(display);
+            display.Show();
         }
 
         private void buttonDashboard_Click(object sender, EventArgs e)
         {
-            if (BodyPanel.Controls.Count == 1)
-            {
-                BodyPanel.Controls[0].Dispose();
-            }
-            dashboard = new DashboardDisplay();
-            dashboard.Dock = DockStyle.Fill;
-            BodyPanel.Controls.Add(dashboard);
-            dashboard.Show();
+            ShowDisplay(new DashboardDisplay());
         }
 
         private void buttonPasien_Click(object sender, EventArgs e)
         {
-            if (BodyPanel.Controls.Count == 1)
-            {
-                BodyPanel.Controls[0].Dispose();
-            }
-
-            pasien = new PasienDisplay(this);
-            pasien.Dock = DockStyle.Fill;
-            BodyPanel.Controls.Add(pasien);
-            pasien.Show();
+            ShowDisplay(new PasienDisplay(this));
         }
 
         bool sidebarExpand = true;
-        private void sidebarTransition_Tick(object sender, EventArgs e)
+        private void SidebarTransition_Tick(object sender, EventArgs e)
         {
             if (sidebarExpand)
             {
@@ -49,13 +38,6 @@ namespace SIMRS_GUI
                 {
                     sidebarExpand = false;
                     sidebarTransition.Stop();
-
-                    /*buttonDashboard.Width = sidebar.Width;
-                    buttonPasien.Width = sidebar.Width;
-                    buttonDokter.Width = sidebar.Width;
-                    buttonObat.Width = sidebar.Width;
-                    buttonPemeriksaan.Width = sidebar.Width;
-                    buttonPembayaran.Width = sidebar.Width;*/
                 }
             }
             else
@@ -65,27 +47,13 @@ namespace SIMRS_GUI
                 {
                     sidebarExpand = true;
                     sidebarTransition.Stop();
-
-                    buttonDashboard.Width = sidebar.Width;
-                    buttonPasien.Width = sidebar.Width;
-                    buttonDokter.Width = sidebar.Width;
-                    buttonObat.Width = sidebar.Width;
-                    buttonPemeriksaan.Width = sidebar.Width;
-                    buttonPembayaran.Width = sidebar.Width;
                 }
             }
         }
 
-        private void hamburgerMenu_Click(object sender, EventArgs e)
+        private void HamburgerMenu_Click(object sender, EventArgs e)
         {
             sidebarTransition.Start();
-        }
-
-
-
-        private void sidebar_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

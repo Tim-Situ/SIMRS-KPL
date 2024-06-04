@@ -102,7 +102,7 @@
             hamburgerMenu.SizeMode = PictureBoxSizeMode.CenterImage;
             hamburgerMenu.TabIndex = 1;
             hamburgerMenu.TabStop = false;
-            hamburgerMenu.Click += hamburgerMenu_Click;
+            hamburgerMenu.Click += HamburgerMenu_Click;
             // 
             // panelDashboard
             // 
@@ -277,7 +277,7 @@
             // sidebarTransition
             // 
             sidebarTransition.Interval = 10;
-            sidebarTransition.Tick += sidebarTransition_Tick;
+            sidebarTransition.Tick += SidebarTransition_Tick;
             // 
             // sidebar
             // 
@@ -324,7 +324,6 @@
             Name = "MainDisplay";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainDisplay";
-            Load += MainDisplayDraft_Load;
             panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).EndInit();
             panelDashboard.ResumeLayout(false);
