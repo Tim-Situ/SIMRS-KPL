@@ -16,11 +16,14 @@ namespace SIMRS_GUI
     {
         private PasienService controller = new();
         private List<Pasien> listPasien { get; set; }
-        public PasienDisplay()
+        private MainDisplay _mainDisplay;
+        public PasienDisplay(MainDisplay mainDisplay)
         {
             InitializeComponent();
             LoadDataAsync();
             TopLevel = false;
+            _mainDisplay = mainDisplay;
+            //TabelPasien.Column
         }
 
         private async Task LoadDataAsync()
@@ -49,6 +52,16 @@ namespace SIMRS_GUI
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
             LoadDataAsync();
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+            //_mainDisplay.ButtonTambahPasien();
         }
     }
 }

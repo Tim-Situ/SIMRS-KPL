@@ -11,6 +11,24 @@ namespace SIMRS_GUI
             TopLevel = false;
         }
 
-        
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DashboardDisplay_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisplayDataPasien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

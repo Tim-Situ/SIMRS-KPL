@@ -33,7 +33,7 @@ namespace SIMRS_GUI
                 BodyPanel.Controls[0].Dispose();
             }
 
-            pasien = new PasienDisplay();
+            pasien = new PasienDisplay(this);
             pasien.Dock = DockStyle.Fill;
             BodyPanel.Controls.Add(pasien);
             pasien.Show();

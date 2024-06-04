@@ -35,7 +35,6 @@
             hamburgerMenu = new PictureBox();
             panelDashboard = new Panel();
             buttonDashboard = new Button();
-            sidebar = new FlowLayoutPanel();
             panelPasien = new Panel();
             buttonPasien = new Button();
             panelDokter = new Panel();
@@ -47,16 +46,17 @@
             panelPembayaran = new Panel();
             buttonPembayaran = new Button();
             sidebarTransition = new System.Windows.Forms.Timer(components);
+            sidebar = new ReaLTaiizor.Controls.ParrotGradientPanel();
             BodyPanel = new Panel();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).BeginInit();
             panelDashboard.SuspendLayout();
-            sidebar.SuspendLayout();
             panelPasien.SuspendLayout();
             panelDokter.SuspendLayout();
             panelObat.SuspendLayout();
             panelPemeriksaan.SuspendLayout();
             panelPembayaran.SuspendLayout();
+            sidebar.SuspendLayout();
             SuspendLayout();
             // 
             // panelTop
@@ -67,7 +67,7 @@
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(1161, 49);
+            panelTop.Size = new Size(1600, 49);
             panelTop.TabIndex = 0;
             // 
             // nightControlBox1
@@ -84,7 +84,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(1022, 0);
+            nightControlBox1.Location = new Point(1461, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -106,16 +106,17 @@
             // 
             // panelDashboard
             // 
+            panelDashboard.BackColor = Color.Transparent;
             panelDashboard.Controls.Add(buttonDashboard);
             panelDashboard.ImeMode = ImeMode.NoControl;
-            panelDashboard.Location = new Point(8, 28);
+            panelDashboard.Location = new Point(3, 20);
             panelDashboard.Name = "panelDashboard";
             panelDashboard.Size = new Size(197, 50);
             panelDashboard.TabIndex = 2;
             // 
             // buttonDashboard
             // 
-            buttonDashboard.BackColor = Color.FromArgb(0, 141, 218);
+            buttonDashboard.BackColor = Color.Transparent;
             buttonDashboard.FlatAppearance.BorderSize = 0;
             buttonDashboard.FlatStyle = FlatStyle.Flat;
             buttonDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -132,36 +133,19 @@
             buttonDashboard.UseVisualStyleBackColor = false;
             buttonDashboard.Click += buttonDashboard_Click;
             // 
-            // sidebar
-            // 
-            sidebar.BackColor = Color.FromArgb(0, 141, 218);
-            sidebar.Controls.Add(panelDashboard);
-            sidebar.Controls.Add(panelPasien);
-            sidebar.Controls.Add(panelDokter);
-            sidebar.Controls.Add(panelObat);
-            sidebar.Controls.Add(panelPemeriksaan);
-            sidebar.Controls.Add(panelPembayaran);
-            sidebar.Dock = DockStyle.Left;
-            sidebar.FlowDirection = FlowDirection.TopDown;
-            sidebar.Location = new Point(0, 49);
-            sidebar.Name = "sidebar";
-            sidebar.Padding = new Padding(5, 25, 0, 0);
-            sidebar.Size = new Size(222, 513);
-            sidebar.TabIndex = 4;
-            sidebar.Paint += sidebar_Paint;
-            // 
             // panelPasien
             // 
+            panelPasien.BackColor = Color.Transparent;
             panelPasien.Controls.Add(buttonPasien);
             panelPasien.ImeMode = ImeMode.NoControl;
-            panelPasien.Location = new Point(8, 84);
+            panelPasien.Location = new Point(3, 76);
             panelPasien.Name = "panelPasien";
             panelPasien.Size = new Size(197, 50);
             panelPasien.TabIndex = 2;
             // 
             // buttonPasien
             // 
-            buttonPasien.BackColor = Color.FromArgb(0, 141, 218);
+            buttonPasien.BackColor = Color.Transparent;
             buttonPasien.FlatAppearance.BorderSize = 0;
             buttonPasien.FlatStyle = FlatStyle.Flat;
             buttonPasien.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -180,16 +164,17 @@
             // 
             // panelDokter
             // 
+            panelDokter.BackColor = Color.Transparent;
             panelDokter.Controls.Add(buttonDokter);
             panelDokter.ImeMode = ImeMode.NoControl;
-            panelDokter.Location = new Point(8, 140);
+            panelDokter.Location = new Point(3, 132);
             panelDokter.Name = "panelDokter";
             panelDokter.Size = new Size(197, 50);
             panelDokter.TabIndex = 2;
             // 
             // buttonDokter
             // 
-            buttonDokter.BackColor = Color.FromArgb(0, 141, 218);
+            buttonDokter.BackColor = Color.Transparent;
             buttonDokter.FlatAppearance.BorderSize = 0;
             buttonDokter.FlatStyle = FlatStyle.Flat;
             buttonDokter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -207,16 +192,17 @@
             // 
             // panelObat
             // 
+            panelObat.BackColor = Color.Transparent;
             panelObat.Controls.Add(buttonObat);
             panelObat.ImeMode = ImeMode.NoControl;
-            panelObat.Location = new Point(8, 196);
+            panelObat.Location = new Point(3, 188);
             panelObat.Name = "panelObat";
             panelObat.Size = new Size(197, 50);
             panelObat.TabIndex = 2;
             // 
             // buttonObat
             // 
-            buttonObat.BackColor = Color.FromArgb(0, 141, 218);
+            buttonObat.BackColor = Color.Transparent;
             buttonObat.FlatAppearance.BorderSize = 0;
             buttonObat.FlatStyle = FlatStyle.Flat;
             buttonObat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -234,16 +220,17 @@
             // 
             // panelPemeriksaan
             // 
+            panelPemeriksaan.BackColor = Color.Transparent;
             panelPemeriksaan.Controls.Add(buttonPemeriksaan);
             panelPemeriksaan.ImeMode = ImeMode.NoControl;
-            panelPemeriksaan.Location = new Point(8, 252);
+            panelPemeriksaan.Location = new Point(3, 244);
             panelPemeriksaan.Name = "panelPemeriksaan";
             panelPemeriksaan.Size = new Size(197, 50);
             panelPemeriksaan.TabIndex = 2;
             // 
             // buttonPemeriksaan
             // 
-            buttonPemeriksaan.BackColor = Color.FromArgb(0, 141, 218);
+            buttonPemeriksaan.BackColor = Color.Transparent;
             buttonPemeriksaan.FlatAppearance.BorderSize = 0;
             buttonPemeriksaan.FlatStyle = FlatStyle.Flat;
             buttonPemeriksaan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -261,16 +248,17 @@
             // 
             // panelPembayaran
             // 
+            panelPembayaran.BackColor = Color.Transparent;
             panelPembayaran.Controls.Add(buttonPembayaran);
             panelPembayaran.ImeMode = ImeMode.NoControl;
-            panelPembayaran.Location = new Point(8, 308);
+            panelPembayaran.Location = new Point(3, 300);
             panelPembayaran.Name = "panelPembayaran";
             panelPembayaran.Size = new Size(197, 50);
             panelPembayaran.TabIndex = 2;
             // 
             // buttonPembayaran
             // 
-            buttonPembayaran.BackColor = Color.FromArgb(0, 141, 218);
+            buttonPembayaran.BackColor = Color.Transparent;
             buttonPembayaran.FlatAppearance.BorderSize = 0;
             buttonPembayaran.FlatStyle = FlatStyle.Flat;
             buttonPembayaran.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -291,18 +279,43 @@
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
+            // sidebar
+            // 
+            sidebar.BottomLeft = Color.FromArgb(0, 46, 69);
+            sidebar.BottomRight = Color.FromArgb(0, 46, 69);
+            sidebar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            sidebar.Controls.Add(panelDashboard);
+            sidebar.Controls.Add(panelPasien);
+            sidebar.Controls.Add(panelPembayaran);
+            sidebar.Controls.Add(panelPemeriksaan);
+            sidebar.Controls.Add(panelDokter);
+            sidebar.Controls.Add(panelObat);
+            sidebar.Dock = DockStyle.Left;
+            sidebar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            sidebar.Location = new Point(0, 49);
+            sidebar.Name = "sidebar";
+            sidebar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            sidebar.PrimerColor = Color.White;
+            sidebar.Size = new Size(250, 851);
+            sidebar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            sidebar.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
+            sidebar.TabIndex = 8;
+            sidebar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            sidebar.TopLeft = Color.FromArgb(65, 201, 226);
+            sidebar.TopRight = Color.FromArgb(65, 201, 226);
+            // 
             // BodyPanel
             // 
             BodyPanel.Dock = DockStyle.Fill;
-            BodyPanel.Location = new Point(222, 49);
+            BodyPanel.Location = new Point(250, 49);
             BodyPanel.Name = "BodyPanel";
-            BodyPanel.Size = new Size(939, 513);
-            BodyPanel.TabIndex = 6;
+            BodyPanel.Size = new Size(1350, 851);
+            BodyPanel.TabIndex = 9;
             // 
             // MainDisplay
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1161, 562);
+            ClientSize = new Size(1600, 900);
             Controls.Add(BodyPanel);
             Controls.Add(sidebar);
             Controls.Add(panelTop);
@@ -315,12 +328,12 @@
             panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).EndInit();
             panelDashboard.ResumeLayout(false);
-            sidebar.ResumeLayout(false);
             panelPasien.ResumeLayout(false);
             panelDokter.ResumeLayout(false);
             panelObat.ResumeLayout(false);
             panelPemeriksaan.ResumeLayout(false);
             panelPembayaran.ResumeLayout(false);
+            sidebar.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -331,7 +344,6 @@
         private PictureBox hamburgerMenu;
         private Panel panelDashboard;
         private Button buttonDashboard;
-        private FlowLayoutPanel sidebar;
         private Panel panelPasien;
         private Button buttonPasien;
         private Panel panelDokter;
@@ -343,6 +355,7 @@
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panelPembayaran;
         private Button buttonPembayaran;
+        private ReaLTaiizor.Controls.ParrotGradientPanel sidebar;
         private Panel BodyPanel;
     }
 }

@@ -48,7 +48,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 48);
+            panel1.Size = new Size(750, 48);
             panel1.TabIndex = 0;
             // 
             // nightControlBox1
@@ -58,32 +58,32 @@
             nightControlBox1.CloseHoverColor = Color.FromArgb(199, 80, 80);
             nightControlBox1.CloseHoverForeColor = Color.White;
             nightControlBox1.DefaultLocation = true;
-            nightControlBox1.DisableMaximizeColor = Color.FromArgb(105, 105, 105);
-            nightControlBox1.DisableMinimizeColor = Color.FromArgb(105, 105, 105);
+            nightControlBox1.DisableMaximizeColor = Color.FromArgb(224, 224, 224);
+            nightControlBox1.DisableMinimizeColor = Color.FromArgb(224, 224, 224);
             nightControlBox1.EnableCloseColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.EnableMaximizeButton = true;
+            nightControlBox1.EnableMaximizeButton = false;
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(661, 0);
+            nightControlBox1.Location = new Point(611, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
-            nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
-            nightControlBox1.MinimizeHoverForeColor = Color.White;
+            nightControlBox1.MinimizeHoverColor = SystemColors.Highlight;
+            nightControlBox1.MinimizeHoverForeColor = SystemColors.Control;
             nightControlBox1.Name = "nightControlBox1";
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 1;
             // 
             // TextBoxPassword
             // 
-            TextBoxPassword.Location = new Point(282, 296);
+            TextBoxPassword.Location = new Point(272, 290);
             TextBoxPassword.Name = "TextBoxPassword";
             TextBoxPassword.Size = new Size(241, 27);
             TextBoxPassword.TabIndex = 2;
             // 
             // TextBoxUsername
             // 
-            TextBoxUsername.Location = new Point(282, 245);
+            TextBoxUsername.Location = new Point(272, 239);
             TextBoxUsername.Name = "TextBoxUsername";
             TextBoxUsername.Size = new Size(241, 27);
             TextBoxUsername.TabIndex = 2;
@@ -92,7 +92,7 @@
             // 
             LabelUsername.AutoSize = true;
             LabelUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelUsername.Location = new Point(166, 243);
+            LabelUsername.Location = new Point(156, 237);
             LabelUsername.Name = "LabelUsername";
             LabelUsername.Size = new Size(113, 28);
             LabelUsername.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             LabelPassword.AutoSize = true;
             LabelPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelPassword.Location = new Point(172, 293);
+            LabelPassword.Location = new Point(162, 287);
             LabelPassword.Name = "LabelPassword";
             LabelPassword.Size = new Size(107, 28);
             LabelPassword.TabIndex = 1;
@@ -115,7 +115,7 @@
             TombolLogin.FlatStyle = FlatStyle.Flat;
             TombolLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             TombolLogin.ForeColor = SystemColors.ButtonHighlight;
-            TombolLogin.Location = new Point(282, 363);
+            TombolLogin.Location = new Point(272, 357);
             TombolLogin.Name = "TombolLogin";
             TombolLogin.Size = new Size(241, 44);
             TombolLogin.TabIndex = 3;
@@ -127,7 +127,7 @@
             // 
             Logo.BackColor = Color.Transparent;
             Logo.Image = (Image)resources.GetObject("Logo.Image");
-            Logo.Location = new Point(255, 76);
+            Logo.Location = new Point(244, 68);
             Logo.Name = "Logo";
             Logo.Size = new Size(287, 130);
             Logo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -138,7 +138,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(750, 500);
             Controls.Add(Logo);
             Controls.Add(TombolLogin);
             Controls.Add(TextBoxUsername);
@@ -148,6 +148,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginUser";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginUser";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
