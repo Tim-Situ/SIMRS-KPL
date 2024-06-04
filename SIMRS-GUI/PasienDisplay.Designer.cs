@@ -42,7 +42,6 @@
             EditPasien = new DataGridViewButtonColumn();
             HapusPasien = new DataGridViewButtonColumn();
             pasienBindingSource = new BindingSource(components);
-            buttonRefresh = new Button();
             ButtonTambah = new Button();
             ((System.ComponentModel.ISupportInitialize)TabelPasien).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
@@ -94,6 +93,7 @@
             // nikDataGridViewTextBoxColumn
             // 
             nikDataGridViewTextBoxColumn.DataPropertyName = "nik";
+            nikDataGridViewTextBoxColumn.FillWeight = 90F;
             nikDataGridViewTextBoxColumn.HeaderText = "NIK";
             nikDataGridViewTextBoxColumn.MinimumWidth = 6;
             nikDataGridViewTextBoxColumn.Name = "nikDataGridViewTextBoxColumn";
@@ -101,6 +101,7 @@
             // namaDataGridViewTextBoxColumn
             // 
             namaDataGridViewTextBoxColumn.DataPropertyName = "nama";
+            namaDataGridViewTextBoxColumn.FillWeight = 153F;
             namaDataGridViewTextBoxColumn.HeaderText = "Nama Pasien";
             namaDataGridViewTextBoxColumn.MinimumWidth = 6;
             namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
@@ -108,6 +109,7 @@
             // tglLahirDataGridViewTextBoxColumn
             // 
             tglLahirDataGridViewTextBoxColumn.DataPropertyName = "tglLahir";
+            tglLahirDataGridViewTextBoxColumn.FillWeight = 79F;
             tglLahirDataGridViewTextBoxColumn.HeaderText = "Tanggal Lahir";
             tglLahirDataGridViewTextBoxColumn.MinimumWidth = 6;
             tglLahirDataGridViewTextBoxColumn.Name = "tglLahirDataGridViewTextBoxColumn";
@@ -115,6 +117,7 @@
             // noHpDataGridViewTextBoxColumn
             // 
             noHpDataGridViewTextBoxColumn.DataPropertyName = "noHp";
+            noHpDataGridViewTextBoxColumn.FillWeight = 75F;
             noHpDataGridViewTextBoxColumn.HeaderText = "No HP";
             noHpDataGridViewTextBoxColumn.MinimumWidth = 6;
             noHpDataGridViewTextBoxColumn.Name = "noHpDataGridViewTextBoxColumn";
@@ -122,6 +125,7 @@
             // jnsKelaminDataGridViewTextBoxColumn
             // 
             jnsKelaminDataGridViewTextBoxColumn.DataPropertyName = "jnsKelamin";
+            jnsKelaminDataGridViewTextBoxColumn.FillWeight = 79F;
             jnsKelaminDataGridViewTextBoxColumn.HeaderText = "Jenis Kelamin";
             jnsKelaminDataGridViewTextBoxColumn.MinimumWidth = 6;
             jnsKelaminDataGridViewTextBoxColumn.Name = "jnsKelaminDataGridViewTextBoxColumn";
@@ -129,12 +133,14 @@
             // alamatDataGridViewTextBoxColumn
             // 
             alamatDataGridViewTextBoxColumn.DataPropertyName = "alamat";
+            alamatDataGridViewTextBoxColumn.FillWeight = 220F;
             alamatDataGridViewTextBoxColumn.HeaderText = "Alamat";
             alamatDataGridViewTextBoxColumn.MinimumWidth = 6;
             alamatDataGridViewTextBoxColumn.Name = "alamatDataGridViewTextBoxColumn";
             // 
             // EditPasien
             // 
+            EditPasien.FillWeight = 60F;
             EditPasien.HeaderText = "";
             EditPasien.MinimumWidth = 6;
             EditPasien.Name = "EditPasien";
@@ -143,6 +149,7 @@
             // 
             // HapusPasien
             // 
+            HapusPasien.FillWeight = 60F;
             HapusPasien.HeaderText = "";
             HapusPasien.MinimumWidth = 6;
             HapusPasien.Name = "HapusPasien";
@@ -152,21 +159,6 @@
             // pasienBindingSource
             // 
             pasienBindingSource.DataSource = typeof(SIMRS_API.Pasien);
-            // 
-            // buttonRefresh
-            // 
-            buttonRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonRefresh.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonRefresh.Image = (Image)resources.GetObject("buttonRefresh.Image");
-            buttonRefresh.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRefresh.Location = new Point(940, 31);
-            buttonRefresh.Name = "buttonRefresh";
-            buttonRefresh.Padding = new Padding(10, 0, 0, 0);
-            buttonRefresh.Size = new Size(177, 48);
-            buttonRefresh.TabIndex = 2;
-            buttonRefresh.Text = "Refresh";
-            buttonRefresh.UseVisualStyleBackColor = true;
-            buttonRefresh.Click += ButtonRefresh_Click;
             // 
             // ButtonTambah
             // 
@@ -189,7 +181,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
             Controls.Add(ButtonTambah);
-            Controls.Add(buttonRefresh);
             Controls.Add(TabelPasien);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PasienDisplay";
@@ -204,7 +195,6 @@
         private DataGridView TabelPasien;
         private Button buttonHapusPasien;
         private Button buttonEditPasien;
-        private Button buttonRefresh;
         private Button ButtonTambah;
         private BindingSource pasienBindingSource;
         private DataGridViewTextBoxColumn nikDataGridViewTextBoxColumn;

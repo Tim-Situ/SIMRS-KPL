@@ -29,31 +29,19 @@ namespace SIMRS_GUI
         }
 
         bool sidebarExpand = true;
-        private void SidebarTransition_Tick(object sender, EventArgs e)
-        {
-            if (sidebarExpand)
-            {
-                sidebar.Width -= 10;
-                if (sidebar.Width <= 61)
-                {
-                    sidebarExpand = false;
-                    sidebarTransition.Stop();
-                }
-            }
-            else
-            {
-                sidebar.Width += 10;
-                if (sidebar.Width >= 222)
-                {
-                    sidebarExpand = true;
-                    sidebarTransition.Stop();
-                }
-            }
-        }
 
         private void HamburgerMenu_Click(object sender, EventArgs e)
         {
-            sidebarTransition.Start();
+            if (sidebarExpand)
+            {
+                sidebar.Width = 61;
+                sidebarExpand = false;
+            }
+            else
+            {
+                sidebar.Width = 250;
+                sidebarExpand = true;
+            }
         }
     }
 }
