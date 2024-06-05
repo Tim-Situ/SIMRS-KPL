@@ -1,58 +1,82 @@
 [
   {
-    "nik": "1234000012340000",
-    "nama": "Fauzein Mulya Warman",
-    "tglLahir": "02-12-2003",
-    "noHp": "08964586868",
-    "jnsKelamin": 0,
-    "alamat": "Padang"
-  },
-  {
-    "nik": "9876000098760000",
-    "nama": "Muhammad Nur Shodiq",
-    "tglLahir": "11-11-1111",
-    "noHp": "089645111111",
-    "jnsKelamin": 0,
-    "alamat": "Jakarta"
-  },
-  {
-    "nik": "1111000011110000",
-    "nama": "Nasi",
-    "tglLahir": "12-12-2021",
-    "noHp": "0812",
-    "jnsKelamin": 0,
-    "alamat": "Bandung"
-  },
-  {
-    "nik": "1302223142",
-    "nama": "fauzein m w",
-    "tglLahir": "11-09-2004",
-    "noHp": "08224688193",
-    "jnsKelamin": 0,
-    "alamat": "j. raya bandfungh"
-  },
-  {
-    "nik": "1234",
-    "nama": "Tes Update",
-    "tglLahir": "01-01-2001",
-    "noHp": "3423423342",
+    "nik": "3201011204930001",
+    "nama": "Ani Lestari",
+    "tglLahir": "04/12/1993",
+    "noHp": "08572345678",
     "jnsKelamin": 1,
-    "alamat": "Update"
+    "alamat": "Jalan Melati No. 15, RT/RW 03/04, Kelurahan Melati, Kecamatan Tambora, Kota Jakarta Barat, Provinsi DKI Jakarta"
   },
   {
-    "nik": "1234567890",
-    "nama": "Dinar",
-    "tglLahir": "20-10-2000",
-    "noHp": "081234567890",
+    "nik": "7320021007940002",
+    "nama": "Budi Setiawan",
+    "tglLahir": "07/10/1994",
+    "noHp": "08137654321",
     "jnsKelamin": 0,
-    "alamat": "Ciganitri"
+    "alamat": "Jalan Mawar No. 20, RT/RW 05/06, Kelurahan Kembangan, Kecamatan Kembangan, Kota Jakarta Barat, Provinsi DKI Jakarta"
   },
   {
-    "nik": "1",
-    "nama": "1",
-    "tglLahir": "1",
-    "noHp": "1",
+    "nik": "1803031105870003",
+    "nama": "Cici Sulastri",
+    "tglLahir": "05/11/1987",
+    "noHp": "08569876543",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Cempaka No. 25, RT/RW 07/08, Kelurahan Ciledug, Kecamatan Ciledug, Kota Tangerang, Provinsi Banten"
+  },
+  {
+    "nik": "5104051203920004",
+    "nama": "Dedi Ramdani",
+    "tglLahir": "03/12/1992",
+    "noHp": "08214325678",
     "jnsKelamin": 0,
-    "alamat": "1"
+    "alamat": "Jalan Dahlia No. 30, RT/RW 09/10, Kelurahan Serpong, Kecamatan Serpong, Kota Tangerang Selatan, Provinsi Banten"
+  },
+  {
+    "nik": "3605061101900005",
+    "nama": "Evi Agustina",
+    "tglLahir": "01/11/1990",
+    "noHp": "08593216543",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Tulip No. 35, RT/RW 11/12, Kelurahan Ciputat, Kecamatan Ciputat, Kota Tangerang Selatan, Provinsi Banten"
+  },
+  {
+    "nik": "1906071202890006",
+    "nama": "Fajar Hardianto",
+    "tglLahir": "02/12/1989",
+    "noHp": "08127654321",
+    "jnsKelamin": 0,
+    "alamat": "Jalan Anggrek No. 40, RT/RW 13/14, Kelurahan Bintaro, Kecamatan Pesanggrahan, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+  },
+  {
+    "nik": "5407081103880007",
+    "nama": "Gita Sari",
+    "tglLahir": "03/11/1988",
+    "noHp": "08576543210",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Melati No. 45, RT/RW 15/16, Kelurahan Cilandak, Kecamatan Cilandak, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+  },
+  {
+    "nik": "3108091004870008",
+    "nama": "Hadi Gunawan",
+    "tglLahir": "04/10/1987",
+    "noHp": "08135432109",
+    "jnsKelamin": 0,
+    "alamat": "Jalan Mawar No. 50, RT/RW 17/18, Kelurahan Jagakarsa, Kecamatan Jagakarsa, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+  },
+  {
+    "nik": "6209100905860009",
+    "nama": "Indah Permata Sari",
+    "tglLahir": "07/09/1986",
+    "noHp": "08564321098",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Cempaka No. 55, RT/RW 19/20, Kelurahan Pancoran, Kecamatan Pancoran, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+  },
+  {
+    "nik": "8572069386950483",
+    "nama": "Yuni Yuningsih",
+    "tglLahir": "04/06/1999",
+    "noHp": "0856293410593",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Ahmad Yani No. 10, RT/RW 11/11, Kelurahan Pasir Halang, Kecamatan Bogor, Kota Jakarta Utara, Provinsi DKI Jakarta"
   }
 ]
