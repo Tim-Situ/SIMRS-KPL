@@ -6,8 +6,8 @@ namespace SIMRS_GUI
 {
     public partial class DashboardDisplay : Form
     {
-        private PasienManager controller = new();
-        private List<Pasien> listPasien { get; set; }
+        private PasienManager _pasienManager = new();
+        private int _jumlahPasien = 0;
 
         public DashboardDisplay()
         {
@@ -17,23 +17,23 @@ namespace SIMRS_GUI
 
         private void DashboardDisplay_Load(object sender, EventArgs e)
         {
-
+            LoadDataAsync();
         }
+
         private async Task LoadDataAsync()
         {
             try
             {
-                ApiResponse<List<Pasien>> response = await controller.GetPasien();
-                listPasien = response.data;
+                ApiResponse<List<Pasien>> response = await _pasienManager.GetPasien();
+                _jumlahPasien = response.data.Count;
 
-
-                if (TabelPasien.InvokeRequired)
+                if (LabelJumlahPasien.InvokeRequired)
                 {
-                    TabelPasien.Invoke(new Action(() => TabelPasien.DataSource = listPasien));
+                    LabelJumlahPasien.Invoke(new Action(() => LabelJumlahPasien.Text = _jumlahPasien.ToString() + " Pasien"));
                 }
                 else
                 {
-                    TabelPasien.DataSource = listPasien;
+                    LabelJumlahPasien.Text = _jumlahPasien.ToString() + " Pasien";
                 }
             }
             catch (Exception ex)

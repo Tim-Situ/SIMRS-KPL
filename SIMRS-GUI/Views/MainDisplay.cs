@@ -29,7 +29,6 @@ namespace SIMRS_GUI
         }
 
         bool sidebarExpand = true;
-
         private void HamburgerMenu_Click(object sender, EventArgs e)
         {
             if (sidebarExpand)

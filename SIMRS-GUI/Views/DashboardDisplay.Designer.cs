@@ -31,14 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardDisplay));
             pictureBox2 = new PictureBox();
             panel1 = new Panel();
-            label12 = new Label();
+            LabelJumlahDokter = new Label();
             label1 = new Label();
             label11 = new Label();
             LabelJumlahPasien = new Label();
             label3 = new Label();
-            label10 = new Label();
             panel3 = new Panel();
-            label13 = new Label();
+            LabelJumlahTransaksi = new Label();
             label14 = new Label();
             label15 = new Label();
             pictureBox1 = new PictureBox();
@@ -68,7 +67,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top;
-            panel1.Controls.Add(label12);
+            panel1.Controls.Add(LabelJumlahDokter);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(pictureBox2);
@@ -77,17 +76,17 @@
             panel1.Size = new Size(391, 282);
             panel1.TabIndex = 5;
             // 
-            // label12
+            // LabelJumlahDokter
             // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.FromArgb(140, 133, 245);
-            label12.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(17, 51);
-            label12.Name = "label12";
-            label12.Size = new Size(186, 46);
-            label12.TabIndex = 1;
-            label12.Text = "100 Dokter";
+            LabelJumlahDokter.AutoSize = true;
+            LabelJumlahDokter.BackColor = Color.FromArgb(140, 133, 245);
+            LabelJumlahDokter.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJumlahDokter.ForeColor = Color.White;
+            LabelJumlahDokter.Location = new Point(17, 51);
+            LabelJumlahDokter.Name = "LabelJumlahDokter";
+            LabelJumlahDokter.Size = new Size(155, 46);
+            LabelJumlahDokter.TabIndex = 1;
+            LabelJumlahDokter.Text = "X Dokter";
             // 
             // label1
             // 
@@ -121,9 +120,9 @@
             LabelJumlahPasien.ForeColor = Color.White;
             LabelJumlahPasien.Location = new Point(17, 51);
             LabelJumlahPasien.Name = "LabelJumlahPasien";
-            LabelJumlahPasien.Size = new Size(161, 46);
+            LabelJumlahPasien.Size = new Size(149, 46);
             LabelJumlahPasien.TabIndex = 1;
-            LabelJumlahPasien.Text = "10 Pasien";
+            LabelJumlahPasien.Text = "X Pasien";
             // 
             // label3
             // 
@@ -137,22 +136,10 @@
             label3.TabIndex = 1;
             label3.Text = "Data Pasien";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.FromArgb(180, 106, 240);
-            label10.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(17, 97);
-            label10.Name = "label10";
-            label10.Size = new Size(122, 31);
-            label10.TabIndex = 1;
-            label10.Text = "Per hari ini";
-            // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top;
-            panel3.Controls.Add(label13);
+            panel3.Controls.Add(LabelJumlahTransaksi);
             panel3.Controls.Add(label14);
             panel3.Controls.Add(label15);
             panel3.Controls.Add(pictureBox1);
@@ -161,17 +148,17 @@
             panel3.Size = new Size(391, 282);
             panel3.TabIndex = 5;
             // 
-            // label13
+            // LabelJumlahTransaksi
             // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.FromArgb(234, 213, 67);
-            label13.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = Color.White;
-            label13.Location = new Point(17, 51);
-            label13.Name = "label13";
-            label13.Size = new Size(204, 46);
-            label13.TabIndex = 1;
-            label13.Text = "10 Transaksi";
+            LabelJumlahTransaksi.AutoSize = true;
+            LabelJumlahTransaksi.BackColor = Color.FromArgb(234, 213, 67);
+            LabelJumlahTransaksi.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJumlahTransaksi.ForeColor = Color.White;
+            LabelJumlahTransaksi.Location = new Point(17, 51);
+            LabelJumlahTransaksi.Name = "LabelJumlahTransaksi";
+            LabelJumlahTransaksi.Size = new Size(192, 46);
+            LabelJumlahTransaksi.TabIndex = 1;
+            LabelJumlahTransaksi.Text = "X Transaksi";
             // 
             // label14
             // 
@@ -224,7 +211,6 @@
             panel4.Anchor = AnchorStyles.Top;
             panel4.Controls.Add(LabelJumlahPasien);
             panel4.Controls.Add(label3);
-            panel4.Controls.Add(label10);
             panel4.Controls.Add(pictureBox5);
             panel4.Location = new Point(494, 42);
             panel4.Name = "panel4";
@@ -271,14 +257,14 @@
         #endregion
         private PictureBox pictureBox2;
         private Panel panel1;
-        private Label label12;
+        private Label LabelJumlahDokter;
         private Label label1;
         private Label label11;
         private Label LabelJumlahPasien;
         private Label label3;
         private Label label10;
         private Panel panel3;
-        private Label label13;
+        private Label LabelJumlahTransaksi;
         private Label label14;
         private Label label15;
         private PictureBox pictureBox1;

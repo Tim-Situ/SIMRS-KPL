@@ -5,32 +5,46 @@ namespace SIMRS_GUI
 {
     public partial class PasienDisplay : Form
     {
-        private PasienManager pasienManager = new();
-        private List<Pasien> listPasien { get; set; }
+        private List<Pasien> _listPasien { get; set; }
+        private PasienManager _pasienManager;
         private MainDisplay _mainDisplay;
+
         public PasienDisplay(MainDisplay mainDisplay)
         {
             InitializeComponent();
             TopLevel = false;
-            LoadDataAsync();
             _mainDisplay = mainDisplay;
+            _pasienManager = new();
+        }
+
+        private void PasienDisplay_Load(object sender, EventArgs e)
+        {
+            LoadDataAsync();
         }
 
         private async Task LoadDataAsync()
         {
             try
             {
-                ApiResponse<List<Pasien>> response = await pasienManager.GetPasien();
-                listPasien = response.data;
+                ApiResponse<List<Pasien>> response = await _pasienManager.GetPasien();
+                _listPasien = response.data;
 
-
-                if (TabelPasien.InvokeRequired)
+                if (_listPasien.Count == 0)
                 {
-                    TabelPasien.Invoke(new Action(() => TabelPasien.DataSource = listPasien));
+                    TabelPasien.Hide();
+                    LabelDataKosong.Text = "Data pasien kosong";
+                    LabelDataKosong.Show();
                 }
                 else
                 {
-                    TabelPasien.DataSource = listPasien;
+                    if (TabelPasien.InvokeRequired)
+                    {
+                        TabelPasien.Invoke(new Action(() => TabelPasien.DataSource = _listPasien));
+                    }
+                    else
+                    {
+                        TabelPasien.DataSource = _listPasien;
+                    }
                 }
             }
             catch (Exception ex)
@@ -39,27 +53,35 @@ namespace SIMRS_GUI
             }
         }
 
-        private void ButtonRefresh_Click(object sender, EventArgs e)
-        {
-            LoadDataAsync();
-        }
-
         private void ButtonTambah_Click(object sender, EventArgs e)
         {
-            _mainDisplay.ShowDisplay(new PasienTambahDisplay());
+            _mainDisplay.ShowDisplay(new PasienTambahDisplay(_mainDisplay));
         }
 
-        private void TabelPasien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void TabelPasien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string nikSelected;
             switch (TabelPasien.Columns[e.ColumnIndex].Name)
             {
                 case "HapusPasien":
-                    MessageBox.Show("Hapus " + listPasien[e.RowIndex].nik);
+                    nikSelected = _listPasien[e.RowIndex].nik;
+                    DialogResult dialogResult = MessageBox.Show(
+                        "Apakah anda yakin untuk menghapus data ini?",
+                        "Hapus data?",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        ApiResponse<Pasien> response = await _pasienManager.DeletePasien(nikSelected);
+                        MessageBox.Show(response.message);
+                    }
                     break;
                 case "EditPasien":
-                    _mainDisplay.ShowDisplay(new PasienEditDisplay(listPasien[e.RowIndex]));
+                    _mainDisplay.ShowDisplay(new PasienEditDisplay(_mainDisplay, _listPasien[e.RowIndex]));
                     break;
             }
+
+            await LoadDataAsync();
         }
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            rbPerempuan = new RadioButton();
-            rbLakiLaki = new RadioButton();
+            RadioWanita = new RadioButton();
+            RadioPria = new RadioButton();
             InputTanggal = new DateTimePicker();
             InputNama = new TextBox();
             InputAlamat = new TextBox();
@@ -45,43 +45,44 @@
             InputNIK = new TextBox();
             SuspendLayout();
             // 
-            // rbPerempuan
+            // RadioWanita
             // 
-            rbPerempuan.AutoSize = true;
-            rbPerempuan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rbPerempuan.Location = new Point(682, 397);
-            rbPerempuan.Name = "rbPerempuan";
-            rbPerempuan.Size = new Size(131, 32);
-            rbPerempuan.TabIndex = 17;
-            rbPerempuan.Text = "Perempuan";
-            rbPerempuan.UseVisualStyleBackColor = true;
+            RadioWanita.AutoSize = true;
+            RadioWanita.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            RadioWanita.Location = new Point(682, 397);
+            RadioWanita.Name = "RadioWanita";
+            RadioWanita.Size = new Size(94, 32);
+            RadioWanita.TabIndex = 6;
+            RadioWanita.Text = "Wanita";
+            RadioWanita.UseVisualStyleBackColor = true;
             // 
-            // rbLakiLaki
+            // RadioPria
             // 
-            rbLakiLaki.AutoSize = true;
-            rbLakiLaki.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rbLakiLaki.Location = new Point(529, 397);
-            rbLakiLaki.Name = "rbLakiLaki";
-            rbLakiLaki.Size = new Size(119, 32);
-            rbLakiLaki.TabIndex = 18;
-            rbLakiLaki.Text = "Laki - Laki";
-            rbLakiLaki.UseVisualStyleBackColor = true;
+            RadioPria.AutoSize = true;
+            RadioPria.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            RadioPria.Location = new Point(529, 397);
+            RadioPria.Name = "RadioPria";
+            RadioPria.Size = new Size(66, 32);
+            RadioPria.TabIndex = 5;
+            RadioPria.Text = "Pria";
+            RadioPria.UseVisualStyleBackColor = true;
             // 
             // InputTanggal
             // 
             InputTanggal.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             InputTanggal.Location = new Point(529, 275);
+            InputTanggal.MinDate = new DateTime(1800, 1, 1, 0, 0, 0, 0);
             InputTanggal.Name = "InputTanggal";
             InputTanggal.Size = new Size(371, 27);
-            InputTanggal.TabIndex = 16;
-            InputTanggal.Value = new DateTime(2024, 6, 4, 22, 46, 48, 0);
+            InputTanggal.TabIndex = 3;
+            InputTanggal.Value = new DateTime(2024, 6, 5, 0, 0, 0, 0);
             // 
             // InputNama
             // 
             InputNama.Location = new Point(529, 211);
             InputNama.Name = "InputNama";
             InputNama.Size = new Size(371, 27);
-            InputNama.TabIndex = 13;
+            InputNama.TabIndex = 2;
             // 
             // InputAlamat
             // 
@@ -89,14 +90,14 @@
             InputAlamat.Multiline = true;
             InputAlamat.Name = "InputAlamat";
             InputAlamat.Size = new Size(371, 185);
-            InputAlamat.TabIndex = 14;
+            InputAlamat.TabIndex = 7;
             // 
             // InputNoHp
             // 
             InputNoHp.Location = new Point(529, 337);
             InputNoHp.Name = "InputNoHp";
             InputNoHp.Size = new Size(371, 27);
-            InputNoHp.TabIndex = 15;
+            InputNoHp.TabIndex = 4;
             // 
             // ButtonSubmit
             // 
@@ -108,7 +109,7 @@
             ButtonSubmit.Location = new Point(618, 693);
             ButtonSubmit.Name = "ButtonSubmit";
             ButtonSubmit.Size = new Size(184, 45);
-            ButtonSubmit.TabIndex = 12;
+            ButtonSubmit.TabIndex = 8;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
             ButtonSubmit.Click += ButtonSubmit_Click;
@@ -189,15 +190,15 @@
             InputNIK.Location = new Point(529, 149);
             InputNIK.Name = "InputNIK";
             InputNIK.Size = new Size(371, 27);
-            InputNIK.TabIndex = 13;
+            InputNIK.TabIndex = 1;
             // 
             // PasienTambahDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
-            Controls.Add(rbPerempuan);
-            Controls.Add(rbLakiLaki);
+            Controls.Add(RadioWanita);
+            Controls.Add(RadioPria);
             Controls.Add(InputTanggal);
             Controls.Add(InputNIK);
             Controls.Add(InputNama);
@@ -214,15 +215,14 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PasienTambahDisplay";
             Text = "PasienTambahDisplay";
-            Load += PasienTambahDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private RadioButton rbPerempuan;
-        private RadioButton rbLakiLaki;
+        private RadioButton RadioWanita;
+        private RadioButton RadioPria;
         private DateTimePicker InputTanggal;
         private TextBox InputNama;
         private TextBox InputAlamat;
