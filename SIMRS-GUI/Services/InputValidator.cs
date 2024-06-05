@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SIMRS_GUI
+namespace SIMRS_GUI.Services
 {
     public class InputValidator
     {

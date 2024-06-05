@@ -34,7 +34,7 @@
             label12 = new Label();
             label1 = new Label();
             label11 = new Label();
-            label2 = new Label();
+            LabelJumlahPasien = new Label();
             label3 = new Label();
             label10 = new Label();
             panel3 = new Panel();
@@ -113,17 +113,17 @@
             label11.TabIndex = 1;
             label11.Text = "5 Spesialis";
             // 
-            // label2
+            // LabelJumlahPasien
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(180, 106, 240);
-            label2.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(17, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(161, 46);
-            label2.TabIndex = 1;
-            label2.Text = "10 Pasien";
+            LabelJumlahPasien.AutoSize = true;
+            LabelJumlahPasien.BackColor = Color.FromArgb(180, 106, 240);
+            LabelJumlahPasien.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJumlahPasien.ForeColor = Color.White;
+            LabelJumlahPasien.Location = new Point(17, 51);
+            LabelJumlahPasien.Name = "LabelJumlahPasien";
+            LabelJumlahPasien.Size = new Size(161, 46);
+            LabelJumlahPasien.TabIndex = 1;
+            LabelJumlahPasien.Text = "10 Pasien";
             // 
             // label3
             // 
@@ -222,7 +222,7 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.Top;
-            panel4.Controls.Add(label2);
+            panel4.Controls.Add(LabelJumlahPasien);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label10);
             panel4.Controls.Add(pictureBox5);
@@ -274,7 +274,7 @@
         private Label label12;
         private Label label1;
         private Label label11;
-        private Label label2;
+        private Label LabelJumlahPasien;
         private Label label3;
         private Label label10;
         private Panel panel3;

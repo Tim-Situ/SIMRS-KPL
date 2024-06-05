@@ -5,7 +5,7 @@ namespace SIMRS_GUI
 {
     public partial class PasienDisplay : Form
     {
-        private PasienService controller = new();
+        private PasienManager pasienManager = new();
         private List<Pasien> listPasien { get; set; }
         private MainDisplay _mainDisplay;
         public PasienDisplay(MainDisplay mainDisplay)
@@ -20,7 +20,7 @@ namespace SIMRS_GUI
         {
             try
             {
-                ApiResponse<List<Pasien>> response = await controller.GetPasien();
+                ApiResponse<List<Pasien>> response = await pasienManager.GetPasien();
                 listPasien = response.data;
 
 

@@ -2,11 +2,11 @@
 
 namespace SIMRS_GUI.Services
 {
-    internal class PasienService
+    internal class PasienManager
     {
         ApiClient<Pasien> api;
 
-        public PasienService()
+        public PasienManager()
         {
             api = ApiClient<Pasien>.GetInstance();
         }
