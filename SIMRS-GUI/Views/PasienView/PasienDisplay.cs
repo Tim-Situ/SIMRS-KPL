@@ -126,7 +126,5 @@ namespace SIMRS_GUI.Views.PasienView
         {
             DisplayUtils.NomorUrut(TabelPasien);
         }
-
-        
     }
 }

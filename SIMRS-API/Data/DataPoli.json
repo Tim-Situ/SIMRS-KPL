@@ -6,15 +6,15 @@
     "biaya": 80000
   },
   {
-    "kode": "PLI02",
-    "namaPoli": "string",
-    "ruang": "string",
-    "biaya": 0
+    "kode": "POL003",
+    "namaPoli": "Umum",
+    "ruang": "0709",
+    "biaya": 10001
   },
   {
-    "kode": "PLI003",
-    "namaPoli": "GigiAja",
-    "ruang": "0719",
-    "biaya": 80000
+    "kode": "POL004",
+    "namaPoli": "Anak",
+    "ruang": "1234",
+    "biaya": 12000
   }
 ]

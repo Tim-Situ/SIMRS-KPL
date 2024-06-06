@@ -16,13 +16,13 @@
   {
     "nip": "453445",
     "poli": {
-      "kode": "PLI03",
+      "kode": "POL003",
       "namaPoli": "Umum",
-      "ruang": "TULT1010",
-      "biaya": 20000
+      "ruang": "0709",
+      "biaya": 10001
     },
     "nama": "Dr. Alfian",
-    "tglLahir": "10-01-1876",
+    "tglLahir": "10/01/1876",
     "noHp": "08476578767",
     "jnsKelamin": 0,
     "alamat": "Bandung"

@@ -41,8 +41,8 @@
             namaPoli = new DataGridViewTextBoxColumn();
             ruangPoli = new DataGridViewTextBoxColumn();
             biayaPoli = new DataGridViewTextBoxColumn();
-            EditObat = new DataGridViewButtonColumn();
-            HapusObat = new DataGridViewButtonColumn();
+            Edit = new DataGridViewButtonColumn();
+            Hapus = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TabelPoli).BeginInit();
             SuspendLayout();
@@ -63,6 +63,7 @@
             ButtonTambah.TabIndex = 2;
             ButtonTambah.Text = "Tambah";
             ButtonTambah.UseVisualStyleBackColor = true;
+            ButtonTambah.Click += ButtonTambah_Click;
             // 
             // LabelDataKosong
             // 
@@ -104,7 +105,7 @@
             TabelPoli.BackgroundColor = SystemColors.Control;
             TabelPoli.BorderStyle = BorderStyle.None;
             TabelPoli.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelPoli.Columns.AddRange(new DataGridViewColumn[] { namaPoli, ruangPoli, biayaPoli, EditObat, HapusObat });
+            TabelPoli.Columns.AddRange(new DataGridViewColumn[] { namaPoli, ruangPoli, biayaPoli, Edit, Hapus });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -129,6 +130,8 @@
             TabelPoli.ShowRowErrors = false;
             TabelPoli.Size = new Size(1286, 600);
             TabelPoli.TabIndex = 5;
+            TabelPoli.CellContentClick += TabelPoli_CellContentClick;
+            TabelPoli.DataBindingComplete += TabelPoli_DataBindingComplete;
             // 
             // label1
             // 
@@ -165,23 +168,23 @@
             biayaPoli.MinimumWidth = 6;
             biayaPoli.Name = "biayaPoli";
             // 
-            // EditObat
+            // Edit
             // 
-            EditObat.FillWeight = 60F;
-            EditObat.HeaderText = "";
-            EditObat.MinimumWidth = 6;
-            EditObat.Name = "EditObat";
-            EditObat.Text = "Edit";
-            EditObat.UseColumnTextForButtonValue = true;
+            Edit.FillWeight = 60F;
+            Edit.HeaderText = "";
+            Edit.MinimumWidth = 6;
+            Edit.Name = "Edit";
+            Edit.Text = "Edit";
+            Edit.UseColumnTextForButtonValue = true;
             // 
-            // HapusObat
+            // Hapus
             // 
-            HapusObat.FillWeight = 60F;
-            HapusObat.HeaderText = "";
-            HapusObat.MinimumWidth = 6;
-            HapusObat.Name = "HapusObat";
-            HapusObat.Text = "Hapus";
-            HapusObat.UseColumnTextForButtonValue = true;
+            Hapus.FillWeight = 60F;
+            Hapus.HeaderText = "";
+            Hapus.MinimumWidth = 6;
+            Hapus.Name = "Hapus";
+            Hapus.Text = "Hapus";
+            Hapus.UseColumnTextForButtonValue = true;
             // 
             // PoliDisplay
             // 
@@ -215,7 +218,7 @@
         private DataGridViewTextBoxColumn namaPoli;
         private DataGridViewTextBoxColumn ruangPoli;
         private DataGridViewTextBoxColumn biayaPoli;
-        private DataGridViewButtonColumn EditObat;
-        private DataGridViewButtonColumn HapusObat;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Hapus;
     }
 }

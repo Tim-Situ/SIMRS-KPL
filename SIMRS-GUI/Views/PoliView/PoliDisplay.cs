@@ -80,5 +80,41 @@ namespace SIMRS_GUI.Views.PoliView
                 this.biaya = biaya;
             }
         }
+
+        private void ButtonTambah_Click(object sender, EventArgs e)
+        {
+            _mainDisplay.ShowDisplay(new PoliTambahDisplay(_mainDisplay));
+        }
+
+        private async void TabelPoli_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string kode;
+            switch (TabelPoli.Columns[e.ColumnIndex].Name)
+            {
+                case "Hapus":
+                    kode = _listPoli[e.RowIndex].kode;
+                    DialogResult dialogResult = MessageBox.Show(
+                        "Apakah anda yakin untuk menghapus data ini?",
+                        "Hapus data?",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        ApiResponse<Poli> response = await _poliManager.DeletePoli(kode);
+                        MessageBox.Show(response.message);
+                    }
+                    break;
+                case "Edit":
+                    _mainDisplay.ShowDisplay(new PoliEditDisplay(_mainDisplay, _listPoli[e.RowIndex]));
+                    break;
+            }
+
+            await LoadDataAsync();
+        }
+
+        private void TabelPoli_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DisplayUtils.NomorUrut(TabelPoli);
+        }
     }
 }

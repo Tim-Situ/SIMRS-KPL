@@ -82,6 +82,7 @@
             ButtonSubmit.TabIndex = 14;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // LabelBiaya
             // 

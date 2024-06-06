@@ -72,6 +72,7 @@
             ButtonSubmit.TabIndex = 7;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // InputNama
             // 
@@ -133,6 +134,7 @@
             Name = "PoliEditDisplay";
             Text = "PasienEditDisplay";
             TransparencyKey = Color.Fuchsia;
+            Load += PoliditDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }
