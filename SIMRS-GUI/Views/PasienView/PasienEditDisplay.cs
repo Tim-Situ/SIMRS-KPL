@@ -1,7 +1,7 @@
 ﻿using SIMRS_API;
 using SIMRS_GUI.Services;
 
-namespace SIMRS_GUI
+namespace SIMRS_GUI.Views.PasienView
 {
     public partial class PasienEditDisplay : Form
     {
