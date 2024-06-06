@@ -193,6 +193,7 @@
             buttonDokter.Text = "        Dokter";
             buttonDokter.TextAlign = ContentAlignment.MiddleLeft;
             buttonDokter.UseVisualStyleBackColor = false;
+            buttonDokter.Click += buttonDokter_Click;
             // 
             // panelObat
             // 

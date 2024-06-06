@@ -1,3 +1,5 @@
+using SIMRS_GUI.Views.LoginView;
+
 namespace SIMRS_GUI
 {
     internal static class Program

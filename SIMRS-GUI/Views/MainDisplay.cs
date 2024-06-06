@@ -1,3 +1,7 @@
+using SIMRS_GUI.Views.LoginView;
+using SIMRS_GUI.Views.PasienView;
+using SIMRS_GUI.Views.DokterView;
+
 namespace SIMRS_GUI
 {
     public partial class MainDisplay : Form
@@ -26,6 +30,10 @@ namespace SIMRS_GUI
         private void buttonPasien_Click(object sender, EventArgs e)
         {
             ShowDisplay(new PasienDisplay(this));
+        }
+        private void buttonDokter_Click(object sender, EventArgs e)
+        {
+            ShowDisplay(new DokterDisplay(this));
         }
 
         bool sidebarExpand = true;

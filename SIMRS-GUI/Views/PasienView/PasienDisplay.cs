@@ -5,9 +5,9 @@ namespace SIMRS_GUI.Views.PasienView
 {
     public partial class PasienDisplay : Form
     {
-        private List<Pasien> _listPasien { get; set; }
-        private PasienManager _pasienManager;
-        private MainDisplay _mainDisplay;
+        private List<Pasien> _listPasien;
+        private readonly PasienManager _pasienManager;
+        private readonly MainDisplay _mainDisplay;
 
         public PasienDisplay(MainDisplay mainDisplay)
         {
@@ -26,10 +26,26 @@ namespace SIMRS_GUI.Views.PasienView
         {
             try
             {
+                // Get dari API.
                 ApiResponse<List<Pasien>> response = await _pasienManager.GetPasien();
                 _listPasien = response.data;
 
-                if (_listPasien.Count == 0)
+                // Ambil datanya yang mau ditampilin saja.
+                List<GridViewPasien> gridViewPasien = _listPasien.Select(data =>
+                {
+                    return new GridViewPasien(
+                        data.nik,
+                        data.nama,
+                        data.tglLahir,
+                        data.noHp,
+                        data.jnsKelamin.ToString(),
+                        data.alamat
+                        );
+                    
+                }).ToList();
+
+                // Cek apakah kosong atau tidak.
+                if (gridViewPasien.Count == 0)
                 {
                     TabelPasien.Hide();
                     LabelDataKosong.Text = "Data pasien kosong";
@@ -37,19 +53,41 @@ namespace SIMRS_GUI.Views.PasienView
                 }
                 else
                 {
+                    // Jika tidak kosong, invoke agar tabel dapat
+                    // menampilkan data terbaru dari async call.
                     if (TabelPasien.InvokeRequired)
                     {
-                        TabelPasien.Invoke(new Action(() => TabelPasien.DataSource = _listPasien));
+                        TabelPasien.Invoke(new Action(() => TabelPasien.DataSource = gridViewPasien));
                     }
                     else
                     {
-                        TabelPasien.DataSource = _listPasien;
+                        TabelPasien.DataSource = gridViewPasien;
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error ambil data: " + ex.Message);
+            }
+        }
+
+        private class GridViewPasien
+        {
+            public string nik { get; set; }
+            public string nama { get; set; }
+            public string tanggalLahir { get; set; }
+            public string noHP { get; set; }
+            public string jenisKelamin { get; set; }
+            public string alamat { get; set; }
+
+            public GridViewPasien(string nik, string nama, string tanggalLahir, string noHP, string jenisKelamin, string alamat)
+            {
+                this.nik = nik;
+                this.nama = nama;
+                this.tanggalLahir = tanggalLahir;
+                this.noHP = noHP;
+                this.jenisKelamin = jenisKelamin;
+                this.alamat = alamat;
             }
         }
 
@@ -82,6 +120,20 @@ namespace SIMRS_GUI.Views.PasienView
             }
 
             await LoadDataAsync();
+        }
+
+        private void TabelPasien_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            NomorUrut(TabelPasien);
+        }
+
+        private void NomorUrut(DataGridView grid)
+        {
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                grid.Rows[row.Index].HeaderCell.Value = string.Format("{0}  ", row.Index + 1).ToString();
+                row.Height = 25;
+            }
         }
     }
 }

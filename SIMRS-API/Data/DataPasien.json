@@ -5,7 +5,7 @@
     "tglLahir": "04/12/1993",
     "noHp": "08572345678",
     "jnsKelamin": 1,
-    "alamat": "Jalan Melati No. 15, RT/RW 03/04, Kelurahan Melati, Kecamatan Tambora, Kota Jakarta Barat, Provinsi DKI Jakarta"
+    "alamat": "Jalan Melati, Kota Jakarta Barat, Provinsi DKI Jakarta"
   },
   {
     "nik": "7320021007940002",
@@ -13,7 +13,7 @@
     "tglLahir": "07/10/1994",
     "noHp": "08137654321",
     "jnsKelamin": 0,
-    "alamat": "Jalan Mawar No. 20, RT/RW 05/06, Kelurahan Kembangan, Kecamatan Kembangan, Kota Jakarta Barat, Provinsi DKI Jakarta"
+    "alamat": "Jalan Mawar, Kota Jakarta Barat, Provinsi DKI Jakarta"
   },
   {
     "nik": "1803031105870003",
@@ -21,7 +21,7 @@
     "tglLahir": "05/11/1987",
     "noHp": "08569876543",
     "jnsKelamin": 1,
-    "alamat": "Jalan Cempaka No. 25, RT/RW 07/08, Kelurahan Ciledug, Kecamatan Ciledug, Kota Tangerang, Provinsi Banten"
+    "alamat": "Jalan Cempaka, Kota Tangerang, Provinsi Banten"
   },
   {
     "nik": "5104051203920004",
@@ -29,7 +29,7 @@
     "tglLahir": "03/12/1992",
     "noHp": "08214325678",
     "jnsKelamin": 0,
-    "alamat": "Jalan Dahlia No. 30, RT/RW 09/10, Kelurahan Serpong, Kecamatan Serpong, Kota Tangerang Selatan, Provinsi Banten"
+    "alamat": "Jalan Dahlia, Kota Tangerang Selatan, Provinsi Banten"
   },
   {
     "nik": "3605061101900005",
@@ -37,7 +37,7 @@
     "tglLahir": "01/11/1990",
     "noHp": "08593216543",
     "jnsKelamin": 1,
-    "alamat": "Jalan Tulip No. 35, RT/RW 11/12, Kelurahan Ciputat, Kecamatan Ciputat, Kota Tangerang Selatan, Provinsi Banten"
+    "alamat": "Jalan Tulip, Kota Tangerang Selatan, Provinsi Banten"
   },
   {
     "nik": "1906071202890006",
@@ -45,7 +45,7 @@
     "tglLahir": "02/12/1989",
     "noHp": "08127654321",
     "jnsKelamin": 0,
-    "alamat": "Jalan Anggrek No. 40, RT/RW 13/14, Kelurahan Bintaro, Kecamatan Pesanggrahan, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+    "alamat": "Jalan Anggrek, Kota Jakarta Selatan, Provinsi DKI Jakarta"
   },
   {
     "nik": "5407081103880007",
@@ -53,7 +53,7 @@
     "tglLahir": "03/11/1988",
     "noHp": "08576543210",
     "jnsKelamin": 1,
-    "alamat": "Jalan Melati No. 45, RT/RW 15/16, Kelurahan Cilandak, Kecamatan Cilandak, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+    "alamat": "Jalan Melati, Kota Jakarta Selatan, Provinsi DKI Jakarta"
   },
   {
     "nik": "3108091004870008",
@@ -61,7 +61,7 @@
     "tglLahir": "04/10/1987",
     "noHp": "08135432109",
     "jnsKelamin": 0,
-    "alamat": "Jalan Mawar No. 50, RT/RW 17/18, Kelurahan Jagakarsa, Kecamatan Jagakarsa, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+    "alamat": "Jalan Mawar, Kota Jakarta Selatan, Provinsi DKI Jakarta"
   },
   {
     "nik": "6209100905860009",
@@ -69,7 +69,7 @@
     "tglLahir": "07/09/1986",
     "noHp": "08564321098",
     "jnsKelamin": 1,
-    "alamat": "Jalan Cempaka No. 55, RT/RW 19/20, Kelurahan Pancoran, Kecamatan Pancoran, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+    "alamat": "Jalan Cempaka, Kota Jakarta Selatan, Provinsi DKI Jakarta"
   },
   {
     "nik": "8572069386950483",
@@ -77,6 +77,6 @@
     "tglLahir": "04/06/1999",
     "noHp": "0856293410593",
     "jnsKelamin": 1,
-    "alamat": "Jalan Ahmad Yani No. 10, RT/RW 11/11, Kelurahan Pasir Halang, Kecamatan Bogor, Kota Jakarta Utara, Provinsi DKI Jakarta"
+    "alamat": "Jalan Ahmad Yani, Kota Jakarta Utara, Provinsi DKI Jakarta"
   }
 ]

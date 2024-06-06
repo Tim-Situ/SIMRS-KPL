@@ -34,19 +34,18 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasienDisplay));
             TabelPasien = new DataGridView();
+            nik = new DataGridViewTextBoxColumn();
+            nama = new DataGridViewTextBoxColumn();
+            tanggalLahir = new DataGridViewTextBoxColumn();
+            noHP = new DataGridViewTextBoxColumn();
+            jenisKelamin = new DataGridViewTextBoxColumn();
+            alamat = new DataGridViewTextBoxColumn();
+            EditPasien = new DataGridViewButtonColumn();
+            HapusPasien = new DataGridViewButtonColumn();
             pasienBindingSource = new BindingSource(components);
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
             LabelTitle = new Label();
-            Nomor = new DataGridViewTextBoxColumn();
-            nikDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            namaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            tglLahirDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            noHpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            jnsKelaminDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            alamatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            EditPasien = new DataGridViewButtonColumn();
-            HapusPasien = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)TabelPasien).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             SuspendLayout();
@@ -62,14 +61,12 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
             TabelPasien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             TabelPasien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TabelPasien.AutoGenerateColumns = false;
             TabelPasien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TabelPasien.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             TabelPasien.BackgroundColor = SystemColors.Control;
             TabelPasien.BorderStyle = BorderStyle.None;
             TabelPasien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelPasien.Columns.AddRange(new DataGridViewColumn[] { Nomor, nikDataGridViewTextBoxColumn, namaDataGridViewTextBoxColumn, tglLahirDataGridViewTextBoxColumn, noHpDataGridViewTextBoxColumn, jnsKelaminDataGridViewTextBoxColumn, alamatDataGridViewTextBoxColumn, EditPasien, HapusPasien });
-            TabelPasien.DataSource = pasienBindingSource;
+            TabelPasien.Columns.AddRange(new DataGridViewColumn[] { nik, nama, tanggalLahir, noHP, jenisKelamin, alamat, EditPasien, HapusPasien });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -83,8 +80,7 @@
             TabelPasien.Location = new Point(28, 112);
             TabelPasien.MultiSelect = false;
             TabelPasien.Name = "TabelPasien";
-            TabelPasien.RowHeadersVisible = false;
-            TabelPasien.RowHeadersWidth = 51;
+            TabelPasien.RowHeadersWidth = 60;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             TabelPasien.RowsDefaultCellStyle = dataGridViewCellStyle3;
             TabelPasien.RowTemplate.Height = 29;
@@ -96,6 +92,67 @@
             TabelPasien.Size = new Size(1286, 600);
             TabelPasien.TabIndex = 0;
             TabelPasien.CellContentClick += TabelPasien_CellContentClick;
+            TabelPasien.DataBindingComplete += TabelPasien_DataBindingComplete;
+            // 
+            // nik
+            // 
+            nik.DataPropertyName = "nik";
+            nik.HeaderText = "NIK";
+            nik.MinimumWidth = 6;
+            nik.Name = "nik";
+            // 
+            // nama
+            // 
+            nama.DataPropertyName = "nama";
+            nama.HeaderText = "Nama Pasien";
+            nama.MinimumWidth = 6;
+            nama.Name = "nama";
+            // 
+            // tanggalLahir
+            // 
+            tanggalLahir.DataPropertyName = "tanggalLahir";
+            tanggalLahir.HeaderText = "Tanggal Lahir";
+            tanggalLahir.MinimumWidth = 6;
+            tanggalLahir.Name = "tanggalLahir";
+            // 
+            // noHP
+            // 
+            noHP.DataPropertyName = "noHP";
+            noHP.HeaderText = "No HP";
+            noHP.MinimumWidth = 6;
+            noHP.Name = "noHP";
+            // 
+            // jenisKelamin
+            // 
+            jenisKelamin.DataPropertyName = "jenisKelamin";
+            jenisKelamin.HeaderText = "Jenis Kelamin";
+            jenisKelamin.MinimumWidth = 6;
+            jenisKelamin.Name = "jenisKelamin";
+            // 
+            // alamat
+            // 
+            alamat.DataPropertyName = "alamat";
+            alamat.HeaderText = "Alamat";
+            alamat.MinimumWidth = 6;
+            alamat.Name = "alamat";
+            // 
+            // EditPasien
+            // 
+            EditPasien.FillWeight = 60F;
+            EditPasien.HeaderText = "";
+            EditPasien.MinimumWidth = 6;
+            EditPasien.Name = "EditPasien";
+            EditPasien.Text = "Edit";
+            EditPasien.UseColumnTextForButtonValue = true;
+            // 
+            // HapusPasien
+            // 
+            HapusPasien.FillWeight = 60F;
+            HapusPasien.HeaderText = "";
+            HapusPasien.MinimumWidth = 6;
+            HapusPasien.Name = "HapusPasien";
+            HapusPasien.Text = "Hapus";
+            HapusPasien.UseColumnTextForButtonValue = true;
             // 
             // pasienBindingSource
             // 
@@ -125,9 +182,9 @@
             LabelDataKosong.Location = new Point(481, 150);
             LabelDataKosong.Name = "LabelDataKosong";
             LabelDataKosong.Padding = new Padding(10, 5, 10, 5);
-            LabelDataKosong.Size = new Size(383, 60);
+            LabelDataKosong.Size = new Size(377, 60);
             LabelDataKosong.TabIndex = 3;
-            LabelDataKosong.Text = "Data (objek) kosong!";
+            LabelDataKosong.Text = "Data pasien kosong!";
             LabelDataKosong.Visible = false;
             // 
             // LabelTitle
@@ -139,80 +196,6 @@
             LabelTitle.Size = new Size(237, 41);
             LabelTitle.TabIndex = 4;
             LabelTitle.Text = "Halaman Pasien";
-            // 
-            // Nomor
-            // 
-            Nomor.FillWeight = 25F;
-            Nomor.HeaderText = "No";
-            Nomor.MinimumWidth = 6;
-            Nomor.Name = "Nomor";
-            Nomor.ReadOnly = true;
-            // 
-            // nikDataGridViewTextBoxColumn
-            // 
-            nikDataGridViewTextBoxColumn.DataPropertyName = "nik";
-            nikDataGridViewTextBoxColumn.FillWeight = 90F;
-            nikDataGridViewTextBoxColumn.HeaderText = "NIK";
-            nikDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nikDataGridViewTextBoxColumn.Name = "nikDataGridViewTextBoxColumn";
-            // 
-            // namaDataGridViewTextBoxColumn
-            // 
-            namaDataGridViewTextBoxColumn.DataPropertyName = "nama";
-            namaDataGridViewTextBoxColumn.FillWeight = 160F;
-            namaDataGridViewTextBoxColumn.HeaderText = "Nama Pasien";
-            namaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            // 
-            // tglLahirDataGridViewTextBoxColumn
-            // 
-            tglLahirDataGridViewTextBoxColumn.DataPropertyName = "tglLahir";
-            tglLahirDataGridViewTextBoxColumn.FillWeight = 80F;
-            tglLahirDataGridViewTextBoxColumn.HeaderText = "Tanggal Lahir";
-            tglLahirDataGridViewTextBoxColumn.MinimumWidth = 6;
-            tglLahirDataGridViewTextBoxColumn.Name = "tglLahirDataGridViewTextBoxColumn";
-            // 
-            // noHpDataGridViewTextBoxColumn
-            // 
-            noHpDataGridViewTextBoxColumn.DataPropertyName = "noHp";
-            noHpDataGridViewTextBoxColumn.FillWeight = 75F;
-            noHpDataGridViewTextBoxColumn.HeaderText = "No HP";
-            noHpDataGridViewTextBoxColumn.MinimumWidth = 6;
-            noHpDataGridViewTextBoxColumn.Name = "noHpDataGridViewTextBoxColumn";
-            // 
-            // jnsKelaminDataGridViewTextBoxColumn
-            // 
-            jnsKelaminDataGridViewTextBoxColumn.DataPropertyName = "jnsKelamin";
-            jnsKelaminDataGridViewTextBoxColumn.FillWeight = 80F;
-            jnsKelaminDataGridViewTextBoxColumn.HeaderText = "Jenis Kelamin";
-            jnsKelaminDataGridViewTextBoxColumn.MinimumWidth = 6;
-            jnsKelaminDataGridViewTextBoxColumn.Name = "jnsKelaminDataGridViewTextBoxColumn";
-            // 
-            // alamatDataGridViewTextBoxColumn
-            // 
-            alamatDataGridViewTextBoxColumn.DataPropertyName = "alamat";
-            alamatDataGridViewTextBoxColumn.FillWeight = 200F;
-            alamatDataGridViewTextBoxColumn.HeaderText = "Alamat";
-            alamatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            alamatDataGridViewTextBoxColumn.Name = "alamatDataGridViewTextBoxColumn";
-            // 
-            // EditPasien
-            // 
-            EditPasien.FillWeight = 60F;
-            EditPasien.HeaderText = "";
-            EditPasien.MinimumWidth = 6;
-            EditPasien.Name = "EditPasien";
-            EditPasien.Text = "Edit";
-            EditPasien.UseColumnTextForButtonValue = true;
-            // 
-            // HapusPasien
-            // 
-            HapusPasien.FillWeight = 60F;
-            HapusPasien.HeaderText = "";
-            HapusPasien.MinimumWidth = 6;
-            HapusPasien.Name = "HapusPasien";
-            HapusPasien.Text = "Hapus";
-            HapusPasien.UseColumnTextForButtonValue = true;
             // 
             // PasienDisplay
             // 
@@ -242,13 +225,12 @@
         private BindingSource pasienBindingSource;
         private Label LabelDataKosong;
         private Label LabelTitle;
-        private DataGridViewTextBoxColumn Nomor;
-        private DataGridViewTextBoxColumn nikDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tglLahirDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn noHpDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn jnsKelaminDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn alamatDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nik;
+        private DataGridViewTextBoxColumn nama;
+        private DataGridViewTextBoxColumn tanggalLahir;
+        private DataGridViewTextBoxColumn noHP;
+        private DataGridViewTextBoxColumn jenisKelamin;
+        private DataGridViewTextBoxColumn alamat;
         private DataGridViewButtonColumn EditPasien;
         private DataGridViewButtonColumn HapusPasien;
     }

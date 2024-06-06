@@ -6,10 +6,5 @@
         {
             InitializeComponent();
         }
-
-        private void InputNama_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

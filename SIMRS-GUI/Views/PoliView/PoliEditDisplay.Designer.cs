@@ -28,55 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LabelHeaderEditPoli = new Label();
-            this.LabelNama = new Label();
-            this.LabelRuang = new Label();
-            this.LabelBiaya = new Label();
+            label1 = new Label();
+            labelNama = new Label();
             ButtonSubmit = new Button();
             InputNama = new TextBox();
-            InputBiaya = new TextBox();
             InputRuang = new TextBox();
+            label2 = new Label();
+            InputBiaya = new TextBox();
+            label3 = new Label();
             SuspendLayout();
             // 
-            // LabelHeaderEditPoli
+            // label1
             // 
-            this.LabelHeaderEditPoli.AutoSize = true;
-            this.LabelHeaderEditPoli.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            this.LabelHeaderEditPoli.Location = new Point(571, 35);
-            this.LabelHeaderEditPoli.Name = "LabelHeaderEditPoli";
-            this.LabelHeaderEditPoli.Size = new Size(278, 54);
-            this.LabelHeaderEditPoli.TabIndex = 0;
-            this.LabelHeaderEditPoli.Text = "Edit Data Poli";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(557, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(278, 54);
+            label1.TabIndex = 0;
+            label1.Text = "Edit Data Poli";
             // 
-            // LabelNama
+            // labelNama
             // 
-            this.LabelNama.AutoSize = true;
-            this.LabelNama.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            this.LabelNama.Location = new Point(380, 145);
-            this.LabelNama.Name = "LabelNama";
-            this.LabelNama.Size = new Size(129, 31);
-            this.LabelNama.TabIndex = 1;
-            this.LabelNama.Text = "Nama Poli :";
-            // 
-            // LabelRuang
-            // 
-            this.LabelRuang.AutoSize = true;
-            this.LabelRuang.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            this.LabelRuang.Location = new Point(418, 205);
-            this.LabelRuang.Name = "LabelRuang";
-            this.LabelRuang.Size = new Size(91, 31);
-            this.LabelRuang.TabIndex = 1;
-            this.LabelRuang.Text = "Ruang :";
-            // 
-            // LabelBiaya
-            // 
-            this.LabelBiaya.AutoSize = true;
-            this.LabelBiaya.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            this.LabelBiaya.Location = new Point(430, 266);
-            this.LabelBiaya.Name = "LabelBiaya";
-            this.LabelBiaya.Size = new Size(79, 31);
-            this.LabelBiaya.TabIndex = 1;
-            this.LabelBiaya.Text = "Biaya :";
+            labelNama.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelNama.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelNama.Location = new Point(353, 139);
+            labelNama.Name = "labelNama";
+            labelNama.Size = new Size(157, 31);
+            labelNama.TabIndex = 1;
+            labelNama.Text = "Nama Poli :";
+            labelNama.TextAlign = ContentAlignment.TopRight;
             // 
             // ButtonSubmit
             // 
@@ -85,7 +66,7 @@
             ButtonSubmit.FlatStyle = FlatStyle.Flat;
             ButtonSubmit.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSubmit.ForeColor = SystemColors.Highlight;
-            ButtonSubmit.Location = new Point(628, 331);
+            ButtonSubmit.Location = new Point(622, 652);
             ButtonSubmit.Name = "ButtonSubmit";
             ButtonSubmit.Size = new Size(184, 45);
             ButtonSubmit.TabIndex = 7;
@@ -98,36 +79,56 @@
             InputNama.Name = "InputNama";
             InputNama.Size = new Size(371, 27);
             InputNama.TabIndex = 1;
-            InputNama.TextChanged += InputNama_TextChanged;
-            // 
-            // InputBiaya
-            // 
-            InputBiaya.Location = new Point(533, 272);
-            InputBiaya.Name = "InputBiaya";
-            InputBiaya.Size = new Size(371, 27);
-            InputBiaya.TabIndex = 3;
             // 
             // InputRuang
             // 
-            InputRuang.Location = new Point(533, 211);
+            InputRuang.Location = new Point(533, 210);
             InputRuang.Name = "InputRuang";
             InputRuang.Size = new Size(371, 27);
-            InputRuang.TabIndex = 1;
-            InputRuang.TextChanged += InputNama_TextChanged;
+            InputRuang.TabIndex = 8;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(353, 204);
+            label2.Name = "label2";
+            label2.Size = new Size(157, 31);
+            label2.TabIndex = 9;
+            label2.Text = "Ruang :";
+            label2.TextAlign = ContentAlignment.TopRight;
+            // 
+            // InputBiaya
+            // 
+            InputBiaya.Location = new Point(533, 273);
+            InputBiaya.Name = "InputBiaya";
+            InputBiaya.Size = new Size(371, 27);
+            InputBiaya.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(353, 267);
+            label3.Name = "label3";
+            label3.Size = new Size(157, 31);
+            label3.TabIndex = 11;
+            label3.Text = "Biaya :";
+            label3.TextAlign = ContentAlignment.TopRight;
             // 
             // PoliEditDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
-            Controls.Add(InputRuang);
-            Controls.Add(InputNama);
             Controls.Add(InputBiaya);
+            Controls.Add(label3);
+            Controls.Add(InputRuang);
+            Controls.Add(label2);
+            Controls.Add(InputNama);
             Controls.Add(ButtonSubmit);
-            Controls.Add(this.LabelBiaya);
-            Controls.Add(this.LabelRuang);
-            Controls.Add(this.LabelNama);
-            Controls.Add(this.LabelHeaderEditPoli);
+            Controls.Add(labelNama);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PoliEditDisplay";
             Text = "PasienEditDisplay";
@@ -140,16 +141,11 @@
 
         private Label label1;
         private Label labelNama;
-        private Label labelTanggalLahir;
-        private Label labelNoHP;
-        private Label labelJenisKelamin;
-        private Label labelAlamat;
         private Button ButtonSubmit;
         private TextBox InputNama;
-        private TextBox InputBiaya;
         private TextBox InputRuang;
-        private TextBox InputAlamat;
-        private RadioButton RadioWanita;
-        private RadioButton RadioPria;
+        private Label label2;
+        private TextBox InputBiaya;
+        private Label label3;
     }
 }
