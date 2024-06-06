@@ -1,4 +1,4 @@
-﻿namespace SIMRS_GUI
+﻿namespace SIMRS_GUI.Views.PasienView
 {
     partial class PasienEditDisplay
     {

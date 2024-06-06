@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using SIMRS_GUI.Auth;
+﻿using SIMRS_GUI.Auth;
 
-namespace SIMRS_GUI
+namespace SIMRS_GUI.Views.LoginView
 {
     public partial class LoginUser : Form
     {
