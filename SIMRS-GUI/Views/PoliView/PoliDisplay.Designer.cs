@@ -29,21 +29,20 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pasienBindingSource = new BindingSource(components);
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
             LabelTitle = new Label();
             TabelPoli = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            label1 = new Label();
             namaPoli = new DataGridViewTextBoxColumn();
             ruangPoli = new DataGridViewTextBoxColumn();
             biayaPoli = new DataGridViewTextBoxColumn();
             EditObat = new DataGridViewButtonColumn();
             HapusObat = new DataGridViewButtonColumn();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TabelPoli).BeginInit();
             SuspendLayout();
@@ -95,34 +94,33 @@
             TabelPoli.AllowUserToDeleteRows = false;
             TabelPoli.AllowUserToResizeColumns = false;
             TabelPoli.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(242, 250, 255);
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
-            TabelPoli.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(242, 250, 255);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            TabelPoli.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             TabelPoli.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TabelPoli.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TabelPoli.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             TabelPoli.BackgroundColor = SystemColors.Control;
             TabelPoli.BorderStyle = BorderStyle.None;
             TabelPoli.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelPoli.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, namaPoli, ruangPoli, biayaPoli, EditObat, HapusObat });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            TabelPoli.DefaultCellStyle = dataGridViewCellStyle5;
+            TabelPoli.Columns.AddRange(new DataGridViewColumn[] { namaPoli, ruangPoli, biayaPoli, EditObat, HapusObat });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            TabelPoli.DefaultCellStyle = dataGridViewCellStyle2;
             TabelPoli.EditMode = DataGridViewEditMode.EditProgrammatically;
             TabelPoli.GridColor = Color.White;
             TabelPoli.Location = new Point(28, 112);
             TabelPoli.MultiSelect = false;
             TabelPoli.Name = "TabelPoli";
-            TabelPoli.RowHeadersVisible = false;
             TabelPoli.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            TabelPoli.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            TabelPoli.RowsDefaultCellStyle = dataGridViewCellStyle3;
             TabelPoli.RowTemplate.Height = 29;
             TabelPoli.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TabelPoli.ShowCellErrors = false;
@@ -132,28 +130,37 @@
             TabelPoli.Size = new Size(1286, 600);
             TabelPoli.TabIndex = 5;
             // 
-            // dataGridViewTextBoxColumn1
+            // label1
             // 
-            dataGridViewTextBoxColumn1.FillWeight = 25F;
-            dataGridViewTextBoxColumn1.HeaderText = "No";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.GradientInactiveCaption;
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(548, 138);
+            label1.Name = "label1";
+            label1.Padding = new Padding(10, 5, 10, 5);
+            label1.Size = new Size(331, 60);
+            label1.TabIndex = 6;
+            label1.Text = "Data Poli kosong!";
+            label1.Visible = false;
             // 
             // namaPoli
             // 
+            namaPoli.DataPropertyName = "nama";
             namaPoli.HeaderText = "Nama Poli";
             namaPoli.MinimumWidth = 6;
             namaPoli.Name = "namaPoli";
             // 
             // ruangPoli
             // 
+            ruangPoli.DataPropertyName = "ruang";
             ruangPoli.HeaderText = "Ruang Poli";
             ruangPoli.MinimumWidth = 6;
             ruangPoli.Name = "ruangPoli";
             // 
             // biayaPoli
             // 
+            biayaPoli.DataPropertyName = "biaya";
             biayaPoli.HeaderText = "Biaya Poli";
             biayaPoli.MinimumWidth = 6;
             biayaPoli.Name = "biayaPoli";
@@ -176,20 +183,6 @@
             HapusObat.Text = "Hapus";
             HapusObat.UseColumnTextForButtonValue = true;
             // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.GradientInactiveCaption;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(548, 138);
-            label1.Name = "label1";
-            label1.Padding = new Padding(10, 5, 10, 5);
-            label1.Size = new Size(331, 60);
-            label1.TabIndex = 6;
-            label1.Text = "Data Poli kosong!";
-            label1.Visible = false;
-            // 
             // PoliDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -202,7 +195,8 @@
             Controls.Add(ButtonTambah);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PoliDisplay";
-            Text = "PasienDisplay";
+            Text = "PoliDisplay";
+            Load += PoliDisplay_Load;
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)TabelPoli).EndInit();
             ResumeLayout(false);
@@ -218,7 +212,6 @@
         private Label LabelTitle;
         private DataGridView TabelPoli;
         private Label label1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn namaPoli;
         private DataGridViewTextBoxColumn ruangPoli;
         private DataGridViewTextBoxColumn biayaPoli;

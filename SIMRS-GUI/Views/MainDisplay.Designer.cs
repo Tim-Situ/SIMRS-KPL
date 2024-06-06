@@ -45,11 +45,11 @@
             panelPembayaran = new Panel();
             buttonPembayaran = new Button();
             sidebar = new ReaLTaiizor.Controls.ParrotGradientPanel();
-            BodyPanel = new Panel();
             panelPoli = new Panel();
             buttonPoli = new Button();
             panel1 = new Panel();
             button1 = new Button();
+            BodyPanel = new Panel();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).BeginInit();
             panelDashboard.SuspendLayout();
@@ -318,14 +318,6 @@
             sidebar.TopLeft = Color.FromArgb(65, 201, 226);
             sidebar.TopRight = Color.FromArgb(65, 201, 226);
             // 
-            // BodyPanel
-            // 
-            BodyPanel.Dock = DockStyle.Fill;
-            BodyPanel.Location = new Point(250, 49);
-            BodyPanel.Name = "BodyPanel";
-            BodyPanel.Size = new Size(1350, 851);
-            BodyPanel.TabIndex = 9;
-            // 
             // panelPoli
             // 
             panelPoli.BackColor = Color.Transparent;
@@ -355,6 +347,7 @@
             buttonPoli.Text = "        Poli";
             buttonPoli.TextAlign = ContentAlignment.MiddleLeft;
             buttonPoli.UseVisualStyleBackColor = false;
+            buttonPoli.Click += buttonPoli_Click;
             // 
             // panel1
             // 
@@ -385,6 +378,14 @@
             button1.Text = "        Keluar";
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
+            // 
+            // BodyPanel
+            // 
+            BodyPanel.Dock = DockStyle.Fill;
+            BodyPanel.Location = new Point(250, 49);
+            BodyPanel.Name = "BodyPanel";
+            BodyPanel.Size = new Size(1350, 851);
+            BodyPanel.TabIndex = 9;
             // 
             // MainDisplay
             // 
