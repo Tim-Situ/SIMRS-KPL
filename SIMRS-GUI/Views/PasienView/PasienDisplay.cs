@@ -5,9 +5,9 @@ namespace SIMRS_GUI.Views.PasienView
 {
     public partial class PasienDisplay : Form
     {
-        private List<Pasien> _listPasien;
         private readonly PasienManager _pasienManager;
         private readonly MainDisplay _mainDisplay;
+        private List<Pasien> _listPasien { get; set; }
 
         public PasienDisplay(MainDisplay mainDisplay)
         {
@@ -101,7 +101,7 @@ namespace SIMRS_GUI.Views.PasienView
             string nikSelected;
             switch (TabelPasien.Columns[e.ColumnIndex].Name)
             {
-                case "HapusPasien":
+                case "Hapus":
                     nikSelected = _listPasien[e.RowIndex].nik;
                     DialogResult dialogResult = MessageBox.Show(
                         "Apakah anda yakin untuk menghapus data ini?",
@@ -114,7 +114,7 @@ namespace SIMRS_GUI.Views.PasienView
                         MessageBox.Show(response.message);
                     }
                     break;
-                case "EditPasien":
+                case "Edit":
                     _mainDisplay.ShowDisplay(new PasienEditDisplay(_mainDisplay, _listPasien[e.RowIndex]));
                     break;
             }
@@ -124,16 +124,9 @@ namespace SIMRS_GUI.Views.PasienView
 
         private void TabelPasien_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            NomorUrut(TabelPasien);
+            DisplayUtils.NomorUrut(TabelPasien);
         }
 
-        private void NomorUrut(DataGridView grid)
-        {
-            foreach (DataGridViewRow row in grid.Rows)
-            {
-                grid.Rows[row.Index].HeaderCell.Value = string.Format("{0}  ", row.Index + 1).ToString();
-                row.Height = 25;
-            }
-        }
+        
     }
 }

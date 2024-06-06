@@ -118,6 +118,7 @@
             ButtonSubmit.TabIndex = 7;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // InputNama
             // 
@@ -213,6 +214,7 @@
             Name = "DokterEditDisplay";
             Text = "PasienEditDisplay";
             TransparencyKey = Color.Fuchsia;
+            Load += DokterEditDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }

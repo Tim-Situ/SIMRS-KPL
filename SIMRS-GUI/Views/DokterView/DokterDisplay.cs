@@ -1,17 +1,14 @@
-﻿using System.ComponentModel;
-using System.Linq;
-using Microsoft.Build.Framework;
-using SIMRS_API;
+﻿using SIMRS_API;
 using SIMRS_GUI.Services;
-using static SIMRS_API.User;
+using SIMRS_GUI.Views.PasienView;
 
 namespace SIMRS_GUI.Views.DokterView
 {
     public partial class DokterDisplay : Form
     {
+        private readonly DokterManager _dokterManager;
+        private readonly MainDisplay _mainDisplay;
         private List<Dokter> _listDokter { get; set; }
-        private DokterManager _dokterManager;
-        private MainDisplay _mainDisplay;
 
         public DokterDisplay(MainDisplay mainDisplay)
         {
@@ -98,18 +95,40 @@ namespace SIMRS_GUI.Views.DokterView
             }
         }
 
-        private void TabelDokter_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void ButtonTambah_Click(object sender, EventArgs e)
         {
-            NomorUrut(TabelDokter);
+            _mainDisplay.ShowDisplay(new DokterTambahDisplay(_mainDisplay));
         }
 
-        private void NomorUrut(DataGridView grid)
+        private async void TabelDokter_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in grid.Rows)
+            string nipSelected;
+            switch (TabelDokter.Columns[e.ColumnIndex].Name)
             {
-                grid.Rows[row.Index].HeaderCell.Value = string.Format("{0}  ", row.Index + 1).ToString();
-                row.Height = 25;
+                case "Hapus":
+                    nipSelected = _listDokter[e.RowIndex].nip;
+                    DialogResult dialogResult = MessageBox.Show(
+                        "Apakah anda yakin untuk menghapus data ini?",
+                        "Hapus data?",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        ApiResponse<Dokter> response = await _dokterManager.DeleteDokter(nipSelected);
+                        MessageBox.Show(response.message);
+                    }
+                    break;
+                case "Edit":
+                    _mainDisplay.ShowDisplay(new DokterEditDisplay(_mainDisplay, _listDokter[e.RowIndex]));
+                    break;
             }
+
+            await LoadDataAsync();
+        }
+
+        private void TabelDokter_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DisplayUtils.NomorUrut(TabelDokter);
         }
     }
 }

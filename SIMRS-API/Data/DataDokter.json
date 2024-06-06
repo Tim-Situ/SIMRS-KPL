@@ -14,20 +14,6 @@
     "alamat": "Bandung"
   },
   {
-    "nip": "54321",
-    "poli": {
-      "kode": "PLI003",
-      "namaPoli": "GigiAja",
-      "ruang": "0719",
-      "biaya": 80000
-    },
-    "nama": "Dr. AyuxV",
-    "tglLahir": "01-08-1876",
-    "noHp": "08473758",
-    "jnsKelamin": 1,
-    "alamat": "Jakarta"
-  },
-  {
     "nip": "453445",
     "poli": {
       "kode": "PLI03",
@@ -50,9 +36,23 @@
       "biaya": 80000
     },
     "nama": "Mail",
-    "tglLahir": "11-11-2003",
+    "tglLahir": "11/11/2004",
     "noHp": "0812000000",
-    "jnsKelamin": 0,
+    "jnsKelamin": 1,
     "alamat": "Durian Runtuh"
+  },
+  {
+    "nip": "198001011990031001",
+    "poli": {
+      "kode": "PLI01",
+      "namaPoli": "Penyakit Dalam",
+      "ruang": "KU3.01.02",
+      "biaya": 80000
+    },
+    "nama": "Budi Raharjo",
+    "tglLahir": "01/01/1940",
+    "noHp": "08123456789",
+    "jnsKelamin": 0,
+    "alamat": "Jalan Sudirman No. 10, Kota Bandung, Jawa Barat"
   }
 ]

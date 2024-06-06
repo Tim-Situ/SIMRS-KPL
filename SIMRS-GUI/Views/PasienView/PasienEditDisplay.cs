@@ -5,8 +5,8 @@ namespace SIMRS_GUI.Views.PasienView
 {
     public partial class PasienEditDisplay : Form
     {
-        private PasienManager _pasienManager;
-        private MainDisplay _mainDisplay;
+        private readonly PasienManager _pasienManager;
+        private readonly MainDisplay _mainDisplay;
         private Pasien _pasien;
 
         public PasienEditDisplay(MainDisplay mainDisplay, Pasien pasien)

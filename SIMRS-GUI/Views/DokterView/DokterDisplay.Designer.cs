@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             TabelDokter = new DataGridView();
             nip = new DataGridViewTextBoxColumn();
             nama = new DataGridViewTextBoxColumn();
@@ -40,8 +40,8 @@
             noHP = new DataGridViewTextBoxColumn();
             jenisKelamin = new DataGridViewTextBoxColumn();
             alamat = new DataGridViewTextBoxColumn();
-            EditDokter = new DataGridViewButtonColumn();
-            HapusDokter = new DataGridViewButtonColumn();
+            Edit = new DataGridViewButtonColumn();
+            Hapus = new DataGridViewButtonColumn();
             pasienBindingSource = new BindingSource(components);
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
@@ -56,33 +56,33 @@
             TabelDokter.AllowUserToDeleteRows = false;
             TabelDokter.AllowUserToResizeColumns = false;
             TabelDokter.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(242, 250, 255);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            TabelDokter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(242, 250, 255);
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
+            TabelDokter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             TabelDokter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TabelDokter.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TabelDokter.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             TabelDokter.BackgroundColor = SystemColors.Control;
             TabelDokter.BorderStyle = BorderStyle.None;
             TabelDokter.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelDokter.Columns.AddRange(new DataGridViewColumn[] { nip, nama, namaPoli, tglLahir, noHP, jenisKelamin, alamat, EditDokter, HapusDokter });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            TabelDokter.DefaultCellStyle = dataGridViewCellStyle2;
+            TabelDokter.Columns.AddRange(new DataGridViewColumn[] { nip, nama, namaPoli, tglLahir, noHP, jenisKelamin, alamat, Edit, Hapus });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            TabelDokter.DefaultCellStyle = dataGridViewCellStyle5;
             TabelDokter.EditMode = DataGridViewEditMode.EditProgrammatically;
             TabelDokter.GridColor = Color.White;
             TabelDokter.Location = new Point(28, 112);
             TabelDokter.MultiSelect = false;
             TabelDokter.Name = "TabelDokter";
             TabelDokter.RowHeadersWidth = 60;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            TabelDokter.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            TabelDokter.RowsDefaultCellStyle = dataGridViewCellStyle6;
             TabelDokter.RowTemplate.Height = 29;
             TabelDokter.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TabelDokter.ShowCellErrors = false;
@@ -91,6 +91,7 @@
             TabelDokter.ShowRowErrors = false;
             TabelDokter.Size = new Size(1286, 600);
             TabelDokter.TabIndex = 0;
+            TabelDokter.CellContentClick += TabelDokter_CellContentClick;
             TabelDokter.DataBindingComplete += TabelDokter_DataBindingComplete;
             // 
             // nip
@@ -142,23 +143,23 @@
             alamat.MinimumWidth = 6;
             alamat.Name = "alamat";
             // 
-            // EditDokter
+            // Edit
             // 
-            EditDokter.FillWeight = 60F;
-            EditDokter.HeaderText = "";
-            EditDokter.MinimumWidth = 6;
-            EditDokter.Name = "EditDokter";
-            EditDokter.Text = "Edit";
-            EditDokter.UseColumnTextForButtonValue = true;
+            Edit.FillWeight = 60F;
+            Edit.HeaderText = "";
+            Edit.MinimumWidth = 6;
+            Edit.Name = "Edit";
+            Edit.Text = "Edit";
+            Edit.UseColumnTextForButtonValue = true;
             // 
-            // HapusDokter
+            // Hapus
             // 
-            HapusDokter.FillWeight = 60F;
-            HapusDokter.HeaderText = "";
-            HapusDokter.MinimumWidth = 6;
-            HapusDokter.Name = "HapusDokter";
-            HapusDokter.Text = "Hapus";
-            HapusDokter.UseColumnTextForButtonValue = true;
+            Hapus.FillWeight = 60F;
+            Hapus.HeaderText = "";
+            Hapus.MinimumWidth = 6;
+            Hapus.Name = "Hapus";
+            Hapus.Text = "Hapus";
+            Hapus.UseColumnTextForButtonValue = true;
             // 
             // pasienBindingSource
             // 
@@ -176,6 +177,7 @@
             ButtonTambah.TabIndex = 2;
             ButtonTambah.Text = "Tambah";
             ButtonTambah.UseVisualStyleBackColor = true;
+            ButtonTambah.Click += ButtonTambah_Click;
             // 
             // LabelDataKosong
             // 
@@ -238,7 +240,7 @@
         private DataGridViewTextBoxColumn noHP;
         private DataGridViewTextBoxColumn jenisKelamin;
         private DataGridViewTextBoxColumn alamat;
-        private DataGridViewButtonColumn EditDokter;
-        private DataGridViewButtonColumn HapusDokter;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Hapus;
     }
 }

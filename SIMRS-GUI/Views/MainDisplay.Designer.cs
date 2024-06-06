@@ -317,7 +317,6 @@
             sidebar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             sidebar.TopLeft = Color.FromArgb(65, 201, 226);
             sidebar.TopRight = Color.FromArgb(65, 201, 226);
-            sidebar.Paint += sidebar_Paint;
             // 
             // BodyPanel
             // 
@@ -326,7 +325,6 @@
             BodyPanel.Name = "BodyPanel";
             BodyPanel.Size = new Size(1350, 851);
             BodyPanel.TabIndex = 9;
-            BodyPanel.Paint += BodyPanel_Paint;
             // 
             // panelPoli
             // 

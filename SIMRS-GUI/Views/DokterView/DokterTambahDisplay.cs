@@ -1,15 +1,57 @@
-﻿namespace SIMRS_GUI.Views.DokterView
+﻿using SIMRS_API;
+using SIMRS_GUI.Services;
+
+namespace SIMRS_GUI.Views.DokterView
 {
     public partial class DokterTambahDisplay : Form
     {
-        public DokterTambahDisplay()
+        private readonly DokterManager _dokterManager;
+        private readonly PoliManager _poliManager;
+        private readonly MainDisplay _mainDisplay;
+        private List<Poli> _listPoli { get; set; }
+
+        public DokterTambahDisplay(MainDisplay mainDisplay)
         {
             InitializeComponent();
+            TopLevel = false;
+            _mainDisplay = mainDisplay;
+            _dokterManager = new();
+            _poliManager = new();
         }
 
-        private void DokterTambahDisplay_Load(object sender, EventArgs e)
+        private async void DokterTambahDisplay_Load(object sender, EventArgs e)
         {
+            ApiResponse<List<Poli>> response = await _poliManager.GetPoli();
+            _listPoli = response.data;
+            if (_listPoli.Count > 0)
+            { 
+                string[] opsiPoli = _listPoli.Select(poli => poli.namaPoli).ToArray();
+                InputPoli.Items.AddRange(opsiPoli);
+            }
+        }
 
+        private async void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            string NIP = InputNIP.Text;
+            string nama = InputNama.Text;
+            string tanggalLahir = InputTanggal.Value.ToShortDateString();
+            string noHP = InputNoHp.Text;
+            User.EnumJenisKelamin jenisKelamin = (RadioPria.Checked)
+                ? User.EnumJenisKelamin.PRIA
+                : User.EnumJenisKelamin.WANITA;
+            string alamat = InputAlamat.Text;
+
+            Poli poli = default;
+            if (InputPoli.Text == "(Pilih poli)")
+            {
+                MessageBox.Show("Pilih poli untuk dokter");
+            }
+            else
+            {
+                poli = _listPoli.Find(poli => poli.namaPoli == InputPoli.Text);
+                await _dokterManager.AddDokter(new Dokter(NIP, nama, poli, tanggalLahir, noHP, jenisKelamin, alamat));
+                _mainDisplay.ShowDisplay(new DokterDisplay(_mainDisplay));
+            }            
         }
     }
 }

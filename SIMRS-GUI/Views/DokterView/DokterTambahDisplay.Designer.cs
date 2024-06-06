@@ -114,6 +114,7 @@
             ButtonSubmit.TabIndex = 8;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // LabelAlamat
             // 
@@ -210,6 +211,7 @@
             InputPoli.Name = "InputPoli";
             InputPoli.Size = new Size(371, 28);
             InputPoli.TabIndex = 13;
+            InputPoli.Text = "(Pilih poli)";
             // 
             // DokterTambahDisplay
             // 
