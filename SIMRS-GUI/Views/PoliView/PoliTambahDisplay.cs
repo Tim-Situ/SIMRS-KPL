@@ -1,6 +1,5 @@
 ﻿using SIMRS_API;
 using SIMRS_GUI.Services;
-using SIMRS_GUI.Views.PasienView;
 
 namespace SIMRS_GUI.Views.PoliView
 {

@@ -2,6 +2,7 @@ using SIMRS_GUI.Views.LoginView;
 using SIMRS_GUI.Views.PasienView;
 using SIMRS_GUI.Views.DokterView;
 using SIMRS_GUI.Views.PoliView;
+using SIMRS_GUI.Views.ObatView;
 
 namespace SIMRS_GUI
 {
@@ -40,7 +41,12 @@ namespace SIMRS_GUI
         {
             ShowDisplay(new PoliDisplay(this));
         }
+        private void buttonObat_Click(object sender, EventArgs e)
+        {
+            ShowDisplay(new ObatDisplay(this));
+        }
 
+        // Sidebar
         bool sidebarExpand = true;
         private void HamburgerMenu_Click(object sender, EventArgs e)
         {

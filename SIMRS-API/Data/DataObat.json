@@ -19,8 +19,14 @@
   },
   {
     "kode": "OBT05",
-    "nama": "ABC",
+    "nama": "ABC1",
     "harga": 10000,
+    "jenis": 2
+  },
+  {
+    "kode": "OBT006",
+    "nama": "abc",
+    "harga": 1900,
     "jenis": 0
   }
 ]

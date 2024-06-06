@@ -37,12 +37,11 @@
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
             LabelTitle = new Label();
-            Nomor = new DataGridViewTextBoxColumn();
             namaObat = new DataGridViewTextBoxColumn();
             hargaObat = new DataGridViewTextBoxColumn();
             jenisObat = new DataGridViewTextBoxColumn();
-            EditObat = new DataGridViewButtonColumn();
-            HapusObat = new DataGridViewButtonColumn();
+            Edit = new DataGridViewButtonColumn();
+            Hapus = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)TabelObat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             SuspendLayout();
@@ -63,7 +62,7 @@
             TabelObat.BackgroundColor = SystemColors.Control;
             TabelObat.BorderStyle = BorderStyle.None;
             TabelObat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelObat.Columns.AddRange(new DataGridViewColumn[] { Nomor, namaObat, hargaObat, jenisObat, EditObat, HapusObat });
+            TabelObat.Columns.AddRange(new DataGridViewColumn[] { namaObat, hargaObat, jenisObat, Edit, Hapus });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -77,8 +76,7 @@
             TabelObat.Location = new Point(28, 112);
             TabelObat.MultiSelect = false;
             TabelObat.Name = "TabelObat";
-            TabelObat.RowHeadersVisible = false;
-            TabelObat.RowHeadersWidth = 51;
+            TabelObat.RowHeadersWidth = 60;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             TabelObat.RowsDefaultCellStyle = dataGridViewCellStyle3;
             TabelObat.RowTemplate.Height = 29;
@@ -89,6 +87,8 @@
             TabelObat.ShowRowErrors = false;
             TabelObat.Size = new Size(1286, 600);
             TabelObat.TabIndex = 0;
+            TabelObat.CellContentClick += TabelObat_CellContentClick;
+            TabelObat.DataBindingComplete += TabelObat_DataBindingComplete;
             // 
             // pasienBindingSource
             // 
@@ -106,6 +106,7 @@
             ButtonTambah.TabIndex = 2;
             ButtonTambah.Text = "Tambah";
             ButtonTambah.UseVisualStyleBackColor = true;
+            ButtonTambah.Click += ButtonTambah_Click;
             // 
             // LabelDataKosong
             // 
@@ -131,49 +132,44 @@
             LabelTitle.TabIndex = 4;
             LabelTitle.Text = "Halaman Obat";
             // 
-            // Nomor
-            // 
-            Nomor.FillWeight = 25F;
-            Nomor.HeaderText = "No";
-            Nomor.MinimumWidth = 6;
-            Nomor.Name = "Nomor";
-            Nomor.ReadOnly = true;
-            // 
             // namaObat
             // 
+            namaObat.DataPropertyName = "nama";
             namaObat.HeaderText = "Nama Obat";
             namaObat.MinimumWidth = 6;
             namaObat.Name = "namaObat";
             // 
             // hargaObat
             // 
+            hargaObat.DataPropertyName = "harga";
             hargaObat.HeaderText = "Harga Obat";
             hargaObat.MinimumWidth = 6;
             hargaObat.Name = "hargaObat";
             // 
             // jenisObat
             // 
+            jenisObat.DataPropertyName = "jenis";
             jenisObat.HeaderText = "Jenis Obat";
             jenisObat.MinimumWidth = 6;
             jenisObat.Name = "jenisObat";
             // 
-            // EditObat
+            // Edit
             // 
-            EditObat.FillWeight = 60F;
-            EditObat.HeaderText = "";
-            EditObat.MinimumWidth = 6;
-            EditObat.Name = "EditObat";
-            EditObat.Text = "Edit";
-            EditObat.UseColumnTextForButtonValue = true;
+            Edit.FillWeight = 60F;
+            Edit.HeaderText = "";
+            Edit.MinimumWidth = 6;
+            Edit.Name = "Edit";
+            Edit.Text = "Edit";
+            Edit.UseColumnTextForButtonValue = true;
             // 
-            // HapusObat
+            // Hapus
             // 
-            HapusObat.FillWeight = 60F;
-            HapusObat.HeaderText = "";
-            HapusObat.MinimumWidth = 6;
-            HapusObat.Name = "HapusObat";
-            HapusObat.Text = "Hapus";
-            HapusObat.UseColumnTextForButtonValue = true;
+            Hapus.FillWeight = 60F;
+            Hapus.HeaderText = "";
+            Hapus.MinimumWidth = 6;
+            Hapus.Name = "Hapus";
+            Hapus.Text = "Hapus";
+            Hapus.UseColumnTextForButtonValue = true;
             // 
             // ObatDisplay
             // 
@@ -187,6 +183,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "ObatDisplay";
             Text = "PasienDisplay";
+            Load += ObatDisplay_Load;
             ((System.ComponentModel.ISupportInitialize)TabelObat).EndInit();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).EndInit();
             ResumeLayout(false);
@@ -202,11 +199,10 @@
         private BindingSource pasienBindingSource;
         private Label LabelDataKosong;
         private Label LabelTitle;
-        private DataGridViewTextBoxColumn Nomor;
         private DataGridViewTextBoxColumn namaObat;
         private DataGridViewTextBoxColumn hargaObat;
         private DataGridViewTextBoxColumn jenisObat;
-        private DataGridViewButtonColumn EditObat;
-        private DataGridViewButtonColumn HapusObat;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Hapus;
     }
 }

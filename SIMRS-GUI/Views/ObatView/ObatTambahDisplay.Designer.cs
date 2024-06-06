@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             LabelHeaderObat = new Label();
-            RadioOles = new RadioButton();
             RadioSirup = new RadioButton();
             RadioTablet = new RadioButton();
             RadioPil = new RadioButton();
             LabelJenis = new Label();
             InputHarga = new TextBox();
             LabelHarga = new Label();
-            InputObat = new TextBox();
+            InputNama = new TextBox();
             LabelNama = new Label();
             ButtonSubmit = new Button();
             SuspendLayout();
@@ -50,17 +49,6 @@
             LabelHeaderObat.Size = new Size(378, 54);
             LabelHeaderObat.TabIndex = 6;
             LabelHeaderObat.Text = "Tambah Data Obat";
-            // 
-            // RadioOles
-            // 
-            RadioOles.AutoSize = true;
-            RadioOles.Location = new Point(612, 319);
-            RadioOles.Name = "RadioOles";
-            RadioOles.Size = new Size(59, 24);
-            RadioOles.TabIndex = 20;
-            RadioOles.TabStop = true;
-            RadioOles.Text = "Oles";
-            RadioOles.UseVisualStyleBackColor = true;
             // 
             // RadioSirup
             // 
@@ -76,7 +64,7 @@
             // RadioTablet
             // 
             RadioTablet.AutoSize = true;
-            RadioTablet.Location = new Point(524, 319);
+            RadioTablet.Location = new Point(700, 276);
             RadioTablet.Name = "RadioTablet";
             RadioTablet.Size = new Size(70, 24);
             RadioTablet.TabIndex = 22;
@@ -122,12 +110,12 @@
             LabelHarga.TabIndex = 17;
             LabelHarga.Text = "Harga :";
             // 
-            // InputObat
+            // InputNama
             // 
-            InputObat.Location = new Point(524, 146);
-            InputObat.Name = "InputObat";
-            InputObat.Size = new Size(370, 27);
-            InputObat.TabIndex = 16;
+            InputNama.Location = new Point(524, 146);
+            InputNama.Name = "InputNama";
+            InputNama.Size = new Size(370, 27);
+            InputNama.TabIndex = 16;
             // 
             // LabelNama
             // 
@@ -152,20 +140,20 @@
             ButtonSubmit.TabIndex = 14;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // ObatTambahDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
-            Controls.Add(RadioOles);
             Controls.Add(RadioSirup);
             Controls.Add(RadioTablet);
             Controls.Add(RadioPil);
             Controls.Add(LabelJenis);
             Controls.Add(InputHarga);
             Controls.Add(LabelHarga);
-            Controls.Add(InputObat);
+            Controls.Add(InputNama);
             Controls.Add(LabelNama);
             Controls.Add(ButtonSubmit);
             Controls.Add(LabelHeaderObat);
@@ -178,14 +166,13 @@
 
         #endregion
         private Label LabelHeaderObat;
-        private RadioButton RadioOles;
         private RadioButton RadioSirup;
         private RadioButton RadioTablet;
         private RadioButton RadioPil;
         private Label LabelJenis;
         private TextBox InputHarga;
         private Label LabelHarga;
-        private TextBox InputObat;
+        private TextBox InputNama;
         private Label LabelNama;
         private Button ButtonSubmit;
     }

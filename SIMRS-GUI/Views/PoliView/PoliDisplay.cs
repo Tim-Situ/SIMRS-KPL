@@ -16,10 +16,12 @@ namespace SIMRS_GUI.Views.PoliView
             _mainDisplay = mainDisplay;
             _poliManager = new();
         }
+
         private void PoliDisplay_Load(object sender, EventArgs e)
         {
             LoadDataAsync();
         }
+
         private async Task LoadDataAsync()
         {
             try

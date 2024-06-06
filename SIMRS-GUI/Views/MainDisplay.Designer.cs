@@ -230,6 +230,7 @@
             buttonObat.Text = "        Obat";
             buttonObat.TextAlign = ContentAlignment.MiddleLeft;
             buttonObat.UseVisualStyleBackColor = false;
+            buttonObat.Click += buttonObat_Click;
             // 
             // panelPemeriksaan
             // 
