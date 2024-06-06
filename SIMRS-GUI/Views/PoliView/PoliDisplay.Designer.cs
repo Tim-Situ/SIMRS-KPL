@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             pasienBindingSource = new BindingSource(components);
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
             LabelTitle = new Label();
-            TabelObat = new DataGridView();
-            label1 = new Label();
+            TabelPoli = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             namaPoli = new DataGridViewTextBoxColumn();
             ruangPoli = new DataGridViewTextBoxColumn();
             biayaPoli = new DataGridViewTextBoxColumn();
             EditObat = new DataGridViewButtonColumn();
             HapusObat = new DataGridViewButtonColumn();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)TabelObat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TabelPoli).BeginInit();
             SuspendLayout();
             // 
             // pasienBindingSource
@@ -89,62 +89,48 @@
             LabelTitle.TabIndex = 4;
             LabelTitle.Text = "Halaman Poli";
             // 
-            // TabelObat
+            // TabelPoli
             // 
-            TabelObat.AllowUserToAddRows = false;
-            TabelObat.AllowUserToDeleteRows = false;
-            TabelObat.AllowUserToResizeColumns = false;
-            TabelObat.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(242, 250, 255);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            TabelObat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            TabelObat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TabelObat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            TabelObat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            TabelObat.BackgroundColor = SystemColors.Control;
-            TabelObat.BorderStyle = BorderStyle.None;
-            TabelObat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelObat.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, namaPoli, ruangPoli, biayaPoli, EditObat, HapusObat });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            TabelObat.DefaultCellStyle = dataGridViewCellStyle2;
-            TabelObat.EditMode = DataGridViewEditMode.EditProgrammatically;
-            TabelObat.GridColor = Color.White;
-            TabelObat.Location = new Point(28, 112);
-            TabelObat.MultiSelect = false;
-            TabelObat.Name = "TabelObat";
-            TabelObat.RowHeadersVisible = false;
-            TabelObat.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            TabelObat.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            TabelObat.RowTemplate.Height = 29;
-            TabelObat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            TabelObat.ShowCellErrors = false;
-            TabelObat.ShowCellToolTips = false;
-            TabelObat.ShowEditingIcon = false;
-            TabelObat.ShowRowErrors = false;
-            TabelObat.Size = new Size(1286, 600);
-            TabelObat.TabIndex = 5;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.GradientInactiveCaption;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(548, 138);
-            label1.Name = "label1";
-            label1.Padding = new Padding(10, 5, 10, 5);
-            label1.Size = new Size(331, 60);
-            label1.TabIndex = 6;
-            label1.Text = "Data Poli kosong!";
-            label1.Visible = false;
+            TabelPoli.AllowUserToAddRows = false;
+            TabelPoli.AllowUserToDeleteRows = false;
+            TabelPoli.AllowUserToResizeColumns = false;
+            TabelPoli.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(242, 250, 255);
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
+            TabelPoli.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            TabelPoli.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TabelPoli.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TabelPoli.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            TabelPoli.BackgroundColor = SystemColors.Control;
+            TabelPoli.BorderStyle = BorderStyle.None;
+            TabelPoli.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TabelPoli.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, namaPoli, ruangPoli, biayaPoli, EditObat, HapusObat });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            TabelPoli.DefaultCellStyle = dataGridViewCellStyle5;
+            TabelPoli.EditMode = DataGridViewEditMode.EditProgrammatically;
+            TabelPoli.GridColor = Color.White;
+            TabelPoli.Location = new Point(28, 112);
+            TabelPoli.MultiSelect = false;
+            TabelPoli.Name = "TabelPoli";
+            TabelPoli.RowHeadersVisible = false;
+            TabelPoli.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            TabelPoli.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            TabelPoli.RowTemplate.Height = 29;
+            TabelPoli.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            TabelPoli.ShowCellErrors = false;
+            TabelPoli.ShowCellToolTips = false;
+            TabelPoli.ShowEditingIcon = false;
+            TabelPoli.ShowRowErrors = false;
+            TabelPoli.Size = new Size(1286, 600);
+            TabelPoli.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -190,13 +176,27 @@
             HapusObat.Text = "Hapus";
             HapusObat.UseColumnTextForButtonValue = true;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.GradientInactiveCaption;
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(548, 138);
+            label1.Name = "label1";
+            label1.Padding = new Padding(10, 5, 10, 5);
+            label1.Size = new Size(331, 60);
+            label1.TabIndex = 6;
+            label1.Text = "Data Poli kosong!";
+            label1.Visible = false;
+            // 
             // PoliDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
             Controls.Add(label1);
-            Controls.Add(TabelObat);
+            Controls.Add(TabelPoli);
             Controls.Add(LabelTitle);
             Controls.Add(LabelDataKosong);
             Controls.Add(ButtonTambah);
@@ -204,7 +204,7 @@
             Name = "PoliDisplay";
             Text = "PasienDisplay";
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)TabelObat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TabelPoli).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,7 +216,7 @@
         private BindingSource pasienBindingSource;
         private Label LabelDataKosong;
         private Label LabelTitle;
-        private DataGridView TabelObat;
+        private DataGridView TabelPoli;
         private Label label1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn namaPoli;
