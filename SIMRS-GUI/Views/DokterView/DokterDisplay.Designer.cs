@@ -183,7 +183,7 @@
             LabelDataKosong.AutoSize = true;
             LabelDataKosong.BackColor = SystemColors.GradientInactiveCaption;
             LabelDataKosong.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelDataKosong.Location = new Point(481, 150);
+            LabelDataKosong.Location = new Point(478, 136);
             LabelDataKosong.Name = "LabelDataKosong";
             LabelDataKosong.Padding = new Padding(10, 5, 10, 5);
             LabelDataKosong.Size = new Size(382, 60);

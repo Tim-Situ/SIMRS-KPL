@@ -1,6 +1,6 @@
-﻿namespace SIMRS_GUI.Views.PoliView
+﻿namespace SIMRS_GUI.Views.ObatView
 {
-    partial class PoliDisplay
+    partial class ObatDisplay
     {
         /// <summary>
         /// Required designer variable.
@@ -32,62 +32,20 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            TabelObat = new DataGridView();
             pasienBindingSource = new BindingSource(components);
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
             LabelTitle = new Label();
-            TabelObat = new DataGridView();
-            label1 = new Label();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            namaPoli = new DataGridViewTextBoxColumn();
-            ruangPoli = new DataGridViewTextBoxColumn();
-            biayaPoli = new DataGridViewTextBoxColumn();
+            Nomor = new DataGridViewTextBoxColumn();
+            namaObat = new DataGridViewTextBoxColumn();
+            hargaObat = new DataGridViewTextBoxColumn();
+            jenisObat = new DataGridViewTextBoxColumn();
             EditObat = new DataGridViewButtonColumn();
             HapusObat = new DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TabelObat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             SuspendLayout();
-            // 
-            // pasienBindingSource
-            // 
-            pasienBindingSource.DataSource = typeof(SIMRS_API.Pasien);
-            // 
-            // ButtonTambah
-            // 
-            ButtonTambah.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonTambah.ImageAlign = ContentAlignment.MiddleLeft;
-            ButtonTambah.Location = new Point(1137, 39);
-            ButtonTambah.Name = "ButtonTambah";
-            ButtonTambah.Padding = new Padding(10, 0, 0, 0);
-            ButtonTambah.Size = new Size(177, 48);
-            ButtonTambah.TabIndex = 2;
-            ButtonTambah.Text = "Tambah";
-            ButtonTambah.UseVisualStyleBackColor = true;
-            // 
-            // LabelDataKosong
-            // 
-            LabelDataKosong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            LabelDataKosong.AutoSize = true;
-            LabelDataKosong.BackColor = SystemColors.GradientInactiveCaption;
-            LabelDataKosong.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelDataKosong.Location = new Point(302, 138);
-            LabelDataKosong.Name = "LabelDataKosong";
-            LabelDataKosong.Padding = new Padding(10, 5, 10, 5);
-            LabelDataKosong.Size = new Size(331, 60);
-            LabelDataKosong.TabIndex = 3;
-            LabelDataKosong.Text = "Data Poli kosong!";
-            LabelDataKosong.Visible = false;
-            // 
-            // LabelTitle
-            // 
-            LabelTitle.AutoSize = true;
-            LabelTitle.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTitle.Location = new Point(28, 46);
-            LabelTitle.Name = "LabelTitle";
-            LabelTitle.Size = new Size(200, 41);
-            LabelTitle.TabIndex = 4;
-            LabelTitle.Text = "Halaman Poli";
             // 
             // TabelObat
             // 
@@ -105,7 +63,7 @@
             TabelObat.BackgroundColor = SystemColors.Control;
             TabelObat.BorderStyle = BorderStyle.None;
             TabelObat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelObat.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, namaPoli, ruangPoli, biayaPoli, EditObat, HapusObat });
+            TabelObat.Columns.AddRange(new DataGridViewColumn[] { Nomor, namaObat, hargaObat, jenisObat, EditObat, HapusObat });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -130,47 +88,74 @@
             TabelObat.ShowEditingIcon = false;
             TabelObat.ShowRowErrors = false;
             TabelObat.Size = new Size(1286, 600);
-            TabelObat.TabIndex = 5;
+            TabelObat.TabIndex = 0;
             // 
-            // label1
+            // pasienBindingSource
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.GradientInactiveCaption;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(548, 138);
-            label1.Name = "label1";
-            label1.Padding = new Padding(10, 5, 10, 5);
-            label1.Size = new Size(331, 60);
-            label1.TabIndex = 6;
-            label1.Text = "Data Poli kosong!";
-            label1.Visible = false;
+            pasienBindingSource.DataSource = typeof(SIMRS_API.Pasien);
             // 
-            // dataGridViewTextBoxColumn1
+            // ButtonTambah
             // 
-            dataGridViewTextBoxColumn1.FillWeight = 25F;
-            dataGridViewTextBoxColumn1.HeaderText = "No";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            ButtonTambah.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonTambah.ImageAlign = ContentAlignment.MiddleLeft;
+            ButtonTambah.Location = new Point(1137, 31);
+            ButtonTambah.Name = "ButtonTambah";
+            ButtonTambah.Padding = new Padding(10, 0, 0, 0);
+            ButtonTambah.Size = new Size(177, 48);
+            ButtonTambah.TabIndex = 2;
+            ButtonTambah.Text = "Tambah";
+            ButtonTambah.UseVisualStyleBackColor = true;
             // 
-            // namaPoli
+            // LabelDataKosong
             // 
-            namaPoli.HeaderText = "Nama Poli";
-            namaPoli.MinimumWidth = 6;
-            namaPoli.Name = "namaPoli";
+            LabelDataKosong.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            LabelDataKosong.AutoSize = true;
+            LabelDataKosong.BackColor = SystemColors.GradientInactiveCaption;
+            LabelDataKosong.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelDataKosong.Location = new Point(494, 136);
+            LabelDataKosong.Name = "LabelDataKosong";
+            LabelDataKosong.Padding = new Padding(10, 5, 10, 5);
+            LabelDataKosong.Size = new Size(353, 60);
+            LabelDataKosong.TabIndex = 3;
+            LabelDataKosong.Text = "Data Obat kosong!";
+            LabelDataKosong.Visible = false;
             // 
-            // ruangPoli
+            // LabelTitle
             // 
-            ruangPoli.HeaderText = "Ruang Poli";
-            ruangPoli.MinimumWidth = 6;
-            ruangPoli.Name = "ruangPoli";
+            LabelTitle.AutoSize = true;
+            LabelTitle.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTitle.Location = new Point(28, 46);
+            LabelTitle.Name = "LabelTitle";
+            LabelTitle.Size = new Size(217, 41);
+            LabelTitle.TabIndex = 4;
+            LabelTitle.Text = "Halaman Obat";
             // 
-            // biayaPoli
+            // Nomor
             // 
-            biayaPoli.HeaderText = "Biaya Poli";
-            biayaPoli.MinimumWidth = 6;
-            biayaPoli.Name = "biayaPoli";
+            Nomor.FillWeight = 25F;
+            Nomor.HeaderText = "No";
+            Nomor.MinimumWidth = 6;
+            Nomor.Name = "Nomor";
+            Nomor.ReadOnly = true;
+            // 
+            // namaObat
+            // 
+            namaObat.HeaderText = "Nama Obat";
+            namaObat.MinimumWidth = 6;
+            namaObat.Name = "namaObat";
+            // 
+            // hargaObat
+            // 
+            hargaObat.HeaderText = "Harga Obat";
+            hargaObat.MinimumWidth = 6;
+            hargaObat.Name = "hargaObat";
+            // 
+            // jenisObat
+            // 
+            jenisObat.HeaderText = "Jenis Obat";
+            jenisObat.MinimumWidth = 6;
+            jenisObat.Name = "jenisObat";
             // 
             // EditObat
             // 
@@ -190,38 +175,37 @@
             HapusObat.Text = "Hapus";
             HapusObat.UseColumnTextForButtonValue = true;
             // 
-            // PoliDisplay
+            // ObatDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
-            Controls.Add(label1);
-            Controls.Add(TabelObat);
             Controls.Add(LabelTitle);
             Controls.Add(LabelDataKosong);
             Controls.Add(ButtonTambah);
+            Controls.Add(TabelObat);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "PoliDisplay";
+            Name = "ObatDisplay";
             Text = "PasienDisplay";
-            ((System.ComponentModel.ISupportInitialize)pasienBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)TabelObat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pasienBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private DataGridView TabelObat;
         private Button buttonHapusPasien;
         private Button buttonEditPasien;
         private Button ButtonTambah;
         private BindingSource pasienBindingSource;
         private Label LabelDataKosong;
         private Label LabelTitle;
-        private DataGridView TabelObat;
-        private Label label1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn namaPoli;
-        private DataGridViewTextBoxColumn ruangPoli;
-        private DataGridViewTextBoxColumn biayaPoli;
+        private DataGridViewTextBoxColumn Nomor;
+        private DataGridViewTextBoxColumn namaObat;
+        private DataGridViewTextBoxColumn hargaObat;
+        private DataGridViewTextBoxColumn jenisObat;
         private DataGridViewButtonColumn EditObat;
         private DataGridViewButtonColumn HapusObat;
     }

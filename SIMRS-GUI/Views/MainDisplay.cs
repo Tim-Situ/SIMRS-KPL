@@ -50,5 +50,15 @@ namespace SIMRS_GUI
                 sidebarExpand = true;
             }
         }
+
+        private void BodyPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

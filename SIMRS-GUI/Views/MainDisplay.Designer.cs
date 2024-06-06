@@ -46,6 +46,10 @@
             buttonPembayaran = new Button();
             sidebar = new ReaLTaiizor.Controls.ParrotGradientPanel();
             BodyPanel = new Panel();
+            panelPoli = new Panel();
+            buttonPoli = new Button();
+            panel1 = new Panel();
+            button1 = new Button();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).BeginInit();
             panelDashboard.SuspendLayout();
@@ -55,6 +59,8 @@
             panelPemeriksaan.SuspendLayout();
             panelPembayaran.SuspendLayout();
             sidebar.SuspendLayout();
+            panelPoli.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelTop
@@ -200,7 +206,7 @@
             panelObat.BackColor = Color.Transparent;
             panelObat.Controls.Add(buttonObat);
             panelObat.ImeMode = ImeMode.NoControl;
-            panelObat.Location = new Point(0, 188);
+            panelObat.Location = new Point(0, 244);
             panelObat.Name = "panelObat";
             panelObat.Size = new Size(250, 50);
             panelObat.TabIndex = 2;
@@ -230,7 +236,7 @@
             panelPemeriksaan.BackColor = Color.Transparent;
             panelPemeriksaan.Controls.Add(buttonPemeriksaan);
             panelPemeriksaan.ImeMode = ImeMode.NoControl;
-            panelPemeriksaan.Location = new Point(0, 244);
+            panelPemeriksaan.Location = new Point(0, 300);
             panelPemeriksaan.Name = "panelPemeriksaan";
             panelPemeriksaan.Size = new Size(250, 50);
             panelPemeriksaan.TabIndex = 2;
@@ -260,7 +266,7 @@
             panelPembayaran.BackColor = Color.Transparent;
             panelPembayaran.Controls.Add(buttonPembayaran);
             panelPembayaran.ImeMode = ImeMode.NoControl;
-            panelPembayaran.Location = new Point(0, 300);
+            panelPembayaran.Location = new Point(0, 356);
             panelPembayaran.Name = "panelPembayaran";
             panelPembayaran.Size = new Size(250, 50);
             panelPembayaran.TabIndex = 2;
@@ -292,6 +298,8 @@
             sidebar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             sidebar.Controls.Add(panelDashboard);
             sidebar.Controls.Add(panelPasien);
+            sidebar.Controls.Add(panelPoli);
+            sidebar.Controls.Add(panel1);
             sidebar.Controls.Add(panelPembayaran);
             sidebar.Controls.Add(panelPemeriksaan);
             sidebar.Controls.Add(panelDokter);
@@ -309,6 +317,7 @@
             sidebar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             sidebar.TopLeft = Color.FromArgb(65, 201, 226);
             sidebar.TopRight = Color.FromArgb(65, 201, 226);
+            sidebar.Paint += sidebar_Paint;
             // 
             // BodyPanel
             // 
@@ -317,6 +326,67 @@
             BodyPanel.Name = "BodyPanel";
             BodyPanel.Size = new Size(1350, 851);
             BodyPanel.TabIndex = 9;
+            BodyPanel.Paint += BodyPanel_Paint;
+            // 
+            // panelPoli
+            // 
+            panelPoli.BackColor = Color.Transparent;
+            panelPoli.Controls.Add(buttonPoli);
+            panelPoli.ImeMode = ImeMode.NoControl;
+            panelPoli.Location = new Point(0, 188);
+            panelPoli.Name = "panelPoli";
+            panelPoli.Size = new Size(250, 50);
+            panelPoli.TabIndex = 2;
+            // 
+            // buttonPoli
+            // 
+            buttonPoli.BackColor = Color.Transparent;
+            buttonPoli.FlatAppearance.BorderSize = 0;
+            buttonPoli.FlatAppearance.MouseDownBackColor = Color.RoyalBlue;
+            buttonPoli.FlatAppearance.MouseOverBackColor = Color.SteelBlue;
+            buttonPoli.FlatStyle = FlatStyle.Flat;
+            buttonPoli.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonPoli.ForeColor = Color.White;
+            buttonPoli.Image = (Image)resources.GetObject("buttonPoli.Image");
+            buttonPoli.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonPoli.Location = new Point(-11, 0);
+            buttonPoli.Name = "buttonPoli";
+            buttonPoli.Padding = new Padding(25, 0, 0, 0);
+            buttonPoli.Size = new Size(261, 50);
+            buttonPoli.TabIndex = 3;
+            buttonPoli.Text = "        Poli";
+            buttonPoli.TextAlign = ContentAlignment.MiddleLeft;
+            buttonPoli.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(button1);
+            panel1.ImeMode = ImeMode.NoControl;
+            panel1.Location = new Point(0, 771);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 50);
+            panel1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.RoyalBlue;
+            button1.FlatAppearance.MouseOverBackColor = Color.SteelBlue;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(-11, 0);
+            button1.Name = "button1";
+            button1.Padding = new Padding(25, 0, 0, 0);
+            button1.Size = new Size(261, 50);
+            button1.TabIndex = 3;
+            button1.Text = "        Keluar";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
             // 
             // MainDisplay
             // 
@@ -339,6 +409,8 @@
             panelPemeriksaan.ResumeLayout(false);
             panelPembayaran.ResumeLayout(false);
             sidebar.ResumeLayout(false);
+            panelPoli.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -361,5 +433,9 @@
         private Button buttonPembayaran;
         private ReaLTaiizor.Controls.ParrotGradientPanel sidebar;
         private Panel BodyPanel;
+        private Panel panelPoli;
+        private Button buttonPoli;
+        private Panel panel1;
+        private Button button1;
     }
 }
