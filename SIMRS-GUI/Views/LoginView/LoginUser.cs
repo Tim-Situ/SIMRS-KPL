@@ -11,14 +11,21 @@ namespace SIMRS_GUI.Views.LoginView
 
         private async void TombolLogin_Click(object sender, EventArgs e)
         {
-            //string username = TextBoxUsername.Text;
-            //string password = TextBoxPassword.Text;
-            await SessionManager.Login("famuwa", "admin");
+            string username = TextBoxUsername.Text;
+            string password = TextBoxPassword.Text;
+            var response = await SessionManager.Login(username, password);
+            /*response.message*/
+            if (!response.success)
+            {
+                MessageBox.Show(response.message);
+            } else
+            {
+                Hide();
+                MainDisplay ms = new MainDisplay();
+                ms.Show();
+            }
             //TextBoxUsername.ClearUndo();
             //TextBoxPassword.ClearUndo();
-            Hide();
-            MainDisplay ms = new MainDisplay();
-            ms.Show();
         }
     }
 }
