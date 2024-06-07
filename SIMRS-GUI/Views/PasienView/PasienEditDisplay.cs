@@ -36,15 +36,34 @@ namespace SIMRS_GUI.Views.PasienView
 
         private async void ButtonSubmit_Click(object sender, EventArgs e)
         {
+            string nik = _pasien.nik;
             string nama = InputNama.Text;
             string tanggalLahir = InputTanggal.Value.ToShortDateString();
             string noHP = InputNoHp.Text;
-            User.EnumJenisKelamin jenisKelamin = (RadioPria.Checked)
-                ? User.EnumJenisKelamin.PRIA
-                : User.EnumJenisKelamin.WANITA;
+            User.EnumJenisKelamin jenisKelamin = (RadioPria.Checked) ? User.EnumJenisKelamin.PRIA : User.EnumJenisKelamin.WANITA;
             string alamat = InputAlamat.Text;
 
-            await _pasienManager.EditPasien(new Pasien(_pasien.nik, nama, tanggalLahir, noHP, jenisKelamin, alamat));
+            if (!InputValidator.ValidasiHurufSaja(nama))
+            {
+                MessageBox.Show("Nama hanya boleh terdiri dari huruf");
+                return;
+            }
+
+            if (!InputValidator.ValidasiNoTelp(noHP))
+            {
+                MessageBox.Show("Nomor HP hanya boleh terdiri dari 10-13 digit angka");
+                return;
+            }
+
+            if (alamat.Length == 0)
+            {
+                MessageBox.Show("Alamat harus ada isinya");
+                return;
+            }
+
+            Pasien updatedPasien = new Pasien(nik, nama, tanggalLahir, noHP, jenisKelamin, alamat);
+            await _pasienManager.EditPasien(updatedPasien);
+
             _mainDisplay.ShowDisplay(new PasienDisplay(_mainDisplay));
         }
     }
