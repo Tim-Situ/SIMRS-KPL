@@ -37,6 +37,7 @@
             ButtonTambah = new Button();
             LabelDataKosong = new Label();
             LabelTitle = new Label();
+            kode = new DataGridViewTextBoxColumn();
             namaObat = new DataGridViewTextBoxColumn();
             hargaObat = new DataGridViewTextBoxColumn();
             jenisObat = new DataGridViewTextBoxColumn();
@@ -62,7 +63,7 @@
             TabelObat.BackgroundColor = SystemColors.Control;
             TabelObat.BorderStyle = BorderStyle.None;
             TabelObat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelObat.Columns.AddRange(new DataGridViewColumn[] { namaObat, hargaObat, jenisObat, Edit, Hapus });
+            TabelObat.Columns.AddRange(new DataGridViewColumn[] { kode, namaObat, hargaObat, jenisObat, Edit, Hapus });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -132,6 +133,13 @@
             LabelTitle.TabIndex = 4;
             LabelTitle.Text = "Halaman Obat";
             // 
+            // kode
+            // 
+            kode.DataPropertyName = "kode";
+            kode.HeaderText = "Kode Obat";
+            kode.MinimumWidth = 6;
+            kode.Name = "kode";
+            // 
             // namaObat
             // 
             namaObat.DataPropertyName = "nama";
@@ -199,6 +207,7 @@
         private BindingSource pasienBindingSource;
         private Label LabelDataKosong;
         private Label LabelTitle;
+        private DataGridViewTextBoxColumn kode;
         private DataGridViewTextBoxColumn namaObat;
         private DataGridViewTextBoxColumn hargaObat;
         private DataGridViewTextBoxColumn jenisObat;

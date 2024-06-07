@@ -49,10 +49,12 @@
             InputTekananDarah = new TextBox();
             LabelKeluhan = new Label();
             LabelNamaObat = new Label();
-            InputNamaObat = new TextBox();
+            InputKodeObat = new TextBox();
             InputKeluhan = new TextBox();
             OutputNamaDokter = new Label();
             OutputNamaPasien = new Label();
+            OutputNamaObat = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // LabelHeaderEditPemeriksaan
@@ -89,7 +91,7 @@
             // 
             LabelDiagnosa.AutoSize = true;
             LabelDiagnosa.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelDiagnosa.Location = new Point(721, 137);
+            LabelDiagnosa.Location = new Point(721, 349);
             LabelDiagnosa.Name = "LabelDiagnosa";
             LabelDiagnosa.Size = new Size(121, 31);
             LabelDiagnosa.TabIndex = 1;
@@ -102,12 +104,13 @@
             ButtonSubmit.FlatStyle = FlatStyle.Flat;
             ButtonSubmit.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSubmit.ForeColor = SystemColors.Highlight;
-            ButtonSubmit.Location = new Point(622, 652);
+            ButtonSubmit.Location = new Point(619, 688);
             ButtonSubmit.Name = "ButtonSubmit";
             ButtonSubmit.Size = new Size(184, 45);
             ButtonSubmit.TabIndex = 7;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // InputNIK
             // 
@@ -126,7 +129,7 @@
             // 
             // InputDiagnosa
             // 
-            InputDiagnosa.Location = new Point(870, 137);
+            InputDiagnosa.Location = new Point(870, 349);
             InputDiagnosa.Multiline = true;
             InputDiagnosa.Name = "InputDiagnosa";
             InputDiagnosa.Size = new Size(434, 165);
@@ -146,6 +149,7 @@
             SearchNIK.TabIndex = 8;
             SearchNIK.Text = "Cari";
             SearchNIK.UseVisualStyleBackColor = false;
+            SearchNIK.Click += SearchNIK_Click;
             // 
             // LabelPasien
             // 
@@ -178,6 +182,7 @@
             SearchNIP.TabIndex = 8;
             SearchNIP.Text = "Cari";
             SearchNIP.UseVisualStyleBackColor = false;
+            SearchNIP.Click += SearchNIP_Click;
             // 
             // LabelTinggiBadan
             // 
@@ -234,7 +239,7 @@
             // 
             LabelKeluhan.AutoSize = true;
             LabelKeluhan.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelKeluhan.Location = new Point(721, 360);
+            LabelKeluhan.Location = new Point(721, 137);
             LabelKeluhan.Name = "LabelKeluhan";
             LabelKeluhan.Size = new Size(107, 31);
             LabelKeluhan.TabIndex = 1;
@@ -250,16 +255,16 @@
             LabelNamaObat.TabIndex = 1;
             LabelNamaObat.Text = "Nama Obat :";
             // 
-            // InputNamaObat
+            // InputKodeObat
             // 
-            InputNamaObat.Location = new Point(870, 572);
-            InputNamaObat.Name = "InputNamaObat";
-            InputNamaObat.Size = new Size(371, 27);
-            InputNamaObat.TabIndex = 1;
+            InputKodeObat.Location = new Point(870, 572);
+            InputKodeObat.Name = "InputKodeObat";
+            InputKodeObat.Size = new Size(307, 27);
+            InputKodeObat.TabIndex = 1;
             // 
             // InputKeluhan
             // 
-            InputKeluhan.Location = new Point(870, 360);
+            InputKeluhan.Location = new Point(870, 137);
             InputKeluhan.Multiline = true;
             InputKeluhan.Name = "InputKeluhan";
             InputKeluhan.Size = new Size(434, 165);
@@ -285,16 +290,44 @@
             OutputNamaPasien.TabIndex = 9;
             OutputNamaPasien.Text = "Nama : ";
             // 
+            // OutputNamaObat
+            // 
+            OutputNamaObat.AutoSize = true;
+            OutputNamaObat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            OutputNamaObat.Location = new Point(786, 607);
+            OutputNamaObat.Name = "OutputNamaObat";
+            OutputNamaObat.Size = new Size(78, 28);
+            OutputNamaObat.TabIndex = 10;
+            OutputNamaObat.Text = "Nama : ";
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.Highlight;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(1183, 570);
+            button1.Name = "button1";
+            button1.Padding = new Padding(5, 0, 0, 0);
+            button1.Size = new Size(121, 29);
+            button1.TabIndex = 11;
+            button1.Text = "Cari";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += searchObat_Click;
+            // 
             // PemeriksaanEditDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
+            Controls.Add(button1);
+            Controls.Add(OutputNamaObat);
             Controls.Add(OutputNamaPasien);
             Controls.Add(OutputNamaDokter);
             Controls.Add(SearchNIP);
             Controls.Add(SearchNIK);
-            Controls.Add(InputNamaObat);
+            Controls.Add(InputKodeObat);
             Controls.Add(InputTekananDarah);
             Controls.Add(InputBeratBadan);
             Controls.Add(InputTinggiBadan);
@@ -345,9 +378,11 @@
         private TextBox InputTekananDarah;
         private Label LabelKeluhan;
         private Label LabelNamaObat;
-        private TextBox InputNamaObat;
+        private TextBox InputKodeObat;
         private TextBox InputKeluhan;
         private Label OutputNamaDokter;
         private Label OutputNamaPasien;
+        private Label OutputNamaObat;
+        private Button button1;
     }
 }

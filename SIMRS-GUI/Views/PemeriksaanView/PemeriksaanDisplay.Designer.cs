@@ -29,15 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             TabelPemeriksaan = new DataGridView();
-            pasienBindingSource = new BindingSource(components);
-            ButtonTambah = new Button();
-            LabelDataKosong = new Label();
-            LabelTitle = new Label();
-            Nomor = new DataGridViewTextBoxColumn();
             kodePemeriksaan = new DataGridViewTextBoxColumn();
             namaPasien = new DataGridViewTextBoxColumn();
             namaDokter = new DataGridViewTextBoxColumn();
@@ -48,8 +43,12 @@
             keluhan = new DataGridViewTextBoxColumn();
             diagnosa = new DataGridViewTextBoxColumn();
             namaObat = new DataGridViewTextBoxColumn();
-            EditPasien = new DataGridViewButtonColumn();
-            HapusPasien = new DataGridViewButtonColumn();
+            Edit = new DataGridViewButtonColumn();
+            Hapus = new DataGridViewButtonColumn();
+            pasienBindingSource = new BindingSource(components);
+            ButtonTambah = new Button();
+            LabelDataKosong = new Label();
+            LabelTitle = new Label();
             ((System.ComponentModel.ISupportInitialize)TabelPemeriksaan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).BeginInit();
             SuspendLayout();
@@ -60,34 +59,33 @@
             TabelPemeriksaan.AllowUserToDeleteRows = false;
             TabelPemeriksaan.AllowUserToResizeColumns = false;
             TabelPemeriksaan.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(242, 250, 255);
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
-            TabelPemeriksaan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(242, 250, 255);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            TabelPemeriksaan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             TabelPemeriksaan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TabelPemeriksaan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TabelPemeriksaan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             TabelPemeriksaan.BackgroundColor = SystemColors.Control;
             TabelPemeriksaan.BorderStyle = BorderStyle.None;
             TabelPemeriksaan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TabelPemeriksaan.Columns.AddRange(new DataGridViewColumn[] { Nomor, kodePemeriksaan, namaPasien, namaDokter, tanggal, tinggiBadan, beratBadan, tekananDarah, keluhan, diagnosa, namaObat, EditPasien, HapusPasien });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            TabelPemeriksaan.DefaultCellStyle = dataGridViewCellStyle5;
+            TabelPemeriksaan.Columns.AddRange(new DataGridViewColumn[] { kodePemeriksaan, namaPasien, namaDokter, tanggal, tinggiBadan, beratBadan, tekananDarah, keluhan, diagnosa, namaObat, Edit, Hapus });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            TabelPemeriksaan.DefaultCellStyle = dataGridViewCellStyle2;
             TabelPemeriksaan.EditMode = DataGridViewEditMode.EditProgrammatically;
             TabelPemeriksaan.GridColor = Color.White;
             TabelPemeriksaan.Location = new Point(28, 112);
             TabelPemeriksaan.MultiSelect = false;
             TabelPemeriksaan.Name = "TabelPemeriksaan";
-            TabelPemeriksaan.RowHeadersVisible = false;
-            TabelPemeriksaan.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            TabelPemeriksaan.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            TabelPemeriksaan.RowHeadersWidth = 60;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            TabelPemeriksaan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             TabelPemeriksaan.RowTemplate.Height = 29;
             TabelPemeriksaan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TabelPemeriksaan.ShowCellErrors = false;
@@ -96,6 +94,95 @@
             TabelPemeriksaan.ShowRowErrors = false;
             TabelPemeriksaan.Size = new Size(1286, 600);
             TabelPemeriksaan.TabIndex = 0;
+            TabelPemeriksaan.CellContentClick += TabelPemeriksaan_CellContentClick;
+            // 
+            // kodePemeriksaan
+            // 
+            kodePemeriksaan.DataPropertyName = "kode";
+            kodePemeriksaan.HeaderText = "Kode Pemeriksaan";
+            kodePemeriksaan.MinimumWidth = 6;
+            kodePemeriksaan.Name = "kodePemeriksaan";
+            // 
+            // namaPasien
+            // 
+            namaPasien.DataPropertyName = "namaPasien";
+            namaPasien.HeaderText = "Nama Pasien";
+            namaPasien.MinimumWidth = 6;
+            namaPasien.Name = "namaPasien";
+            // 
+            // namaDokter
+            // 
+            namaDokter.DataPropertyName = "namaDokter";
+            namaDokter.HeaderText = "Nama Dokter";
+            namaDokter.MinimumWidth = 6;
+            namaDokter.Name = "namaDokter";
+            // 
+            // tanggal
+            // 
+            tanggal.DataPropertyName = "tanggal";
+            tanggal.HeaderText = "Tanggal";
+            tanggal.MinimumWidth = 6;
+            tanggal.Name = "tanggal";
+            // 
+            // tinggiBadan
+            // 
+            tinggiBadan.DataPropertyName = "tinggiBadan";
+            tinggiBadan.HeaderText = "Tinggi Badan";
+            tinggiBadan.MinimumWidth = 6;
+            tinggiBadan.Name = "tinggiBadan";
+            // 
+            // beratBadan
+            // 
+            beratBadan.DataPropertyName = "beratBadan";
+            beratBadan.HeaderText = "Berat Badan";
+            beratBadan.MinimumWidth = 6;
+            beratBadan.Name = "beratBadan";
+            // 
+            // tekananDarah
+            // 
+            tekananDarah.DataPropertyName = "tekananDarah";
+            tekananDarah.HeaderText = "Tekanan Darah";
+            tekananDarah.MinimumWidth = 6;
+            tekananDarah.Name = "tekananDarah";
+            // 
+            // keluhan
+            // 
+            keluhan.DataPropertyName = "keluhan";
+            keluhan.HeaderText = "Keluhan";
+            keluhan.MinimumWidth = 6;
+            keluhan.Name = "keluhan";
+            // 
+            // diagnosa
+            // 
+            diagnosa.DataPropertyName = "diagnosa";
+            diagnosa.HeaderText = "Diagnosa";
+            diagnosa.MinimumWidth = 6;
+            diagnosa.Name = "diagnosa";
+            // 
+            // namaObat
+            // 
+            namaObat.DataPropertyName = "namaObat";
+            namaObat.HeaderText = "Nama Obat";
+            namaObat.MinimumWidth = 6;
+            namaObat.Name = "namaObat";
+            // 
+            // Edit
+            // 
+            Edit.FillWeight = 60F;
+            Edit.HeaderText = "";
+            Edit.MinimumWidth = 6;
+            Edit.Name = "Edit";
+            Edit.Text = "Edit";
+            Edit.UseColumnTextForButtonValue = true;
+            // 
+            // Hapus
+            // 
+            Hapus.FillWeight = 60F;
+            Hapus.HeaderText = "";
+            Hapus.MinimumWidth = 6;
+            Hapus.Name = "Hapus";
+            Hapus.Text = "Hapus";
+            Hapus.UseColumnTextForButtonValue = true;
             // 
             // pasienBindingSource
             // 
@@ -113,6 +200,7 @@
             ButtonTambah.TabIndex = 2;
             ButtonTambah.Text = "Tambah";
             ButtonTambah.UseVisualStyleBackColor = true;
+            ButtonTambah.Click += ButtonTambah_Click;
             // 
             // LabelDataKosong
             // 
@@ -138,92 +226,6 @@
             LabelTitle.TabIndex = 4;
             LabelTitle.Text = "Halaman Pemeriksaan";
             // 
-            // Nomor
-            // 
-            Nomor.FillWeight = 25F;
-            Nomor.HeaderText = "No";
-            Nomor.MinimumWidth = 6;
-            Nomor.Name = "Nomor";
-            Nomor.ReadOnly = true;
-            // 
-            // kodePemeriksaan
-            // 
-            kodePemeriksaan.HeaderText = "Kode Pemeriksaan";
-            kodePemeriksaan.MinimumWidth = 6;
-            kodePemeriksaan.Name = "kodePemeriksaan";
-            // 
-            // namaPasien
-            // 
-            namaPasien.HeaderText = "Nama Pasien";
-            namaPasien.MinimumWidth = 6;
-            namaPasien.Name = "namaPasien";
-            // 
-            // namaDokter
-            // 
-            namaDokter.HeaderText = "Nama Dokter";
-            namaDokter.MinimumWidth = 6;
-            namaDokter.Name = "namaDokter";
-            // 
-            // tanggal
-            // 
-            tanggal.HeaderText = "Tanggal";
-            tanggal.MinimumWidth = 6;
-            tanggal.Name = "tanggal";
-            // 
-            // tinggiBadan
-            // 
-            tinggiBadan.HeaderText = "Tinggi Badan";
-            tinggiBadan.MinimumWidth = 6;
-            tinggiBadan.Name = "tinggiBadan";
-            // 
-            // beratBadan
-            // 
-            beratBadan.HeaderText = "Berat Badan";
-            beratBadan.MinimumWidth = 6;
-            beratBadan.Name = "beratBadan";
-            // 
-            // tekananDarah
-            // 
-            tekananDarah.HeaderText = "Tekanan Darah";
-            tekananDarah.MinimumWidth = 6;
-            tekananDarah.Name = "tekananDarah";
-            // 
-            // keluhan
-            // 
-            keluhan.HeaderText = "Keluhan";
-            keluhan.MinimumWidth = 6;
-            keluhan.Name = "keluhan";
-            // 
-            // diagnosa
-            // 
-            diagnosa.HeaderText = "Diagnosa";
-            diagnosa.MinimumWidth = 6;
-            diagnosa.Name = "diagnosa";
-            // 
-            // namaObat
-            // 
-            namaObat.HeaderText = "Nama Obat";
-            namaObat.MinimumWidth = 6;
-            namaObat.Name = "namaObat";
-            // 
-            // EditPasien
-            // 
-            EditPasien.FillWeight = 60F;
-            EditPasien.HeaderText = "";
-            EditPasien.MinimumWidth = 6;
-            EditPasien.Name = "EditPasien";
-            EditPasien.Text = "Edit";
-            EditPasien.UseColumnTextForButtonValue = true;
-            // 
-            // HapusPasien
-            // 
-            HapusPasien.FillWeight = 60F;
-            HapusPasien.HeaderText = "";
-            HapusPasien.MinimumWidth = 6;
-            HapusPasien.Name = "HapusPasien";
-            HapusPasien.Text = "Hapus";
-            HapusPasien.UseColumnTextForButtonValue = true;
-            // 
             // PemeriksaanDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -236,6 +238,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PemeriksaanDisplay";
             Text = "PasienDisplay";
+            Load += PemeriksaanDisplay_Load;
             ((System.ComponentModel.ISupportInitialize)TabelPemeriksaan).EndInit();
             ((System.ComponentModel.ISupportInitialize)pasienBindingSource).EndInit();
             ResumeLayout(false);
@@ -251,7 +254,6 @@
         private BindingSource pasienBindingSource;
         private Label LabelDataKosong;
         private Label LabelTitle;
-        private DataGridViewTextBoxColumn Nomor;
         private DataGridViewTextBoxColumn kodePemeriksaan;
         private DataGridViewTextBoxColumn namaPasien;
         private DataGridViewTextBoxColumn namaDokter;
@@ -262,7 +264,7 @@
         private DataGridViewTextBoxColumn keluhan;
         private DataGridViewTextBoxColumn diagnosa;
         private DataGridViewTextBoxColumn namaObat;
-        private DataGridViewButtonColumn EditPasien;
-        private DataGridViewButtonColumn HapusPasien;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Hapus;
     }
 }

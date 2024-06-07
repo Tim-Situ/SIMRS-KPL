@@ -261,6 +261,7 @@
             buttonPemeriksaan.Text = "        Pemeriksaan";
             buttonPemeriksaan.TextAlign = ContentAlignment.MiddleLeft;
             buttonPemeriksaan.UseVisualStyleBackColor = false;
+            buttonPemeriksaan.Click += buttonPemeriksaan_Click;
             // 
             // panelPembayaran
             // 

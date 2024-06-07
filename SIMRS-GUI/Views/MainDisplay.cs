@@ -3,6 +3,7 @@ using SIMRS_GUI.Views.PasienView;
 using SIMRS_GUI.Views.DokterView;
 using SIMRS_GUI.Views.PoliView;
 using SIMRS_GUI.Views.ObatView;
+using SIMRS_GUI.Views.PemeriksaanView;
 
 namespace SIMRS_GUI
 {
@@ -44,6 +45,10 @@ namespace SIMRS_GUI
         private void buttonObat_Click(object sender, EventArgs e)
         {
             ShowDisplay(new ObatDisplay(this));
+        }
+        private void buttonPemeriksaan_Click(object sender, EventArgs e)
+        {
+            ShowDisplay(new PemeriksaanDisplay(this));
         }
 
         // Sidebar

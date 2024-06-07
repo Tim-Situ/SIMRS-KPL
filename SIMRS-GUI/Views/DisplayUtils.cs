@@ -18,19 +18,60 @@ namespace SIMRS_GUI.Views
             string prefix = "";
             int digit = 0;
 
+
             if (listData is List<Poli>)
             {
                 List<Poli> list = listData as List<Poli>;
                 prefix = "POL";
-                digit = int.Parse(list.Last().kode.Substring(3))+1;
-                
-            } 
+                if (list.Count > 0)
+                {
+                    digit = int.Parse(list.Last().kode.Substring(3)) + 1;
+                }
+                else
+                {
+                    digit = 1;
+                }
+            }
             else if (listData is List<Obat>)
             {
                 List<Obat> list = listData as List<Obat>;
                 prefix = "OBT";
-                digit = int.Parse(list.Last().kode.Substring(3))+1;
+                if (list.Count > 0)
+                {
+                    digit = int.Parse(list.Last().kode.Substring(3)) + 1;
+                }
+                else
+                {
+                    digit = 1;
+                }
             }
+            else if (listData is List<Pemeriksaan>)
+            {
+                List<Pemeriksaan> list = listData as List<Pemeriksaan>;
+                prefix = "PMR";
+                if (list.Count > 0)
+                {
+                    digit = int.Parse(list.Last().kode.Substring(3)) + 1;
+                }
+                else
+                {
+                    digit = 1;
+                }
+            }
+            else if (listData is List<Pembayaran>)
+            {
+                List<Pembayaran> list = listData as List<Pembayaran>;
+                prefix = "PBY";
+                if (list.Count > 0)
+                {
+                    digit = int.Parse(list.Last().kode.Substring(3)) + 1;
+                }
+                else
+                {
+                    digit = 1;
+                }
+            }
+
 
             return $"{prefix}{digit:D3}";
         }

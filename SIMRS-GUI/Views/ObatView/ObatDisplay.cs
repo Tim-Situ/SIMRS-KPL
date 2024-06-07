@@ -35,6 +35,7 @@ namespace SIMRS_GUI.Views.ObatView
                 List<GridViewObat> gridViewObat = _listObat.Select(obat =>
                 {
                     return new GridViewObat(
+                        obat.kode,
                         obat.nama,
                         obat.harga.ToString(),
                         obat.jenis.ToString()
@@ -71,12 +72,14 @@ namespace SIMRS_GUI.Views.ObatView
 
         private class GridViewObat
         {
+            public string kode { get; set; }
             public string nama { get; set; }
             public string harga { get; set; }
             public string jenis { get; set; }
 
-            public GridViewObat(string nama, string harga, string jenis)
+            public GridViewObat(string kode, string nama, string harga, string jenis)
             {
+                this.kode = kode;
                 this.nama = nama;
                 this.harga = harga;
                 this.jenis = jenis;

@@ -34,7 +34,7 @@
             OutputNamaDokter = new Label();
             SearchNIP = new Button();
             SearchNIK = new Button();
-            InputNamaObat = new TextBox();
+            InputKodeObat = new TextBox();
             InputTekananDarah = new TextBox();
             InputBeratBadan = new TextBox();
             InputTinggiBadan = new TextBox();
@@ -44,7 +44,7 @@
             InputKeluhan = new TextBox();
             InputDiagnosa = new TextBox();
             ButtonSubmit = new Button();
-            LabelNamaObat = new Label();
+            LabelKodeObat = new Label();
             LabelKeluhan = new Label();
             LabelTekananDarah = new Label();
             LabelDiagnosa = new Label();
@@ -53,6 +53,8 @@
             LabelPasien = new Label();
             LabelTanggalPemeriksaan = new Label();
             LabelNama = new Label();
+            searchObat = new Button();
+            OutputNamaObat = new Label();
             SuspendLayout();
             // 
             // LabelHeaderPasien
@@ -69,7 +71,7 @@
             // 
             OutputNamaPasien.AutoSize = true;
             OutputNamaPasien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            OutputNamaPasien.Location = new Point(120, 184);
+            OutputNamaPasien.Location = new Point(128, 186);
             OutputNamaPasien.Name = "OutputNamaPasien";
             OutputNamaPasien.Size = new Size(78, 28);
             OutputNamaPasien.TabIndex = 32;
@@ -79,7 +81,7 @@
             // 
             OutputNamaDokter.AutoSize = true;
             OutputNamaDokter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            OutputNamaDokter.Location = new Point(120, 284);
+            OutputNamaDokter.Location = new Point(128, 290);
             OutputNamaDokter.Name = "OutputNamaDokter";
             OutputNamaDokter.Size = new Size(78, 28);
             OutputNamaDokter.TabIndex = 31;
@@ -99,6 +101,7 @@
             SearchNIP.TabIndex = 30;
             SearchNIP.Text = "Cari";
             SearchNIP.UseVisualStyleBackColor = false;
+            SearchNIP.Click += SearchNIP_Click;
             // 
             // SearchNIK
             // 
@@ -114,13 +117,14 @@
             SearchNIK.TabIndex = 29;
             SearchNIK.Text = "Cari";
             SearchNIK.UseVisualStyleBackColor = false;
+            SearchNIK.Click += SearchNIK_Click;
             // 
-            // InputNamaObat
+            // InputKodeObat
             // 
-            InputNamaObat.Location = new Point(844, 580);
-            InputNamaObat.Name = "InputNamaObat";
-            InputNamaObat.Size = new Size(371, 27);
-            InputNamaObat.TabIndex = 14;
+            InputKodeObat.Location = new Point(844, 580);
+            InputKodeObat.Name = "InputKodeObat";
+            InputKodeObat.Size = new Size(307, 27);
+            InputKodeObat.TabIndex = 14;
             // 
             // InputTekananDarah
             // 
@@ -167,7 +171,7 @@
             // 
             // InputKeluhan
             // 
-            InputKeluhan.Location = new Point(844, 368);
+            InputKeluhan.Location = new Point(844, 151);
             InputKeluhan.Multiline = true;
             InputKeluhan.Name = "InputKeluhan";
             InputKeluhan.Size = new Size(434, 165);
@@ -175,7 +179,7 @@
             // 
             // InputDiagnosa
             // 
-            InputDiagnosa.Location = new Point(844, 145);
+            InputDiagnosa.Location = new Point(844, 357);
             InputDiagnosa.Multiline = true;
             InputDiagnosa.Name = "InputDiagnosa";
             InputDiagnosa.Size = new Size(434, 165);
@@ -188,28 +192,29 @@
             ButtonSubmit.FlatStyle = FlatStyle.Flat;
             ButtonSubmit.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSubmit.ForeColor = SystemColors.Highlight;
-            ButtonSubmit.Location = new Point(596, 660);
+            ButtonSubmit.Location = new Point(586, 718);
             ButtonSubmit.Name = "ButtonSubmit";
             ButtonSubmit.Size = new Size(184, 45);
             ButtonSubmit.TabIndex = 28;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
-            // LabelNamaObat
+            // LabelKodeObat
             // 
-            LabelNamaObat.AutoSize = true;
-            LabelNamaObat.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNamaObat.Location = new Point(695, 574);
-            LabelNamaObat.Name = "LabelNamaObat";
-            LabelNamaObat.Size = new Size(143, 31);
-            LabelNamaObat.TabIndex = 23;
-            LabelNamaObat.Text = "Nama Obat :";
+            LabelKodeObat.AutoSize = true;
+            LabelKodeObat.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelKodeObat.Location = new Point(695, 574);
+            LabelKodeObat.Name = "LabelKodeObat";
+            LabelKodeObat.Size = new Size(133, 31);
+            LabelKodeObat.TabIndex = 23;
+            LabelKodeObat.Text = "Kode Obat :";
             // 
             // LabelKeluhan
             // 
             LabelKeluhan.AutoSize = true;
             LabelKeluhan.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelKeluhan.Location = new Point(695, 368);
+            LabelKeluhan.Location = new Point(695, 151);
             LabelKeluhan.Name = "LabelKeluhan";
             LabelKeluhan.Size = new Size(107, 31);
             LabelKeluhan.TabIndex = 24;
@@ -229,7 +234,7 @@
             // 
             LabelDiagnosa.AutoSize = true;
             LabelDiagnosa.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelDiagnosa.Location = new Point(695, 145);
+            LabelDiagnosa.Location = new Point(695, 357);
             LabelDiagnosa.Name = "LabelDiagnosa";
             LabelDiagnosa.Size = new Size(121, 31);
             LabelDiagnosa.TabIndex = 21;
@@ -261,9 +266,9 @@
             LabelPasien.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelPasien.Location = new Point(66, 244);
             LabelPasien.Name = "LabelPasien";
-            LabelPasien.Size = new Size(139, 31);
+            LabelPasien.Size = new Size(145, 31);
             LabelPasien.TabIndex = 11;
-            LabelPasien.Text = "NIP Pasien :";
+            LabelPasien.Text = "NIP Dokter :";
             // 
             // LabelTanggalPemeriksaan
             // 
@@ -285,16 +290,44 @@
             LabelNama.TabIndex = 10;
             LabelNama.Text = "NIK Pasien :";
             // 
+            // searchObat
+            // 
+            searchObat.BackColor = SystemColors.Highlight;
+            searchObat.FlatStyle = FlatStyle.Flat;
+            searchObat.ForeColor = Color.White;
+            searchObat.Image = (Image)resources.GetObject("searchObat.Image");
+            searchObat.ImageAlign = ContentAlignment.MiddleLeft;
+            searchObat.Location = new Point(1157, 578);
+            searchObat.Name = "searchObat";
+            searchObat.Padding = new Padding(5, 0, 0, 0);
+            searchObat.Size = new Size(121, 29);
+            searchObat.TabIndex = 33;
+            searchObat.Text = "Cari";
+            searchObat.UseVisualStyleBackColor = false;
+            searchObat.Click += searchObat_Click;
+            // 
+            // OutputNamaObat
+            // 
+            OutputNamaObat.AutoSize = true;
+            OutputNamaObat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            OutputNamaObat.Location = new Point(750, 618);
+            OutputNamaObat.Name = "OutputNamaObat";
+            OutputNamaObat.Size = new Size(78, 28);
+            OutputNamaObat.TabIndex = 34;
+            OutputNamaObat.Text = "Nama : ";
+            // 
             // PemeriksaanTambahDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 851);
+            Controls.Add(OutputNamaObat);
+            Controls.Add(searchObat);
             Controls.Add(OutputNamaPasien);
             Controls.Add(OutputNamaDokter);
             Controls.Add(SearchNIP);
             Controls.Add(SearchNIK);
-            Controls.Add(InputNamaObat);
+            Controls.Add(InputKodeObat);
             Controls.Add(InputTekananDarah);
             Controls.Add(InputBeratBadan);
             Controls.Add(InputTinggiBadan);
@@ -304,7 +337,7 @@
             Controls.Add(InputKeluhan);
             Controls.Add(InputDiagnosa);
             Controls.Add(ButtonSubmit);
-            Controls.Add(LabelNamaObat);
+            Controls.Add(LabelKodeObat);
             Controls.Add(LabelKeluhan);
             Controls.Add(LabelTekananDarah);
             Controls.Add(LabelDiagnosa);
@@ -317,6 +350,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PemeriksaanTambahDisplay";
             Text = "PasienTambahDisplay";
+            Load += PemeriksaanTambahDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -327,7 +361,7 @@
         private Label OutputNamaDokter;
         private Button SearchNIP;
         private Button SearchNIK;
-        private TextBox InputNamaObat;
+        private TextBox InputKodeObat;
         private TextBox InputTekananDarah;
         private TextBox InputBeratBadan;
         private TextBox InputTinggiBadan;
@@ -337,7 +371,7 @@
         private TextBox InputKeluhan;
         private TextBox InputDiagnosa;
         private Button ButtonSubmit;
-        private Label LabelNamaObat;
+        private Label LabelKodeObat;
         private Label LabelKeluhan;
         private Label LabelTekananDarah;
         private Label LabelDiagnosa;
@@ -346,5 +380,7 @@
         private Label LabelPasien;
         private Label LabelTanggalPemeriksaan;
         private Label LabelNama;
+        private Button searchObat;
+        private Label OutputNamaObat;
     }
 }
