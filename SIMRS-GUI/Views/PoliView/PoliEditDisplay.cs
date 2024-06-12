@@ -27,11 +27,29 @@ namespace SIMRS_GUI.Views.PoliView
 
         private async void ButtonSubmit_Click(object sender, EventArgs e)
         {
-            string namaPoli = InputNama.Text;
+            string nama = InputNama.Text;
             string ruang = InputRuang.Text;
             int biaya = int.Parse(InputBiaya.Text);
-           
-            await _poliManager.EditPoli(new Poli(_poli.kode, namaPoli, ruang, biaya));
+
+            if (!InputValidator.ValidasiHurufSaja(nama))
+            {
+                MessageBox.Show("Nama hanya boleh terdiri dari huruf");
+                return;
+            }
+
+            if (ruang.Length == 0)
+            {
+                MessageBox.Show("Detail ruang tidak boleh kosong");
+                return;
+            }
+
+            if (biaya <= 0)
+            {
+                MessageBox.Show("Biaya harus bernilai positif");
+                return;
+            }
+
+            await _poliManager.EditPoli(new Poli(_poli.kode, nama, ruang, biaya));
             _mainDisplay.ShowDisplay(new PoliDisplay(_mainDisplay));
         }
     }

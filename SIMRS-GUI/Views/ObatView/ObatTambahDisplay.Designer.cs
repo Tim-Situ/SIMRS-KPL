@@ -99,6 +99,7 @@
             InputHarga.Name = "InputHarga";
             InputHarga.Size = new Size(370, 27);
             InputHarga.TabIndex = 18;
+            InputHarga.Text = "0";
             // 
             // LabelHarga
             // 

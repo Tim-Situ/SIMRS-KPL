@@ -18,13 +18,22 @@ namespace SIMRS_GUI.Views.ObatView
 
         private async void ButtonSubmit_Click(object sender, EventArgs e)
         {
-            ApiResponse<List<Obat>> response = await _obatManager.GetObat();
-            string kode = DisplayUtils.GenerateKode(response.data);
-
             string nama = InputNama.Text;
             int harga = int.Parse(InputHarga.Text);
-
             Obat.EnumObat jenis = default;
+
+            if (!InputValidator.ValidasiHurufSaja(nama))
+            {
+                MessageBox.Show("Nama hanya boleh terdiri dari huruf");
+                return;
+            }
+
+            if (harga <= 0)
+            {
+                MessageBox.Show("Harga harus bernilai positif");
+                return;
+            }
+
             if (RadioPil.Checked)
             {
                 jenis = Obat.EnumObat.PIL;
@@ -37,7 +46,14 @@ namespace SIMRS_GUI.Views.ObatView
             {
                 jenis = Obat.EnumObat.TABLET;
             }
+            else
+            {
+                MessageBox.Show("Jenis obat harus dipilih");
+                return;
+            }
 
+            ApiResponse<List<Obat>> response = await _obatManager.GetObat();
+            string kode = DisplayUtils.GenerateKode(response.data);
             await _obatManager.AddObat(new Obat(kode, nama, harga, jenis));
             _mainDisplay.ShowDisplay(new ObatDisplay(_mainDisplay));
         }

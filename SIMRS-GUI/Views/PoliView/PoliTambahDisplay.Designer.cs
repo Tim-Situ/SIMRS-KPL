@@ -68,6 +68,7 @@
             InputBiaya.Name = "InputBiaya";
             InputBiaya.Size = new Size(371, 27);
             InputBiaya.TabIndex = 13;
+            InputBiaya.Text = "0";
             // 
             // ButtonSubmit
             // 

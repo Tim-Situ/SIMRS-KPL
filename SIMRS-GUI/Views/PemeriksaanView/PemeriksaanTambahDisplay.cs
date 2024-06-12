@@ -1,6 +1,5 @@
 ﻿using SIMRS_API;
 using SIMRS_GUI.Services;
-using SIMRS_GUI.Views.DokterView;
 
 namespace SIMRS_GUI.Views.PemeriksaanView
 {
@@ -89,26 +88,66 @@ namespace SIMRS_GUI.Views.PemeriksaanView
 
         private async void ButtonSubmit_Click(object sender, EventArgs e)
         {
-            if (pasien != null && dokter != null && obat != null)
-            {
-                ApiResponse<List<Pemeriksaan>> response = await _pemeriksaanManager.GetPemeriksaan();
-                string kode = DisplayUtils.GenerateKode(response.data);
 
-                string tanggal = InputTanggal.Value.ToShortDateString();
-                double tinggiBadan = double.Parse(InputTinggiBadan.Text);
-                double beratBadan = double.Parse(InputBeratBadan.Text);
-                string tekananDarah = InputTekananDarah.Text;
-                string keluhan = InputKeluhan.Text;
-                string diagnosa = InputDiagnosa.Text;
+            string tanggal = InputTanggal.Value.ToShortDateString();
+            double tinggiBadan = double.Parse(InputTinggiBadan.Text);
+            double beratBadan = double.Parse(InputBeratBadan.Text);
+            string tekananDarah = InputTekananDarah.Text;
+            string keluhan = InputKeluhan.Text;
+            string diagnosa = InputDiagnosa.Text;
 
-                
-                await _pemeriksaanManager.AddPemeriksaan(new Pemeriksaan(kode, pasien, dokter, tanggal, tinggiBadan, beratBadan, tekananDarah, keluhan, diagnosa, obat));
-                _mainDisplay.ShowDisplay(new PemeriksaanDisplay(_mainDisplay));
-            }
-            else
+            if (pasien == null)
             {
-                MessageBox.Show("Data pemeriksaan belum lengkap");
+                MessageBox.Show("Data pasien belum ada");
+                return;
             }
+
+            if (dokter == null)
+            {
+                MessageBox.Show("Data dokter belum ada");
+                return;
+            }
+
+            if (tinggiBadan <= 0)
+            {
+                MessageBox.Show("Tinggi badan harus bernilai positif");
+                return;
+            }
+
+            if (beratBadan <= 0)
+            {
+                MessageBox.Show("Berat badan harus bernilai positif");
+                return;
+            }
+
+            if (!InputValidator.ValidasiTekananDarah(tekananDarah))
+            {
+                MessageBox.Show("Nilai tekanan darah tidak valid");
+                return;
+            }
+
+            if (keluhan.Length == 0)
+            {
+                MessageBox.Show("Keluhan tidak boleh kosong");
+                return;
+            }
+
+            if (diagnosa.Length == 0)
+            {
+                MessageBox.Show("Diagnosa tidak boleh kosong");
+                return;
+            }
+
+            if (obat == null)
+            {
+                MessageBox.Show("Data obat belum ada");
+                return;
+            }
+
+            ApiResponse<List<Pemeriksaan>> response = await _pemeriksaanManager.GetPemeriksaan();
+            string kode = DisplayUtils.GenerateKode(response.data);
+            await _pemeriksaanManager.AddPemeriksaan(new Pemeriksaan(kode, pasien, dokter, tanggal, tinggiBadan, beratBadan, tekananDarah, keluhan, diagnosa, obat));
+            _mainDisplay.ShowDisplay(new PemeriksaanDisplay(_mainDisplay));
         }
     }
 }

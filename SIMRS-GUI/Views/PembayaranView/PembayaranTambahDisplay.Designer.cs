@@ -33,7 +33,6 @@
             SearchKodePembayaran = new Button();
             InputKodePemeriksaan = new TextBox();
             InputUangPembayaran = new TextBox();
-            InputKodePembayaran = new TextBox();
             ButtonSubmit = new Button();
             LabelUangKembalian = new Label();
             LabelUangPembayaran = new Label();
@@ -42,7 +41,6 @@
             label2 = new Label();
             LabelNamaPasien = new Label();
             LabelKodePemeriksaan = new Label();
-            LabelKodePembayaran = new Label();
             SuspendLayout();
             // 
             // LabelHeaderPasien
@@ -51,9 +49,9 @@
             LabelHeaderPasien.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
             LabelHeaderPasien.Location = new Point(513, 55);
             LabelHeaderPasien.Name = "LabelHeaderPasien";
-            LabelHeaderPasien.Size = new Size(406, 54);
+            LabelHeaderPasien.Size = new Size(521, 54);
             LabelHeaderPasien.TabIndex = 6;
-            LabelHeaderPasien.Text = "Tambah Data Pasien";
+            LabelHeaderPasien.Text = "Tambah Data Pembayaran";
             // 
             // SearchKodePembayaran
             // 
@@ -69,6 +67,7 @@
             SearchKodePembayaran.TabIndex = 22;
             SearchKodePembayaran.Text = "Cari";
             SearchKodePembayaran.UseVisualStyleBackColor = false;
+            SearchKodePembayaran.Click += SearchKodePembayaran_Click;
             // 
             // InputKodePemeriksaan
             // 
@@ -83,13 +82,7 @@
             InputUangPembayaran.Name = "InputUangPembayaran";
             InputUangPembayaran.Size = new Size(371, 27);
             InputUangPembayaran.TabIndex = 11;
-            // 
-            // InputKodePembayaran
-            // 
-            InputKodePembayaran.Location = new Point(530, 135);
-            InputKodePembayaran.Name = "InputKodePembayaran";
-            InputKodePembayaran.Size = new Size(371, 27);
-            InputKodePembayaran.TabIndex = 12;
+            InputUangPembayaran.KeyUp += InputUangPembayaran_KeyUp;
             // 
             // ButtonSubmit
             // 
@@ -104,6 +97,7 @@
             ButtonSubmit.TabIndex = 21;
             ButtonSubmit.Text = "Submit";
             ButtonSubmit.UseVisualStyleBackColor = false;
+            ButtonSubmit.Click += ButtonSubmit_Click;
             // 
             // LabelUangKembalian
             // 
@@ -175,16 +169,6 @@
             LabelKodePemeriksaan.TabIndex = 19;
             LabelKodePemeriksaan.Text = "Kode Pemeriksaan :";
             // 
-            // LabelKodePembayaran
-            // 
-            LabelKodePembayaran.AutoSize = true;
-            LabelKodePembayaran.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelKodePembayaran.Location = new Point(300, 129);
-            LabelKodePembayaran.Name = "LabelKodePembayaran";
-            LabelKodePembayaran.Size = new Size(208, 31);
-            LabelKodePembayaran.TabIndex = 20;
-            LabelKodePembayaran.Text = "Kode Pembayaran :";
-            // 
             // PembayaranTambahDisplay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -193,7 +177,6 @@
             Controls.Add(SearchKodePembayaran);
             Controls.Add(InputKodePemeriksaan);
             Controls.Add(InputUangPembayaran);
-            Controls.Add(InputKodePembayaran);
             Controls.Add(ButtonSubmit);
             Controls.Add(LabelUangKembalian);
             Controls.Add(LabelUangPembayaran);
@@ -202,11 +185,11 @@
             Controls.Add(label2);
             Controls.Add(LabelNamaPasien);
             Controls.Add(LabelKodePemeriksaan);
-            Controls.Add(LabelKodePembayaran);
             Controls.Add(LabelHeaderPasien);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PembayaranTambahDisplay";
             Text = "PasienTambahDisplay";
+            Load += PembayaranTambahDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,7 +199,6 @@
         private Button SearchKodePembayaran;
         private TextBox InputKodePemeriksaan;
         private TextBox InputUangPembayaran;
-        private TextBox InputKodePembayaran;
         private Button ButtonSubmit;
         private Label LabelUangKembalian;
         private Label LabelUangPembayaran;
@@ -225,6 +207,5 @@
         private Label label2;
         private Label LabelNamaPasien;
         private Label LabelKodePemeriksaan;
-        private Label LabelKodePembayaran;
     }
 }

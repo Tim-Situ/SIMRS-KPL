@@ -37,6 +37,7 @@
             LabelPassword = new Label();
             TombolLogin = new Button();
             Logo = new PictureBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
@@ -73,20 +74,23 @@
             nightControlBox1.Name = "nightControlBox1";
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 1;
+            nightControlBox1.TabStop = false;
             // 
             // TextBoxPassword
             // 
             TextBoxPassword.Location = new Point(272, 290);
             TextBoxPassword.Name = "TextBoxPassword";
             TextBoxPassword.Size = new Size(241, 27);
-            TextBoxPassword.TabIndex = 2;
+            TextBoxPassword.TabIndex = 1;
+            TextBoxPassword.UseSystemPasswordChar = true;
+            TextBoxPassword.KeyPress += TextBoxPassword_KeyPress;
             // 
             // TextBoxUsername
             // 
             TextBoxUsername.Location = new Point(272, 239);
             TextBoxUsername.Name = "TextBoxUsername";
             TextBoxUsername.Size = new Size(241, 27);
-            TextBoxUsername.TabIndex = 2;
+            TextBoxUsername.TabIndex = 0;
             // 
             // LabelUsername
             // 
@@ -118,7 +122,7 @@
             TombolLogin.Location = new Point(272, 357);
             TombolLogin.Name = "TombolLogin";
             TombolLogin.Size = new Size(241, 44);
-            TombolLogin.TabIndex = 3;
+            TombolLogin.TabIndex = 2;
             TombolLogin.Text = "Login";
             TombolLogin.UseVisualStyleBackColor = false;
             TombolLogin.Click += TombolLogin_Click;
@@ -134,11 +138,22 @@
             Logo.TabIndex = 4;
             Logo.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 463);
+            label1.Name = "label1";
+            label1.Size = new Size(332, 28);
+            label1.TabIndex = 5;
+            label1.Text = "Username: famuwa, password: admin";
+            // 
             // LoginUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(750, 500);
+            Controls.Add(label1);
             Controls.Add(Logo);
             Controls.Add(TombolLogin);
             Controls.Add(TextBoxUsername);
@@ -166,5 +181,6 @@
         private Label LabelPassword;
         private Button TombolLogin;
         private PictureBox Logo;
+        private Label label1;
     }
 }

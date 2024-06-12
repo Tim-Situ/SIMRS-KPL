@@ -48,7 +48,7 @@
             panelPoli = new Panel();
             buttonPoli = new Button();
             panel1 = new Panel();
-            button1 = new Button();
+            ButtonLogout = new Button();
             BodyPanel = new Panel();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).BeginInit();
@@ -85,13 +85,13 @@
             nightControlBox1.DisableMinimizeColor = Color.FromArgb(105, 105, 105);
             nightControlBox1.EnableCloseColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMaximizeButton = true;
-            nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.EnableMaximizeColor = Color.DimGray;
             nightControlBox1.EnableMinimizeButton = true;
-            nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.EnableMinimizeColor = Color.DimGray;
             nightControlBox1.Location = new Point(1461, 0);
-            nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
+            nightControlBox1.MaximizeHoverColor = Color.DimGray;
             nightControlBox1.MaximizeHoverForeColor = Color.White;
-            nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
+            nightControlBox1.MinimizeHoverColor = Color.DimGray;
             nightControlBox1.MinimizeHoverForeColor = Color.White;
             nightControlBox1.Name = "nightControlBox1";
             nightControlBox1.Size = new Size(139, 31);
@@ -292,6 +292,7 @@
             buttonPembayaran.Text = "        Pembayaran";
             buttonPembayaran.TextAlign = ContentAlignment.MiddleLeft;
             buttonPembayaran.UseVisualStyleBackColor = false;
+            buttonPembayaran.Click += buttonPembayaran_Click;
             // 
             // sidebar
             // 
@@ -354,32 +355,33 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(ButtonLogout);
             panel1.ImeMode = ImeMode.NoControl;
             panel1.Location = new Point(0, 771);
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 50);
             panel1.TabIndex = 2;
             // 
-            // button1
+            // ButtonLogout
             // 
-            button1.BackColor = Color.Transparent;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.RoyalBlue;
-            button1.FlatAppearance.MouseOverBackColor = Color.SteelBlue;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(-11, 0);
-            button1.Name = "button1";
-            button1.Padding = new Padding(25, 0, 0, 0);
-            button1.Size = new Size(261, 50);
-            button1.TabIndex = 3;
-            button1.Text = "        Keluar";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
+            ButtonLogout.BackColor = Color.Transparent;
+            ButtonLogout.FlatAppearance.BorderSize = 0;
+            ButtonLogout.FlatAppearance.MouseDownBackColor = Color.RoyalBlue;
+            ButtonLogout.FlatAppearance.MouseOverBackColor = Color.SteelBlue;
+            ButtonLogout.FlatStyle = FlatStyle.Flat;
+            ButtonLogout.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ButtonLogout.ForeColor = Color.White;
+            ButtonLogout.Image = (Image)resources.GetObject("ButtonLogout.Image");
+            ButtonLogout.ImageAlign = ContentAlignment.MiddleLeft;
+            ButtonLogout.Location = new Point(-11, 0);
+            ButtonLogout.Name = "ButtonLogout";
+            ButtonLogout.Padding = new Padding(25, 0, 0, 0);
+            ButtonLogout.Size = new Size(261, 50);
+            ButtonLogout.TabIndex = 3;
+            ButtonLogout.Text = "        Keluar";
+            ButtonLogout.TextAlign = ContentAlignment.MiddleLeft;
+            ButtonLogout.UseVisualStyleBackColor = false;
+            ButtonLogout.Click += ButtonLogout_Click;
             // 
             // BodyPanel
             // 
@@ -401,6 +403,7 @@
             Name = "MainDisplay";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainDisplay";
+            Load += MainDisplay_Load;
             panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)hamburgerMenu).EndInit();
             panelDashboard.ResumeLayout(false);
@@ -437,6 +440,6 @@
         private Panel panelPoli;
         private Button buttonPoli;
         private Panel panel1;
-        private Button button1;
+        private Button ButtonLogout;
     }
 }

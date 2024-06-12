@@ -33,13 +33,12 @@
             panel1 = new Panel();
             LabelJumlahDokter = new Label();
             label1 = new Label();
-            label11 = new Label();
+            LabelJumlahPoli = new Label();
             LabelJumlahPasien = new Label();
             label3 = new Label();
             panel3 = new Panel();
-            LabelJumlahTransaksi = new Label();
+            LabelJumlahPembayaran = new Label();
             label14 = new Label();
-            label15 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             panel4 = new Panel();
@@ -69,7 +68,7 @@
             panel1.Anchor = AnchorStyles.Top;
             panel1.Controls.Add(LabelJumlahDokter);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(label11);
+            panel1.Controls.Add(LabelJumlahPoli);
             panel1.Controls.Add(pictureBox2);
             panel1.Location = new Point(43, 39);
             panel1.Name = "panel1";
@@ -100,17 +99,17 @@
             label1.TabIndex = 1;
             label1.Text = "Data Dokter";
             // 
-            // label11
+            // LabelJumlahPoli
             // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.FromArgb(140, 133, 245);
-            label11.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(17, 97);
-            label11.Name = "label11";
-            label11.Size = new Size(120, 31);
-            label11.TabIndex = 1;
-            label11.Text = "5 Spesialis";
+            LabelJumlahPoli.AutoSize = true;
+            LabelJumlahPoli.BackColor = Color.FromArgb(140, 133, 245);
+            LabelJumlahPoli.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelJumlahPoli.ForeColor = Color.White;
+            LabelJumlahPoli.Location = new Point(17, 97);
+            LabelJumlahPoli.Name = "LabelJumlahPoli";
+            LabelJumlahPoli.Size = new Size(120, 31);
+            LabelJumlahPoli.TabIndex = 1;
+            LabelJumlahPoli.Text = "5 Spesialis";
             // 
             // LabelJumlahPasien
             // 
@@ -139,26 +138,25 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top;
-            panel3.Controls.Add(LabelJumlahTransaksi);
+            panel3.Controls.Add(LabelJumlahPembayaran);
             panel3.Controls.Add(label14);
-            panel3.Controls.Add(label15);
             panel3.Controls.Add(pictureBox1);
             panel3.Location = new Point(931, 42);
             panel3.Name = "panel3";
             panel3.Size = new Size(391, 282);
             panel3.TabIndex = 5;
             // 
-            // LabelJumlahTransaksi
+            // LabelJumlahPembayaran
             // 
-            LabelJumlahTransaksi.AutoSize = true;
-            LabelJumlahTransaksi.BackColor = Color.FromArgb(234, 213, 67);
-            LabelJumlahTransaksi.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelJumlahTransaksi.ForeColor = Color.White;
-            LabelJumlahTransaksi.Location = new Point(17, 51);
-            LabelJumlahTransaksi.Name = "LabelJumlahTransaksi";
-            LabelJumlahTransaksi.Size = new Size(192, 46);
-            LabelJumlahTransaksi.TabIndex = 1;
-            LabelJumlahTransaksi.Text = "X Transaksi";
+            LabelJumlahPembayaran.AutoSize = true;
+            LabelJumlahPembayaran.BackColor = Color.FromArgb(234, 213, 67);
+            LabelJumlahPembayaran.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJumlahPembayaran.ForeColor = Color.White;
+            LabelJumlahPembayaran.Location = new Point(17, 51);
+            LabelJumlahPembayaran.Name = "LabelJumlahPembayaran";
+            LabelJumlahPembayaran.Size = new Size(192, 46);
+            LabelJumlahPembayaran.TabIndex = 1;
+            LabelJumlahPembayaran.Text = "X Transaksi";
             // 
             // label14
             // 
@@ -171,18 +169,6 @@
             label14.Size = new Size(160, 31);
             label14.TabIndex = 1;
             label14.Text = "Data Transaksi";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = Color.FromArgb(234, 213, 67);
-            label15.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.ForeColor = Color.White;
-            label15.Location = new Point(17, 97);
-            label15.Name = "label15";
-            label15.Size = new Size(122, 31);
-            label15.TabIndex = 1;
-            label15.Text = "Per hari ini";
             // 
             // pictureBox1
             // 
@@ -259,14 +245,13 @@
         private Panel panel1;
         private Label LabelJumlahDokter;
         private Label label1;
-        private Label label11;
+        private Label LabelJumlahPoli;
         private Label LabelJumlahPasien;
         private Label label3;
         private Label label10;
         private Panel panel3;
-        private Label LabelJumlahTransaksi;
+        private Label LabelJumlahPembayaran;
         private Label label14;
-        private Label label15;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox5;

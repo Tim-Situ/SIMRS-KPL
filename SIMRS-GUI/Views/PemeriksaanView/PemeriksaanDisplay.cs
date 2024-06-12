@@ -1,7 +1,5 @@
 ﻿using SIMRS_API;
 using SIMRS_GUI.Services;
-using SIMRS_GUI.Views.DokterView;
-using SIMRS_GUI.Views.ObatView;
 
 namespace SIMRS_GUI.Views.PemeriksaanView
 {

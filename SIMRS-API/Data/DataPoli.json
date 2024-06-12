@@ -1,20 +1,32 @@
 [
   {
-    "kode": "PLI01",
+    "kode": "POL001",
     "namaPoli": "Penyakit Dalam",
-    "ruang": "KU3.01.02",
-    "biaya": 80000
+    "ruang": "0709",
+    "biaya": 150000
+  },
+  {
+    "kode": "POL002",
+    "namaPoli": "Gigi",
+    "ruang": "0804",
+    "biaya": 200000
   },
   {
     "kode": "POL003",
-    "namaPoli": "Umum",
-    "ruang": "0709",
-    "biaya": 10001
+    "namaPoli": "Anak",
+    "ruang": "0405",
+    "biaya": 70000
   },
   {
     "kode": "POL004",
-    "namaPoli": "Anak",
-    "ruang": "1234",
-    "biaya": 12000
+    "namaPoli": "Tulang",
+    "ruang": "0603",
+    "biaya": 100000
+  },
+  {
+    "kode": "POL005",
+    "namaPoli": "Saraf",
+    "ruang": "0501",
+    "biaya": 120000
   }
 ]

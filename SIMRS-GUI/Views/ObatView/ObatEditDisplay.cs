@@ -40,8 +40,20 @@ namespace SIMRS_GUI.Views.ObatView
         {
             string nama = InputNama.Text;
             int harga = int.Parse(InputHarga.Text);
-
             Obat.EnumObat jenis = default;
+
+            if (!InputValidator.ValidasiHurufSaja(nama))
+            {
+                MessageBox.Show("Nama hanya boleh terdiri dari huruf");
+                return;
+            }
+
+            if (harga <= 0)
+            {
+                MessageBox.Show("Harga harus bernilai positif");
+                return;
+            }
+
             if (RadioPil.Checked)
             {
                 jenis = Obat.EnumObat.PIL;
@@ -53,6 +65,11 @@ namespace SIMRS_GUI.Views.ObatView
             else if (RadioTablet.Checked)
             {
                 jenis = Obat.EnumObat.TABLET;
+            }
+            else
+            {
+                MessageBox.Show("Jenis obat harus dipilih");
+                return;
             }
 
             await _obatManager.EditObat(new Obat(_obat.kode, nama, harga, jenis));

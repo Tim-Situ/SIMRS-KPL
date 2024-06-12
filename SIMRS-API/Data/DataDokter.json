@@ -1,58 +1,58 @@
 [
   {
-    "nip": "12345",
+    "nip": "198001011990031007",
     "poli": {
-      "kode": "PLI01",
+      "kode": "POL001",
       "namaPoli": "Penyakit Dalam",
-      "ruang": "KU3.01.02",
-      "biaya": 80000
-    },
-    "nama": "Dr. Felix",
-    "tglLahir": "07-11-1876",
-    "noHp": "08964586868",
-    "jnsKelamin": 0,
-    "alamat": "Bandung"
-  },
-  {
-    "nip": "453445",
-    "poli": {
-      "kode": "POL003",
-      "namaPoli": "Umum",
       "ruang": "0709",
-      "biaya": 10001
-    },
-    "nama": "Dr. Alfian",
-    "tglLahir": "10/01/1876",
-    "noHp": "08476578767",
-    "jnsKelamin": 0,
-    "alamat": "Bandung"
-  },
-  {
-    "nip": "999",
-    "poli": {
-      "kode": "PLI003",
-      "namaPoli": "GigiAja",
-      "ruang": "0719",
-      "biaya": 80000
-    },
-    "nama": "Mail",
-    "tglLahir": "11/11/2004",
-    "noHp": "0812000000",
-    "jnsKelamin": 1,
-    "alamat": "Durian Runtuh"
-  },
-  {
-    "nip": "198001011990031001",
-    "poli": {
-      "kode": "PLI01",
-      "namaPoli": "Penyakit Dalam",
-      "ruang": "KU3.01.02",
-      "biaya": 80000
+      "biaya": 150000
     },
     "nama": "Budi Raharjo",
-    "tglLahir": "01/01/1940",
+    "tglLahir": "01/01/1980",
     "noHp": "08123456789",
     "jnsKelamin": 0,
     "alamat": "Jalan Sudirman No. 10, Kota Bandung, Jawa Barat"
+  },
+  {
+    "nip": "198502022000041008",
+    "poli": {
+      "kode": "POL005",
+      "namaPoli": "Saraf",
+      "ruang": "0501",
+      "biaya": 120000
+    },
+    "nama": "Cipto Winoto",
+    "tglLahir": "03/03/1990",
+    "noHp": "08137654321",
+    "jnsKelamin": 0,
+    "alamat": "alan Gajah Mada No. 33, Kota Yogyakarta, Daerah Istimewa Yogyakarta"
+  },
+  {
+    "nip": "199504042020061010",
+    "poli": {
+      "kode": "POL003",
+      "namaPoli": "Anak",
+      "ruang": "0405",
+      "biaya": 70000
+    },
+    "nama": "Dita Yulia",
+    "tglLahir": "04/07/1991",
+    "noHp": "08543215678",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Sudirman No. 44, Kota Surabaya, Jawa Timur"
+  },
+  {
+    "nip": "200005052030071011",
+    "poli": {
+      "kode": "POL004",
+      "namaPoli": "Tulang",
+      "ruang": "0603",
+      "biaya": 100000
+    },
+    "nama": "Intan Nur Fitri",
+    "tglLahir": "14/05/1985",
+    "noHp": "08159876543",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Merdeka No. 55, Kota Medan, Sumatera Utara"
   }
 ]

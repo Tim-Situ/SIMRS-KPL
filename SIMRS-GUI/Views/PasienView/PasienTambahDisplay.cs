@@ -22,13 +22,13 @@ namespace SIMRS_GUI.Views.PasienView
             string NIK = InputNIK.Text;
             string nama = InputNama.Text;
             string noHP = InputNoHp.Text;
+            User.EnumJenisKelamin jenisKelamin = default;
             string alamat = InputAlamat.Text;
             string tanggalLahir = InputTanggal.Value.ToShortDateString();
-            User.EnumJenisKelamin jenisKelamin = (RadioPria.Checked) ? User.EnumJenisKelamin.PRIA : User.EnumJenisKelamin.WANITA;
 
             if (!InputValidator.ValidasiNIK(NIK))
             {
-                MessageBox.Show("NIK hanya boleh terdiri dari 16 digit angka");
+                MessageBox.Show("NIK harus terdiri dari 16 digit angka");
                 return;
             }
 
@@ -44,12 +44,21 @@ namespace SIMRS_GUI.Views.PasienView
                 return;
             }
 
+            if (!RadioPria.Checked && !RadioWanita.Checked)
+            {
+                MessageBox.Show("Jenis kelamin harus dipilih");
+                return;
+            }
+
             if (alamat.Length == 0)
             {
                 MessageBox.Show("Alamat harus ada isinya");
                 return;
             }
 
+            jenisKelamin = (RadioPria.Checked) 
+                ? User.EnumJenisKelamin.PRIA 
+                : User.EnumJenisKelamin.WANITA;
             Pasien pasien = new Pasien(NIK, nama, tanggalLahir, noHP, jenisKelamin, alamat);
             await _pasienManager.AddPasien(pasien);
 

@@ -1,32 +1,32 @@
 [
   {
-    "kode": "OBT01",
-    "nama": "Obat Tidur Buat Programmer",
-    "harga": 100000,
-    "jenis": 1
+    "kode": "OBT001",
+    "nama": "Paracetamol",
+    "harga": 5000,
+    "jenis": 2
   },
   {
-    "kode": "OBT02",
-    "nama": "Obat Batuk",
+    "kode": "OBT002",
+    "nama": "Amoxicillin",
     "harga": 15000,
     "jenis": 0
   },
   {
-    "kode": "OBT03",
-    "nama": "Paracetamol",
-    "harga": 1000,
-    "jenis": 0
-  },
-  {
-    "kode": "OBT05",
-    "nama": "ABC1",
+    "kode": "OBT003",
+    "nama": "Loratadine",
     "harga": 10000,
     "jenis": 2
   },
   {
-    "kode": "OBT006",
-    "nama": "abc",
-    "harga": 1900,
-    "jenis": 0
+    "kode": "OBT004",
+    "nama": "Ibuprofen",
+    "harga": 7500,
+    "jenis": 1
+  },
+  {
+    "kode": "OBT005",
+    "nama": "Multivitamin",
+    "harga": 20000,
+    "jenis": 2
   }
 ]

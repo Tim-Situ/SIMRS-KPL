@@ -139,6 +139,7 @@
             InputBeratBadan.Name = "InputBeratBadan";
             InputBeratBadan.Size = new Size(392, 27);
             InputBeratBadan.TabIndex = 16;
+            InputBeratBadan.Text = "0";
             // 
             // InputTinggiBadan
             // 
@@ -146,6 +147,7 @@
             InputTinggiBadan.Name = "InputTinggiBadan";
             InputTinggiBadan.Size = new Size(392, 27);
             InputTinggiBadan.TabIndex = 17;
+            InputTinggiBadan.Text = "0";
             // 
             // InputNIP
             // 
