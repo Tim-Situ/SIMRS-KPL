@@ -32,27 +32,27 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Pemeriksaan> dataPemeriksaan = api.ClientGetData("Pemeriksaan").GetAwaiter().GetResult().data;
             foreach (Pemeriksaan pemeriksaan in dataPemeriksaan)
             {
-                tblPemeriksaan.addData(new List<string> {
+                tblPemeriksaan.AddData(new List<string> {
                     no.ToString(), pemeriksaan.kode, pemeriksaan.pasien.nama, pemeriksaan.dokter.nama,
                     pemeriksaan.tanggal, pemeriksaan.tinggiBadan.ToString(), pemeriksaan.beratBadan.ToString(),
                     pemeriksaan.tekananDarah.ToString(), pemeriksaan.keluhan, pemeriksaan.diagnosa, pemeriksaan.obat.nama });
                 no++;
             }
 
-            tblPemeriksaan.showData();
-            tblPemeriksaan.clearData();
+            tblPemeriksaan.ShowData();
+            tblPemeriksaan.ClearData();
 
             Console.Write((dataPemeriksaan.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
         public void ShowOne(string id)
         {
             Pemeriksaan pemeriksaan = api.ClientGetOneData($"Pemeriksaan/{id}").GetAwaiter().GetResult().data;
-            tblPemeriksaan.addData(new List<string> {
+            tblPemeriksaan.AddData(new List<string> {
                 "1", pemeriksaan.kode, pemeriksaan.pasien.nama, pemeriksaan.dokter.nama,
                 pemeriksaan.tanggal, pemeriksaan.tinggiBadan.ToString(), pemeriksaan.beratBadan.ToString(),
                 pemeriksaan.tekananDarah.ToString(), pemeriksaan.keluhan, pemeriksaan.diagnosa, pemeriksaan.obat.nama });
-            tblPemeriksaan.showData();
-            tblPemeriksaan.clearData();
+            tblPemeriksaan.ShowData();
+            tblPemeriksaan.ClearData();
         }
         public override string Create()
         {

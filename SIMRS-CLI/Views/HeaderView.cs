@@ -3,7 +3,7 @@ namespace SIMRS_CLI.Views
 {
     public class HeaderView
     {
-        public static void headerMenu()
+        public static void HeaderMenu()
         {
             Console.WriteLine(
                 "=================================\n" +

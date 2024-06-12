@@ -10,17 +10,17 @@ public class TableUtils
         this.kolom = kolom;
     }
 
-    public void addData(List<string> data)
+    public void AddData(List<string> data)
     {
         this.data.Add(data);
     }
 
-    public void clearData()
+    public void ClearData()
     {
         this.data.Clear();
     }
 
-    public void showData()
+    public void ShowData()
     {
         string batas = "";
 
@@ -94,9 +94,9 @@ TableUtils tblDokter = new TableUtils(kolom);
 
 foreach(Dokter dokter in dataDokter)
 {
-    tblDokter.addData(new List<string> {dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat, dokter.nip, dokter.poli.namaPoli });
+    tblDokter.AddData(new List<string> {dokter.nama, dokter.tglLahir, dokter.noHp, dokter.jnsKelamin.ToString(), dokter.alamat, dokter.nip, dokter.poli.namaPoli });
 }
 
-tblDokter.showData();
+tblDokter.ShowData();
 
 */

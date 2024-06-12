@@ -25,12 +25,12 @@ namespace SIMRS_CLI.ClientSideApi.Services
             List<Pasien> dataPasien = api.ClientGetData("Pasien").GetAwaiter().GetResult().data;
             foreach (Pasien pasien in dataPasien)
             {
-                tblPasien.addData(new List<string> { no.ToString(), pasien.nik, pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
+                tblPasien.AddData(new List<string> { no.ToString(), pasien.nik, pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
                 no++;
             }
 
-            tblPasien.showData();
-            tblPasien.clearData();
+            tblPasien.ShowData();
+            tblPasien.ClearData();
 
             Console.Write((dataPasien.Count == 0) ? "Data masih kosong!\n\n" : "");
         }
@@ -38,9 +38,9 @@ namespace SIMRS_CLI.ClientSideApi.Services
         public void ShowOne(string id)
         {
             Pasien pasien = api.ClientGetOneData($"Pasien/{id}").GetAwaiter().GetResult().data;
-            tblPasien.addData(new List<string> { "1", pasien.nik, pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
-            tblPasien.showData();
-            tblPasien.clearData();
+            tblPasien.AddData(new List<string> { "1", pasien.nik, pasien.nama, pasien.tglLahir, pasien.noHp, pasien.jnsKelamin.ToString(), pasien.alamat });
+            tblPasien.ShowData();
+            tblPasien.ClearData();
         }
 
         public override string Create()

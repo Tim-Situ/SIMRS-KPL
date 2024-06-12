@@ -13,7 +13,7 @@ namespace SIMRS_CLI.Views.Obat
         {
             ObatService obat = new();
 
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             Console.WriteLine("=========== Data Obat ===========");
 
@@ -27,7 +27,7 @@ namespace SIMRS_CLI.Views.Obat
             {
                 case 1:
                     Console.Clear();
-                    HeaderView.headerMenu();
+                    HeaderView.HeaderMenu();
                     obat.Create();
                     break;
                 case 2:

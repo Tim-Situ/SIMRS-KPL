@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIMRS_LIB;
 
@@ -7,11 +8,13 @@ namespace SIMRS_API;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class PoliController : Controller
 {
     ApiResponse<Object> response = new ApiResponse<object>();
 
     private static string jsonFilePath = "Data/DataPoli.json";
+    private static string jsonFilePathDokter = "Data/DataDokter.json";
     private static List<Poli> dataPoli;
 
     [HttpGet]
@@ -112,9 +115,19 @@ public class PoliController : Controller
             return NotFound(response);
         }
 
+        List<Dokter> dataDokter = JsonUtils<List<Dokter>>.ReadJsonFromFile(jsonFilePathDokter);
+        foreach (var item in dataDokter)
+        {
+            if (item.poli.kode == value.kode)
+            {
+                item.poli = value;
+            }
+        }
+
         int idx = dataPoli.FindIndex(item => item.kode == kode);
         dataPoli[idx] = value;
         JsonUtils<List<Poli>>.WriteJsonFile(dataPoli, jsonFilePath);
+        JsonUtils<List<Dokter>>.WriteJsonFile(dataDokter, jsonFilePathDokter);
 
         stopwatch.Stop();
         Console.WriteLine($"Waktu eksekusi: {stopwatch.ElapsedMilliseconds} ms");

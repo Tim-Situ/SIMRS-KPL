@@ -1,150 +1,113 @@
 [
   {
-    "kode": "PRS01",
-    "pasien": {
-      "nik": "1234000012340000",
-      "nama": "Fauzein Mulya Warman",
-      "tglLahir": "02-12-2003",
-      "noHp": "08964586868",
-      "jnsKelamin": 0,
-      "alamat": "Padang"
-    },
-    "dokter": {
-      "nip": "453445",
-      "poli": {
-        "kode": "PLI03",
-        "namaPoli": "Umum",
-        "ruang": "TULT1010",
-        "biaya": 20000
-      },
-      "nama": "Dr. Alfian",
-      "tglLahir": "10-01-1876",
-      "noHp": "08476578767",
-      "jnsKelamin": 0,
-      "alamat": "Bandung"
-    },
-    "tanggal": "06-05-2024",
-    "tinggiBadan": 165.3,
-    "beratBadan": 60.1,
-    "tekananDarah": "100",
-    "keluhan": "Kurang tidur",
-    "diagnosa": "Kebanyakan ngoding",
-    "obat": {
-      "kode": "OBT01",
-      "nama": "Obat Tidur Buat Programmer",
-      "harga": 100000,
-      "jenis": 1
-    }
-  },
-  {
-    "kode": "PRS11",
-    "pasien": {
-      "nik": "1234",
-      "nama": "Tes Update",
-      "tglLahir": "01-01-2001",
-      "noHp": "3423423342",
-      "jnsKelamin": 1,
-      "alamat": "Update"
-    },
-    "dokter": {
-      "nip": "999",
-      "poli": {
-        "kode": "PLI003",
-        "namaPoli": "Gigi",
-        "ruang": "0719",
-        "biaya": 8000
-      },
-      "nama": "Mail",
-      "tglLahir": "11-11-2003",
-      "noHp": "0812000000",
-      "jnsKelamin": 0,
-      "alamat": "Durian Runtuh"
-    },
-    "tanggal": "99-99-99",
-    "tinggiBadan": 180,
-    "beratBadan": 60,
-    "tekananDarah": "120",
-    "keluhan": "Pusing",
-    "diagnosa": "Stres",
-    "obat": {
-      "kode": "OBT01",
-      "nama": "Obat Tidur Buat Programmer",
-      "harga": 100000,
-      "jenis": 1
-    }
-  },
-  {
     "kode": "PMR001",
     "pasien": {
-      "nik": "1234000012340000",
-      "nama": "Fauzein Mulya Warman",
-      "tglLahir": "02-12-2003",
-      "noHp": "08964586868",
-      "jnsKelamin": 0,
-      "alamat": "Padang"
+      "nik": "3201011204930001",
+      "nama": "Ani Lestari",
+      "tglLahir": "04/12/1993",
+      "noHp": "08572345678",
+      "jnsKelamin": 1,
+      "alamat": "Jalan Melati, Kota Jakarta Barat, Provinsi DKI Jakarta"
     },
     "dokter": {
-      "nip": "54321",
+      "nip": "198001011990031007",
       "poli": {
-        "kode": "PLI02",
-        "namaPoli": "THT",
-        "ruang": "TULT0701",
-        "biaya": 50000
+        "kode": "POL001",
+        "namaPoli": "Penyakit Dalam",
+        "ruang": "0709",
+        "biaya": 150000
       },
-      "nama": "Dr. AyuxV",
-      "tglLahir": "01-08-1876",
-      "noHp": "08473758",
-      "jnsKelamin": 1,
-      "alamat": "Jakarta"
+      "nama": "Budi Raharjo",
+      "tglLahir": "01/01/1980",
+      "noHp": "08123456789",
+      "jnsKelamin": 0,
+      "alamat": "Jalan Sudirman No. 10, Kota Bandung, Jawa Barat"
     },
-    "tanggal": "18-09-2004",
-    "tinggiBadan": 170.5,
-    "beratBadan": 80.6,
-    "tekananDarah": "100/80",
-    "keluhan": "Sakit perut",
-    "diagnosa": "Belum makan",
+    "tanggal": "04/06/2024",
+    "tinggiBadan": 160.6,
+    "beratBadan": 62,
+    "tekananDarah": "120/80",
+    "keluhan": "Pusing",
+    "diagnosa": "Banyak tugas",
     "obat": {
-      "kode": "OBT02",
-      "nama": "Obat Batuk",
-      "harga": 15000,
-      "jenis": 0
+      "kode": "OBT001",
+      "nama": "Paracetamol",
+      "harga": 5000,
+      "jenis": 2
     }
   },
   {
-    "kode": "PMRK01",
+    "kode": "PMR002",
     "pasien": {
-      "nik": "1234",
-      "nama": "Tes Update",
-      "tglLahir": "01-01-2001",
-      "noHp": "3423423342",
-      "jnsKelamin": 1,
-      "alamat": "Update"
+      "nik": "5104051203920004",
+      "nama": "Dedi Ramdani",
+      "tglLahir": "03/12/1992",
+      "noHp": "08214325678",
+      "jnsKelamin": 0,
+      "alamat": "Jalan Dahlia, Kota Tangerang Selatan, Provinsi Banten"
     },
     "dokter": {
-      "nip": "54321",
+      "nip": "200005052030071011",
       "poli": {
-        "kode": "PLI02",
-        "namaPoli": "THT",
-        "ruang": "TULT0701",
-        "biaya": 50000
+        "kode": "POL004",
+        "namaPoli": "Tulang",
+        "ruang": "0603",
+        "biaya": 100000
       },
-      "nama": "Dr. AyuxV",
-      "tglLahir": "01-08-1876",
-      "noHp": "08473758",
+      "nama": "Intan Nur Fitri",
+      "tglLahir": "14/05/1985",
+      "noHp": "08159876543",
       "jnsKelamin": 1,
-      "alamat": "Jakarta"
+      "alamat": "Jalan Merdeka No. 55, Kota Medan, Sumatera Utara"
     },
-    "tanggal": "11-09-2003",
-    "tinggiBadan": 1,
-    "beratBadan": 1,
-    "tekananDarah": "80",
-    "keluhan": "Sakit rambut",
-    "diagnosa": "Kutu",
+    "tanggal": "02/06/2024",
+    "tinggiBadan": 170.3,
+    "beratBadan": 68,
+    "tekananDarah": "120/80",
+    "keluhan": "Nyeri sendi",
+    "diagnosa": "Kurang olahraga",
     "obat": {
-      "kode": "OBT01",
-      "nama": "Obat Tidur Buat Programmer",
-      "harga": 100000,
-      "jenis": 1
+      "kode": "OBT005",
+      "nama": "Multivitamin",
+      "harga": 20000,
+      "jenis": 2
+    }
+  },
+  {
+    "kode": "PMR003",
+    "pasien": {
+      "nik": "5407081103880007",
+      "nama": "Gita Sari",
+      "tglLahir": "03/11/1988",
+      "noHp": "08576543210",
+      "jnsKelamin": 1,
+      "alamat": "Jalan Melati, Kota Jakarta Selatan, Provinsi DKI Jakarta"
+    },
+    "dokter": {
+      "nip": "198502022000041008",
+      "poli": {
+        "kode": "POL005",
+        "namaPoli": "Saraf",
+        "ruang": "0501",
+        "biaya": 120000
+      },
+      "nama": "Cipto Winoto",
+      "tglLahir": "03/03/1990",
+      "noHp": "08137654321",
+      "jnsKelamin": 0,
+      "alamat": "alan Gajah Mada No. 33, Kota Yogyakarta, Daerah Istimewa Yogyakarta"
+    },
+    "tanggal": "31/05/2024",
+    "tinggiBadan": 159.8,
+    "beratBadan": 53,
+    "tekananDarah": "120/80",
+    "keluhan": "Pegal",
+    "diagnosa": "Kurang gizi",
+    "obat": {
+      "kode": "OBT005",
+      "nama": "Multivitamin",
+      "harga": 20000,
+      "jenis": 2
     }
   }
 ]

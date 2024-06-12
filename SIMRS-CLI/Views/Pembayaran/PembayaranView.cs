@@ -8,7 +8,7 @@ namespace SIMRS_CLI.Views.Pembayaran
         {
             PembayaranService pembayaran = new();
 
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             Console.WriteLine("=========== Data Pembayaran ===========");
 
@@ -22,7 +22,7 @@ namespace SIMRS_CLI.Views.Pembayaran
             {
                 case 1:
                     Console.Clear();
-                    HeaderView.headerMenu();
+                    HeaderView.HeaderMenu();
                     pembayaran.Create();
                     break;
                 case 2:

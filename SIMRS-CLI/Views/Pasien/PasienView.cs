@@ -14,7 +14,7 @@ namespace SIMRS_CLI.Views.Pasien
 
             MenuLanguage menu = LanguageConfig.getMenu;
 
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             Console.WriteLine("========== Data Pasien ==========");
 
@@ -43,7 +43,7 @@ namespace SIMRS_CLI.Views.Pasien
             {
                 case 1:
                     Console.Clear();
-                    HeaderView.headerMenu();
+                    HeaderView.HeaderMenu();
                     pasien.Create();
                     break;
                 case 2:

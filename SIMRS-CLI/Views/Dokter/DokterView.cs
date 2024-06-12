@@ -13,7 +13,7 @@ namespace SIMRS_CLI.Views.Dokter
         {
             DokterService dokter = new();
 
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             Console.WriteLine("=========== Data Dokter ===========");
 
@@ -27,7 +27,7 @@ namespace SIMRS_CLI.Views.Dokter
             {
                 case 1:
                     Console.Clear();
-                    HeaderView.headerMenu();
+                    HeaderView.HeaderMenu();
                     dokter.Create();
                     break;
                 case 2:

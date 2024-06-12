@@ -8,7 +8,7 @@ namespace SIMRS_CLI.Views.Pemeriksaan
         {
             PemeriksaanService pemeriksaan = new();
 
-            HeaderView.headerMenu();
+            HeaderView.HeaderMenu();
 
             Console.WriteLine("=========== Data Pemeriksaan ===========");
 
@@ -22,7 +22,7 @@ namespace SIMRS_CLI.Views.Pemeriksaan
             {
                 case 1:
                     Console.Clear();
-                    HeaderView.headerMenu();
+                    HeaderView.HeaderMenu();
                     pemeriksaan.Create();
                     break;
                 case 2:

@@ -1,58 +1,58 @@
 [
   {
-    "nip": "12345",
+    "nip": "198001011990031007",
     "poli": {
-      "kode": "PLI01",
+      "kode": "POL001",
       "namaPoli": "Penyakit Dalam",
-      "ruang": "KU3.01.02",
-      "biaya": 80000
+      "ruang": "0709",
+      "biaya": 150000
     },
-    "nama": "Dr. Felix",
-    "tglLahir": "07-11-1876",
-    "noHp": "08964586868",
+    "nama": "Budi Raharjo",
+    "tglLahir": "01/01/1980",
+    "noHp": "08123456789",
     "jnsKelamin": 0,
-    "alamat": "Bandung"
+    "alamat": "Jalan Sudirman No. 10, Kota Bandung, Jawa Barat"
   },
   {
-    "nip": "54321",
+    "nip": "198502022000041008",
     "poli": {
-      "kode": "PLI02",
-      "namaPoli": "THT",
-      "ruang": "TULT0701",
-      "biaya": 50000
+      "kode": "POL005",
+      "namaPoli": "Saraf",
+      "ruang": "0501",
+      "biaya": 120000
     },
-    "nama": "Dr. AyuxV",
-    "tglLahir": "01-08-1876",
-    "noHp": "08473758",
+    "nama": "Cipto Winoto",
+    "tglLahir": "03/03/1990",
+    "noHp": "08137654321",
+    "jnsKelamin": 0,
+    "alamat": "alan Gajah Mada No. 33, Kota Yogyakarta, Daerah Istimewa Yogyakarta"
+  },
+  {
+    "nip": "199504042020061010",
+    "poli": {
+      "kode": "POL003",
+      "namaPoli": "Anak",
+      "ruang": "0405",
+      "biaya": 70000
+    },
+    "nama": "Dita Yulia",
+    "tglLahir": "04/07/1991",
+    "noHp": "08543215678",
     "jnsKelamin": 1,
-    "alamat": "Jakarta"
+    "alamat": "Jalan Sudirman No. 44, Kota Surabaya, Jawa Timur"
   },
   {
-    "nip": "453445",
+    "nip": "200005052030071011",
     "poli": {
-      "kode": "PLI03",
-      "namaPoli": "Umum",
-      "ruang": "TULT1010",
-      "biaya": 20000
+      "kode": "POL004",
+      "namaPoli": "Tulang",
+      "ruang": "0603",
+      "biaya": 100000
     },
-    "nama": "Dr. Alfian",
-    "tglLahir": "10-01-1876",
-    "noHp": "08476578767",
-    "jnsKelamin": 0,
-    "alamat": "Bandung"
-  },
-  {
-    "nip": "999",
-    "poli": {
-      "kode": "PLI003",
-      "namaPoli": "Gigi",
-      "ruang": "0719",
-      "biaya": 8000
-    },
-    "nama": "Mail",
-    "tglLahir": "11-11-2003",
-    "noHp": "0812000000",
-    "jnsKelamin": 0,
-    "alamat": "Durian Runtuh"
+    "nama": "Intan Nur Fitri",
+    "tglLahir": "14/05/1985",
+    "noHp": "08159876543",
+    "jnsKelamin": 1,
+    "alamat": "Jalan Merdeka No. 55, Kota Medan, Sumatera Utara"
   }
 ]
